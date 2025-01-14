@@ -1,0 +1,110 @@
+{
+    "name": "InputActions",
+    "maps": [
+        {
+            "name": "Gameplay",
+            "id": "d25675f7-9a60-4db0-b9d5-039bd18912c9",
+            "actions": [
+                {
+                    "name": "Start",
+                    "type": "Button",
+                    "id": "1cd71775-0470-4aea-8ecd-b66126317c39",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "d99c0fcd-4841-49b5-9eca-7615cddf07e9",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a328aee8-7adf-4807-abe3-745bbd2277fa",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Start",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "72bf64a3-0cc9-45bd-ad6c-2f9a4e11ac3d",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "001d1cdb-6e02-429d-9e6e-5424010439c1",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "671b6fb0-9200-4634-abd7-de78b063d17d",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "4c792ab8-c8d0-48a9-89c5-5387861d1e87",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "9e7fbaca-7efa-4673-a889-f6057ac67108",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        },
+        {
+            "name": "Menus",
+            "id": "aa094381-84d1-4976-ad72-91bf1e34864f",
+            "actions": [],
+            "bindings": []
+        },
+        {
+            "name": "Cheats",
+            "id": "135a8b2b-eac9-4fcf-8bd2-3e6256fa2cdb",
+            "actions": [],
+            "bindings": []
+        }
+    ],
+    "controlSchemes": []
+}
