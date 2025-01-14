@@ -25,6 +25,8 @@ namespace AGX.Scripts.Rebinder
         [ShowNonSerializedField] private int    selectBinding;
         [ShowNonSerializedField] private string actionName;
 
+        [ShowNonSerializedField] private bool _isDirty;
+
         private void OnEnable()
         {
             _rebindButton.onClick.AddListener(DoRebind);
@@ -81,6 +83,10 @@ namespace AGX.Scripts.Rebinder
             }
             else
                 _rebindText.text = _inputActionReference.action.GetBindingDisplayString(bindingIndex);
+
+
+            _isDirty = InputManager.IsBindingDirty(actionName, bindingIndex);
+            _resetButton.gameObject.SetActive(_isDirty);
         }
 
         private void DoRebind()

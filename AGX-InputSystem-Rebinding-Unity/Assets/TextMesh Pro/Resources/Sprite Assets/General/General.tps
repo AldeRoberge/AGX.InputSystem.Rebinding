@@ -173,6 +173,7 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
+            <key type="filename">../../../../AGX/Sprites/Packed/General/Gamepad.png</key>
             <key type="filename">../../../../AGX/Sprites/Packed/General/Reset.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -185,6 +186,21 @@
                 <rect>128,128,256,256</rect>
                 <key>scale9Paddings</key>
                 <rect>128,128,256,256</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../../../../AGX/Sprites/Packed/General/Joystick.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0.8</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>16,16,32,32</rect>
+                <key>scale9Paddings</key>
+                <rect>16,16,32,32</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>

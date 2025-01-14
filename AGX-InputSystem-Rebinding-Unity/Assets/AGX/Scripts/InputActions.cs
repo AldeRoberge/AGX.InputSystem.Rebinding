@@ -46,6 +46,15 @@ namespace Generator.Scripts.Runtime
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""3460ac16-4532-4d3d-b52c-bafb5890bcb6"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -55,7 +64,18 @@ namespace Generator.Scripts.Runtime
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cbbbcc0c-685f-4e40-951c-7439ef62da11"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
                     ""action"": ""Start"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -77,7 +97,7 @@ namespace Generator.Scripts.Runtime
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -88,7 +108,7 @@ namespace Generator.Scripts.Runtime
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -99,7 +119,7 @@ namespace Generator.Scripts.Runtime
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -110,10 +130,32 @@ namespace Generator.Scripts.Runtime
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d813fed6-6b8a-44be-8a64-e30cde5b27a3"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9014b9fe-7159-486a-8243-3ed0733dd9f8"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -130,12 +172,24 @@ namespace Generator.Scripts.Runtime
             ""bindings"": []
         }
     ],
-    ""controlSchemes"": []
+    ""controlSchemes"": [
+        {
+            ""name"": ""Gamepad"",
+            ""bindingGroup"": ""Gamepad"",
+            ""devices"": []
+        },
+        {
+            ""name"": ""Keyboard"",
+            ""bindingGroup"": ""Keyboard"",
+            ""devices"": []
+        }
+    ]
 }");
             // Gameplay
             m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
             m_Gameplay_Start = m_Gameplay.FindAction("Start", throwIfNotFound: true);
             m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
+            m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
             // Menus
             m_Menus = asset.FindActionMap("Menus", throwIfNotFound: true);
             // Cheats
@@ -210,12 +264,14 @@ namespace Generator.Scripts.Runtime
         private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
         private readonly InputAction m_Gameplay_Start;
         private readonly InputAction m_Gameplay_Move;
+        private readonly InputAction m_Gameplay_Jump;
         public struct GameplayActions
         {
             private @InputActions m_Wrapper;
             public GameplayActions(@InputActions wrapper) { m_Wrapper = wrapper; }
             public InputAction @Start => m_Wrapper.m_Gameplay_Start;
             public InputAction @Move => m_Wrapper.m_Gameplay_Move;
+            public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
             public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -231,6 +287,9 @@ namespace Generator.Scripts.Runtime
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
+                @Jump.started += instance.OnJump;
+                @Jump.performed += instance.OnJump;
+                @Jump.canceled += instance.OnJump;
             }
 
             private void UnregisterCallbacks(IGameplayActions instance)
@@ -241,6 +300,9 @@ namespace Generator.Scripts.Runtime
                 @Move.started -= instance.OnMove;
                 @Move.performed -= instance.OnMove;
                 @Move.canceled -= instance.OnMove;
+                @Jump.started -= instance.OnJump;
+                @Jump.performed -= instance.OnJump;
+                @Jump.canceled -= instance.OnJump;
             }
 
             public void RemoveCallbacks(IGameplayActions instance)
@@ -334,10 +396,29 @@ namespace Generator.Scripts.Runtime
             }
         }
         public CheatsActions @Cheats => new CheatsActions(this);
+        private int m_GamepadSchemeIndex = -1;
+        public InputControlScheme GamepadScheme
+        {
+            get
+            {
+                if (m_GamepadSchemeIndex == -1) m_GamepadSchemeIndex = asset.FindControlSchemeIndex("Gamepad");
+                return asset.controlSchemes[m_GamepadSchemeIndex];
+            }
+        }
+        private int m_KeyboardSchemeIndex = -1;
+        public InputControlScheme KeyboardScheme
+        {
+            get
+            {
+                if (m_KeyboardSchemeIndex == -1) m_KeyboardSchemeIndex = asset.FindControlSchemeIndex("Keyboard");
+                return asset.controlSchemes[m_KeyboardSchemeIndex];
+            }
+        }
         public interface IGameplayActions
         {
             void OnStart(InputAction.CallbackContext context);
             void OnMove(InputAction.CallbackContext context);
+            void OnJump(InputAction.CallbackContext context);
         }
         public interface IMenusActions
         {

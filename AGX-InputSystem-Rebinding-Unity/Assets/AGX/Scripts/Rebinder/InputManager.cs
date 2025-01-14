@@ -8,7 +8,7 @@ namespace AGX.Scripts.Rebinder
 {
     public class InputManager : MonoBehaviour
     {
-        private static InputActions? _playerInputActions; // your generated input system class
+        private static InputActions? _inputActions;
 
         public static event Action RebindComplete = delegate { };
         public static event Action RebindCanceled = delegate { };
@@ -16,9 +16,10 @@ namespace AGX.Scripts.Rebinder
 
         public static void StartRebind(string actionName, int bindingIndex, RebindOverlay rebindOverlay, bool excludeMouse)
         {
-            _playerInputActions ??= new InputActions();
+            _inputActions ??= new InputActions();
 
-            var action = _playerInputActions.asset.FindAction(actionName);
+            var action = _inputActions.asset.FindAction(actionName);
+            
             if (action == null || action.bindings.Count <= bindingIndex)
             {
                 Debug.Log("Couldn't find action or binding");
@@ -109,6 +110,7 @@ namespace AGX.Scripts.Rebinder
         private static bool CheckDuplicateBindings(InputAction actionToRebind, int bindingIndex, bool allCompositeParts = false)
         {
             var newBinding = actionToRebind.bindings[bindingIndex];
+            
             foreach (var binding in actionToRebind.actionMap.bindings)
             {
                 if (binding.action == newBinding.action)
@@ -116,11 +118,10 @@ namespace AGX.Scripts.Rebinder
                     continue;
                 }
 
-                if (binding.effectivePath == newBinding.effectivePath)
-                {
-                    Debug.Log("Duplicate binding found" + newBinding.effectivePath);
-                    return true;
-                }
+                if (binding.effectivePath != newBinding.effectivePath) continue;
+                
+                Debug.Log("Duplicate binding found" + newBinding.effectivePath);
+                return true;
             }
 
             //Check for duplicate composite bindings
@@ -141,10 +142,10 @@ namespace AGX.Scripts.Rebinder
 
         public static string GetBindingName(string actionName, int bindingIndex)
         {
-            _playerInputActions ??= new InputActions();
-
-            var action = _playerInputActions.asset.FindAction(actionName);
-            return action.GetBindingDisplayString(bindingIndex);
+            _inputActions ??= new InputActions();
+            var action = _inputActions.asset.FindAction(actionName);
+            var displayString = action.GetBindingDisplayString(bindingIndex);
+            return displayString;
         }
 
         private static void SaveBindingOverride(InputAction action)
@@ -157,9 +158,9 @@ namespace AGX.Scripts.Rebinder
 
         public static void LoadBindingOverride(string actionName)
         {
-            _playerInputActions ??= new InputActions();
+            _inputActions ??= new InputActions();
 
-            var action = _playerInputActions.asset.FindAction(actionName);
+            var action = _inputActions.asset.FindAction(actionName);
 
             for (var i = 0; i < action.bindings.Count; i++)
             {
@@ -170,7 +171,7 @@ namespace AGX.Scripts.Rebinder
 
         public static void ResetBinding(string actionName, int bindingIndex)
         {
-            var action = _playerInputActions.asset.FindAction(actionName);
+            var action = _inputActions.asset.FindAction(actionName);
 
             if (action == null || action.bindings.Count <= bindingIndex)
             {
@@ -187,6 +188,17 @@ namespace AGX.Scripts.Rebinder
                 action.RemoveBindingOverride(bindingIndex);
 
             SaveBindingOverride(action);
+        }
+
+        public static bool IsBindingDirty(string actionName, int bindingIndex)
+        {
+            _inputActions ??= new InputActions();
+
+            var action = _inputActions.asset.FindAction(actionName);
+            
+            var isDirty = action.bindings[bindingIndex].overridePath != action.bindings[bindingIndex].effectivePath;
+
+            return isDirty;
         }
     }
 }

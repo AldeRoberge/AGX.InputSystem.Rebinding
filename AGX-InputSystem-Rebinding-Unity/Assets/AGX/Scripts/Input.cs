@@ -9,8 +9,9 @@ namespace AGX.Scripts
     {
         // Gameplay
         public event UnityAction OnStartEvent = delegate { };
-
         public event UnityAction OnMoveEvent = delegate { };
+        public event UnityAction OnJumpEvent = delegate { };
+
 
         // Utility for 'MousePosition'
         public Vector2 MousePosition => Mouse.current.position.ReadValue();
@@ -29,6 +30,11 @@ namespace AGX.Scripts
         {
             if (context.phase == InputActionPhase.Performed)
                 OnMoveEvent.Invoke();
+        }
+
+        public void OnJump(InputAction.CallbackContext context)
+        {
+            OnJumpEvent.Invoke();
         }
     }
 }

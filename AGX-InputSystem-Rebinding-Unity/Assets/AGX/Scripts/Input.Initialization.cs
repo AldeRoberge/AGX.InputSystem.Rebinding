@@ -35,6 +35,8 @@ namespace AGX.Scripts
 
             _gameInput.Gameplay.Enable();
             _gameInput.Menus.Enable();
+
+            RegisterLogging();
         }
     }
 }
