@@ -2,24 +2,24 @@ using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace AGX.Scripts.Rebinder
 {
     public class RebindControls : MonoBehaviour
     {
-        [BoxGroup("References"), SerializeField, Required]              private InputActionReference              inputActionReference;
-        [BoxGroup("References"), SerializeField, Required]              private bool                              excludeMouse = true;
-        [BoxGroup("References"), SerializeField, Required, Range(0, 5)] private int                               selectedBinding;
-        [BoxGroup("References"), SerializeField, Required]              private InputBinding.DisplayStringOptions displayStringOptions;
-        [BoxGroup("References"), SerializeField, Required, ReadOnly]    private InputBinding                      inputBinding;
+        [BoxGroup("References"), SerializeField]              private InputActionReference              _inputActionReference;
+        [BoxGroup("References"), SerializeField]              private bool                              _excludeMouse = true;
+        [BoxGroup("References"), SerializeField, Range(0, 5)] private int                               _selectedBinding;
+        [BoxGroup("References"), SerializeField]              private InputBinding.DisplayStringOptions _displayStringOptions;
+        [BoxGroup("References"), SerializeField, ReadOnly]    private InputBinding                      _inputBinding;
 
-        [BoxGroup("References/UI"), SerializeField, Required] private TMP_Text   actionText;
-        [BoxGroup("References/UI"), SerializeField, Required] private Button     rebindButton;
-        [BoxGroup("References/UI"), SerializeField, Required] private GameObject rebindOverlay;
-        [BoxGroup("References/UI"), SerializeField, Required] private TMP_Text   rebindOverlayText;
-        [BoxGroup("References/UI"), SerializeField, Required] private TMP_Text   rebindText;
-        [BoxGroup("References/UI"), SerializeField, Required] private Button     resetButton;
+        [BoxGroup("References/UI"), SerializeField, Required] private TMP_Text      _actionText;
+        [BoxGroup("References/UI"), SerializeField, Required] private Button        _rebindButton;
+        [BoxGroup("References/UI"), SerializeField, Required] private RebindOverlay _rebindOverlay;
+        [BoxGroup("References/UI"), SerializeField, Required] private TMP_Text      _rebindText;
+        [BoxGroup("References/UI"), SerializeField, Required] private Button        _resetButton;
 
         [ShowNonSerializedField] private int    bindingIndex;
         [ShowNonSerializedField] private int    selectBinding;
@@ -27,29 +27,29 @@ namespace AGX.Scripts.Rebinder
 
         private void OnEnable()
         {
-            rebindButton.onClick.AddListener(DoRebind);
-            resetButton.onClick.AddListener(ResetBinding);
+            _rebindButton.onClick.AddListener(DoRebind);
+            _resetButton.onClick.AddListener(ResetBinding);
 
-            if (inputActionReference != null)
+            if (_inputActionReference != null)
             {
                 InputManager.LoadBindingOverride(actionName);
                 GetBindingInfo(selectBinding);
                 UpdateUI();
             }
 
-            InputManager.rebindComplete += UpdateUI;
-            InputManager.rebindCanceled += UpdateUI;
+            InputManager.RebindComplete += UpdateUI;
+            InputManager.RebindCanceled += UpdateUI;
         }
 
         private void OnDisable()
         {
-            InputManager.rebindComplete -= UpdateUI;
-            InputManager.rebindCanceled -= UpdateUI;
+            InputManager.RebindComplete -= UpdateUI;
+            InputManager.RebindCanceled -= UpdateUI;
         }
 
         private void OnValidate()
         {
-            if (inputActionReference == null)
+            if (_inputActionReference == null)
                 return;
 
             GetBindingInfo(selectBinding);
@@ -58,34 +58,34 @@ namespace AGX.Scripts.Rebinder
 
         private void GetBindingInfo(int selectBinding)
         {
-            if (inputActionReference.action != null)
-                actionName = inputActionReference.action.name;
+            if (_inputActionReference.action != null)
+                actionName = _inputActionReference.action.name;
 
-            if (inputActionReference.action.bindings.Count > selectedBinding)
+            if (_inputActionReference.action.bindings.Count > _selectedBinding)
             {
-                inputBinding = inputActionReference.action.bindings[selectedBinding = selectBinding];
-                bindingIndex = selectedBinding;
+                _inputBinding = _inputActionReference.action.bindings[_selectedBinding = selectBinding];
+                bindingIndex = _selectedBinding;
             }
         }
 
         private void UpdateUI()
         {
-            if (actionText != null)
-                actionText.text = actionName;
+            if (_actionText != null)
+                _actionText.text = actionName;
 
-            if (rebindText == null) return;
+            if (_rebindText == null) return;
 
             if (Application.isPlaying)
             {
-                rebindText.text = InputManager.GetBindingName(actionName, bindingIndex);
+                _rebindText.text = InputManager.GetBindingName(actionName, bindingIndex);
             }
             else
-                rebindText.text = inputActionReference.action.GetBindingDisplayString(bindingIndex);
+                _rebindText.text = _inputActionReference.action.GetBindingDisplayString(bindingIndex);
         }
 
         private void DoRebind()
         {
-            InputManager.StartRebind(actionName, bindingIndex, rebindText, rebindOverlayText, rebindOverlay, excludeMouse);
+            InputManager.StartRebind(actionName, bindingIndex, _rebindOverlay, _excludeMouse);
         }
 
         private void ResetBinding()

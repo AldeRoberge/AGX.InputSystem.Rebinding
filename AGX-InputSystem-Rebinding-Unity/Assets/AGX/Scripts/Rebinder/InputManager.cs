@@ -1,6 +1,6 @@
+#nullable enable
 using System;
 using Generator.Scripts.Runtime;
-using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,20 +8,17 @@ namespace AGX.Scripts.Rebinder
 {
     public class InputManager : MonoBehaviour
     {
-        public static InputActions? playerInputActions; // your generated input system class
+        private static InputActions? _playerInputActions; // your generated input system class
 
-        public static event Action rebindComplete;
-        public static event Action rebindCanceled;
-        public static event Action<InputAction, int> rebindStarted;
+        public static event Action RebindComplete = delegate { };
+        public static event Action RebindCanceled = delegate { };
+        public static event Action<InputAction, int> RebindStarted = delegate { };
 
-        private void Awake()
+        public static void StartRebind(string actionName, int bindingIndex, RebindOverlay rebindOverlay, bool excludeMouse)
         {
-            playerInputActions ??= new InputActions();
-        }
+            _playerInputActions ??= new InputActions();
 
-        public static void StartRebind(string actionName, int bindingIndex, TMP_Text statusText, TMP_Text rebindOverlayText, GameObject rebindOverlay, bool excludeMouse)
-        {
-            InputAction action = playerInputActions.asset.FindAction(actionName);
+            var action = _playerInputActions.asset.FindAction(actionName);
             if (action == null || action.bindings.Count <= bindingIndex)
             {
                 Debug.Log("Couldn't find action or binding");
@@ -32,15 +29,15 @@ namespace AGX.Scripts.Rebinder
             {
                 var firstPartIndex = bindingIndex + 1;
                 if (firstPartIndex < action.bindings.Count && action.bindings[firstPartIndex].isPartOfComposite)
-                    DoRebind(action, firstPartIndex, statusText, rebindOverlayText, rebindOverlay, excludeMouse, true);
+                    DoRebind(action, firstPartIndex, rebindOverlay, excludeMouse, true);
             }
             else
             {
-                DoRebind(action, bindingIndex, statusText, rebindOverlayText, rebindOverlay, excludeMouse, false);
+                DoRebind(action, bindingIndex, rebindOverlay, excludeMouse, false);
             }
         }
 
-        private static void DoRebind(InputAction actionToRebind, int bindingIndex, TMP_Text statusText, TMP_Text rebindOverlayText, GameObject rebindOverlay, bool excludeMouse, bool allCompositeParts)
+        private static void DoRebind(InputAction actionToRebind, int bindingIndex, RebindOverlay rebindOverlay, bool excludeMouse, bool allCompositeParts)
         {
             if (actionToRebind == null || bindingIndex < 0)
                 return;
@@ -59,7 +56,7 @@ namespace AGX.Scripts.Rebinder
                 {
                     actionToRebind.RemoveBindingOverride(bindingIndex);
                     operation.Dispose();
-                    DoRebind(actionToRebind, bindingIndex, statusText, rebindOverlayText, rebindOverlay, excludeMouse, allCompositeParts);
+                    DoRebind(actionToRebind, bindingIndex, rebindOverlay, excludeMouse, allCompositeParts);
                     return;
                 }
 
@@ -67,11 +64,11 @@ namespace AGX.Scripts.Rebinder
                 {
                     var nextBindingsIndex = bindingIndex + 1;
                     if (nextBindingsIndex < actionToRebind.bindings.Count && actionToRebind.bindings[nextBindingsIndex].isPartOfComposite)
-                        DoRebind(actionToRebind, nextBindingsIndex, statusText, rebindOverlayText, rebindOverlay, excludeMouse, true);
+                        DoRebind(actionToRebind, nextBindingsIndex, rebindOverlay, excludeMouse, true);
                 }
 
                 SaveBindingOverride(actionToRebind);
-                rebindComplete?.Invoke();
+                RebindComplete?.Invoke();
             });
 
             rebind.OnCancel(operation =>
@@ -80,7 +77,7 @@ namespace AGX.Scripts.Rebinder
                 rebindOverlay?.SetActive(false);
                 operation.Dispose();
 
-                rebindCanceled?.Invoke();
+                RebindCanceled?.Invoke();
             });
 
             rebind.WithCancelingThrough("<Keyboard>/escape");
@@ -95,23 +92,24 @@ namespace AGX.Scripts.Rebinder
                 partName = $"Binding '{actionToRebind.bindings[bindingIndex].name}'.";
 
             rebindOverlay?.SetActive(true);
-            if (rebindOverlayText != null)
+            if (rebindOverlay != null)
             {
                 var text = !string.IsNullOrEmpty(actionToRebind.expectedControlType)
                     ? $"{partName} Waiting for input..."
                     : $"{partName} Waiting for input...";
-                rebindOverlayText.text = text;
+
+                rebindOverlay.SetText(text);
             }
 
-            rebindStarted?.Invoke(actionToRebind, bindingIndex);
+            RebindStarted?.Invoke(actionToRebind, bindingIndex);
             rebind.Start(); //actually starts the rebinding
         }
 
         // Only checks for duplicates within the same action map.
         private static bool CheckDuplicateBindings(InputAction actionToRebind, int bindingIndex, bool allCompositeParts = false)
         {
-            InputBinding newBinding = actionToRebind.bindings[bindingIndex];
-            foreach (InputBinding binding in actionToRebind.actionMap.bindings)
+            var newBinding = actionToRebind.bindings[bindingIndex];
+            foreach (var binding in actionToRebind.actionMap.bindings)
             {
                 if (binding.action == newBinding.action)
                 {
@@ -128,7 +126,7 @@ namespace AGX.Scripts.Rebinder
             //Check for duplicate composite bindings
             if (allCompositeParts)
             {
-                for (int i = 0; i < bindingIndex; ++i)
+                for (var i = 0; i < bindingIndex; ++i)
                 {
                     if (actionToRebind.bindings[i].effectivePath == newBinding.effectivePath)
                     {
@@ -141,31 +139,29 @@ namespace AGX.Scripts.Rebinder
             return false;
         }
 
-        public static string GetBindingName(String actionName, int bindingIndex)
+        public static string GetBindingName(string actionName, int bindingIndex)
         {
-            if (playerInputActions == null)
-                playerInputActions = new InputActions();
+            _playerInputActions ??= new InputActions();
 
-            InputAction action = playerInputActions.asset.FindAction(actionName);
+            var action = _playerInputActions.asset.FindAction(actionName);
             return action.GetBindingDisplayString(bindingIndex);
         }
 
         private static void SaveBindingOverride(InputAction action)
         {
-            for (int i = 0; i < action.bindings.Count; i++)
+            for (var i = 0; i < action.bindings.Count; i++)
             {
                 PlayerPrefs.SetString(action.actionMap + action.name + i, action.bindings[i].overridePath);
             }
         }
 
-        public static void LoadBindingOverride(String actionName)
+        public static void LoadBindingOverride(string actionName)
         {
-            if (playerInputActions == null)
-                playerInputActions = new InputActions();
+            _playerInputActions ??= new InputActions();
 
-            InputAction action = playerInputActions.asset.FindAction(actionName);
+            var action = _playerInputActions.asset.FindAction(actionName);
 
-            for (int i = 0; i < action.bindings.Count; i++)
+            for (var i = 0; i < action.bindings.Count; i++)
             {
                 if (!string.IsNullOrEmpty(PlayerPrefs.GetString(action.actionMap + action.name + i)))
                     action.ApplyBindingOverride(i, PlayerPrefs.GetString(action.actionMap + action.name + i));
@@ -174,7 +170,7 @@ namespace AGX.Scripts.Rebinder
 
         public static void ResetBinding(string actionName, int bindingIndex)
         {
-            InputAction action = playerInputActions.asset.FindAction(actionName);
+            var action = _playerInputActions.asset.FindAction(actionName);
 
             if (action == null || action.bindings.Count <= bindingIndex)
             {
@@ -184,7 +180,7 @@ namespace AGX.Scripts.Rebinder
 
             if (action.bindings[bindingIndex].isComposite)
             {
-                for (int i = bindingIndex + 1; i < action.bindings.Count && action.bindings[i].isPartOfComposite; i++)
+                for (var i = bindingIndex + 1; i < action.bindings.Count && action.bindings[i].isPartOfComposite; i++)
                     action.RemoveBindingOverride(i);
             }
             else

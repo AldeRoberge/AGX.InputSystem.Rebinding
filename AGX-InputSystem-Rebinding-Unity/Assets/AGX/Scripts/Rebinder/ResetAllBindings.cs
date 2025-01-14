@@ -10,7 +10,7 @@ namespace AGX.Scripts.Rebinder
 
         public void ResetBindings()
         {
-            foreach ( InputActionMap map in inputActions.actionMaps)
+            foreach ( var map in inputActions.actionMaps)
             {
                 map.RemoveAllBindingOverrides();
             }
