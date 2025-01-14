@@ -1,27 +1,33 @@
-#nullable enable
 using System;
 using Generator.Scripts.Runtime;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Object = UnityEngine.Object;
 
 namespace AGX.Scripts.Rebinder
 {
     public class InputManager
     {
-        /// <summary>
-        /// We keep a reference to the InputActions asset.
-        /// </summary>
-        private static InputActions? _inputActions;
+        private static InputActions? inputActions;
+
+        public static InputActions InputActions => inputActions ??= new InputActions();
 
         public static event Action RebindComplete = delegate { };
         public static event Action RebindCanceled = delegate { };
         public static event Action<InputAction, int> RebindStarted = delegate { };
 
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        private static void Initialize()
+        {
+            RebindComplete = delegate { };
+            RebindCanceled = delegate { };
+            RebindStarted = delegate { };
+            inputActions = new InputActions();
+        }
+
         public static void StartRebind(string actionName, int bindingIndex, RebindOverlay rebindOverlay, bool excludeMouse)
         {
-            _inputActions ??= new InputActions();
-
-            var action = _inputActions.asset.FindAction(actionName);
+            var action = InputActions.asset.FindAction(actionName);
 
             if (action == null || action.bindings.Count <= bindingIndex)
             {
@@ -56,7 +62,7 @@ namespace AGX.Scripts.Rebinder
                 rebindOverlay?.SetActive(false);
                 operation.Dispose();
 
-                if (CheckDuplicateBindings(actionToRebind, bindingIndex, allCompositeParts))
+                if (IsDuplicateBinding(actionToRebind, bindingIndex, allCompositeParts))
                 {
                     actionToRebind.RemoveBindingOverride(bindingIndex);
                     operation.Dispose();
@@ -88,6 +94,7 @@ namespace AGX.Scripts.Rebinder
 
             if (excludeMouse)
                 rebind.WithControlsExcluding("Mouse");
+
             rebind.WithControlsExcluding("<Gamepad>/leftstick");
             rebind.WithControlsExcluding("<Gamepad>/rightstick");
 
@@ -99,8 +106,8 @@ namespace AGX.Scripts.Rebinder
             if (rebindOverlay != null)
             {
                 var text = !string.IsNullOrEmpty(actionToRebind.expectedControlType)
-                    ? $"{partName} Waiting for input..."
-                    : $"{partName} Waiting for input...";
+                    ? $"{partName} Waiting for input ({actionToRebind.expectedControlType})..."
+                    : $"{partName} Waiting for input (Any)...";
 
                 rebindOverlay.SetText(text);
             }
@@ -110,33 +117,36 @@ namespace AGX.Scripts.Rebinder
         }
 
         // Only checks for duplicates within the same action map.
-        private static bool CheckDuplicateBindings(InputAction actionToRebind, int bindingIndex, bool allCompositeParts = false)
+        private static bool IsDuplicateBinding(InputAction actionToRebind, int bindingIndex, bool allCompositeParts = false)
         {
             var newBinding = actionToRebind.bindings[bindingIndex];
 
+            // Check for duplicate bindings
             foreach (var binding in actionToRebind.actionMap.bindings)
             {
+                // Skip the binding we're currently rebinding.
                 if (binding.action == newBinding.action)
-                {
                     continue;
-                }
 
-                if (binding.effectivePath != newBinding.effectivePath) continue;
+                // Skip different paths
+                if (binding.effectivePath != newBinding.effectivePath)
+                    continue;
 
-                Debug.Log("Duplicate binding found" + newBinding.effectivePath);
-                return true;
+                Debug.LogWarning($"Duplicate binding found: {newBinding.effectivePath}");
+                return false;
             }
 
-            //Check for duplicate composite bindings
+            //Check for duplicate (composite) bindings
             if (allCompositeParts)
             {
                 for (var i = 0; i < bindingIndex; ++i)
                 {
-                    if (actionToRebind.bindings[i].effectivePath == newBinding.effectivePath)
-                    {
-                        Debug.Log("Duplicate binding found" + newBinding.effectivePath);
-                        return true;
-                    }
+                    // Skip different paths
+                    if (actionToRebind.bindings[i].effectivePath != newBinding.effectivePath)
+                        continue;
+
+                    Debug.LogWarning($"Duplicate binding found: {newBinding.effectivePath}");
+                    return false;
                 }
             }
 
@@ -145,8 +155,7 @@ namespace AGX.Scripts.Rebinder
 
         public static string GetBindingName(string actionName, int bindingIndex)
         {
-            _inputActions ??= new InputActions();
-            var action = _inputActions.asset.FindAction(actionName);
+            var action = InputActions.asset.FindAction(actionName);
             var displayString = action.GetBindingDisplayString(bindingIndex);
             return displayString;
         }
@@ -155,7 +164,7 @@ namespace AGX.Scripts.Rebinder
         {
             for (var i = 0; i < action.bindings.Count; i++)
             {
-                var key = $"{action.actionMap.name}-{action.name}-{i}";
+                var key = $"Input-Binding-{action.actionMap.name}-{action.name}-{i}";
                 var value = action.bindings[i].overridePath;
 
                 PlayerPrefs.SetString(key, value);
@@ -164,13 +173,11 @@ namespace AGX.Scripts.Rebinder
 
         public static void LoadBindingOverride(string actionName)
         {
-            _inputActions ??= new InputActions();
-
-            var action = _inputActions.asset.FindAction(actionName);
+            var action = InputActions.asset.FindAction(actionName);
 
             for (var i = 0; i < action.bindings.Count; i++)
             {
-                var key = $"{action.actionMap.name}-{action.name}-{i}";
+                var key = $"Input-Binding-{action.actionMap.name}-{action.name}-{i}";
 
                 var storedOverride = PlayerPrefs.GetString(key);
 
@@ -179,11 +186,23 @@ namespace AGX.Scripts.Rebinder
             }
         }
 
-        public static void ResetBinding(string actionName, int bindingIndex)
+        public static void ResetAllBindings()
         {
-            _inputActions ??= new InputActions();
+            Debug.Log("Resetting all bindings");
 
-            var action = _inputActions.asset.FindAction(actionName);
+            // find all rebind controls in the scene
+            var rebindControls = Object.FindObjectsOfType<RebindControls>();
+
+            foreach (var rebindControl in rebindControls)
+                ResetBinding(rebindControl);
+        }
+
+        public static void ResetBinding(RebindControls rebindControls)
+        {
+            var actionName = rebindControls.ActionName;
+            var bindingIndex = rebindControls.BindingIndex;
+
+            var action = InputActions.asset.FindAction(actionName);
 
             if (action == null || action.bindings.Count <= bindingIndex)
             {
@@ -197,25 +216,22 @@ namespace AGX.Scripts.Rebinder
                     action.RemoveBindingOverride(i);
             }
             else
+            {
                 action.RemoveBindingOverride(bindingIndex);
+            }
 
             SaveBindingOverride(action);
+
+            rebindControls.UpdateUI();
         }
 
         public static bool IsBindingDirty(string actionName, int bindingIndex)
         {
-            _inputActions ??= new InputActions();
-
-            var action = _inputActions.asset.FindAction(actionName);
+            var action = InputActions.asset.FindAction(actionName);
 
             var isDirty = action.bindings[bindingIndex].overridePath != action.bindings[bindingIndex].effectivePath;
 
             return isDirty;
-        }
-
-        public InputActions GetInputActions()
-        {
-            return _inputActions ??= new InputActions();
         }
     }
 }

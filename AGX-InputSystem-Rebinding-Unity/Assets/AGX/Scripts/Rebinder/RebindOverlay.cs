@@ -14,10 +14,8 @@ namespace AGX.Scripts.Rebinder
         
         public void SetActive(bool p0)
         {
-            if (p0)
-            {
+            if (p0) 
                 gameObject.SetActive(true);
-            }
 
             _canvasGroup.alpha = p0 ? 1 : 0;
             _canvasGroup.blocksRaycasts = p0;

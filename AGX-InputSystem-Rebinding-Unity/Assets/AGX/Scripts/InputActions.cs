@@ -55,6 +55,24 @@ namespace Generator.Scripts.Runtime
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Sneak"",
+                    ""type"": ""Button"",
+                    ""id"": ""92efd1f5-3097-4c15-9c30-1bc9c6a17649"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Fire"",
+                    ""type"": ""Button"",
+                    ""id"": ""8fa0f0c0-88a1-4abd-bad0-73580979dd6d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -156,6 +174,28 @@ namespace Generator.Scripts.Runtime
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""00dc0527-4d3f-4952-a173-8463678a01c5"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sneak"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""abc596e7-e716-4f1a-9d47-142fb27e2a85"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -190,6 +230,8 @@ namespace Generator.Scripts.Runtime
             m_Gameplay_Start = m_Gameplay.FindAction("Start", throwIfNotFound: true);
             m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
             m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
+            m_Gameplay_Sneak = m_Gameplay.FindAction("Sneak", throwIfNotFound: true);
+            m_Gameplay_Fire = m_Gameplay.FindAction("Fire", throwIfNotFound: true);
             // Menus
             m_Menus = asset.FindActionMap("Menus", throwIfNotFound: true);
             // Cheats
@@ -265,6 +307,8 @@ namespace Generator.Scripts.Runtime
         private readonly InputAction m_Gameplay_Start;
         private readonly InputAction m_Gameplay_Move;
         private readonly InputAction m_Gameplay_Jump;
+        private readonly InputAction m_Gameplay_Sneak;
+        private readonly InputAction m_Gameplay_Fire;
         public struct GameplayActions
         {
             private @InputActions m_Wrapper;
@@ -272,6 +316,8 @@ namespace Generator.Scripts.Runtime
             public InputAction @Start => m_Wrapper.m_Gameplay_Start;
             public InputAction @Move => m_Wrapper.m_Gameplay_Move;
             public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
+            public InputAction @Sneak => m_Wrapper.m_Gameplay_Sneak;
+            public InputAction @Fire => m_Wrapper.m_Gameplay_Fire;
             public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -290,6 +336,12 @@ namespace Generator.Scripts.Runtime
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @Sneak.started += instance.OnSneak;
+                @Sneak.performed += instance.OnSneak;
+                @Sneak.canceled += instance.OnSneak;
+                @Fire.started += instance.OnFire;
+                @Fire.performed += instance.OnFire;
+                @Fire.canceled += instance.OnFire;
             }
 
             private void UnregisterCallbacks(IGameplayActions instance)
@@ -303,6 +355,12 @@ namespace Generator.Scripts.Runtime
                 @Jump.started -= instance.OnJump;
                 @Jump.performed -= instance.OnJump;
                 @Jump.canceled -= instance.OnJump;
+                @Sneak.started -= instance.OnSneak;
+                @Sneak.performed -= instance.OnSneak;
+                @Sneak.canceled -= instance.OnSneak;
+                @Fire.started -= instance.OnFire;
+                @Fire.performed -= instance.OnFire;
+                @Fire.canceled -= instance.OnFire;
             }
 
             public void RemoveCallbacks(IGameplayActions instance)
@@ -419,6 +477,8 @@ namespace Generator.Scripts.Runtime
             void OnStart(InputAction.CallbackContext context);
             void OnMove(InputAction.CallbackContext context);
             void OnJump(InputAction.CallbackContext context);
+            void OnSneak(InputAction.CallbackContext context);
+            void OnFire(InputAction.CallbackContext context);
         }
         public interface IMenusActions
         {

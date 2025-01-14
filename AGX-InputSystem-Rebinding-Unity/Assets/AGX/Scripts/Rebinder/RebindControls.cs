@@ -10,7 +10,7 @@ namespace AGX.Scripts.Rebinder
     public class RebindControls : MonoBehaviour
     {
         [BoxGroup("References"), SerializeField]              private InputActionReference              _inputActionReference;
-        [BoxGroup("References"), SerializeField]              private bool                              _excludeMouse = true;
+        [BoxGroup("References"), SerializeField]              private bool                              _mouseIncluded;
         [BoxGroup("References"), SerializeField, Range(0, 5)] private int                               _selectedBinding;
         [BoxGroup("References"), SerializeField]              private InputBinding.DisplayStringOptions _displayStringOptions;
         [BoxGroup("References"), SerializeField, ReadOnly]    private InputBinding                      _inputBinding;
@@ -26,6 +26,8 @@ namespace AGX.Scripts.Rebinder
         [ShowNonSerializedField] private string actionName;
 
         [ShowNonSerializedField] private bool _isDirty;
+        public string ActionName => actionName;
+        public int BindingIndex => bindingIndex;
 
         private void OnEnable()
         {
@@ -70,7 +72,7 @@ namespace AGX.Scripts.Rebinder
             }
         }
 
-        private void UpdateUI()
+        internal void UpdateUI()
         {
             if (_actionText != null)
                 _actionText.text = actionName;
@@ -78,12 +80,9 @@ namespace AGX.Scripts.Rebinder
             if (_rebindText == null) return;
 
             if (Application.isPlaying)
-            {
                 _rebindText.text = InputManager.GetBindingName(actionName, bindingIndex);
-            }
             else
                 _rebindText.text = _inputActionReference.action.GetBindingDisplayString(bindingIndex);
-
 
             _isDirty = InputManager.IsBindingDirty(actionName, bindingIndex);
             _resetButton.gameObject.SetActive(_isDirty);
@@ -91,12 +90,12 @@ namespace AGX.Scripts.Rebinder
 
         private void DoRebind()
         {
-            InputManager.StartRebind(actionName, bindingIndex, _rebindOverlay, _excludeMouse);
+            InputManager.StartRebind(actionName, bindingIndex, _rebindOverlay, !_mouseIncluded);
         }
 
         private void ResetBinding()
         {
-            InputManager.ResetBinding(actionName, bindingIndex);
+            InputManager.ResetBinding(this);
             UpdateUI();
         }
 
@@ -116,6 +115,11 @@ namespace AGX.Scripts.Rebinder
         {
             GetBindingInfo(5); // Change number to controller move binding
             UpdateUI();
+        }
+
+        public void DoReset()
+        {
+            ResetBinding();
         }
     }
 }
