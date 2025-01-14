@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 namespace AGX.Scripts
 {
-    public partial class Input : InputActions.IGameplayActions, InputActions.IMenusActions, InputActions.ICheatsActions
+    public partial class Input
     {
         // Gameplay
         public event UnityAction OnStartEvent = delegate { };
@@ -34,7 +34,8 @@ namespace AGX.Scripts
 
         public void OnJump(InputAction.CallbackContext context)
         {
-            OnJumpEvent.Invoke();
+            if (context.phase == InputActionPhase.Performed)
+                OnJumpEvent.Invoke();
         }
     }
 }

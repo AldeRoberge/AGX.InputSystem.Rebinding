@@ -6,9 +6,9 @@ namespace AGX.Scripts
     {
         public void RegisterLogging()
         {
-            OnJumpEvent += () => Debug.Log("Jumped");
-            OnMoveEvent += () => Debug.Log("Moved");
-            OnStartEvent += () => Debug.Log("Started");
+            OnJumpEvent += () => Debug.Log("[InputLogging] <b>Jump</b> event was successfully invoked.");
+            OnMoveEvent += () => Debug.Log("[InputLogging] <b>Move</b> event was successfully invoked.");
+            OnStartEvent += () => Debug.Log("[InputLogging] <b>Start</b> event was successfully invoked.");
         }
     }
 }

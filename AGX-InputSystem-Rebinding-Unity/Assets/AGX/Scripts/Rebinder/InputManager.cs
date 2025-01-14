@@ -6,8 +6,11 @@ using UnityEngine.InputSystem;
 
 namespace AGX.Scripts.Rebinder
 {
-    public class InputManager : MonoBehaviour
+    public class InputManager
     {
+        /// <summary>
+        /// We keep a reference to the InputActions asset.
+        /// </summary>
         private static InputActions? _inputActions;
 
         public static event Action RebindComplete = delegate { };
@@ -19,7 +22,7 @@ namespace AGX.Scripts.Rebinder
             _inputActions ??= new InputActions();
 
             var action = _inputActions.asset.FindAction(actionName);
-            
+
             if (action == null || action.bindings.Count <= bindingIndex)
             {
                 Debug.Log("Couldn't find action or binding");
@@ -110,7 +113,7 @@ namespace AGX.Scripts.Rebinder
         private static bool CheckDuplicateBindings(InputAction actionToRebind, int bindingIndex, bool allCompositeParts = false)
         {
             var newBinding = actionToRebind.bindings[bindingIndex];
-            
+
             foreach (var binding in actionToRebind.actionMap.bindings)
             {
                 if (binding.action == newBinding.action)
@@ -119,7 +122,7 @@ namespace AGX.Scripts.Rebinder
                 }
 
                 if (binding.effectivePath != newBinding.effectivePath) continue;
-                
+
                 Debug.Log("Duplicate binding found" + newBinding.effectivePath);
                 return true;
             }
@@ -152,7 +155,10 @@ namespace AGX.Scripts.Rebinder
         {
             for (var i = 0; i < action.bindings.Count; i++)
             {
-                PlayerPrefs.SetString(action.actionMap + action.name + i, action.bindings[i].overridePath);
+                var key = $"{action.actionMap.name}-{action.name}-{i}";
+                var value = action.bindings[i].overridePath;
+
+                PlayerPrefs.SetString(key, value);
             }
         }
 
@@ -164,13 +170,19 @@ namespace AGX.Scripts.Rebinder
 
             for (var i = 0; i < action.bindings.Count; i++)
             {
-                if (!string.IsNullOrEmpty(PlayerPrefs.GetString(action.actionMap + action.name + i)))
-                    action.ApplyBindingOverride(i, PlayerPrefs.GetString(action.actionMap + action.name + i));
+                var key = $"{action.actionMap.name}-{action.name}-{i}";
+
+                var storedOverride = PlayerPrefs.GetString(key);
+
+                if (!string.IsNullOrEmpty(storedOverride))
+                    action.ApplyBindingOverride(i, storedOverride);
             }
         }
 
         public static void ResetBinding(string actionName, int bindingIndex)
         {
+            _inputActions ??= new InputActions();
+
             var action = _inputActions.asset.FindAction(actionName);
 
             if (action == null || action.bindings.Count <= bindingIndex)
@@ -195,10 +207,15 @@ namespace AGX.Scripts.Rebinder
             _inputActions ??= new InputActions();
 
             var action = _inputActions.asset.FindAction(actionName);
-            
+
             var isDirty = action.bindings[bindingIndex].overridePath != action.bindings[bindingIndex].effectivePath;
 
             return isDirty;
+        }
+
+        public InputActions GetInputActions()
+        {
+            return _inputActions ??= new InputActions();
         }
     }
 }

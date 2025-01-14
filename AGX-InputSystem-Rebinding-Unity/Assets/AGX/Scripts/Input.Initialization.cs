@@ -1,29 +1,26 @@
-﻿using FredericRP.GenericSingleton;
+﻿using AGX.Scripts.Rebinder;
+using FredericRP.GenericSingleton;
 using Generator.Scripts.Runtime;
 using UnityEngine;
 
 namespace AGX.Scripts
 {
-    public partial class Input : Singleton<Input>
+    public partial class Input : Singleton<Input>, InputActions.IGameplayActions, InputActions.IMenusActions, InputActions.ICheatsActions
     {
         private InputActions? _gameInput;
-
-        internal void OnDisable()
-        {
-            Debug.Log("[InputReader] OnDisableAllInput");
-            _gameInput?.Gameplay.Disable();
-            _gameInput?.Menus.Disable();
-            _gameInput?.Cheats.Disable();
-        }
+        
+        private InputManager _inputManager;
 
         internal void OnEnable()
         {
             Debug.Log("InputReader OnEnableAllInput");
 
+            _inputManager ??= new InputManager();
+
             if (_gameInput == null)
             {
                 Debug.Log("[InputReader] OnEnable");
-                _gameInput = new InputActions();
+                _gameInput = _inputManager.GetInputActions();
                 _gameInput.Gameplay.SetCallbacks(this);
                 _gameInput.Menus.SetCallbacks(this);
                 _gameInput.Cheats.SetCallbacks(this);
@@ -37,6 +34,15 @@ namespace AGX.Scripts
             _gameInput.Menus.Enable();
 
             RegisterLogging();
+        }
+
+
+        internal void OnDisable()
+        {
+            Debug.Log("[InputReader] OnDisableAllInput");
+            _gameInput?.Gameplay.Disable();
+            _gameInput?.Menus.Disable();
+            _gameInput?.Cheats.Disable();
         }
     }
 }
