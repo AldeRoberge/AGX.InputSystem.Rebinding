@@ -178,7 +178,7 @@ namespace Generator.Scripts.Runtime
                 {
                     ""name"": """",
                     ""id"": ""00dc0527-4d3f-4952-a173-8463678a01c5"",
-                    ""path"": ""<Keyboard>/shift"",
+                    ""path"": ""<Keyboard>/leftShift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

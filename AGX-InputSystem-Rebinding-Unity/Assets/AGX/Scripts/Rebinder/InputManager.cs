@@ -225,13 +225,25 @@ namespace AGX.Scripts.Rebinder
             rebindControls.UpdateUI();
         }
 
-        public static bool IsBindingDirty(string actionName, int bindingIndex)
+        public static bool IsBindingChanged(string actionName, int bindingIndex)
         {
             var action = InputActions.asset.FindAction(actionName);
 
-            var isDirty = action.bindings[bindingIndex].overridePath != action.bindings[bindingIndex].effectivePath;
+            if (action == null || action.bindings.Count <= bindingIndex)
+            {
+                Debug.LogError($"Action '{actionName}' or binding at index {bindingIndex} not found.");
+                return false;
+            }
 
-            return isDirty;
+            // Check if the override path exists and differs from the original path
+            var originalPath = action.bindings[bindingIndex].path;
+            var overridePath = action.bindings[bindingIndex].overridePath;
+
+            var isChanged = !string.IsNullOrEmpty(overridePath) && overridePath != originalPath;
+
+            Debug.Log($"IsBindingChanged: {isChanged}, Original: {originalPath}, Override: {overridePath}");
+
+            return isChanged;
         }
     }
 }

@@ -45,7 +45,7 @@ namespace AGX.Scripts.Rebinder
             InputManager.RebindCanceled += UpdateUI;
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
             InputManager.RebindComplete -= UpdateUI;
             InputManager.RebindCanceled -= UpdateUI;
@@ -74,6 +74,8 @@ namespace AGX.Scripts.Rebinder
 
         internal void UpdateUI()
         {
+            Debug.Log($"Updating UI for {actionName} binding {bindingIndex}");
+
             if (_actionText != null)
                 _actionText.text = actionName;
 
@@ -84,8 +86,10 @@ namespace AGX.Scripts.Rebinder
             else
                 _rebindText.text = _inputActionReference.action.GetBindingDisplayString(bindingIndex);
 
-            _isDirty = InputManager.IsBindingDirty(actionName, bindingIndex);
+            _isDirty = InputManager.IsBindingChanged(actionName, bindingIndex);
             _resetButton.gameObject.SetActive(_isDirty);
+            
+            Debug.Log($"IsDirty: {_isDirty}");
         }
 
         private void DoRebind()

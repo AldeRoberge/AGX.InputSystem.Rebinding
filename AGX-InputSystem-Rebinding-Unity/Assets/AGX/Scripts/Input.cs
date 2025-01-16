@@ -47,6 +47,8 @@ namespace AGX.Scripts
             OnJumpEvent += () => Debug.Log("[InputLogging] <b>Jump</b> event was successfully invoked.");
             OnMoveEvent += (m) => Debug.Log($"[InputLogging] <b>Move</b> event was successfully invoked (value: {m}).");
             OnStartEvent += () => Debug.Log("[InputLogging] <b>Start</b> event was successfully invoked.");
+            OnSneakEvent += () => Debug.Log("[InputLogging] <b>Sneak</b> event was successfully invoked.");
+            OnFireEvent += () => Debug.Log("[InputLogging] <b>Fire</b> event was successfully invoked.");
         }
 
         internal void OnDisable()
