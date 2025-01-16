@@ -1014,7 +1014,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Espace
+  m_text: <sprite="MouseKeyboardDark_Prompts" name="mousekeyboard_key_space_wide"
+    >
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0ae800816eb19a14981e78e78d365d11, type: 2}
   m_sharedMaterial: {fileID: -493796175005288581, guid: 0ae800816eb19a14981e78e78d365d11,
@@ -1679,7 +1680,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: LMB
+  m_text: <sprite="MouseKeyboardDark_Prompts" name="mousekeyboard_mouse_left" >
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0ae800816eb19a14981e78e78d365d11, type: 2}
   m_sharedMaterial: {fileID: -493796175005288581, guid: 0ae800816eb19a14981e78e78d365d11,
@@ -2969,7 +2970,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '[Gameplay/Move]'
+  m_text: <sprite="MouseKeyboardDark_Prompts" name="mousekeyboard_key_w" ><sprite="MouseKeyboardDark_Prompts"
+    name="mousekeyboard_key_s" ><sprite="MouseKeyboardDark_Prompts" name="mousekeyboard_key_a"
+    ><sprite="MouseKeyboardDark_Prompts" name="mousekeyboard_key_d" >
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0ae800816eb19a14981e78e78d365d11, type: 2}
   m_sharedMaterial: {fileID: -493796175005288581, guid: 0ae800816eb19a14981e78e78d365d11,
@@ -6571,7 +6574,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Maj
+  m_text: MISSING_PROMPT 'Gameplay/Sneak'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0ae800816eb19a14981e78e78d365d11, type: 2}
   m_sharedMaterial: {fileID: -493796175005288581, guid: 0ae800816eb19a14981e78e78d365d11,

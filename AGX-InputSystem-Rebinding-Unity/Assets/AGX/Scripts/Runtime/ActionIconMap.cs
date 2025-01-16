@@ -4,7 +4,7 @@ using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace AGX.Scripts
+namespace AGX.Scripts.Runtime
 {
     /// <summary>
     /// Used to display icons for InputActionReferences in UI elements.

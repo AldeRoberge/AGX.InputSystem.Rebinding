@@ -3,7 +3,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 
-namespace AGX.Scripts.Searching
+namespace AGX.Scripts.Runtime.Searching
 {
     public class Search : MonoBehaviour
     {

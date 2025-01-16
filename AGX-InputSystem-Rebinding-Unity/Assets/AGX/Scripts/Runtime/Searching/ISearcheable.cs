@@ -1,4 +1,4 @@
-﻿namespace AGX.Scripts.Searching
+﻿namespace AGX.Scripts.Runtime.Searching
 {
     public interface ISearchable
     {

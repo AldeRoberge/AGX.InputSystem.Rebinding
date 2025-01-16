@@ -1,11 +1,11 @@
-﻿using AGX.Scripts.Rebinder;
+﻿using AGX.Scripts.Runtime.Rebinder;
 using FredericRP.GenericSingleton;
 using Generator.Scripts.Runtime;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-namespace AGX.Scripts
+namespace AGX.Scripts.Runtime
 {
     public class Input : Singleton<Input>, InputActions.IGameplayActions, InputActions.IMenusActions, InputActions.ICheatsActions
     {

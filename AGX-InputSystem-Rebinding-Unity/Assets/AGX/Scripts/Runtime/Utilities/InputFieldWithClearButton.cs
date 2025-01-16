@@ -1,8 +1,7 @@
-using System;
 using NaughtyAttributes;
 using UnityEngine;
 
-namespace AGX.Scripts.Utilities
+namespace AGX.Scripts.Runtime.Utilities
 {
     public class InputFieldWithClearButton : MonoBehaviour
     {

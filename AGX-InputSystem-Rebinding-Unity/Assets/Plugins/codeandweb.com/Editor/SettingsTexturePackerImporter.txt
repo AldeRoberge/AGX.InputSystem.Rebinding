@@ -1,0 +1,8 @@
+version: 2
+tpsheetFileNames:
+- Assets/Plugins/TextMesh Pro/Resources/Sprite Assets/General/General.tpsheet
+textureFileNames:
+- Assets/Plugins/TextMesh Pro/Resources/Sprite Assets/General/General.png
+normalmapFileNames:
+- 
+enableDebugOutput: 0

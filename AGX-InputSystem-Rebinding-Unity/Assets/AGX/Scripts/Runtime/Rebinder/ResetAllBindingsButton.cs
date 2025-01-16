@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace AGX.Scripts.Rebinder
+namespace AGX.Scripts.Runtime.Rebinder
 {
     public class ResetAllBindingsButton : MonoBehaviour
     {

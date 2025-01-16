@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Object = UnityEngine.Object;
 
-namespace AGX.Scripts.Rebinder
+namespace AGX.Scripts.Runtime.Rebinder
 {
     public class InputManager
     {

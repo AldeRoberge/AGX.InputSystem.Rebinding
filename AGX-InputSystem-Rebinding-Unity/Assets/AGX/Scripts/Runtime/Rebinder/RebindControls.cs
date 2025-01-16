@@ -1,12 +1,13 @@
-using AGX.Scripts.Searching;
+using AGX.Scripts.Runtime.Searching;
 using InputSystemActionPrompts;
+using InputSystemActionPrompts.Runtime;
 using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-namespace AGX.Scripts.Rebinder
+namespace AGX.Scripts.Runtime.Rebinder
 {
     public class RebindControls : MonoBehaviour, ISearchable
     {

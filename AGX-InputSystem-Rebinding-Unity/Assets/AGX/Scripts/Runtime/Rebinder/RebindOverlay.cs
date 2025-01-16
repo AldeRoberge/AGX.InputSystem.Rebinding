@@ -2,7 +2,7 @@ using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
 
-namespace AGX.Scripts.Rebinder
+namespace AGX.Scripts.Runtime.Rebinder
 {
     public class RebindOverlay : MonoBehaviour
     {
