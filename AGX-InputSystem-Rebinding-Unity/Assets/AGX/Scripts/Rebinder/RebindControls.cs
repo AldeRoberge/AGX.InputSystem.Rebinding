@@ -10,6 +10,7 @@ namespace AGX.Scripts.Rebinder
     public class RebindControls : MonoBehaviour, ISearchable
     {
         [BoxGroup("References"), SerializeField]              private InputActionReference              _inputActionReference;
+        [BoxGroup("References"), SerializeField]              private ActionIconMap                     _inputActionMap;
         [BoxGroup("References"), SerializeField]              private bool                              _mouseIncluded;
         [BoxGroup("References"), SerializeField, Range(0, 5)] private int                               _selectedBinding;
         [BoxGroup("References"), SerializeField]              private InputBinding.DisplayStringOptions _displayStringOptions;
@@ -79,7 +80,7 @@ namespace AGX.Scripts.Rebinder
             Debug.Log($"Updating UI for {actionName} binding {bindingIndex}");
 
             if (_actionText != null)
-                _actionText.text = actionName;
+                _actionText.text = _inputActionMap.GetFor(_inputActionReference);
 
             if (_rebindText == null) return;
 
