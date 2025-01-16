@@ -1,5 +1,6 @@
 using System;
 using Generator.Scripts.Runtime;
+using InputSystemActionPrompts.Runtime;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Object = UnityEngine.Object;
@@ -24,6 +25,18 @@ namespace AGX.Scripts.Runtime.Rebinder
             RebindStarted = delegate { };
             inputActions = new InputActions();
         }
+
+        public static void RefreshInputDevicePrompt()
+        {
+            // We have to do the following because, well
+            // The InputManager does some changes to the asset itself :).. you see....
+            // So we must... Pass it to the InputDevicePromptSystem so that it shows the changes we make to it :)
+            // :) :D
+            // GitHub Copilot says : "I'm an AI, I don't have feelings, but I'm here to help you write code."
+            // Very cringe-pilled, Copilot. Very cringe-pilled.
+            InputDevicePromptSystem.Initialize(InputActions.asset);
+        }
+
 
         public static void StartRebind(string actionName, int bindingIndex, RebindOverlay rebindOverlay, bool excludeMouse)
         {
@@ -77,6 +90,7 @@ namespace AGX.Scripts.Runtime.Rebinder
                         DoRebind(actionToRebind, nextBindingsIndex, rebindOverlay, excludeMouse, true);
                 }
 
+                RefreshInputDevicePrompt();
                 SaveBindingOverride(actionToRebind);
                 RebindComplete?.Invoke();
             });
@@ -171,20 +185,29 @@ namespace AGX.Scripts.Runtime.Rebinder
             }
         }
 
-        public static void LoadBindingOverride(string actionName)
+        public static void LoadBindingOverrides()
         {
-            var action = InputActions.asset.FindAction(actionName);
-
-            for (var i = 0; i < action.bindings.Count; i++)
+            // Iterate over all action maps in the InputActions asset
+            foreach (var actionMap in InputActions.asset.actionMaps)
             {
-                var key = $"Input-Binding-{action.actionMap.name}-{action.name}-{i}";
+                foreach (var action in actionMap.actions)
+                {
+                    for (var i = 0; i < action.bindings.Count; i++)
+                    {
+                        var key = $"Input-Binding-{action.actionMap.name}-{action.name}-{i}";
 
-                var storedOverride = PlayerPrefs.GetString(key);
+                        var storedOverride = PlayerPrefs.GetString(key);
 
-                if (!string.IsNullOrEmpty(storedOverride))
-                    action.ApplyBindingOverride(i, storedOverride);
+                        if (!string.IsNullOrEmpty(storedOverride))
+                        {
+                            Debug.Log($"Applying binding override for {action.name} at index {i}: {storedOverride}");
+                            action.ApplyBindingOverride(i, storedOverride);
+                        }
+                    }
+                }
             }
         }
+
 
         public static void ResetAllBindings()
         {
@@ -222,6 +245,8 @@ namespace AGX.Scripts.Runtime.Rebinder
 
             SaveBindingOverride(action);
 
+            RefreshInputDevicePrompt();
+
             rebindControls.UpdateUI();
         }
 
@@ -258,7 +283,7 @@ namespace AGX.Scripts.Runtime.Rebinder
 
                     if (!string.IsNullOrEmpty(overridePath) && overridePath != originalPath)
                     {
-                        Debug.Log($"Composite binding part changed: {partBinding.name}, Original: {originalPath}, Override: {overridePath}");
+                        // Debug.Log($"Composite binding part changed: {partBinding.name}, Original: {originalPath}, Override: {overridePath}");
                         return true;
                     }
                 }

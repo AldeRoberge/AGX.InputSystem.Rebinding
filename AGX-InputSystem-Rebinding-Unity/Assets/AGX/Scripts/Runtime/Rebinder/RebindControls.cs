@@ -37,9 +37,10 @@ namespace AGX.Scripts.Runtime.Rebinder
             _rebindButton.onClick.AddListener(DoRebind);
             _resetButton.onClick.AddListener(ResetBinding);
 
+            InputDevicePromptSystem.OnInitialized += UpdateUI;
+
             if (_inputActionReference != null)
             {
-                InputManager.LoadBindingOverride(actionName);
                 GetBindingInfo(selectBinding);
                 UpdateUI();
             }
@@ -52,6 +53,8 @@ namespace AGX.Scripts.Runtime.Rebinder
         {
             InputManager.RebindComplete -= UpdateUI;
             InputManager.RebindCanceled -= UpdateUI;
+
+            InputDevicePromptSystem.OnInitialized -= UpdateUI;
         }
 
         private void OnValidate()
@@ -79,28 +82,33 @@ namespace AGX.Scripts.Runtime.Rebinder
 
         internal void UpdateUI()
         {
-            Debug.Log($"Updating UI for {actionName} binding {bindingIndex}");
-
             if (_actionText != null)
                 _actionText.text = _inputActionMap.GetFor(_inputActionReference);
 
             if (_rebindText == null) return;
 
-
             // [Gameplay/Move] (gameplay is the map, move is the action)
             var txt = $"[{_inputActionReference.action.actionMap.name}/{_inputActionReference.action.name}]";
-            _rebindText.text = InputDevicePromptSystem.InsertPromptSprites(txt);
 
-            /*
-            if (Application.isPlaying)
-                _rebindText.text = InputManager.GetBindingName(actionName, bindingIndex);
+            Debug.Log($"Updating UI for {actionName} binding {bindingIndex} with text {txt}");
+
+            var txt2 = InputDevicePromptSystem.InsertPromptSprites(txt);
+
+            if (txt2.Contains(InputDevicePromptSystem.MISSING_PROMPT) ||
+                txt2.Contains(InputDevicePromptSystem.WAITING_FOR_INITIALIZATION))
+            {
+                _rebindText.text = Application.isPlaying
+                    // From the input manager
+                    ? InputManager.GetBindingName(actionName, bindingIndex)
+                    : _inputActionReference.action.GetBindingDisplayString(bindingIndex); // From the input action reference
+            }
             else
-                _rebindText.text = _inputActionReference.action.GetBindingDisplayString(bindingIndex);*/
+            {
+                _rebindText.text = txt2;
+            }
 
             _isDirty = InputManager.IsBindingChanged(actionName, bindingIndex);
             _resetButton.gameObject.SetActive(_isDirty);
-
-            Debug.Log($"IsDirty: {_isDirty}");
         }
 
         private void DoRebind()

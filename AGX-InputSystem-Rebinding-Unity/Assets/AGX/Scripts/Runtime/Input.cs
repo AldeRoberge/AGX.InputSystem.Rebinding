@@ -1,12 +1,14 @@
 ﻿using AGX.Scripts.Runtime.Rebinder;
 using FredericRP.GenericSingleton;
 using Generator.Scripts.Runtime;
+using InputSystemActionPrompts.Runtime;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 namespace AGX.Scripts.Runtime
 {
+    [DefaultExecutionOrder(-99999)]
     public class Input : Singleton<Input>, InputActions.IGameplayActions, InputActions.IMenusActions, InputActions.ICheatsActions
     {
         private InputActions? _gameInput;
@@ -39,6 +41,9 @@ namespace AGX.Scripts.Runtime
             _gameInput.Menus.Enable();
 
             RegisterLogging();
+
+            InputManager.LoadBindingOverrides();
+            InputManager.RefreshInputDevicePrompt();
         }
 
 
