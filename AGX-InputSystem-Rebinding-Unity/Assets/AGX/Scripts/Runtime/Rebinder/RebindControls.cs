@@ -25,7 +25,6 @@ namespace AGX.Scripts.Runtime.Rebinder
         [BoxGroup("References/UI"), SerializeField, Required] private Button        _resetButton;
 
         [ShowNonSerializedField] private int    bindingIndex;
-        [ShowNonSerializedField] private int    selectBinding;
         [ShowNonSerializedField] private string actionName;
 
         [ShowNonSerializedField] private bool _isDirty;
@@ -41,9 +40,12 @@ namespace AGX.Scripts.Runtime.Rebinder
 
             if (_inputActionReference != null)
             {
-                GetBindingInfo(selectBinding);
+                GetBindingInfo(_selectedBinding);
                 UpdateUI();
             }
+
+
+            InputManager.RegisterRebind(this);
 
             InputManager.RebindComplete += UpdateUI;
             InputManager.RebindCanceled += UpdateUI;
@@ -62,20 +64,21 @@ namespace AGX.Scripts.Runtime.Rebinder
             if (_inputActionReference == null)
                 return;
 
-            GetBindingInfo(selectBinding);
+            GetBindingInfo(_selectedBinding);
             UpdateUI();
 
             name = $"Input Action Rebinder ({actionName})";
         }
 
-        private void GetBindingInfo(int selectBinding)
+        private void GetBindingInfo(int selectedBinding)
         {
             if (_inputActionReference.action != null)
                 actionName = _inputActionReference.action.name;
 
             if (_inputActionReference.action.bindings.Count > _selectedBinding)
             {
-                _inputBinding = _inputActionReference.action.bindings[_selectedBinding = selectBinding];
+                _selectedBinding = selectedBinding;
+                _inputBinding = _inputActionReference.action.bindings[_selectedBinding];
                 bindingIndex = _selectedBinding;
             }
         }
@@ -87,15 +90,15 @@ namespace AGX.Scripts.Runtime.Rebinder
 
             if (_rebindText == null) return;
 
-            // [Gameplay/Move] (gameplay is the map, move is the action)
+            // [Map/Action] i.e. [Player/Move]
             var txt = $"[{_inputActionReference.action.actionMap.name}/{_inputActionReference.action.name}]";
 
-            Debug.Log($"Updating UI for {actionName} binding {bindingIndex} with text {txt}");
+            // Debug.Log($"Updating UI for {actionName} binding {bindingIndex} with text {txt}");
 
-            var txt2 = InputDevicePromptSystem.InsertPromptSprites(txt);
+            var result = InputDevicePromptSystem.InsertPromptSprites(txt);
 
-            if (txt2.Contains(InputDevicePromptSystem.MISSING_PROMPT) ||
-                txt2.Contains(InputDevicePromptSystem.WAITING_FOR_INITIALIZATION))
+            if (result.Contains(InputDevicePromptSystem.MISSING_PROMPT) ||
+                result.Contains(InputDevicePromptSystem.WAITING_FOR_INITIALIZATION))
             {
                 _rebindText.text = Application.isPlaying
                     // From the input manager
@@ -104,7 +107,7 @@ namespace AGX.Scripts.Runtime.Rebinder
             }
             else
             {
-                _rebindText.text = txt2;
+                _rebindText.text = result;
             }
 
             _isDirty = InputManager.IsBindingChanged(actionName, bindingIndex);

@@ -12,14 +12,14 @@ namespace AGX.Scripts.Runtime.Rebinder
         [BoxGroup("References"), SerializeField]
         private TextMeshProUGUI _text;
         
-        public void SetActive(bool p0)
+        public void SetActive(bool isActive)
         {
-            if (p0) 
+            if (isActive) 
                 gameObject.SetActive(true);
 
-            _canvasGroup.alpha = p0 ? 1 : 0;
-            _canvasGroup.blocksRaycasts = p0;
-            _canvasGroup.interactable = p0;
+            _canvasGroup.alpha = isActive ? 1 : 0;
+            _canvasGroup.blocksRaycasts = isActive;
+            _canvasGroup.interactable = isActive;
         }
 
         public void SetText(string text)

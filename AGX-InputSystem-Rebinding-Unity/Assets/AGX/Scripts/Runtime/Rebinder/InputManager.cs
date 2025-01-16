@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Generator.Scripts.Runtime;
 using InputSystemActionPrompts.Runtime;
 using UnityEngine;
@@ -17,6 +18,10 @@ namespace AGX.Scripts.Runtime.Rebinder
         public static event Action RebindCanceled = delegate { };
         public static event Action<InputAction, int> RebindStarted = delegate { };
 
+        private static List<RebindControls> rebindControls = new();
+
+        public static event Action<int> RebindCountChanged = delegate { };
+
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void Initialize()
         {
@@ -24,6 +29,8 @@ namespace AGX.Scripts.Runtime.Rebinder
             RebindCanceled = delegate { };
             RebindStarted = delegate { };
             inputActions = new InputActions();
+            rebindControls = new List<RebindControls>();
+            RebindCountChanged = delegate { };
         }
 
         public static void RefreshInputDevicePrompt()
@@ -35,6 +42,8 @@ namespace AGX.Scripts.Runtime.Rebinder
             // GitHub Copilot says : "I'm an AI, I don't have feelings, but I'm here to help you write code."
             // Very cringe-pilled, Copilot. Very cringe-pilled.
             InputDevicePromptSystem.Initialize(InputActions.asset);
+
+            UpdateRebindCount();
         }
 
 
@@ -92,6 +101,7 @@ namespace AGX.Scripts.Runtime.Rebinder
 
                 RefreshInputDevicePrompt();
                 SaveBindingOverride(actionToRebind);
+
                 RebindComplete?.Invoke();
             });
 
@@ -119,9 +129,20 @@ namespace AGX.Scripts.Runtime.Rebinder
             rebindOverlay?.SetActive(true);
             if (rebindOverlay != null)
             {
-                var text = !string.IsNullOrEmpty(actionToRebind.expectedControlType)
-                    ? $"{partName} Waiting for input ({actionToRebind.expectedControlType})..."
-                    : $"{partName} Waiting for input (Any)...";
+                string text = "";
+
+                if (excludeMouse)
+                {
+                    text = !string.IsNullOrEmpty(actionToRebind.expectedControlType)
+                        ? $"{partName} Press any key ({actionToRebind.expectedControlType})..."
+                        : $"{partName} Press any key...";
+                }
+                else
+                {
+                    text = !string.IsNullOrEmpty(actionToRebind.expectedControlType)
+                        ? $"{partName} Press any key or button ({actionToRebind.expectedControlType})..."
+                        : $"{partName} Press any key or button...";
+                }
 
                 rebindOverlay.SetText(text);
             }
@@ -245,6 +266,7 @@ namespace AGX.Scripts.Runtime.Rebinder
 
             SaveBindingOverride(action);
 
+
             RefreshInputDevicePrompt();
 
             rebindControls.UpdateUI();
@@ -303,6 +325,33 @@ namespace AGX.Scripts.Runtime.Rebinder
 
                 return isChanged;
             }
+        }
+
+        public static void RegisterRebind(RebindControls rebindControl)
+        {
+            rebindControls ??= new List<RebindControls>();
+            rebindControls.Add(rebindControl);
+        }
+
+        public static void UpdateRebindCount()
+        {
+            RebindCountChanged?.Invoke(GetRebindCount());
+        }
+
+        internal static int GetRebindCount()
+        {
+            int count = 0;
+
+            foreach (var rebindControl in rebindControls)
+            {
+                if (IsBindingChanged(rebindControl.ActionName, rebindControl.BindingIndex))
+                {
+                    Debug.Log($"Has rebinds: {rebindControl.ActionName}");
+                    count++;
+                }
+            }
+
+            return count;
         }
     }
 }

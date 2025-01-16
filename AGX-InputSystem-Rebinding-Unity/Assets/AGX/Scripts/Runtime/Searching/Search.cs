@@ -16,7 +16,7 @@ namespace AGX.Scripts.Runtime.Searching
         [SerializeField]
         private GameObject _noResultsGameObject;
 
-        private List<ISearchable> _searchables = new List<ISearchable>();
+        private List<ISearchable> _searchables = new();
 
         private void Awake()
         {
@@ -58,11 +58,15 @@ namespace AGX.Scripts.Runtime.Searching
                 return;
             }
 
-            // Update visibility of searchable objects
+            // Update visibility of searchables in list (filtered by search query)
             foreach (var searchable in _searchables)
             {
                 if (searchable is MonoBehaviour monoBehaviour)
                 {
+                    // ensure it's not the 'no results' object
+                    if (monoBehaviour.gameObject == _noResultsGameObject)
+                        continue;
+
                     monoBehaviour.gameObject.SetActive(matchingSearchables.Contains(searchable));
                 }
             }
