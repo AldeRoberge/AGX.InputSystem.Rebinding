@@ -76,6 +76,10 @@ namespace AGX.Scripts.Searching
             {
                 if (searchable is MonoBehaviour monoBehaviour)
                 {
+                    // ensure it's not the 'no results' object
+                    if (monoBehaviour.gameObject == _noResultsGameObject)
+                        continue;
+
                     monoBehaviour.gameObject.SetActive(active);
                 }
             }

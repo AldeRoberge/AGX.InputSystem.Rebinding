@@ -235,15 +235,49 @@ namespace AGX.Scripts.Rebinder
                 return false;
             }
 
-            // Check if the override path exists and differs from the original path
-            var originalPath = action.bindings[bindingIndex].path;
-            var overridePath = action.bindings[bindingIndex].overridePath;
+            // Find the root binding index if this is part of a composite
+            int rootBindingIndex = bindingIndex;
+            while (rootBindingIndex > 0 && action.bindings[rootBindingIndex].isPartOfComposite)
+            {
+                rootBindingIndex--;
+            }
 
-            var isChanged = !string.IsNullOrEmpty(overridePath) && overridePath != originalPath;
+            var isComposite = action.bindings[rootBindingIndex].isComposite;
 
-            Debug.Log($"IsBindingChanged: {isChanged}, Original: {originalPath}, Override: {overridePath}");
+            if (isComposite)
+            {
+                // Check all parts of the composite binding
+                for (int i = rootBindingIndex + 1; i < action.bindings.Count; i++)
+                {
+                    var partBinding = action.bindings[i];
+                    if (!partBinding.isPartOfComposite)
+                        break;
 
-            return isChanged;
+                    var originalPath = partBinding.path;
+                    var overridePath = partBinding.overridePath;
+
+                    if (!string.IsNullOrEmpty(overridePath) && overridePath != originalPath)
+                    {
+                        Debug.Log($"Composite binding part changed: {partBinding.name}, Original: {originalPath}, Override: {overridePath}");
+                        return true;
+                    }
+                }
+
+                Debug.Log("No changes found in composite binding parts.");
+                return false;
+            }
+            else
+            {
+                // Check the single binding
+                var originalPath = action.bindings[bindingIndex].path;
+                var overridePath = action.bindings[bindingIndex].overridePath;
+
+                var isChanged = !string.IsNullOrEmpty(overridePath) && overridePath != originalPath;
+
+                Debug.Log($"IsBindingChanged: {isChanged}, Original: {originalPath}, Override: {overridePath}");
+
+                return isChanged;
+            }
         }
     }
 }
