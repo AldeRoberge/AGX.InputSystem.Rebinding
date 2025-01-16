@@ -161,7 +161,7 @@
             <key>trimMargin</key>
             <uint>1</uint>
             <key>trimMode</key>
-            <enum type="SpriteSettings::TrimMode">Polygon</enum>
+            <enum type="SpriteSettings::TrimMode">None</enum>
             <key>tracerTolerance</key>
             <int>200</int>
             <key>heuristicMask</key>
@@ -173,11 +173,15 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
+            <key type="filename">../../../../AGX/Sprites/Packed/General/Close.png</key>
             <key type="filename">../../../../AGX/Sprites/Packed/General/Gamepad.png</key>
+            <key type="filename">../../../../AGX/Sprites/Packed/General/Keyboard.png</key>
             <key type="filename">../../../../AGX/Sprites/Packed/General/Reset.png</key>
+            <key type="filename">../../../../AGX/Sprites/Packed/General/Search.png</key>
+            <key type="filename">../../../../AGX/Sprites/Packed/General/Settings.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
-                <point_f>0,0.8</point_f>
+                <point_f>0,0.775</point_f>
                 <key>spriteScale</key>
                 <double>1</double>
                 <key>scale9Enabled</key>
@@ -192,7 +196,7 @@
             <key type="filename">../../../../AGX/Sprites/Packed/General/Joystick.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
-                <point_f>0,0.8</point_f>
+                <point_f>0,0.775</point_f>
                 <key>spriteScale</key>
                 <double>1</double>
                 <key>scale9Enabled</key>

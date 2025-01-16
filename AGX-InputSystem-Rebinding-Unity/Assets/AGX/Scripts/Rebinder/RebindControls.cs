@@ -1,13 +1,13 @@
+using AGX.Scripts.Searching;
 using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace AGX.Scripts.Rebinder
 {
-    public class RebindControls : MonoBehaviour
+    public class RebindControls : MonoBehaviour, ISearchable
     {
         [BoxGroup("References"), SerializeField]              private InputActionReference              _inputActionReference;
         [BoxGroup("References"), SerializeField]              private bool                              _mouseIncluded;
@@ -58,6 +58,8 @@ namespace AGX.Scripts.Rebinder
 
             GetBindingInfo(selectBinding);
             UpdateUI();
+
+            name = $"Input Action Rebinder ({actionName})";
         }
 
         private void GetBindingInfo(int selectBinding)
@@ -88,7 +90,7 @@ namespace AGX.Scripts.Rebinder
 
             _isDirty = InputManager.IsBindingChanged(actionName, bindingIndex);
             _resetButton.gameObject.SetActive(_isDirty);
-            
+
             Debug.Log($"IsDirty: {_isDirty}");
         }
 
@@ -125,5 +127,10 @@ namespace AGX.Scripts.Rebinder
         {
             ResetBinding();
         }
+
+        public string[] SearchKeywords => new[]
+        {
+            actionName
+        };
     }
 }

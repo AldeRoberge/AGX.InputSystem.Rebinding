@@ -4,16 +4,19 @@
 # To import these sprites into your Unity project, download "TexturePackerImporter":
 # https://www.codeandweb.com/texturepacker/unity
 #
-# $TexturePacker:SmartUpdate:25c5331eb4df70dc49524e5300d0105b:54a86dd142d1d401e8a63aed07b9c28b:65a7aa57881b688cb5eac16042e9bfc4$
+# $TexturePacker:SmartUpdate:1d36202320119a74573dd3ed3e33bbbf:731169b2eac974bd90f0326ec769ff2a:65a7aa57881b688cb5eac16042e9bfc4$
 #
 :format=40300
 :texture=General.png
-:size=2048x1024
+:size=2048x2048
 :pivotpoints=enabled
 :borders=disabled
 :alphahandling=ClearTransparentPixels
 
-Gamepad;1535;511;512;512; 0;0.19999999999999996; 0;0;0;0
-Joystick;1029;959;64;64; 0;0.19999999999999996; 0;0;0;0
-Keyboard;515;511;512;512; 0;0.19999999999999996; 0;0;0;0
-Reset;1;511;512;512; 0;0.19999999999999996; 0;0;0;0
+Close;1535;1;512;512; 0;0.22499999999999998; 0;0;0;0
+Gamepad;1;1;512;512; 0;0.22499999999999998; 0;0;0;0
+Joystick;1029;1983;64;64; 0;0.22499999999999998; 0;0;0;0
+Keyboard;1;1021;512;512; 0;0.22499999999999998; 0;0;0;0
+Reset;1535;1535;512;512; 0;0.22499999999999998; 0;0;0;0
+Search;515;1535;512;512; 0;0.22499999999999998; 0;0;0;0
+Settings;1;1535;512;512; 0;0.22499999999999998; 0;0;0;0
