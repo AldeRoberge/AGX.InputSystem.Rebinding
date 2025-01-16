@@ -1,4 +1,5 @@
 using AGX.Scripts.Searching;
+using InputSystemActionPrompts;
 using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
@@ -84,10 +85,16 @@ namespace AGX.Scripts.Rebinder
 
             if (_rebindText == null) return;
 
+
+            // [Gameplay/Move] (gameplay is the map, move is the action)
+            var txt = $"[{_inputActionReference.action.actionMap.name}/{_inputActionReference.action.name}]";
+            _rebindText.text = InputDevicePromptSystem.InsertPromptSprites(txt);
+
+            /*
             if (Application.isPlaying)
                 _rebindText.text = InputManager.GetBindingName(actionName, bindingIndex);
             else
-                _rebindText.text = _inputActionReference.action.GetBindingDisplayString(bindingIndex);
+                _rebindText.text = _inputActionReference.action.GetBindingDisplayString(bindingIndex);*/
 
             _isDirty = InputManager.IsBindingChanged(actionName, bindingIndex);
             _resetButton.gameObject.SetActive(_isDirty);

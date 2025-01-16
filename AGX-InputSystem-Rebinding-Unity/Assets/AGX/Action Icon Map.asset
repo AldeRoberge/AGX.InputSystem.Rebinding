@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00a7647e51d7ea248849a32571ad41d9, type: 3}
-  m_Name: ActionIconMap
+  m_Name: Action Icon Map
   m_EditorClassIdentifier: 
   ActionIcons:
   - Action: {fileID: -436110834621127343, guid: bf1efc4e6801b6b40a5a572caa5feaa4,
