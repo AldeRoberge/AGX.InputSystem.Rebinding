@@ -10,6 +10,11 @@ namespace AGX.Scripts.Runtime.Rebinder
 {
     public class InputManager
     {
+        private const string KeyboardEscape    = "<Keyboard>/escape";
+        private const string Mouse             = "Mouse";
+        private const string GamepadLeftstick  = "<Gamepad>/leftstick";
+        private const string GamepadRightstick = "<Gamepad>/rightstick";
+
         private static InputActions? inputActions;
 
         public static InputActions InputActions => inputActions ??= new InputActions();
@@ -19,6 +24,7 @@ namespace AGX.Scripts.Runtime.Rebinder
         public static event Action<InputAction, int> RebindStarted = delegate { };
 
         private static List<RebindControls> rebindControls = new();
+
 
         public static event Action<int> RebindCountChanged = delegate { };
 
@@ -114,13 +120,13 @@ namespace AGX.Scripts.Runtime.Rebinder
                 RebindCanceled?.Invoke();
             });
 
-            rebind.WithCancelingThrough("<Keyboard>/escape");
+            rebind.WithCancelingThrough(KeyboardEscape);
 
             if (excludeMouse)
-                rebind.WithControlsExcluding("Mouse");
+                rebind.WithControlsExcluding(Mouse);
 
-            rebind.WithControlsExcluding("<Gamepad>/leftstick");
-            rebind.WithControlsExcluding("<Gamepad>/rightstick");
+            rebind.WithControlsExcluding(GamepadLeftstick);
+            rebind.WithControlsExcluding(GamepadRightstick);
 
             var partName = default(string);
             if (actionToRebind.bindings[bindingIndex].isPartOfComposite)
@@ -129,7 +135,7 @@ namespace AGX.Scripts.Runtime.Rebinder
             rebindOverlay?.SetActive(true);
             if (rebindOverlay != null)
             {
-                string text = "";
+                string text;
 
                 if (excludeMouse)
                 {
@@ -171,7 +177,7 @@ namespace AGX.Scripts.Runtime.Rebinder
                 return false;
             }
 
-            //Check for duplicate (composite) bindings
+            // Check for duplicate (composite) bindings
             if (allCompositeParts)
             {
                 for (var i = 0; i < bindingIndex; ++i)
@@ -283,7 +289,7 @@ namespace AGX.Scripts.Runtime.Rebinder
             }
 
             // Find the root binding index if this is part of a composite
-            int rootBindingIndex = bindingIndex;
+            var rootBindingIndex = bindingIndex;
             while (rootBindingIndex > 0 && action.bindings[rootBindingIndex].isPartOfComposite)
             {
                 rootBindingIndex--;
@@ -294,7 +300,7 @@ namespace AGX.Scripts.Runtime.Rebinder
             if (isComposite)
             {
                 // Check all parts of the composite binding
-                for (int i = rootBindingIndex + 1; i < action.bindings.Count; i++)
+                for (var i = rootBindingIndex + 1; i < action.bindings.Count; i++)
                 {
                     var partBinding = action.bindings[i];
                     if (!partBinding.isPartOfComposite)
