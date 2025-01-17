@@ -23,8 +23,7 @@ namespace AGX.Scripts.Runtime.Rebinder
         public static event Action RebindCanceled = delegate { };
         public static event Action<InputAction, int> RebindStarted = delegate { };
 
-        private static List<ActionRebinder> rebindControls = new();
-
+        private static List<ActionRebinder> _actionRebinders = new();
 
         public static event Action<int> RebindCountChanged = delegate { };
 
@@ -35,7 +34,7 @@ namespace AGX.Scripts.Runtime.Rebinder
             RebindCanceled = delegate { };
             RebindStarted = delegate { };
             inputActions = new InputActions();
-            rebindControls = new List<ActionRebinder>();
+            _actionRebinders = new List<ActionRebinder>();
             RebindCountChanged = delegate { };
         }
 
@@ -279,7 +278,7 @@ namespace AGX.Scripts.Runtime.Rebinder
             actionRebinder.UpdateUI();
         }
 
-        public static bool IsBindingChanged(string actionName, int bindingIndex)
+        public static bool IsBindingOverriden(string actionName, int bindingIndex)
         {
             var action = InputActions.asset.FindAction(actionName);
 
@@ -328,7 +327,11 @@ namespace AGX.Scripts.Runtime.Rebinder
 
                 var isChanged = !string.IsNullOrEmpty(overridePath) && overridePath != originalPath;
 
-                Debug.Log($"IsBindingChanged: {isChanged}, Original: {originalPath}, Override: {overridePath}");
+                /*
+                    Debug.Log(isChanged
+                        ? $"The binding <b>{originalPath}</b> has been changed to {overridePath}"
+                        : $"The binding <b>{originalPath}</b> has not been changed.");
+                */
 
                 return isChanged;
             }
@@ -336,24 +339,24 @@ namespace AGX.Scripts.Runtime.Rebinder
 
         public static void RegisterRebind(ActionRebinder actionRebinder)
         {
-            rebindControls ??= new List<ActionRebinder>();
-            rebindControls.Add(actionRebinder);
+            _actionRebinders ??= new List<ActionRebinder>();
+            _actionRebinders.Add(actionRebinder);
         }
 
         public static void UpdateRebindCount()
         {
-            RebindCountChanged?.Invoke(GetRebindCount());
+            RebindCountChanged?.Invoke(GetTotalBindingOverwriteCount());
         }
 
-        internal static int GetRebindCount()
+        internal static int GetTotalBindingOverwriteCount()
         {
             int count = 0;
 
-            foreach (var rebindControl in rebindControls)
+            foreach (var rebindControl in _actionRebinders)
             {
-                if (IsBindingChanged(rebindControl.ActionName, rebindControl.BindingIndex))
+                if (IsBindingOverriden(rebindControl.ActionName, rebindControl.BindingIndex))
                 {
-                    Debug.Log($"Has rebinds: {rebindControl.ActionName}");
+                    Debug.Log($"The binding for {rebindControl.ActionName} at index {rebindControl.BindingIndex} has been changed from the original.");
                     count++;
                 }
             }

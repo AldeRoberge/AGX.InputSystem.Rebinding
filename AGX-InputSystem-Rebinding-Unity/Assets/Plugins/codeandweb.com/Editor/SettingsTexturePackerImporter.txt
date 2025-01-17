@@ -1,8 +1,11 @@
 version: 2
 tpsheetFileNames:
+- Assets/AGX/Prompts/Devices/Keyboard/Keyboard.tpsheet
 - Assets/Plugins/TextMesh Pro/Resources/Sprite Assets/General/General.tpsheet
 textureFileNames:
+- Assets/AGX/Prompts/Devices/Keyboard/Keyboard.png
 - Assets/Plugins/TextMesh Pro/Resources/Sprite Assets/General/General.png
 normalmapFileNames:
+- 
 - 
 enableDebugOutput: 0

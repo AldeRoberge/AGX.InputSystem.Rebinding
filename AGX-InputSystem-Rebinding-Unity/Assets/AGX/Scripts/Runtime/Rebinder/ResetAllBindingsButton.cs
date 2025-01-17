@@ -21,7 +21,7 @@ namespace AGX.Scripts.Runtime.Rebinder
         {
             InputManager.RebindCountChanged += RebindCountChanged;
             _buttonReset.onClick.AddListener(InputManager.ResetAllBindings);
-            RebindCountChanged(InputManager.GetRebindCount());
+            RebindCountChanged(InputManager.GetTotalBindingOverwriteCount());
         }
 
         public void OnDestroy()
