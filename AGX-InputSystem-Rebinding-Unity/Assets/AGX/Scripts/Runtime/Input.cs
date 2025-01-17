@@ -1,7 +1,6 @@
 ﻿using AGX.Scripts.Runtime.Rebinder;
 using FredericRP.GenericSingleton;
 using Generator.Scripts.Runtime;
-using InputSystemActionPrompts.Runtime;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;

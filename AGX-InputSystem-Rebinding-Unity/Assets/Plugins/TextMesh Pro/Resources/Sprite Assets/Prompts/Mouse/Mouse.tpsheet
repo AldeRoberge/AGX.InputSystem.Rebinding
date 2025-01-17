@@ -1,0 +1,26 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# https://www.codeandweb.com/texturepacker/unity
+#
+# $TexturePacker:SmartUpdate:8a29db39512922f3c5048e2430fa4742:b4d1ed827c810975188dea7c62e8584f:d565dcb69e32cf908c841d5088ded397$
+#
+:format=40300
+:texture=Mouse.png
+:size=1024x512
+:pivotpoints=enabled
+:borders=disabled
+:alphahandling=ClearTransparentPixels
+
+mouse;521;383;128;128; 0;0.19999999999999996; 0;0;0;0
+mouse_horizontal;391;383;128;128; 0;0.19999999999999996; 0;0;0;0
+mouse_left;261;123;128;128; 0;0.19999999999999996; 0;0;0;0
+mouse_move;131;123;128;128; 0;0.19999999999999996; 0;0;0;0
+mouse_right;261;253;128;128; 0;0.19999999999999996; 0;0;0;0
+mouse_scroll;1;123;128;128; 0;0.19999999999999996; 0;0;0;0
+mouse_scroll_down;131;253;128;128; 0;0.19999999999999996; 0;0;0;0
+mouse_scroll_up;1;253;128;128; 0;0.19999999999999996; 0;0;0;0
+mouse_scroll_vertical;261;383;128;128; 0;0.19999999999999996; 0;0;0;0
+mouse_small;131;383;128;128; 0;0.19999999999999996; 0;0;0;0
+mouse_vertical;1;383;128;128; 0;0.19999999999999996; 0;0;0;0

@@ -1,9 +1,12 @@
+using System;
+using System.Text;
+using AGX.Scripts.Runtime.Prompts;
 using AGX.Scripts.Runtime.Searching;
-using InputSystemActionPrompts.Runtime;
 using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Utilities;
 using UnityEngine.UI;
 
 namespace AGX.Scripts.Runtime.Rebinder
@@ -13,12 +16,12 @@ namespace AGX.Scripts.Runtime.Rebinder
     /// </summary>
     public class ActionRebinder : MonoBehaviour, ISearchable
     {
-        [BoxGroup("References"), SerializeField, Required] private InputActionReference              _inputActionReference;
-        [BoxGroup("References"), SerializeField, Required] private ActionIconMap                     _actionIconMap;
-        [BoxGroup("References"), SerializeField]           private bool                              _mouseIncluded;
-        [BoxGroup("References"), SerializeField]           private InputBinding.DisplayStringOptions _displayStringOptions;
+        [BoxGroup("References"), SerializeField] private ActionRebinders _actionRebinders;
 
-        [BoxGroup("References/UI"), SerializeField, Required] private TMP_Text      _actionText;
+        [BoxGroup("References"), SerializeField] private bool                              _mouseIncluded;
+        [BoxGroup("References"), SerializeField] private InputBinding.DisplayStringOptions _displayStringOptions;
+
+
         [BoxGroup("References/UI"), SerializeField, Required] private Button        _buttonRebind;
         [BoxGroup("References/UI"), SerializeField, Required] private RebindOverlay _rebindOverlay;
 
@@ -41,9 +44,7 @@ namespace AGX.Scripts.Runtime.Rebinder
             _buttonRebind.onClick.AddListener(DoRebind);
             _buttonReset.onClick.AddListener(ResetBinding);
 
-            InputDevicePromptSystem.OnInitialized += UpdateUI;
-
-            if (_inputActionReference != null)
+            if (_actionRebinders.InputActionReference != null)
             {
                 GetBindingInfo(_selectedBinding);
                 UpdateUI();
@@ -59,8 +60,6 @@ namespace AGX.Scripts.Runtime.Rebinder
         {
             InputManager.RebindComplete -= UpdateUI;
             InputManager.RebindCanceled -= UpdateUI;
-
-            InputDevicePromptSystem.OnInitialized -= UpdateUI;
         }
 
         private void OnValidate()
@@ -73,56 +72,42 @@ namespace AGX.Scripts.Runtime.Rebinder
 
         private void GetBindingInfo(int selectedBinding)
         {
-            _actionName = _inputActionReference.action.name;
+            _actionName = _actionRebinders.InputActionReference.action.name;
 
-            if (_inputActionReference.action.bindings.Count > _selectedBinding)
+            if (_actionRebinders.InputActionReference.action.bindings.Count > _selectedBinding)
             {
                 _selectedBinding = selectedBinding;
-                _inputBinding = _inputActionReference.action.bindings[_selectedBinding];
+                _inputBinding = _actionRebinders.InputActionReference.action.bindings[_selectedBinding];
                 _bindingIndex = _selectedBinding;
             }
         }
 
+        [Button]
         internal void UpdateUI()
         {
-            _actionText.text = _actionIconMap.GetFor(_inputActionReference);
-
-            // [Map/Action] i.e. [Player/Move]
-            var txt = $"[{_inputActionReference.action.actionMap.name}/{_inputActionReference.action.name}]";
-            // Debug.Log(txt);
+            var startIndex = _bindingIndex;
 
 
-            // Get the range of the binding index for the current composite group
-            var startIndex = _bindingIndex; // Assume this is the index of the composite's root binding
+            var action = InputManager.GetAction(_actionName);
+            var bindings = InputManager.GetBindings(_actionName);
 
-// Get all bindings for the action
-            var bindings = _inputActionReference.action.bindings;
-
-            // Initialize the endIndex to the start index
             var endIndex = startIndex;
 
-   
-            /*
-             for (int i = 0; i < bindings.Count; i++)
-                Debug.Log($"Binding {i}: {bindings[i].name} - {bindings[i].path} - {bindings[i].isComposite} - {bindings[i].isPartOfComposite}");
-            */
+            for (int i = 0; i < bindings.Count; i++)
+                Debug.Log($"Binding {i}: {bindings[i].name} - {bindings[i].effectivePath} - {bindings[i].isComposite} - {bindings[i].isPartOfComposite}");
 
-// Validate startIndex
             if (startIndex < 0 || startIndex >= bindings.Count)
-            {
-                Debug.LogError($"Invalid binding index: {startIndex}, Action: {_inputActionReference.action.name}");
-            }
+                Debug.LogError($"Invalid binding index: {startIndex}, Action: {action.name}");
 
             bool isRootOfComposite = bindings[startIndex].isComposite && !bindings[startIndex].isPartOfComposite;
 
-
             if (!isRootOfComposite)
             {
-                Debug.LogError($"Binding at index {startIndex} for {_inputActionReference.action.name} is not the root of a composite \n" +
-                               $"Binding: {bindings[startIndex].name}\n" +
-                               $"Path: {bindings[startIndex].path}\n" +
-                               $"Is Composite: {bindings[startIndex].isComposite}\n" +
-                               $"Is Part of Composite: {bindings[startIndex].isPartOfComposite}");
+                Debug.Log($"Binding at index {startIndex} for {action.name} is not the root of a composite \n" +
+                          $"Binding: {bindings[startIndex].name}\n" +
+                          $"Path: {bindings[startIndex].path}\n" +
+                          $"Is Composite: {bindings[startIndex].isComposite}\n" +
+                          $"Is Part of Composite: {bindings[startIndex].isPartOfComposite}");
             }
             else
             {
@@ -132,36 +117,41 @@ namespace AGX.Scripts.Runtime.Rebinder
 
                     // We found the start of a new composite, stop processing
                     if (isNewComposite)
-                    {
                         break;
-                    }
 
                     if (bindings[i].isPartOfComposite)
-                    {
                         endIndex = i;
-                    }
                 }
             }
 
-// Log the start and end indices for debugging
-            Debug.Log($"Composite Range: Start Index: {startIndex}, End Index: {endIndex}, Action: {_inputActionReference.action.name}");
+            Debug.Log($"Start Index: {startIndex} End Index: {endIndex} for {action.bindings.Count} bindings of {_actionRebinders.InputActionReference.action.name}");
 
-            Debug.Log($"Start Index: {startIndex} End Index: {endIndex} for {_inputActionReference.action.bindings.Count} bindings of {_inputActionReference.action.name}");
+            StringBuilder fullString = new StringBuilder();
 
-            var result = InputDevicePromptSystem.InsertPromptSprites(txt, _bindingIndex, endIndex);
-
-            if (result.Contains(InputDevicePromptSystem.MISSING_PROMPT) ||
-                result.Contains(InputDevicePromptSystem.WAITING_FOR_INITIALIZATION))
+            for (int i = startIndex; i <= endIndex; i++)
             {
-                _textRebind.text = Application.isPlaying
+                var b = action.bindings[i];
+
+                // ensure this input binding is not the start of a composite
+                if (b.isComposite)
+                    continue;
+
+                // get the action as a string like '/Keyboard/anyKey'
+                var tmpSprite = InputDevicePrompts.GetSprite(b.effectivePath);
+
+                Debug.Log($"Binding {i}: name {b.name} - path {b.path} - effective path {b.effectivePath} - sprite {tmpSprite}");
+
+                fullString.Append(tmpSprite);
+            }
+
+            /* IF ANYTHING GOES WRONG
+             *   _textRebind.text = Application.isPlaying
                     // From the input manager
                     ? InputManager.GetBindingName(_actionName, _bindingIndex)
-                    : _inputActionReference.action.GetBindingDisplayString(_bindingIndex); // From the input action reference
-            }
-            else
-            {
-                _textRebind.text = result;
-            }
+                    : action.GetBindingDisplayString(_bindingIndex); // From the input action reference
+             */
+
+            _textRebind.text = fullString.ToString();
 
             _isDirty = InputManager.IsBindingOverriden(_actionName, _bindingIndex);
             _buttonReset.gameObject.SetActive(_isDirty);

@@ -1,11 +1,14 @@
 version: 2
 tpsheetFileNames:
-- Assets/AGX/Prompts/Devices/Keyboard/Keyboard.tpsheet
 - Assets/Plugins/TextMesh Pro/Resources/Sprite Assets/General/General.tpsheet
+- Assets/Plugins/TextMesh Pro/Resources/Sprite Assets/Prompts/Keyboard/Keyboard.tpsheet
+- Assets/Plugins/TextMesh Pro/Resources/Sprite Assets/Prompts/Mouse/Mouse.tpsheet
 textureFileNames:
-- Assets/AGX/Prompts/Devices/Keyboard/Keyboard.png
 - Assets/Plugins/TextMesh Pro/Resources/Sprite Assets/General/General.png
+- Assets/Plugins/TextMesh Pro/Resources/Sprite Assets/Prompts/Keyboard/Keyboard.png
+- Assets/Plugins/TextMesh Pro/Resources/Sprite Assets/Prompts/Mouse/Mouse.png
 normalmapFileNames:
+- 
 - 
 - 
 enableDebugOutput: 0

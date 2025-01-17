@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using Generator.Scripts.Runtime;
-using InputSystemActionPrompts.Runtime;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Utilities;
 using Object = UnityEngine.Object;
 
 namespace AGX.Scripts.Runtime.Rebinder
@@ -46,7 +46,6 @@ namespace AGX.Scripts.Runtime.Rebinder
             // :) :D
             // GitHub Copilot says : "I'm an AI, I don't have feelings, but I'm here to help you write code."
             // Very cringe-pilled, Copilot. Very cringe-pilled.
-            InputDevicePromptSystem.Initialize(InputActions.asset);
 
             UpdateRebindCount();
         }
@@ -124,9 +123,19 @@ namespace AGX.Scripts.Runtime.Rebinder
             if (excludeMouse)
                 rebind.WithControlsExcluding(Mouse);
 
-            rebind.WithControlsExcluding(GamepadLeftstick);
-            rebind.WithControlsExcluding(GamepadRightstick);
+            Debug.Log($"Rebinding {actionToRebind.name} at index {bindingIndex} for map {actionToRebind.actionMap.name}");
 
+
+            // Add filtering based on the input action's control type (Keyboard or Gamepad)
+            if (actionToRebind.actionMap.name == "Keyboard")
+            {
+                rebind.WithControlsExcluding(GamepadLeftstick);
+                rebind.WithControlsExcluding(GamepadRightstick);
+            }
+            else if (actionToRebind.actionMap.name == "Gamepad")
+            {
+                rebind.WithControlsExcluding(KeyboardEscape); // Exclude keyboard escape for gamepad actions
+            }
 
             rebindOverlay?.SetActive(true);
             if (rebindOverlay != null)
@@ -140,14 +149,14 @@ namespace AGX.Scripts.Runtime.Rebinder
                 if (excludeMouse)
                 {
                     text = !string.IsNullOrEmpty(actionToRebind.expectedControlType)
-                        ? $"{partName} Press any key ({actionToRebind.expectedControlType})..."
-                        : $"{partName} Press any key...";
+                        ? $"{partName} Press any button ({actionToRebind.expectedControlType})..."
+                        : $"{partName} Press any button...";
                 }
                 else
                 {
                     text = !string.IsNullOrEmpty(actionToRebind.expectedControlType)
-                        ? $"{partName} Press any key or button ({actionToRebind.expectedControlType})..."
-                        : $"{partName} Press any key or button...";
+                        ? $"{partName} Press any button ({actionToRebind.expectedControlType}) or mouse button..."
+                        : $"{partName} Press any button or mouse button...";
                 }
 
                 rebindOverlay.SetText(text);
@@ -156,6 +165,7 @@ namespace AGX.Scripts.Runtime.Rebinder
             RebindStarted?.Invoke(actionToRebind, bindingIndex);
             rebind.Start(); //actually starts the rebinding
         }
+
 
         // Only checks for duplicates within the same action map.
         private static bool IsDuplicateBinding(InputAction actionToRebind, int bindingIndex, bool allCompositeParts = false)
@@ -280,7 +290,7 @@ namespace AGX.Scripts.Runtime.Rebinder
 
         public static bool IsBindingOverriden(string actionName, int bindingIndex)
         {
-            var action = InputActions.asset.FindAction(actionName);
+            InputAction action = InputActions.asset.FindAction(actionName);
 
             if (action == null || action.bindings.Count <= bindingIndex)
             {
@@ -356,12 +366,22 @@ namespace AGX.Scripts.Runtime.Rebinder
             {
                 if (IsBindingOverriden(rebindControl.ActionName, rebindControl.BindingIndex))
                 {
-                    Debug.Log($"The binding for {rebindControl.ActionName} at index {rebindControl.BindingIndex} has been changed from the original.");
                     count++;
                 }
             }
 
             return count;
+        }
+
+        public static ReadOnlyArray<InputBinding> GetBindings(string actionName)
+        {
+            var action = InputActions.asset.FindAction(actionName);
+            return action.bindings;
+        }
+
+        public static InputAction GetAction(string actionName)
+        {
+            return InputActions.asset.FindAction(actionName);
         }
     }
 }
