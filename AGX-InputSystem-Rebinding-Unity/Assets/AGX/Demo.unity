@@ -223,17 +223,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 21138144}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 374680414}
-  m_Father: {fileID: 425050453}
+  m_Father: {fileID: 2036347336}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -130, y: 0}
+  m_AnchoredPosition: {x: 183.64307, y: 0}
   m_SizeDelta: {x: 85, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &21138146
@@ -1014,8 +1014,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <sprite="MouseKeyboardDark_Prompts" name="mousekeyboard_key_space_wide"
-    >
+  m_text: Espace
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0ae800816eb19a14981e78e78d365d11, type: 2}
   m_sharedMaterial: {fileID: -493796175005288581, guid: 0ae800816eb19a14981e78e78d365d11,
@@ -1150,7 +1149,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <sprite="General/General" name="Reset" tint=1> Reset All
+  m_text: <sprite="General/General" name="Close" tint=1> Reset All
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1177,12 +1176,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 40
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -1193,7 +1192,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -1213,7 +1212,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 20, y: 0, z: 20, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1410,7 +1409,6 @@ RectTransform:
   m_Children:
   - {fileID: 206917557}
   - {fileID: 2036347336}
-  - {fileID: 21138145}
   m_Father: {fileID: 1909273952}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1432,7 +1430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputActionReference: {fileID: -436110834621127343, guid: bf1efc4e6801b6b40a5a572caa5feaa4,
     type: 3}
-  _inputActionMap: {fileID: 11400000, guid: 10e4b06b9dd4c7b4aa3f10d8d7a670b7, type: 2}
+  _actionIconMap: {fileID: 11400000, guid: 10e4b06b9dd4c7b4aa3f10d8d7a670b7, type: 2}
   _mouseIncluded: 0
   _selectedBinding: 0
   _displayStringOptions: 0
@@ -1446,10 +1444,10 @@ MonoBehaviour:
     m_Action: Jump
     m_Flags: 0
   _actionText: {fileID: 206917558}
-  _rebindButton: {fileID: 2036347337}
+  _buttonRebind: {fileID: 2036347337}
   _rebindOverlay: {fileID: 74857982}
-  _rebindText: {fileID: 310021160}
-  _resetButton: {fileID: 21138146}
+  _textRebind: {fileID: 310021160}
+  _buttonReset: {fileID: 21138146}
 --- !u!114 &425050455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1680,7 +1678,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <sprite="MouseKeyboardDark_Prompts" name="mousekeyboard_mouse_left" >
+  m_text: LMB
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0ae800816eb19a14981e78e78d365d11, type: 2}
   m_sharedMaterial: {fileID: -493796175005288581, guid: 0ae800816eb19a14981e78e78d365d11,
@@ -2970,9 +2968,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <sprite="MouseKeyboardDark_Prompts" name="mousekeyboard_key_w" ><sprite="MouseKeyboardDark_Prompts"
-    name="mousekeyboard_key_s" ><sprite="MouseKeyboardDark_Prompts" name="mousekeyboard_key_a"
-    ><sprite="MouseKeyboardDark_Prompts" name="mousekeyboard_key_a" >
+  m_text: W/A/S/D
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0ae800816eb19a14981e78e78d365d11, type: 2}
   m_sharedMaterial: {fileID: -493796175005288581, guid: 0ae800816eb19a14981e78e78d365d11,
@@ -3090,17 +3086,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1124331961}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1820265197}
-  m_Father: {fileID: 1444485274}
+  m_Father: {fileID: 1444438440}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -130, y: 0}
+  m_AnchoredPosition: {x: 183.64307, y: 0}
   m_SizeDelta: {x: 85, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1124331963
@@ -3338,7 +3334,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1224541881
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3346,17 +3342,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1224541880}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1633150173}
-  m_Father: {fileID: 1303781098}
+  m_Father: {fileID: 1776752852}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -130, y: 0}
+  m_AnchoredPosition: {x: 183.64307, y: 0}
   m_SizeDelta: {x: 85, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1224541882
@@ -3564,7 +3560,6 @@ RectTransform:
   m_Children:
   - {fileID: 1176185943}
   - {fileID: 1776752852}
-  - {fileID: 1224541881}
   m_Father: {fileID: 1909273952}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3624,12 +3619,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputActionReference: {fileID: -2523124660656823200, guid: bf1efc4e6801b6b40a5a572caa5feaa4,
     type: 3}
-  _inputActionMap: {fileID: 11400000, guid: 10e4b06b9dd4c7b4aa3f10d8d7a670b7, type: 2}
+  _actionIconMap: {fileID: 11400000, guid: 10e4b06b9dd4c7b4aa3f10d8d7a670b7, type: 2}
   _mouseIncluded: 0
   _selectedBinding: 0
   _displayStringOptions: 0
   _inputBinding:
-    m_Name: 2D Vector
+    m_Name: WASD [Keyboard]
     m_Id: 72bf64a3-0cc9-45bd-ad6c-2f9a4e11ac3d
     m_Path: 2DVector
     m_Interactions: 
@@ -3638,10 +3633,10 @@ MonoBehaviour:
     m_Action: Move
     m_Flags: 4
   _actionText: {fileID: 1176185944}
-  _rebindButton: {fileID: 1776752853}
+  _buttonRebind: {fileID: 1776752853}
   _rebindOverlay: {fileID: 74857982}
-  _rebindText: {fileID: 1091070424}
-  _resetButton: {fileID: 1224541882}
+  _textRebind: {fileID: 1091070424}
+  _buttonReset: {fileID: 1224541882}
 --- !u!1 &1331074018
 GameObject:
   m_ObjectHideFlags: 0
@@ -3881,6 +3876,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 623490878}
+  - {fileID: 1124331962}
   m_Father: {fileID: 1444485274}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
@@ -4003,7 +3999,6 @@ RectTransform:
   m_Children:
   - {fileID: 181120577}
   - {fileID: 1444438440}
-  - {fileID: 1124331962}
   m_Father: {fileID: 1909273952}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4025,7 +4020,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputActionReference: {fileID: 7978532731956525062, guid: bf1efc4e6801b6b40a5a572caa5feaa4,
     type: 3}
-  _inputActionMap: {fileID: 11400000, guid: 10e4b06b9dd4c7b4aa3f10d8d7a670b7, type: 2}
+  _actionIconMap: {fileID: 11400000, guid: 10e4b06b9dd4c7b4aa3f10d8d7a670b7, type: 2}
   _mouseIncluded: 1
   _selectedBinding: 0
   _displayStringOptions: 0
@@ -4039,10 +4034,10 @@ MonoBehaviour:
     m_Action: Fire
     m_Flags: 0
   _actionText: {fileID: 181120578}
-  _rebindButton: {fileID: 1444438441}
+  _buttonRebind: {fileID: 1444438441}
   _rebindOverlay: {fileID: 74857982}
-  _rebindText: {fileID: 623490879}
-  _resetButton: {fileID: 1124331963}
+  _textRebind: {fileID: 623490879}
+  _buttonReset: {fileID: 1124331963}
 --- !u!114 &1444485276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5003,7 +4998,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 20}
-  m_SizeDelta: {x: 300, y: 80}
+  m_SizeDelta: {x: 400, y: 80}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1743299742
 MonoBehaviour:
@@ -5099,8 +5094,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7e93be1212a4355855ef65776f9ba4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _button: {fileID: 1743299742}
-  _resetText: {fileID: 349759214}
+  _buttonReset: {fileID: 1743299742}
+  _textReset: {fileID: 349759214}
 --- !u!1 &1776752851
 GameObject:
   m_ObjectHideFlags: 0
@@ -5133,6 +5128,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1091070423}
+  - {fileID: 1224541881}
   m_Father: {fileID: 1303781098}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
@@ -5756,7 +5752,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputActionReference: {fileID: 6979321881034650268, guid: bf1efc4e6801b6b40a5a572caa5feaa4,
     type: 3}
-  _inputActionMap: {fileID: 11400000, guid: 10e4b06b9dd4c7b4aa3f10d8d7a670b7, type: 2}
+  _actionIconMap: {fileID: 11400000, guid: 10e4b06b9dd4c7b4aa3f10d8d7a670b7, type: 2}
   _mouseIncluded: 0
   _selectedBinding: 0
   _displayStringOptions: 0
@@ -5770,10 +5766,10 @@ MonoBehaviour:
     m_Action: Sneak
     m_Flags: 0
   _actionText: {fileID: 1383341886}
-  _rebindButton: {fileID: 1649186386}
+  _buttonRebind: {fileID: 1649186386}
   _rebindOverlay: {fileID: 74857982}
-  _rebindText: {fileID: 2081395866}
-  _resetButton: {fileID: 736200204}
+  _textRebind: {fileID: 2081395866}
+  _buttonReset: {fileID: 736200204}
 --- !u!114 &1971458737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5894,8 +5890,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 362498012}
   m_HandleRect: {fileID: 362498011}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6216,6 +6212,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 310021159}
+  - {fileID: 21138145}
   m_Father: {fileID: 425050453}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
@@ -6575,7 +6572,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <sprite="MouseKeyboardDark_Prompts" name="mousekeyboard_key_shift" >
+  m_text: Maj
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0ae800816eb19a14981e78e78d365d11, type: 2}
   m_sharedMaterial: {fileID: -493796175005288581, guid: 0ae800816eb19a14981e78e78d365d11,

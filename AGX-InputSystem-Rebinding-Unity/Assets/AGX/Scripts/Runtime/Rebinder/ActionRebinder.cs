@@ -1,5 +1,4 @@
 using AGX.Scripts.Runtime.Searching;
-using InputSystemActionPrompts;
 using InputSystemActionPrompts.Runtime;
 using NaughtyAttributes;
 using TMPro;
@@ -9,32 +8,32 @@ using UnityEngine.UI;
 
 namespace AGX.Scripts.Runtime.Rebinder
 {
-    public class RebindControls : MonoBehaviour, ISearchable
+    /// <summary>
+    /// Allows rebinding an action to a new key/button/mouse input.
+    /// </summary>
+    public class ActionRebinder : MonoBehaviour, ISearchable
     {
-        [BoxGroup("References"), SerializeField]              private InputActionReference              _inputActionReference;
-        [BoxGroup("References"), SerializeField]              private ActionIconMap                     _inputActionMap;
+        [BoxGroup("References"), SerializeField, Required]    private InputActionReference              _inputActionReference;
+        [BoxGroup("References"), SerializeField, Required]    private ActionIconMap                     _actionIconMap;
         [BoxGroup("References"), SerializeField]              private bool                              _mouseIncluded;
-        [BoxGroup("References"), SerializeField, Range(0, 5)] private int                               _selectedBinding;
         [BoxGroup("References"), SerializeField]              private InputBinding.DisplayStringOptions _displayStringOptions;
-        [BoxGroup("References"), SerializeField, ReadOnly]    private InputBinding                      _inputBinding;
 
         [BoxGroup("References/UI"), SerializeField, Required] private TMP_Text      _actionText;
-        [BoxGroup("References/UI"), SerializeField, Required] private Button        _rebindButton;
+        [BoxGroup("References/UI"), SerializeField, Required] private Button        _buttonRebind;
         [BoxGroup("References/UI"), SerializeField, Required] private RebindOverlay _rebindOverlay;
-        [BoxGroup("References/UI"), SerializeField, Required] private TMP_Text      _rebindText;
-        [BoxGroup("References/UI"), SerializeField, Required] private Button        _resetButton;
 
-        [ShowNonSerializedField] private int    bindingIndex;
-        [ShowNonSerializedField] private string actionName;
+
+        [ShowNonSerializedField] private int    _bindingIndex;
+        [ShowNonSerializedField] private string _actionName;
 
         [ShowNonSerializedField] private bool _isDirty;
-        public string ActionName => actionName;
-        public int BindingIndex => bindingIndex;
+        public string ActionName => _actionName;
+        public int BindingIndex => _bindingIndex;
 
         private void OnEnable()
         {
-            _rebindButton.onClick.AddListener(DoRebind);
-            _resetButton.onClick.AddListener(ResetBinding);
+            _buttonRebind.onClick.AddListener(DoRebind);
+            _buttonReset.onClick.AddListener(ResetBinding);
 
             InputDevicePromptSystem.OnInitialized += UpdateUI;
 
@@ -67,28 +66,28 @@ namespace AGX.Scripts.Runtime.Rebinder
             GetBindingInfo(_selectedBinding);
             UpdateUI();
 
-            name = $"Input Action Rebinder ({actionName})";
+            name = $"Input Action Rebinder ({_actionName})";
         }
 
         private void GetBindingInfo(int selectedBinding)
         {
             if (_inputActionReference.action != null)
-                actionName = _inputActionReference.action.name;
+                _actionName = _inputActionReference.action.name;
 
             if (_inputActionReference.action.bindings.Count > _selectedBinding)
             {
                 _selectedBinding = selectedBinding;
                 _inputBinding = _inputActionReference.action.bindings[_selectedBinding];
-                bindingIndex = _selectedBinding;
+                _bindingIndex = _selectedBinding;
             }
         }
 
         internal void UpdateUI()
         {
             if (_actionText != null)
-                _actionText.text = _inputActionMap.GetFor(_inputActionReference);
+                _actionText.text = _actionIconMap.GetFor(_inputActionReference);
 
-            if (_rebindText == null) return;
+            if (_textRebind == null) return;
 
             // [Map/Action] i.e. [Player/Move]
             var txt = $"[{_inputActionReference.action.actionMap.name}/{_inputActionReference.action.name}]";
@@ -100,23 +99,23 @@ namespace AGX.Scripts.Runtime.Rebinder
             if (result.Contains(InputDevicePromptSystem.MISSING_PROMPT) ||
                 result.Contains(InputDevicePromptSystem.WAITING_FOR_INITIALIZATION))
             {
-                _rebindText.text = Application.isPlaying
+                _textRebind.text = Application.isPlaying
                     // From the input manager
-                    ? InputManager.GetBindingName(actionName, bindingIndex)
-                    : _inputActionReference.action.GetBindingDisplayString(bindingIndex); // From the input action reference
+                    ? InputManager.GetBindingName(_actionName, _bindingIndex)
+                    : _inputActionReference.action.GetBindingDisplayString(_bindingIndex); // From the input action reference
             }
             else
             {
-                _rebindText.text = result;
+                _textRebind.text = result;
             }
 
-            _isDirty = InputManager.IsBindingChanged(actionName, bindingIndex);
-            _resetButton.gameObject.SetActive(_isDirty);
+            _isDirty = InputManager.IsBindingChanged(_actionName, _bindingIndex);
+            _buttonReset.gameObject.SetActive(_isDirty);
         }
 
         private void DoRebind()
         {
-            InputManager.StartRebind(actionName, bindingIndex, _rebindOverlay, !_mouseIncluded);
+            InputManager.StartRebind(_actionName, _bindingIndex, _rebindOverlay, !_mouseIncluded);
         }
 
         private void ResetBinding()
@@ -150,7 +149,7 @@ namespace AGX.Scripts.Runtime.Rebinder
 
         public string[] SearchKeywords => new[]
         {
-            actionName
+            _actionName
         };
     }
 }

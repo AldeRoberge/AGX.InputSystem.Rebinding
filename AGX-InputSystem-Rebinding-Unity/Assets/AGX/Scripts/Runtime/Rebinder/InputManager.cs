@@ -23,7 +23,7 @@ namespace AGX.Scripts.Runtime.Rebinder
         public static event Action RebindCanceled = delegate { };
         public static event Action<InputAction, int> RebindStarted = delegate { };
 
-        private static List<RebindControls> rebindControls = new();
+        private static List<ActionRebinder> rebindControls = new();
 
 
         public static event Action<int> RebindCountChanged = delegate { };
@@ -35,7 +35,7 @@ namespace AGX.Scripts.Runtime.Rebinder
             RebindCanceled = delegate { };
             RebindStarted = delegate { };
             inputActions = new InputActions();
-            rebindControls = new List<RebindControls>();
+            rebindControls = new List<ActionRebinder>();
             RebindCountChanged = delegate { };
         }
 
@@ -128,13 +128,14 @@ namespace AGX.Scripts.Runtime.Rebinder
             rebind.WithControlsExcluding(GamepadLeftstick);
             rebind.WithControlsExcluding(GamepadRightstick);
 
-            var partName = default(string);
-            if (actionToRebind.bindings[bindingIndex].isPartOfComposite)
-                partName = $"Binding '{actionToRebind.bindings[bindingIndex].name}'.";
 
             rebindOverlay?.SetActive(true);
             if (rebindOverlay != null)
             {
+                var partName = string.Empty;
+                if (actionToRebind.bindings[bindingIndex].isPartOfComposite)
+                    partName = $"Binding '{actionToRebind.bindings[bindingIndex].name}'.";
+
                 string text;
 
                 if (excludeMouse)
@@ -241,16 +242,16 @@ namespace AGX.Scripts.Runtime.Rebinder
             Debug.Log("Resetting all bindings");
 
             // find all rebind controls in the scene
-            var rebindControls = Object.FindObjectsOfType<RebindControls>();
+            var rebindControls = Object.FindObjectsOfType<ActionRebinder>();
 
             foreach (var rebindControl in rebindControls)
                 ResetBinding(rebindControl);
         }
 
-        public static void ResetBinding(RebindControls rebindControls)
+        public static void ResetBinding(ActionRebinder actionRebinder)
         {
-            var actionName = rebindControls.ActionName;
-            var bindingIndex = rebindControls.BindingIndex;
+            var actionName = actionRebinder.ActionName;
+            var bindingIndex = actionRebinder.BindingIndex;
 
             var action = InputActions.asset.FindAction(actionName);
 
@@ -275,7 +276,7 @@ namespace AGX.Scripts.Runtime.Rebinder
 
             RefreshInputDevicePrompt();
 
-            rebindControls.UpdateUI();
+            actionRebinder.UpdateUI();
         }
 
         public static bool IsBindingChanged(string actionName, int bindingIndex)
@@ -333,10 +334,10 @@ namespace AGX.Scripts.Runtime.Rebinder
             }
         }
 
-        public static void RegisterRebind(RebindControls rebindControl)
+        public static void RegisterRebind(ActionRebinder actionRebinder)
         {
-            rebindControls ??= new List<RebindControls>();
-            rebindControls.Add(rebindControl);
+            rebindControls ??= new List<ActionRebinder>();
+            rebindControls.Add(actionRebinder);
         }
 
         public static void UpdateRebindCount()
