@@ -40,16 +40,8 @@ namespace AGX.Scripts.Runtime.Rebinder
 
         public static void RefreshInputDevicePrompt()
         {
-            // We have to do the following because, well
-            // The InputManager does some changes to the asset itself :).. you see....
-            // So we must... Pass it to the InputDevicePromptSystem so that it shows the changes we make to it :)
-            // :) :D
-            // GitHub Copilot says : "I'm an AI, I don't have feelings, but I'm here to help you write code."
-            // Very cringe-pilled, Copilot. Very cringe-pilled.
-
-            UpdateRebindCount();
+            RebindCountChanged?.Invoke(GetTotalBindingOverwriteCount());
         }
-
 
         public static void StartRebind(string actionName, int bindingIndex, RebindOverlay rebindOverlay, bool includeMouse)
         {
@@ -188,29 +180,25 @@ namespace AGX.Scripts.Runtime.Rebinder
             }
 
             // Check for duplicate (composite) bindings
-            if (allCompositeParts)
-            {
-                for (var i = 0; i < bindingIndex; ++i)
-                {
-                    // Skip different paths
-                    if (actionToRebind.bindings[i].effectivePath != newBinding.effectivePath)
-                        continue;
+            if (!allCompositeParts) return false;
 
-                    Debug.LogWarning($"Duplicate binding found: {newBinding.effectivePath}");
-                    return false;
-                }
+            for (var i = 0; i < bindingIndex; ++i)
+            {
+                // Skip different paths
+                if (actionToRebind.bindings[i].effectivePath != newBinding.effectivePath)
+                    continue;
+
+                Debug.LogWarning($"Duplicate binding found: {newBinding.effectivePath}");
+                return false;
             }
 
             return false;
         }
 
-        public static string GetBindingName(string actionName, int bindingIndex)
-        {
-            var action = InputActions.asset.FindAction(actionName);
-            var displayString = action.GetBindingDisplayString(bindingIndex);
-            return displayString;
-        }
-
+        /// <summary>
+        /// TODO we should export this to JSON so that it's easy to save to a single PlayerPrefs slot
+        /// </summary>
+        /// <param name="action"></param>
         private static void SaveBindingOverride(InputAction action)
         {
             for (var i = 0; i < action.bindings.Count; i++)
@@ -245,13 +233,12 @@ namespace AGX.Scripts.Runtime.Rebinder
             }
         }
 
-
         public static void ResetAllBindings()
         {
-            Debug.Log("Resetting all bindings");
-
             // find all rebind controls in the scene
             var rebindControls = Object.FindObjectsOfType<ActionRebinder>();
+
+            Debug.Log($"Resetting all {rebindControls.Length} bindings...");
 
             foreach (var rebindControl in rebindControls)
                 ResetBinding(rebindControl);
@@ -281,8 +268,6 @@ namespace AGX.Scripts.Runtime.Rebinder
             }
 
             SaveBindingOverride(action);
-
-
             RefreshInputDevicePrompt();
 
             actionRebinder.UpdateUI();
@@ -290,7 +275,7 @@ namespace AGX.Scripts.Runtime.Rebinder
 
         public static bool IsBindingOverriden(string actionName, int bindingIndex)
         {
-            InputAction action = InputActions.asset.FindAction(actionName);
+            var action = InputActions.asset.FindAction(actionName);
 
             if (action == null || action.bindings.Count <= bindingIndex)
             {
@@ -353,14 +338,9 @@ namespace AGX.Scripts.Runtime.Rebinder
             _actionRebinders.Add(actionRebinder);
         }
 
-        public static void UpdateRebindCount()
-        {
-            RebindCountChanged?.Invoke(GetTotalBindingOverwriteCount());
-        }
-
         internal static int GetTotalBindingOverwriteCount()
         {
-            int count = 0;
+            var count = 0;
 
             foreach (var rebindControl in _actionRebinders)
             {

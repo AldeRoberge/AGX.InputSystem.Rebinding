@@ -10,7 +10,7 @@ namespace AGX.Scripts.Runtime
     [DefaultExecutionOrder(-99999)]
     public class Input : Singleton<Input>, InputActions.IGameplayActions, InputActions.IMenusActions, InputActions.ICheatsActions
     {
-        private InputActions? _gameInput;
+        private InputActions? _inputActions;
 
         public event UnityAction OnStartEvent = delegate { };
         public event UnityAction<Vector2> OnMoveEvent = delegate { };
@@ -21,23 +21,22 @@ namespace AGX.Scripts.Runtime
 
         internal void OnEnable()
         {
-            Debug.Log("InputReader OnEnableAllInput");
+            Debug.Log("[Input] Enabled.");
 
-            if (_gameInput == null)
+            if (_inputActions == null)
             {
-                Debug.Log("[InputReader] OnEnable");
-                _gameInput = InputManager.InputActions;
-                _gameInput.Gameplay.SetCallbacks(this);
-                _gameInput.Menus.SetCallbacks(this);
-                _gameInput.Cheats.SetCallbacks(this);
+                _inputActions = InputManager.InputActions;
+                _inputActions.Gameplay.SetCallbacks(this);
+                _inputActions.Menus.SetCallbacks(this);
+                _inputActions.Cheats.SetCallbacks(this);
             }
 
 #if UNITY_EDITOR
-            _gameInput.Cheats.Enable();
+            _inputActions.Cheats.Enable();
 #endif
 
-            _gameInput.Gameplay.Enable();
-            _gameInput.Menus.Enable();
+            _inputActions.Gameplay.Enable();
+            _inputActions.Menus.Enable();
 
             RegisterLogging();
 
@@ -48,21 +47,20 @@ namespace AGX.Scripts.Runtime
 
         public void RegisterLogging()
         {
-            OnJumpEvent += () => Debug.Log("[InputLogging] <b>Jump</b> event was successfully invoked.");
-            OnMoveEvent += (m) => Debug.Log($"[InputLogging] <b>Move</b> event was successfully invoked (value: {m}).");
-            OnStartEvent += () => Debug.Log("[InputLogging] <b>Start</b> event was successfully invoked.");
-            OnSneakEvent += () => Debug.Log("[InputLogging] <b>Sneak</b> event was successfully invoked.");
-            OnFireEvent += () => Debug.Log("[InputLogging] <b>Fire</b> event was successfully invoked.");
+            OnJumpEvent += () => Debug.Log("[Input] <b>Jump</b> event invoked.");
+            OnMoveEvent += (m) => Debug.Log($"[Input] <b>Move</b> event invoked (value: {m}).");
+            OnStartEvent += () => Debug.Log("[Input] <b>Start</b> event invoked.");
+            OnSneakEvent += () => Debug.Log("[Input] <b>Sneak</b> event invoked.");
+            OnFireEvent += () => Debug.Log("[Input] <b>Fire</b> event invoked.");
         }
 
         internal void OnDisable()
         {
-            Debug.Log("[InputReader] OnDisableAllInput");
-            _gameInput?.Gameplay.Disable();
-            _gameInput?.Menus.Disable();
-            _gameInput?.Cheats.Disable();
+            Debug.Log("[Input] Disabled.");
+            _inputActions?.Gameplay.Disable();
+            _inputActions?.Menus.Disable();
+            _inputActions?.Cheats.Disable();
         }
-
 
         public void OnStart(InputAction.CallbackContext context)
         {
@@ -92,6 +90,11 @@ namespace AGX.Scripts.Runtime
         {
             if (context.phase == InputActionPhase.Performed)
                 OnFireEvent.Invoke();
+        }
+
+        public void OnNewaction(InputAction.CallbackContext context)
+        {
+            Debug.Log("New action (not implemented).");
         }
     }
 }

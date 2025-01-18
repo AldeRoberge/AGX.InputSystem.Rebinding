@@ -110,6 +110,17 @@ namespace Generator.Scripts.Runtime
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": """",
+                    ""id"": ""1542eda1-0673-44af-ba38-bc5444b4d044"",
+                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""WASD [Keyboard]"",
                     ""id"": ""72bf64a3-0cc9-45bd-ad6c-2f9a4e11ac3d"",
                     ""path"": ""2DVector"",
@@ -181,7 +192,7 @@ namespace Generator.Scripts.Runtime
                     ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -192,7 +203,7 @@ namespace Generator.Scripts.Runtime
                     ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -203,7 +214,7 @@ namespace Generator.Scripts.Runtime
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -214,10 +225,21 @@ namespace Generator.Scripts.Runtime
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""622e9e6f-6969-4bce-9a02-24f37dca8f36"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
@@ -268,8 +290,41 @@ namespace Generator.Scripts.Runtime
         {
             ""name"": ""Menus"",
             ""id"": ""aa094381-84d1-4976-ad72-91bf1e34864f"",
-            ""actions"": [],
-            ""bindings"": []
+            ""actions"": [
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""b2396ce0-9e30-4219-a6c6-0e888e379938"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""a3d9bdbe-c05e-498b-a112-9df28826102e"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f5215842-123a-4af5-bdb0-d45d97134820"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         },
         {
             ""name"": ""Cheats"",
@@ -317,6 +372,7 @@ namespace Generator.Scripts.Runtime
             m_Gameplay_Fire = m_Gameplay.FindAction("Fire", throwIfNotFound: true);
             // Menus
             m_Menus = asset.FindActionMap("Menus", throwIfNotFound: true);
+            m_Menus_Newaction = m_Menus.FindAction("New action", throwIfNotFound: true);
             // Cheats
             m_Cheats = asset.FindActionMap("Cheats", throwIfNotFound: true);
         }
@@ -465,10 +521,12 @@ namespace Generator.Scripts.Runtime
         // Menus
         private readonly InputActionMap m_Menus;
         private List<IMenusActions> m_MenusActionsCallbackInterfaces = new List<IMenusActions>();
+        private readonly InputAction m_Menus_Newaction;
         public struct MenusActions
         {
             private @InputActions m_Wrapper;
             public MenusActions(@InputActions wrapper) { m_Wrapper = wrapper; }
+            public InputAction @Newaction => m_Wrapper.m_Menus_Newaction;
             public InputActionMap Get() { return m_Wrapper.m_Menus; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -478,10 +536,16 @@ namespace Generator.Scripts.Runtime
             {
                 if (instance == null || m_Wrapper.m_MenusActionsCallbackInterfaces.Contains(instance)) return;
                 m_Wrapper.m_MenusActionsCallbackInterfaces.Add(instance);
+                @Newaction.started += instance.OnNewaction;
+                @Newaction.performed += instance.OnNewaction;
+                @Newaction.canceled += instance.OnNewaction;
             }
 
             private void UnregisterCallbacks(IMenusActions instance)
             {
+                @Newaction.started -= instance.OnNewaction;
+                @Newaction.performed -= instance.OnNewaction;
+                @Newaction.canceled -= instance.OnNewaction;
             }
 
             public void RemoveCallbacks(IMenusActions instance)
@@ -565,6 +629,7 @@ namespace Generator.Scripts.Runtime
         }
         public interface IMenusActions
         {
+            void OnNewaction(InputAction.CallbackContext context);
         }
         public interface ICheatsActions
         {

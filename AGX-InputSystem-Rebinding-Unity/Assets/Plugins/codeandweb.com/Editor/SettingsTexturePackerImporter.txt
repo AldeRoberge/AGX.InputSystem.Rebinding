@@ -3,11 +3,14 @@ tpsheetFileNames:
 - Assets/Plugins/TextMesh Pro/Resources/Sprite Assets/General/General.tpsheet
 - Assets/Plugins/TextMesh Pro/Resources/Sprite Assets/Prompts/Keyboard/Keyboard.tpsheet
 - Assets/Plugins/TextMesh Pro/Resources/Sprite Assets/Prompts/Mouse/Mouse.tpsheet
+- Assets/Plugins/TextMesh Pro/Resources/Sprite Assets/Prompts/XboxSeries/XboxSeries.tpsheet
 textureFileNames:
 - Assets/Plugins/TextMesh Pro/Resources/Sprite Assets/General/General.png
 - Assets/Plugins/TextMesh Pro/Resources/Sprite Assets/Prompts/Keyboard/Keyboard.png
 - Assets/Plugins/TextMesh Pro/Resources/Sprite Assets/Prompts/Mouse/Mouse.png
+- Assets/Plugins/TextMesh Pro/Resources/Sprite Assets/Prompts/XboxSeries/XboxSeries.png
 normalmapFileNames:
+- 
 - 
 - 
 - 

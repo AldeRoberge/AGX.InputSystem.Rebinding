@@ -33,6 +33,8 @@ namespace AGX.Scripts.Runtime.Rebinder
         private void RebindCountChanged(int count)
         {
             _buttonReset.gameObject.SetActive(count > 0);
+            
+            // INTERNAL : TODO sprites should be from AGX.Resources
             _textReset.text = count == 1
                 ?
                 //

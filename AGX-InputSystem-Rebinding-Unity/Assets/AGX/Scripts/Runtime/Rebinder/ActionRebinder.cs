@@ -14,7 +14,7 @@ namespace AGX.Scripts.Runtime.Rebinder
     /// <summary>
     /// Allows rebinding an action to a new key/button/mouse input.
     /// </summary>
-    public class ActionRebinder : MonoBehaviour, ISearchable
+    public class ActionRebinder : MonoBehaviour
     {
         [BoxGroup("References"), SerializeField] private ActionRebinders _actionRebinders;
 
@@ -22,15 +22,14 @@ namespace AGX.Scripts.Runtime.Rebinder
         [BoxGroup("References"), SerializeField] private InputBinding.DisplayStringOptions _displayStringOptions;
 
 
-        [BoxGroup("References/UI"), SerializeField, Required] private Button        _buttonRebind;
-        [BoxGroup("References/UI"), SerializeField, Required] private RebindOverlay _rebindOverlay;
+        [BoxGroup("References/UI"), SerializeField, Required] private Button _buttonRebind;
 
-        [BoxGroup("References"), SerializeField, Range(0, 5)] private int _selectedBinding;
+        [BoxGroup("References"), SerializeField, Range(0, 20)] private int _selectedBinding;
 
         [BoxGroup("References/UI"), SerializeField, Required] private TMP_Text _textRebind;
         [BoxGroup("References/UI"), SerializeField, Required] private Button   _buttonReset;
 
-        [ShowNonSerializedField] private InputBinding _inputBinding;
+        private InputBinding _inputBinding;
 
         [ShowNonSerializedField] private int    _bindingIndex;
         [ShowNonSerializedField] private string _actionName;
@@ -93,13 +92,16 @@ namespace AGX.Scripts.Runtime.Rebinder
 
             var endIndex = startIndex;
 
-            for (int i = 0; i < bindings.Count; i++)
+            for (var i = 0; i < bindings.Count; i++)
                 Debug.Log($"Binding {i}: {bindings[i].name} - {bindings[i].effectivePath} - {bindings[i].isComposite} - {bindings[i].isPartOfComposite}");
 
             if (startIndex < 0 || startIndex >= bindings.Count)
+            {
                 Debug.LogError($"Invalid binding index: {startIndex}, Action: {action.name}");
+                return;
+            }
 
-            bool isRootOfComposite = bindings[startIndex].isComposite && !bindings[startIndex].isPartOfComposite;
+            var isRootOfComposite = bindings[startIndex].isComposite && !bindings[startIndex].isPartOfComposite;
 
             if (!isRootOfComposite)
             {
@@ -111,9 +113,9 @@ namespace AGX.Scripts.Runtime.Rebinder
             }
             else
             {
-                for (int i = startIndex + 1; i < bindings.Count; i++)
+                for (var i = startIndex + 1; i < bindings.Count; i++)
                 {
-                    bool isNewComposite = bindings[i].isComposite && !bindings[i].isPartOfComposite;
+                    var isNewComposite = bindings[i].isComposite && !bindings[i].isPartOfComposite;
 
                     // We found the start of a new composite, stop processing
                     if (isNewComposite)
@@ -126,9 +128,9 @@ namespace AGX.Scripts.Runtime.Rebinder
 
             Debug.Log($"Start Index: {startIndex} End Index: {endIndex} for {action.bindings.Count} bindings of {_actionRebinders.InputActionReference.action.name}");
 
-            StringBuilder fullString = new StringBuilder();
+            var fullString = new StringBuilder();
 
-            for (int i = startIndex; i <= endIndex; i++)
+            for (var i = startIndex; i <= endIndex; i++)
             {
                 var b = action.bindings[i];
 
@@ -159,7 +161,7 @@ namespace AGX.Scripts.Runtime.Rebinder
 
         private void DoRebind()
         {
-            InputManager.StartRebind(_actionName, _bindingIndex, _rebindOverlay, _mouseIncluded);
+            InputManager.StartRebind(_actionName, _bindingIndex, _actionRebinders.RebindingOverlay, _mouseIncluded);
         }
 
         private void ResetBinding()
@@ -193,10 +195,5 @@ namespace AGX.Scripts.Runtime.Rebinder
         {
             ResetBinding();
         }
-
-        public string[] SearchKeywords => new[]
-        {
-            _actionName
-        };
     }
 }

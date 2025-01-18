@@ -1,7 +1,9 @@
-﻿namespace AGX.Scripts.Runtime.Searching
+﻿using JetBrains.Annotations;
+
+namespace AGX.Scripts.Runtime.Searching
 {
     public interface ISearchable
     {
-        string[] SearchKeywords { get; }
+        [CanBeNull] string[] SearchKeywords { get; }
     }
 }
