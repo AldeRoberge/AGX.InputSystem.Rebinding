@@ -86,6 +86,17 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "1542eda1-0673-44af-ba38-bc5444b4d044",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Start",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "WASD [Keyboard]",
                     "id": "72bf64a3-0cc9-45bd-ad6c-2f9a4e11ac3d",
                     "path": "2DVector",
