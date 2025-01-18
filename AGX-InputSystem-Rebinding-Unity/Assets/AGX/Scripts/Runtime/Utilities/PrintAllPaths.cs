@@ -9,90 +9,43 @@ namespace AGX.Scripts.Runtime.Utilities
     {
         public void Start()
         {
-            StringBuilder all = new StringBuilder();
+            StringBuilder allPaths = new StringBuilder();
 
-            Debug.Log("Keyboard:");
-            foreach (var allKeyboardActionBinding in DeviceInputSpritesDefaults.GetAllKeyboardActionBindings())
+            // Process each device type
+            PrintDevicePaths(Keyboard.current, "Keyboard", allPaths);
+            PrintDevicePaths(Gamepad.current, "Gamepad", allPaths);
+            PrintDevicePaths(Mouse.current, "Mouse", allPaths);
+            PrintDevicePaths(Touchscreen.current, "Touchscreen", allPaths); // Added touchscreen
+        }
+
+        private void PrintDevicePaths(InputDevice device, string deviceName, StringBuilder allPaths)
+        {
+            if (device == null)
             {
-                Debug.Log(allKeyboardActionBinding.Path);
-                all.AppendLine(allKeyboardActionBinding.Path);
+                Debug.LogWarning($"No {deviceName} connected.");
+                return;
             }
 
-            Debug.Log("All paths:" + all);
-
-            all.Clear();
-
-
-            Debug.Log("Gamepad:");
-            foreach (var allGamePadActionBinding in DeviceInputSpritesDefaults.GetAllGamePadActionBindings())
+            Debug.Log($"{deviceName}:");
+            foreach (var binding in DeviceInputSpritesDefaults.GetActionBindingsForDevice(device))
             {
-                Debug.Log(allGamePadActionBinding.Path);
-                all.AppendLine(allGamePadActionBinding.Path);
+                Debug.Log(binding.Path);
+                allPaths.AppendLine(binding.Path);
             }
 
-            Debug.Log("All paths:" + all);
-
-            all.Clear();
-
-            Debug.Log("Mouse:");
-
-            foreach (var allMouseActionBinding in DeviceInputSpritesDefaults.GetAllMouseActionBindings())
-            {
-                Debug.Log(allMouseActionBinding.Path);
-                all.AppendLine(allMouseActionBinding.Path);
-            }
-
-            Debug.Log("All paths:" + all);
-
-            all.Clear();
-            
-            // TODO next device should be : Touchscreen
-            
+            Debug.Log("All paths: " + allPaths);
+            allPaths.Clear();
         }
     }
 
     public static class DeviceInputSpritesDefaults
     {
-        public static List<ActionBindingPromptEntry> GetAllKeyboardActionBindings()
-        {
-            if (Keyboard.current == null)
-            {
-                Debug.LogWarning("No keyboard connected.");
-                return new List<ActionBindingPromptEntry>();
-            }
-
-            return CollectActionBindings(Keyboard.current);
-        }
-
-        public static List<ActionBindingPromptEntry> GetAllGamePadActionBindings()
-        {
-            if (Gamepad.current == null)
-            {
-                Debug.LogWarning("No gamepad connected.");
-                return new List<ActionBindingPromptEntry>();
-            }
-
-            return CollectActionBindings(Gamepad.current);
-        }
-
-        public static List<ActionBindingPromptEntry> GetAllMouseActionBindings()
-        {
-            if (Mouse.current == null)
-            {
-                Debug.LogWarning("No mouse connected.");
-                return new List<ActionBindingPromptEntry>();
-            }
-
-            return CollectActionBindings(Mouse.current);
-        }
-
-        private static List<ActionBindingPromptEntry> CollectActionBindings(InputDevice device)
+        public static List<ActionBindingPromptEntry> GetActionBindingsForDevice(InputDevice device)
         {
             List<ActionBindingPromptEntry> actionBindings = new List<ActionBindingPromptEntry>();
 
             void TraverseControls(InputControl control)
             {
-                // Create an ActionBindingPromptEntry for each control and add it to the list
                 actionBindings.Add(new ActionBindingPromptEntry
                 {
                     DisplayName = control.displayName,
@@ -100,14 +53,12 @@ namespace AGX.Scripts.Runtime.Utilities
                     DeviceName = device.displayName
                 });
 
-                // Recursively traverse child controls
                 foreach (var childControl in control.children)
                 {
                     TraverseControls(childControl);
                 }
             }
 
-            // Start traversal from the device root
             TraverseControls(device);
             return actionBindings;
         }
