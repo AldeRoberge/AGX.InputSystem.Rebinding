@@ -15,6 +15,8 @@ AGX.InputSystem.Rebinding is an easy-to-use solution for dynamic rebinding of co
 - **Responsive UI**: The interface adapts to different screen sizes and resolutions, making it perfect for both desktop and mobile platforms.
 - **Search Functionality**: Quickly find actions or bindings with the built-in search feature.
 
+https://github.com/user-attachments/assets/5eb7741f-b9a8-49d5-810d-d8158b092efc
+
 ## Credits
 
 - **One Wheel Studio**: Based on the work by [One Wheel Studio](https://www.youtube.com/watch?v=TD0R5x0yL0Y).
