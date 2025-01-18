@@ -159,7 +159,7 @@ namespace AGX.Scripts.Runtime.Rebinder
 
         private void DoRebind()
         {
-            InputManager.StartRebind(_actionName, _bindingIndex, _rebindOverlay, !_mouseIncluded);
+            InputManager.StartRebind(_actionName, _bindingIndex, _rebindOverlay, _mouseIncluded);
         }
 
         private void ResetBinding()

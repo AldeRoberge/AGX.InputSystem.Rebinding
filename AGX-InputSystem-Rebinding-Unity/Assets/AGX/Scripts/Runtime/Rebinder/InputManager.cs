@@ -51,7 +51,7 @@ namespace AGX.Scripts.Runtime.Rebinder
         }
 
 
-        public static void StartRebind(string actionName, int bindingIndex, RebindOverlay rebindOverlay, bool excludeMouse)
+        public static void StartRebind(string actionName, int bindingIndex, RebindOverlay rebindOverlay, bool includeMouse)
         {
             var action = InputActions.asset.FindAction(actionName);
 
@@ -65,15 +65,15 @@ namespace AGX.Scripts.Runtime.Rebinder
             {
                 var firstPartIndex = bindingIndex + 1;
                 if (firstPartIndex < action.bindings.Count && action.bindings[firstPartIndex].isPartOfComposite)
-                    DoRebind(action, firstPartIndex, rebindOverlay, excludeMouse, true);
+                    DoRebind(action, firstPartIndex, rebindOverlay, includeMouse, true);
             }
             else
             {
-                DoRebind(action, bindingIndex, rebindOverlay, excludeMouse, false);
+                DoRebind(action, bindingIndex, rebindOverlay, includeMouse, false);
             }
         }
 
-        private static void DoRebind(InputAction actionToRebind, int bindingIndex, RebindOverlay rebindOverlay, bool excludeMouse, bool allCompositeParts)
+        private static void DoRebind(InputAction actionToRebind, int bindingIndex, RebindOverlay rebindOverlay, bool includeMouse, bool allCompositeParts)
         {
             if (actionToRebind == null || bindingIndex < 0)
                 return;
@@ -92,7 +92,7 @@ namespace AGX.Scripts.Runtime.Rebinder
                 {
                     actionToRebind.RemoveBindingOverride(bindingIndex);
                     operation.Dispose();
-                    DoRebind(actionToRebind, bindingIndex, rebindOverlay, excludeMouse, allCompositeParts);
+                    DoRebind(actionToRebind, bindingIndex, rebindOverlay, includeMouse, allCompositeParts);
                     return;
                 }
 
@@ -100,7 +100,7 @@ namespace AGX.Scripts.Runtime.Rebinder
                 {
                     var nextBindingsIndex = bindingIndex + 1;
                     if (nextBindingsIndex < actionToRebind.bindings.Count && actionToRebind.bindings[nextBindingsIndex].isPartOfComposite)
-                        DoRebind(actionToRebind, nextBindingsIndex, rebindOverlay, excludeMouse, true);
+                        DoRebind(actionToRebind, nextBindingsIndex, rebindOverlay, includeMouse, true);
                 }
 
                 RefreshInputDevicePrompt();
@@ -120,7 +120,7 @@ namespace AGX.Scripts.Runtime.Rebinder
 
             rebind.WithCancelingThrough(KeyboardEscape);
 
-            if (excludeMouse)
+            if (!includeMouse)
                 rebind.WithControlsExcluding(Mouse);
 
             Debug.Log($"Rebinding {actionToRebind.name} at index {bindingIndex} for map {actionToRebind.actionMap.name}");
@@ -146,17 +146,17 @@ namespace AGX.Scripts.Runtime.Rebinder
 
                 string text;
 
-                if (excludeMouse)
-                {
-                    text = !string.IsNullOrEmpty(actionToRebind.expectedControlType)
-                        ? $"{partName} Press any button ({actionToRebind.expectedControlType})..."
-                        : $"{partName} Press any button...";
-                }
-                else
+                if (includeMouse)
                 {
                     text = !string.IsNullOrEmpty(actionToRebind.expectedControlType)
                         ? $"{partName} Press any button ({actionToRebind.expectedControlType}) or mouse button..."
                         : $"{partName} Press any button or mouse button...";
+                }
+                else
+                {
+                    text = !string.IsNullOrEmpty(actionToRebind.expectedControlType)
+                        ? $"{partName} Press any button ({actionToRebind.expectedControlType})..."
+                        : $"{partName} Press any button...";
                 }
 
                 rebindOverlay.SetText(text);

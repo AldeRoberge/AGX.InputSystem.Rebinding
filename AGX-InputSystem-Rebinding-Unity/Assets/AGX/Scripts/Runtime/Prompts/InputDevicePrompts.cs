@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using FredericRP.GenericSingleton;
+using NaughtyAttributes;
 using Unity.Plastic.Newtonsoft.Json;
 using UnityEngine;
 
@@ -14,6 +15,10 @@ namespace AGX.Scripts.Runtime.Prompts
         public static readonly Dictionary<string, string> InputDeviceSpriteMap = new();
 
         public static string GetSprite(string input) => Instance.GetSpriteImpl(input);
+
+
+        [ReadOnly]
+        private static int _spriteCount;
 
 
         /// <summary>
@@ -51,7 +56,7 @@ namespace AGX.Scripts.Runtime.Prompts
 
         public void Awake()
         {
-            Prompts.Clear();
+            InputDeviceSpriteMap.Clear();
 
             foreach (var prompt in Prompts)
             {
@@ -83,6 +88,8 @@ namespace AGX.Scripts.Runtime.Prompts
                     InputDeviceSpriteMap[mapping.Path] = GetFullPath($"{inputDevicePrompt.SpriteAsset}/{inputDevicePrompt.Name}", mapping.Sprite);
                 }
             }
+
+            _spriteCount = InputDeviceSpriteMap.Count;
 
             Debug.Log("InputDevicePrompts.Start");
         }
