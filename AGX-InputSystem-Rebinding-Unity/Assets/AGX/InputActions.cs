@@ -112,7 +112,7 @@ namespace Generator.Scripts.Runtime
                 {
                     ""name"": """",
                     ""id"": ""1542eda1-0673-44af-ba38-bc5444b4d044"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<XInputController>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
