@@ -39,3 +39,5 @@ This project is open-source and licensed under the [MIT License](LICENSE).
 ## Disclaimer
 
 This is a quick prototype designed for experimentation.
+Uses [TexturePacker](https://www.codeandweb.com/texturepacker/documentation/user-interface-overview) to pack the prompt sprites.
+
