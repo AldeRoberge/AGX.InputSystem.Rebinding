@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Fastenshtein</id>
+    <version>1.0.10</version>
+    <title>Fastenshtein</title>
+    <authors>DanHartley</authors>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <readme>nuget-readme.md</readme>
+    <projectUrl>https://github.com/DanHarltey/Fastenshtein</projectUrl>
+    <description>One of the fastest Levenshtein distance packages on NuGet. Supports .NET Framework and .NET. Levenshtein calculates the shortest possible distance between two strings. Producing a count of the number of insertions, deletions and substitutions to make one string into another.</description>
+    <releaseNotes>Performance improvement in the DistanceFrom method.</releaseNotes>
+    <copyright>Copyright ©  2017</copyright>
+    <tags>Levenshtein Distance String Fuzzy Matching Search netstandard</tags>
+    <repository type="git" url="https://github.com/DanHarltey/Fastenshtein" commit="d08afda4330ae0340fb2f16e7f6a274321807d7d" />
+    <dependencies>
+      <group targetFramework=".NETFramework4.5.2" />
+      <group targetFramework=".NETStandard1.0">
+        <dependency id="NETStandard.Library" version="1.6.1" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net8.0" />
+      <group targetFramework=".NETStandard2.0" />
+    </dependencies>
+  </metadata>
+</package>
