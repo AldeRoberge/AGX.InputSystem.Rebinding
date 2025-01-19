@@ -27,6 +27,8 @@ namespace AGX.Scripts.Runtime.Rebinder
 
         public static event Action<int> RebindCountChanged = delegate { };
 
+        private static bool debug = false;
+
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void Initialize()
         {
@@ -115,7 +117,9 @@ namespace AGX.Scripts.Runtime.Rebinder
             if (!includeMouse)
                 rebind.WithControlsExcluding(Mouse);
 
-            Debug.Log($"Rebinding {actionToRebind.name} at index {bindingIndex} for map {actionToRebind.actionMap.name}");
+
+            if (debug)
+                Debug.Log($"Rebinding {actionToRebind.name} at index {bindingIndex} for map {actionToRebind.actionMap.name}");
 
 
             // Add filtering based on the input action's control type (Keyboard or Gamepad)
@@ -129,10 +133,7 @@ namespace AGX.Scripts.Runtime.Rebinder
                 rebind.WithControlsExcluding(KeyboardEscape); // Exclude keyboard escape for gamepad actions
             }
 
-            rebindOverlay?.Show(() =>
-            {
-                rebind.Cancel();
-            });
+            rebindOverlay?.Show(() => { rebind.Cancel(); });
             if (rebindOverlay != null)
             {
                 var partName = string.Empty;
@@ -179,7 +180,7 @@ namespace AGX.Scripts.Runtime.Rebinder
                     continue;
 
                 Debug.LogWarning($"Duplicate binding found: {newBinding.effectivePath}");
-                return false;
+                return true;
             }
 
             // Check for duplicate (composite) bindings
@@ -192,7 +193,7 @@ namespace AGX.Scripts.Runtime.Rebinder
                     continue;
 
                 Debug.LogWarning($"Duplicate binding found: {newBinding.effectivePath}");
-                return false;
+                return true;
             }
 
             return false;
@@ -206,7 +207,7 @@ namespace AGX.Scripts.Runtime.Rebinder
         {
             for (var i = 0; i < action.bindings.Count; i++)
             {
-                var key = $"Input-Binding-{action.actionMap.name}-{action.name}-{i}";
+                var key = GetPlayerPrefKey(action, i);
                 var value = action.bindings[i].overridePath;
 
                 PlayerPrefs.SetString(key, value);
@@ -222,23 +223,29 @@ namespace AGX.Scripts.Runtime.Rebinder
                 {
                     for (var i = 0; i < action.bindings.Count; i++)
                     {
-                        var key = $"Input-Binding-{action.actionMap.name}-{action.name}-{i}";
+                        var key = GetPlayerPrefKey(action, i);
 
                         var storedOverride = PlayerPrefs.GetString(key);
 
-                        if (!string.IsNullOrEmpty(storedOverride))
-                        {
-                            Debug.Log($"Applying binding override for {action.name} at index {i}: {storedOverride}");
-                            action.ApplyBindingOverride(i, storedOverride);
-                        }
+                        // No stored override, skip
+                        if (string.IsNullOrEmpty(storedOverride)) continue;
+
+                        Debug.Log($"Applying binding override for {action.name} at index {i}: {storedOverride}");
+                        action.ApplyBindingOverride(i, storedOverride);
                     }
                 }
             }
         }
 
+        private static string GetPlayerPrefKey(InputAction action, int bindingIndex)
+        {
+            var key = $"Input-Binding-{action.actionMap.name}-{action.name}-{bindingIndex}";
+            return key;
+        }
+
         public static void ResetAllBindings()
         {
-            // find all rebind controls in the scene
+            // Find all rebind controls in the scene
             var rebindControls = Object.FindObjectsOfType<ActionRebinder>();
 
             Debug.Log($"Resetting all {rebindControls.Length} bindings...");
@@ -314,7 +321,8 @@ namespace AGX.Scripts.Runtime.Rebinder
                     }
                 }
 
-                Debug.Log("No changes found in composite binding parts.");
+                if (debug)
+                    Debug.Log("No changes found in composite binding parts.");
                 return false;
             }
             else
