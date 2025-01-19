@@ -13,7 +13,7 @@ namespace AGX.Scripts.Runtime.Prompts
         private static readonly Dictionary<string, string> InputDeviceSpriteMap = new();
 
         public static string GetSprite(string input) => Instance.GetSpriteImpl(input);
-        
+
         [ReadOnly]
         private static int _spriteCount;
 
@@ -29,6 +29,13 @@ namespace AGX.Scripts.Runtime.Prompts
         /// </summary>
         public string GetSpriteImpl(string input)
         {
+            // Since GetSprite will sometimes run in edit mode, we need to check if the application is playing
+            // To avoid the map not being initialized
+            if (!Application.isPlaying)
+            {
+                return input;
+            }
+
             // remove < and >
             input = input.Replace("<", "").Replace(">", "");
 

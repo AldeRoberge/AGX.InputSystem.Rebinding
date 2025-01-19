@@ -273,6 +273,7 @@ MonoBehaviour:
   _textRebind: {fileID: 4985824686241964664}
   _buttonReset: {fileID: 4607890603769534084}
   _buttonRebind: {fileID: 2853951199229873}
+  _debug: 0
   _selectedBinding: 1
 --- !u!1 &2786485128324207020
 GameObject:
@@ -685,6 +686,7 @@ MonoBehaviour:
   _textRebind: {fileID: 3469075076581291797}
   _buttonReset: {fileID: 4223356448177133873}
   _buttonRebind: {fileID: 3405275398994546399}
+  _debug: 0
   _selectedBinding: 2
 --- !u!1 &4100831032311894654
 GameObject:
@@ -1190,6 +1192,7 @@ MonoBehaviour:
   _textRebind: {fileID: 2157012504285500225}
   _buttonReset: {fileID: 8946892855387980752}
   _buttonRebind: {fileID: 4808137246275743587}
+  _debug: 0
   _selectedBinding: 0
 --- !u!1 &5892208112711878200
 GameObject:
