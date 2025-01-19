@@ -24,9 +24,9 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -534,6 +534,28 @@ PrefabInstance:
       propertyPath: m_text
       value: <Keyboard>/w<Keyboard>/s<Keyboard>/a<Keyboard>/d
       objectReference: {fileID: 0}
+    - target: {fileID: 2157012504285500225, guid: a0f60e4b636033a40a0979db346d8dd8,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 2157012504285500225, guid: a0f60e4b636033a40a0979db346d8dd8,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5f2376ac0631f5841b65bc1821bf792b,
+        type: 2}
+    - target: {fileID: 2157012504285500225, guid: a0f60e4b636033a40a0979db346d8dd8,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -2888141525992646026, guid: 5f2376ac0631f5841b65bc1821bf792b,
+        type: 2}
+    - target: {fileID: 2157012504285500225, guid: a0f60e4b636033a40a0979db346d8dd8,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2335185414750351693, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_Sprite
@@ -564,13 +586,25 @@ PrefabInstance:
     - target: {fileID: 3342403134798985403, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_fontSize
-      value: 18
+      value: 42
       objectReference: {fileID: 0}
+    - target: {fileID: 3342403134798985403, guid: a0f60e4b636033a40a0979db346d8dd8,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5f2376ac0631f5841b65bc1821bf792b,
+        type: 2}
     - target: {fileID: 3342403134798985403, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_fontSizeMax
       value: 42
       objectReference: {fileID: 0}
+    - target: {fileID: 3342403134798985403, guid: a0f60e4b636033a40a0979db346d8dd8,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -2888141525992646026, guid: 5f2376ac0631f5841b65bc1821bf792b,
+        type: 2}
     - target: {fileID: 3342403134798985403, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_enableAutoSizing
@@ -579,6 +613,11 @@ PrefabInstance:
     - target: {fileID: 3342403134798985403, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_enableWordWrapping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3342403134798985403, guid: a0f60e4b636033a40a0979db346d8dd8,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3405275398994546399, guid: a0f60e4b636033a40a0979db346d8dd8,
@@ -665,6 +704,23 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: <Gamepad>/leftStick
+      objectReference: {fileID: 0}
+    - target: {fileID: 3469075076581291797, guid: a0f60e4b636033a40a0979db346d8dd8,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5f2376ac0631f5841b65bc1821bf792b,
+        type: 2}
+    - target: {fileID: 3469075076581291797, guid: a0f60e4b636033a40a0979db346d8dd8,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -2888141525992646026, guid: 5f2376ac0631f5841b65bc1821bf792b,
+        type: 2}
+    - target: {fileID: 3469075076581291797, guid: a0f60e4b636033a40a0979db346d8dd8,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3670376998193188173, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
@@ -819,7 +875,24 @@ PrefabInstance:
     - target: {fileID: 4985824686241964664, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_fontSize
-      value: 32
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985824686241964664, guid: a0f60e4b636033a40a0979db346d8dd8,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5f2376ac0631f5841b65bc1821bf792b,
+        type: 2}
+    - target: {fileID: 4985824686241964664, guid: a0f60e4b636033a40a0979db346d8dd8,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -2888141525992646026, guid: 5f2376ac0631f5841b65bc1821bf792b,
+        type: 2}
+    - target: {fileID: 4985824686241964664, guid: a0f60e4b636033a40a0979db346d8dd8,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5235950691211989352, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
@@ -1203,7 +1276,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press any key to rebind...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bfc4d4f32b4c549459e42ddb19f2f6c8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5f2376ac0631f5841b65bc1821bf792b, type: 2}
   m_sharedMaterial: {fileID: -7502936471247588499, guid: bfc4d4f32b4c549459e42ddb19f2f6c8,
     type: 2}
   m_fontSharedMaterials: []
@@ -1268,7 +1341,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &100046324
@@ -1511,8 +1584,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: <sprite="General/General" name="Close" tint=1> Reset All
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bfc4d4f32b4c549459e42ddb19f2f6c8, type: 2}
-  m_sharedMaterial: {fileID: -7502936471247588499, guid: bfc4d4f32b4c549459e42ddb19f2f6c8,
+  m_fontAsset: {fileID: 11400000, guid: 5f2376ac0631f5841b65bc1821bf792b, type: 2}
+  m_sharedMaterial: {fileID: -2888141525992646026, guid: 5f2376ac0631f5841b65bc1821bf792b,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1862,7 +1935,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: <sprite="General/General" name="Close"> Cancel
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 86efcacab38e3a84e9b08c5f2cca8e1b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5f2376ac0631f5841b65bc1821bf792b, type: 2}
   m_sharedMaterial: {fileID: -7674890629288661743, guid: 86efcacab38e3a84e9b08c5f2cca8e1b,
     type: 2}
   m_fontSharedMaterials: []
@@ -1927,7 +2000,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &590141886
@@ -2041,8 +2114,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: <sprite="General/General" name="Joystick"> Gameplay
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bfc4d4f32b4c549459e42ddb19f2f6c8, type: 2}
-  m_sharedMaterial: {fileID: -7502936471247588499, guid: bfc4d4f32b4c549459e42ddb19f2f6c8,
+  m_fontAsset: {fileID: 11400000, guid: 5f2376ac0631f5841b65bc1821bf792b, type: 2}
+  m_sharedMaterial: {fileID: -2888141525992646026, guid: 5f2376ac0631f5841b65bc1821bf792b,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2176,8 +2249,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: <sprite="General/General" name="Keyboard"> Keyboard
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bfc4d4f32b4c549459e42ddb19f2f6c8, type: 2}
-  m_sharedMaterial: {fileID: -7502936471247588499, guid: bfc4d4f32b4c549459e42ddb19f2f6c8,
+  m_fontAsset: {fileID: 11400000, guid: 5f2376ac0631f5841b65bc1821bf792b, type: 2}
+  m_sharedMaterial: {fileID: -2888141525992646026, guid: 5f2376ac0631f5841b65bc1821bf792b,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2311,8 +2384,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: <sprite="General/General" name="Gamepad"> Gamepad
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bfc4d4f32b4c549459e42ddb19f2f6c8, type: 2}
-  m_sharedMaterial: {fileID: -7502936471247588499, guid: bfc4d4f32b4c549459e42ddb19f2f6c8,
+  m_fontAsset: {fileID: 11400000, guid: 5f2376ac0631f5841b65bc1821bf792b, type: 2}
+  m_sharedMaterial: {fileID: -2888141525992646026, guid: 5f2376ac0631f5841b65bc1821bf792b,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2446,8 +2519,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: <sprite="General/General" name="Joystick"> Action
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bfc4d4f32b4c549459e42ddb19f2f6c8, type: 2}
-  m_sharedMaterial: {fileID: -7502936471247588499, guid: bfc4d4f32b4c549459e42ddb19f2f6c8,
+  m_fontAsset: {fileID: 11400000, guid: 5f2376ac0631f5841b65bc1821bf792b, type: 2}
+  m_sharedMaterial: {fileID: -2888141525992646026, guid: 5f2376ac0631f5841b65bc1821bf792b,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2581,8 +2654,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: <sprite="General/General" name="Search"> No action matches your search.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bfc4d4f32b4c549459e42ddb19f2f6c8, type: 2}
-  m_sharedMaterial: {fileID: -7502936471247588499, guid: bfc4d4f32b4c549459e42ddb19f2f6c8,
+  m_fontAsset: {fileID: 11400000, guid: 5f2376ac0631f5841b65bc1821bf792b, type: 2}
+  m_sharedMaterial: {fileID: -2888141525992646026, guid: 5f2376ac0631f5841b65bc1821bf792b,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2842,8 +2915,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6c5b2f9debcc977499ab85b1bd54f61f, type: 2}
-  m_sharedMaterial: {fileID: -1719577957436429416, guid: 6c5b2f9debcc977499ab85b1bd54f61f,
+  m_fontAsset: {fileID: 11400000, guid: 5f2376ac0631f5841b65bc1821bf792b, type: 2}
+  m_sharedMaterial: {fileID: -2888141525992646026, guid: 5f2376ac0631f5841b65bc1821bf792b,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5762,6 +5835,23 @@ PrefabInstance:
       propertyPath: m_text
       value: <Keyboard>/space
       objectReference: {fileID: 0}
+    - target: {fileID: 2157012504285500225, guid: a0f60e4b636033a40a0979db346d8dd8,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5f2376ac0631f5841b65bc1821bf792b,
+        type: 2}
+    - target: {fileID: 2157012504285500225, guid: a0f60e4b636033a40a0979db346d8dd8,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -2888141525992646026, guid: 5f2376ac0631f5841b65bc1821bf792b,
+        type: 2}
+    - target: {fileID: 2157012504285500225, guid: a0f60e4b636033a40a0979db346d8dd8,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2335185414750351693, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_Sprite
@@ -5787,13 +5877,25 @@ PrefabInstance:
     - target: {fileID: 3342403134798985403, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_fontSize
-      value: 18
+      value: 42
       objectReference: {fileID: 0}
+    - target: {fileID: 3342403134798985403, guid: a0f60e4b636033a40a0979db346d8dd8,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5f2376ac0631f5841b65bc1821bf792b,
+        type: 2}
     - target: {fileID: 3342403134798985403, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_fontSizeMax
       value: 42
       objectReference: {fileID: 0}
+    - target: {fileID: 3342403134798985403, guid: a0f60e4b636033a40a0979db346d8dd8,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -2888141525992646026, guid: 5f2376ac0631f5841b65bc1821bf792b,
+        type: 2}
     - target: {fileID: 3342403134798985403, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_enableAutoSizing
@@ -5802,6 +5904,11 @@ PrefabInstance:
     - target: {fileID: 3342403134798985403, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_enableWordWrapping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3342403134798985403, guid: a0f60e4b636033a40a0979db346d8dd8,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3405275398994546399, guid: a0f60e4b636033a40a0979db346d8dd8,
@@ -5888,6 +5995,23 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: <Gamepad>/buttonEast
+      objectReference: {fileID: 0}
+    - target: {fileID: 3469075076581291797, guid: a0f60e4b636033a40a0979db346d8dd8,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5f2376ac0631f5841b65bc1821bf792b,
+        type: 2}
+    - target: {fileID: 3469075076581291797, guid: a0f60e4b636033a40a0979db346d8dd8,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -2888141525992646026, guid: 5f2376ac0631f5841b65bc1821bf792b,
+        type: 2}
+    - target: {fileID: 3469075076581291797, guid: a0f60e4b636033a40a0979db346d8dd8,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3670376998193188173, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
@@ -6047,7 +6171,24 @@ PrefabInstance:
     - target: {fileID: 4985824686241964664, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_fontSize
-      value: 32
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985824686241964664, guid: a0f60e4b636033a40a0979db346d8dd8,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5f2376ac0631f5841b65bc1821bf792b,
+        type: 2}
+    - target: {fileID: 4985824686241964664, guid: a0f60e4b636033a40a0979db346d8dd8,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -2888141525992646026, guid: 5f2376ac0631f5841b65bc1821bf792b,
+        type: 2}
+    - target: {fileID: 4985824686241964664, guid: a0f60e4b636033a40a0979db346d8dd8,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5409526028816310766, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
