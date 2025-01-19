@@ -1,93 +1,99 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+// From https://discussions.unity.com/t/textmeshpro-precull-dorebuilds-performance/762282/27
+// https://github.com/mitay-walle/Unity3d-TMPro-Text-AutoSize
 namespace AGX.Scripts.Runtime.Utilities
 {
-    public class MatchFontSize : MonoBehaviour
+    public enum ResizePattern
     {
-        [SerializeField] private List<TextMeshProUGUI> _texts = new();
+        IgnoreRichText,
+        AllCharacters,
+    }
 
-        private float _lastUpdateTime;
-        private const float UpdateIntervalSeconds = 1f;
-        private float _smallestFontSize = float.MaxValue; // Cache the smallest font size
-
-        private void Start()
-        {
-            if (_texts.Count == 0) return; // Early exit if there are no texts to adjust
-
-            // Adjust font size at the start
-            AdjustFontSize();
-        }
+    [ExecuteAlways]
+    public class TMPTextAutoSize : MonoBehaviour
+    {
+        [SerializeField] private List<TMP_Text> _texts = new();
+        [SerializeField] private ResizePattern  _pattern;
+        [SerializeField] private bool           _executeOnUpdate = true;
+        private                  int            _currentIndex;
 
         private void Update()
         {
-            // Check if enough time has passed since the last update
-            if (Time.time - _lastUpdateTime >= UpdateIntervalSeconds)
-            {
-                _lastUpdateTime = Time.time;
-                AdjustFontSize();
-            }
+            if (_executeOnUpdate) Execute();
+            OnUpdateCheck();
         }
 
-        private void AdjustFontSize()
+        private void Execute()
         {
-            if (_texts.Count == 0) return; // Early exit if there are no texts to adjust
+            if (_texts.Count == 0) return;
 
-            EnableAutoSizingIfNecessary();
-            var smallestFontSize = GetSmallestAutoSizedFontSize();
-            
-            if (_smallestFontSize != smallestFontSize) // Only update if it has changed
-            {
-                _smallestFontSize = smallestFontSize;
-                ApplyFontSize(_smallestFontSize);
-            }
-        }
+            var count = _texts.Count;
 
-        private void EnableAutoSizingIfNecessary()
-        {
-            // Enable auto-sizing for all valid TextMeshProUGUI components, only if not already enabled
-            foreach (var text in _texts)
+            var index = 0;
+            float maxLength = 0;
+
+            for (var i = 0; i < count; i++)
             {
-                if (text != null && !text.enableAutoSizing)
+                float length = 0;
+
+                switch (_pattern)
                 {
-                    text.enableAutoSizing = true;
+                    case ResizePattern.IgnoreRichText:
+                        length = _texts[i].GetParsedText().Length;
+                        break;
+
+                    case ResizePattern.AllCharacters:
+                        length = _texts[i].text.Length;
+
+                        break;
+
+                    default:
+                        throw new ArgumentOutOfRangeException();
                 }
-            }
-        }
 
-        private float GetSmallestAutoSizedFontSize()
-        {
-            var smallestFontSize = float.MaxValue;
-
-            // Loop through each text and find the smallest font size after auto-sizing
-            foreach (var text in _texts)
-            {
-                if (text == null) continue; // Skip null entries
-
-                // Get the resulting font size after auto-sizing has been applied
-                var currentFontSize = text.fontSize;
-
-                // Update smallest font size if a smaller one is found
-                if (currentFontSize < smallestFontSize)
+                if (length > maxLength)
                 {
-                    smallestFontSize = currentFontSize;
+                    maxLength = length;
+                    index = i;
                 }
             }
 
-            return smallestFontSize;
+            if (_currentIndex != index)
+            {
+                OnChanged(index);
+            }
         }
 
-        private void ApplyFontSize(float fontSize)
+        private void OnChanged(int index)
         {
-            // Apply the smallest font size and disable auto-sizing
-            foreach (var text in _texts)
+            // Disable auto size on previous
+            _texts[_currentIndex].enableAutoSizing = false;
+
+            _currentIndex = index;
+
+            // Force an update of the candidate text object so we can retrieve its optimum point size.
+            _texts[index].enableAutoSizing = true;
+            _texts[index].ForceMeshUpdate();
+        }
+
+        private void OnUpdateCheck()
+        {
+            var optimumPointSize = _texts[_currentIndex].fontSize;
+
+            // Iterate over all other text objects to set the point size
+            var count = _texts.Count;
+
+            for (var i = 0; i < count; i++)
             {
-                if (text != null)
-                {
-                    text.fontSize = fontSize;
-                    text.enableAutoSizing = false; // Disable auto-sizing after applying the font size
-                }
+                if (_currentIndex == i) continue;
+
+                _texts[i].enableAutoSizing = false;
+
+                _texts[i].fontSize = optimumPointSize;
             }
         }
     }
