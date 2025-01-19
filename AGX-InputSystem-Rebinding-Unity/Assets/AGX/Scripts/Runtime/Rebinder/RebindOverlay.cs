@@ -1,6 +1,8 @@
+using System;
 using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace AGX.Scripts.Runtime.Rebinder
 {
@@ -11,10 +13,26 @@ namespace AGX.Scripts.Runtime.Rebinder
 
         [BoxGroup("References"), SerializeField]
         private TextMeshProUGUI _text;
-        
-        public void SetActive(bool isActive)
+
+        [BoxGroup("References"), SerializeField]
+        private Button _buttonCancel;
+
+
+        public void Show(Action cancelAction)
         {
-            if (isActive) 
+            SetActive(true);
+            _buttonCancel.onClick.AddListener(() =>
+            {
+                SetActive(false);
+                cancelAction?.Invoke();
+            });
+        }
+
+        public void Hide() => SetActive(false);
+
+        private void SetActive(bool isActive)
+        {
+            if (isActive)
                 gameObject.SetActive(true);
 
             _canvasGroup.alpha = isActive ? 1 : 0;

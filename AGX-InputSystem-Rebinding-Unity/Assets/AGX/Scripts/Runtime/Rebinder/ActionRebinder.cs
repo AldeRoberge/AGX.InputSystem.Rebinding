@@ -1,12 +1,8 @@
-using System;
 using System.Text;
 using AGX.Scripts.Runtime.Prompts;
-using AGX.Scripts.Runtime.Searching;
 using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Utilities;
 using UnityEngine.UI;
 
 namespace AGX.Scripts.Runtime.Rebinder
@@ -17,26 +13,26 @@ namespace AGX.Scripts.Runtime.Rebinder
     public class ActionRebinder : MonoBehaviour
     {
         [BoxGroup("References"), SerializeField] private ActionRebinders _actionRebinders;
-
-        [BoxGroup("References"), SerializeField] private bool                              _mouseIncluded;
-        [BoxGroup("References"), SerializeField] private InputBinding.DisplayStringOptions _displayStringOptions;
-
-
-        [BoxGroup("References/UI"), SerializeField, Required] private Button _buttonRebind;
-
-        [BoxGroup("References"), SerializeField, Range(0, 20)] private int _selectedBinding;
+        [BoxGroup("References"), SerializeField] private bool            _mouseIncluded;
 
         [BoxGroup("References/UI"), SerializeField, Required] private TMP_Text _textRebind;
         [BoxGroup("References/UI"), SerializeField, Required] private Button   _buttonReset;
+        [BoxGroup("References/UI"), SerializeField, Required] private Button   _buttonRebind;
 
-        private InputBinding _inputBinding;
+        [SerializeField] private bool _debug;
 
-        [ShowNonSerializedField] private int    _bindingIndex;
+        /// <summary>
+        /// The selected binding index.
+        /// To get the first binding use index 0.
+        /// Usually, the second binding will be at index 1, but if the first binding is a composite of 2 controls, the next binding will be at index 5.
+        /// </summary>
+        [BoxGroup("References"), SerializeField] private int _selectedBinding;
+
         [ShowNonSerializedField] private string _actionName;
 
         [ShowNonSerializedField] private bool _isDirty;
         public string ActionName => _actionName;
-        public int BindingIndex => _bindingIndex;
+        public int BindingIndex => _selectedBinding;
 
         private void OnEnable()
         {
@@ -45,7 +41,7 @@ namespace AGX.Scripts.Runtime.Rebinder
 
             if (_actionRebinders.InputActionReference != null)
             {
-                GetBindingInfo(_selectedBinding);
+                GetBindingInfo();
                 UpdateUI();
             }
 
@@ -63,37 +59,31 @@ namespace AGX.Scripts.Runtime.Rebinder
 
         private void OnValidate()
         {
-            GetBindingInfo(_selectedBinding);
+            GetBindingInfo();
             UpdateUI();
 
-            name = $"Input Action Rebinder ({_actionName}:{_bindingIndex})";
+            name = $"Input Action Rebinder ({_actionName}:{_selectedBinding})";
         }
 
-        private void GetBindingInfo(int selectedBinding)
+        private void GetBindingInfo()
         {
             _actionName = _actionRebinders.InputActionReference.action.name;
-
-            if (_actionRebinders.InputActionReference.action.bindings.Count > _selectedBinding)
-            {
-                _selectedBinding = selectedBinding;
-                _inputBinding = _actionRebinders.InputActionReference.action.bindings[_selectedBinding];
-                _bindingIndex = _selectedBinding;
-            }
         }
 
         [Button]
         internal void UpdateUI()
         {
-            var startIndex = _bindingIndex;
-
+            var startIndex = _selectedBinding;
 
             var action = InputManager.GetAction(_actionName);
             var bindings = InputManager.GetBindings(_actionName);
 
             var endIndex = startIndex;
 
-            for (var i = 0; i < bindings.Count; i++)
-                Debug.Log($"Binding {i}: {bindings[i].name} - {bindings[i].effectivePath} - {bindings[i].isComposite} - {bindings[i].isPartOfComposite}");
+
+            if (_debug)
+                for (var i = 0; i < bindings.Count; i++)
+                    Debug.Log($"Binding {i}: {bindings[i].name} - {bindings[i].effectivePath} - {bindings[i].isComposite} - {bindings[i].isPartOfComposite}");
 
             if (startIndex < 0 || startIndex >= bindings.Count)
             {
@@ -105,11 +95,12 @@ namespace AGX.Scripts.Runtime.Rebinder
 
             if (!isRootOfComposite)
             {
-                Debug.Log($"Binding at index {startIndex} for {action.name} is not the root of a composite \n" +
-                          $"Binding: {bindings[startIndex].name}\n" +
-                          $"Path: {bindings[startIndex].path}\n" +
-                          $"Is Composite: {bindings[startIndex].isComposite}\n" +
-                          $"Is Part of Composite: {bindings[startIndex].isPartOfComposite}");
+                if (_debug)
+                    Debug.Log($"Binding at index {startIndex} for {action.name} is not the root of a composite \n" +
+                              $"Binding: {bindings[startIndex].name}\n" +
+                              $"Path: {bindings[startIndex].path}\n" +
+                              $"Is Composite: {bindings[startIndex].isComposite}\n" +
+                              $"Is Part of Composite: {bindings[startIndex].isPartOfComposite}");
             }
             else
             {
@@ -126,7 +117,8 @@ namespace AGX.Scripts.Runtime.Rebinder
                 }
             }
 
-            Debug.Log($"Start Index: {startIndex} End Index: {endIndex} for {action.bindings.Count} bindings of {_actionRebinders.InputActionReference.action.name}");
+            if (_debug)
+                Debug.Log($"Start Index: {startIndex} End Index: {endIndex} for {action.bindings.Count} bindings of {_actionRebinders.InputActionReference.action.name}");
 
             var fullString = new StringBuilder();
 
@@ -141,7 +133,8 @@ namespace AGX.Scripts.Runtime.Rebinder
                 // get the action as a string like '/Keyboard/anyKey'
                 var tmpSprite = InputDevicePrompts.GetSprite(b.effectivePath);
 
-                Debug.Log($"Binding {i}: name {b.name} - path {b.path} - effective path {b.effectivePath} - sprite {tmpSprite}");
+                if (_debug)
+                    Debug.Log($"Binding {i}: name {b.name} - path {b.path} - effective path {b.effectivePath} - sprite {tmpSprite}");
 
                 fullString.Append(tmpSprite);
             }
@@ -155,45 +148,19 @@ namespace AGX.Scripts.Runtime.Rebinder
 
             _textRebind.text = fullString.ToString();
 
-            _isDirty = InputManager.IsBindingOverriden(_actionName, _bindingIndex);
+            _isDirty = InputManager.IsBindingOverriden(_actionName, _selectedBinding);
             _buttonReset.gameObject.SetActive(_isDirty);
         }
 
         private void DoRebind()
         {
-            InputManager.StartRebind(_actionName, _bindingIndex, _actionRebinders.RebindingOverlay, _mouseIncluded);
+            InputManager.StartRebind(_actionName, _selectedBinding, _actionRebinders.RebindingOverlay, _mouseIncluded);
         }
 
         private void ResetBinding()
         {
             InputManager.ResetBinding(this);
             UpdateUI();
-        }
-
-        [Button]
-        public void SelectKeyboardAndMouseBindingInfo()
-        {
-            GetBindingInfo(0); // Change number to K&M binding if not 0
-            UpdateUI();
-        }
-
-        [Button]
-        public void SelectControllerBindingInfo()
-        {
-            GetBindingInfo(1); // Change number to Controller binding if not 1
-            UpdateUI();
-        }
-
-        [Button]
-        public void ContollerVectorBindingInfo()
-        {
-            GetBindingInfo(5); // Change number to controller move binding
-            UpdateUI();
-        }
-
-        public void DoReset()
-        {
-            ResetBinding();
         }
     }
 }

@@ -77,7 +77,7 @@ namespace AGX.Scripts.Runtime.Rebinder
             rebind.OnComplete(operation =>
             {
                 actionToRebind.Enable();
-                rebindOverlay?.SetActive(false);
+                rebindOverlay?.Hide();
                 operation.Dispose();
 
                 if (IsDuplicateBinding(actionToRebind, bindingIndex, allCompositeParts))
@@ -104,7 +104,7 @@ namespace AGX.Scripts.Runtime.Rebinder
             rebind.OnCancel(operation =>
             {
                 actionToRebind.Enable();
-                rebindOverlay?.SetActive(false);
+                rebindOverlay?.Hide();
                 operation.Dispose();
 
                 RebindCanceled?.Invoke();
@@ -129,7 +129,10 @@ namespace AGX.Scripts.Runtime.Rebinder
                 rebind.WithControlsExcluding(KeyboardEscape); // Exclude keyboard escape for gamepad actions
             }
 
-            rebindOverlay?.SetActive(true);
+            rebindOverlay?.Show(() =>
+            {
+                rebind.Cancel();
+            });
             if (rebindOverlay != null)
             {
                 var partName = string.Empty;

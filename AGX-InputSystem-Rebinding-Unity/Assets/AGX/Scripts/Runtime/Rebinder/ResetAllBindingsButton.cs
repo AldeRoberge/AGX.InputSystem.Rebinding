@@ -1,7 +1,6 @@
 ﻿using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace AGX.Scripts.Runtime.Rebinder

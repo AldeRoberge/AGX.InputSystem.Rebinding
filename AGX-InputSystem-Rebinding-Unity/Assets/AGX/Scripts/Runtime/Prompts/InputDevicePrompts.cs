@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using FredericRP.GenericSingleton;
 using NaughtyAttributes;
-using Unity.Plastic.Newtonsoft.Json;
 using UnityEngine;
 
 namespace AGX.Scripts.Runtime.Prompts
@@ -10,16 +8,14 @@ namespace AGX.Scripts.Runtime.Prompts
     [DefaultExecutionOrder(-999)]
     public class InputDevicePrompts : Singleton<InputDevicePrompts>
     {
-        public List<TextAsset> Prompts = new();
+        public List<TextAsset> _prompts = new();
 
-        public static readonly Dictionary<string, string> InputDeviceSpriteMap = new();
+        private static readonly Dictionary<string, string> InputDeviceSpriteMap = new();
 
         public static string GetSprite(string input) => Instance.GetSpriteImpl(input);
-
-
+        
         [ReadOnly]
         private static int _spriteCount;
-
 
         /// <summary>
         /// For an input, like
@@ -41,11 +37,9 @@ namespace AGX.Scripts.Runtime.Prompts
                 input = "/" + input;
 
             if (InputDeviceSpriteMap.TryGetValue(input, out var sprite))
-            {
                 return sprite;
-            }
 
-            Debug.LogError($"No sprite found for input: '{input}'");
+            Debug.LogWarning($"No sprite found for input: '{input}'");
 
             // Empty action (no binding)
             if (input == "/")
@@ -58,7 +52,7 @@ namespace AGX.Scripts.Runtime.Prompts
         {
             InputDeviceSpriteMap.Clear();
 
-            foreach (var prompt in Prompts)
+            foreach (var prompt in _prompts)
             {
                 Debug.Log($"Prompt: {prompt.text}");
 
