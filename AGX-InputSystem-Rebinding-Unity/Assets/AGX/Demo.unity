@@ -520,7 +520,7 @@ PrefabInstance:
     - target: {fileID: 2157012504285500225, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_text
-      value: /Keyboard/w/Keyboard/s/Keyboard/a/Keyboard/d
+      value: <Keyboard>/w<Keyboard>/s<Keyboard>/a<Keyboard>/d
       objectReference: {fileID: 0}
     - target: {fileID: 3201731491751595180, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
@@ -615,7 +615,7 @@ PrefabInstance:
     - target: {fileID: 3469075076581291797, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_text
-      value: /Gamepad/leftStick
+      value: <Gamepad>/leftStick
       objectReference: {fileID: 0}
     - target: {fileID: 3670376998193188173, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
@@ -765,7 +765,7 @@ PrefabInstance:
     - target: {fileID: 4985824686241964664, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_text
-      value: /Keyboard/upArrow/Keyboard/downArrow/Keyboard/leftArrow/Keyboard/rightArrow
+      value: <Keyboard>/upArrow<Keyboard>/downArrow<Keyboard>/leftArrow<Keyboard>/rightArrow
       objectReference: {fileID: 0}
     - target: {fileID: 4985824686241964664, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
@@ -968,7 +968,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &74857978
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1054,6 +1054,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canvasGroup: {fileID: 74857981}
   _text: {fileID: 100046323}
+  _buttonCancel: {fileID: 0}
 --- !u!1 &100046321
 GameObject:
   m_ObjectHideFlags: 0
@@ -3381,7 +3382,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc84a803f6964363869762678dfab7d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prompts: []
+  _prompts:
+  - {fileID: 4900000, guid: 6ac3e773fb647a747b7278d1b52921d4, type: 3}
+  - {fileID: 4900000, guid: df457cea17df8f44fadae9f85be230e0, type: 3}
+  - {fileID: 4900000, guid: 59657a0ad0e14c5faffac5dc15342b19, type: 3}
 --- !u!4 &1448459152
 Transform:
   m_ObjectHideFlags: 0
@@ -5638,7 +5642,7 @@ PrefabInstance:
     - target: {fileID: 2157012504285500225, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_text
-      value: /Keyboard/space
+      value: <Keyboard>/space
       objectReference: {fileID: 0}
     - target: {fileID: 3201731491751595180, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
@@ -5728,7 +5732,7 @@ PrefabInstance:
     - target: {fileID: 3469075076581291797, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_text
-      value: /Gamepad/buttonEast
+      value: <Gamepad>/buttonEast
       objectReference: {fileID: 0}
     - target: {fileID: 3670376998193188173, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}

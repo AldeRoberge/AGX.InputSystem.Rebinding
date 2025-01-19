@@ -12,9 +12,9 @@ namespace AGX.Scripts.Runtime.Utilities
             StringBuilder allPaths = new StringBuilder();
 
             // Process each device type
-            PrintDevicePaths(Keyboard.current, "Keyboard", allPaths);
-            PrintDevicePaths(Gamepad.current, "Gamepad", allPaths);
-            PrintDevicePaths(Mouse.current, "Mouse", allPaths);
+            //PrintDevicePaths(Keyboard.current, "Keyboard", allPaths);
+            //PrintDevicePaths(Gamepad.current, "Gamepad", allPaths);
+            //PrintDevicePaths(Mouse.current, "Mouse", allPaths);
             PrintDevicePaths(Touchscreen.current, "Touchscreen", allPaths); // Added touchscreen
         }
 
