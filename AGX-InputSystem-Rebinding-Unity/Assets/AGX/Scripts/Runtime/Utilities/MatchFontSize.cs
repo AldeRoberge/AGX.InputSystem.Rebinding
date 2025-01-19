@@ -8,8 +8,9 @@ namespace AGX.Scripts.Runtime.Utilities
     {
         [SerializeField] private List<TextMeshProUGUI> _texts = new();
 
-        private       float _lastUpdateTime;
-        private const float UpdateIntervalSeconds = 0.01f;
+        private float _lastUpdateTime;
+        private const float UpdateIntervalSeconds = 1f;
+        private float _smallestFontSize = float.MaxValue; // Cache the smallest font size
 
         private void Start()
         {
@@ -31,20 +32,26 @@ namespace AGX.Scripts.Runtime.Utilities
 
         private void AdjustFontSize()
         {
-            EnableAutoSizing();
+            if (_texts.Count == 0) return; // Early exit if there are no texts to adjust
+
+            EnableAutoSizingIfNecessary();
             var smallestFontSize = GetSmallestAutoSizedFontSize();
-            ApplyFontSize(smallestFontSize);
+            
+            if (_smallestFontSize != smallestFontSize) // Only update if it has changed
+            {
+                _smallestFontSize = smallestFontSize;
+                ApplyFontSize(_smallestFontSize);
+            }
         }
 
-        private void EnableAutoSizing()
+        private void EnableAutoSizingIfNecessary()
         {
-            // Enable auto sizing for all valid TextMeshProUGUI components
+            // Enable auto-sizing for all valid TextMeshProUGUI components, only if not already enabled
             foreach (var text in _texts)
             {
-                if (text != null)
+                if (text != null && !text.enableAutoSizing)
                 {
                     text.enableAutoSizing = true;
-                    text.ForceMeshUpdate(); // Force mesh update to ensure auto-sizing is applied
                 }
             }
         }
