@@ -12,7 +12,16 @@ namespace AGX.Scripts.Runtime.Prompts
 
         private static readonly Dictionary<string, string> InputDeviceSpriteMap = new();
 
-        public static string GetSprite(string input) => Instance.GetSpriteImpl(input);
+        public static string GetSprite(string input)
+        {
+            if (Instance == null)
+            {
+                Debug.LogError("InputDevicePrompts instance is null");
+                return input;
+            }
+
+            return Instance.GetSpriteImpl(input);
+        }
 
         [ReadOnly]
         private static int _spriteCount;

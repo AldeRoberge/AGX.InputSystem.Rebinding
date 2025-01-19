@@ -8,16 +8,15 @@ namespace AGX.Scripts.Runtime.Rebinder
 {
     public class RebindOverlay : MonoBehaviour
     {
-        [BoxGroup("References"), SerializeField]
+        [BoxGroup("References"), SerializeField, Required]
         private CanvasGroup _canvasGroup;
 
-        [BoxGroup("References"), SerializeField]
+        [BoxGroup("References"), SerializeField, Required]
         private TextMeshProUGUI _text;
 
-        [BoxGroup("References"), SerializeField]
+        [BoxGroup("References"), SerializeField, Required]
         private Button _buttonCancel;
-
-
+        
         public void Show(Action cancelAction)
         {
             SetActive(true);
