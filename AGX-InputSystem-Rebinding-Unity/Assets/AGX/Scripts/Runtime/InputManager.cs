@@ -74,7 +74,10 @@ namespace AGX.Scripts.Runtime.Rebinder
 
             actionToRebind.Disable();
 
-            var rebind = actionToRebind.PerformInteractiveRebinding(bindingIndex);
+            var rebind = actionToRebind
+                .PerformInteractiveRebinding(bindingIndex)
+                .OnMatchWaitForAnother(0.2f)
+                .WithTimeout(6f);
 
             rebind.OnComplete(operation =>
             {

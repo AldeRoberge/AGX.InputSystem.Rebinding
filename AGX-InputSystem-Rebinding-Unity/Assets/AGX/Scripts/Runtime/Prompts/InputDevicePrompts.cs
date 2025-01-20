@@ -1,22 +1,26 @@
 ﻿using System.Collections.Generic;
-using FredericRP.GenericSingleton;
 using NaughtyAttributes;
 using UnityEngine;
 
 namespace AGX.Scripts.Runtime.Prompts
 {
     [DefaultExecutionOrder(-999)]
-    public class InputDevicePrompts : Singleton<InputDevicePrompts>
+    public class InputDevicePrompts : MonoBehaviour
     {
         public List<TextAsset> _prompts = new();
 
         private static readonly Dictionary<string, string> InputDeviceSpriteMap = new();
 
+        private static InputDevicePrompts Instance;
+
         public static string GetSprite(string input)
         {
             if (Instance == null)
+                Instance = FindObjectOfType<InputDevicePrompts>(true);
+
+            if (Instance == null)
             {
-                Debug.LogError("InputDevicePrompts instance is null");
+                Debug.LogError("No InputDevicePrompts found in scene");
                 return input;
             }
 
