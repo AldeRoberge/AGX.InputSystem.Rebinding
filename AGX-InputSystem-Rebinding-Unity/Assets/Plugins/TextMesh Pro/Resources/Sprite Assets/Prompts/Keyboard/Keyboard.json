@@ -20,7 +20,7 @@
     },
     {
       "Path": "/Keyboard/tab",
-      "Sprite": "keyboard_tab"
+      "Sprite": "keyboard_tab_icon"
     },
     {
       "Path": "/Keyboard/backquote",
@@ -373,6 +373,62 @@
     {
       "Path": "/Keyboard/f12",
       "Sprite": "keyboard_f12"
+    },
+    {
+      "Path": "/Keyboard/numpad0",
+      "Sprite": "keyboard_0"
+    },
+    {
+      "Path": "/Keyboard/numpad1",
+      "Sprite": "keyboard_1"
+    },
+    {
+      "Path": "/Keyboard/numpad2",
+      "Sprite": "keyboard_2"
+    },
+    {
+      "Path": "/Keyboard/numpad3",
+      "Sprite": "keyboard_3"
+    },
+    {
+      "Path": "/Keyboard/numpad4",
+      "Sprite": "keyboard_4"
+    },
+    {
+      "Path": "/Keyboard/numpad5",
+      "Sprite": "keyboard_5"
+    },
+    {
+      "Path": "/Keyboard/numpad6",
+      "Sprite": "keyboard_6"
+    },
+    {
+      "Path": "/Keyboard/numpad7",
+      "Sprite": "keyboard_7"
+    },
+    {
+      "Path": "/Keyboard/numpad8",
+      "Sprite": "keyboard_8"
+    },
+    {
+      "Path": "/Keyboard/numpad9",
+      "Sprite": "keyboard_9"
+    },
+    {
+      "Path": "/Keyboard/numpadPlus",
+      "Sprite": "keyboard_numpad_plus"
+    },
+    {
+      "Path": "/Keyboard/numpadMinus",
+      "Sprite": "keyboard_minus"
+    },
+    {
+      "Path": "/Keyboard/numpadMultiply",
+      "Sprite": "keyboard_asterisk"
+    },
+    {
+      "Path": "/Keyboard/numpadDivide",
+      "Sprite": "keyboard_slash_forward"
     }
   ]
 }
