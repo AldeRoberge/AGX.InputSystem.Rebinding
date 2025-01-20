@@ -325,6 +325,54 @@
     {
       "Path": "/Keyboard/numpadEnter",
       "Sprite": "keyboard_numpad_enter"
+    },
+    {
+      "Path": "/Keyboard/f1",
+      "Sprite": "keyboard_f1"
+    },
+    {
+      "Path": "/Keyboard/f2",
+      "Sprite": "keyboard_f2"
+    },
+    {
+      "Path": "/Keyboard/f3",
+      "Sprite": "keyboard_f3"
+    },
+    {
+      "Path": "/Keyboard/f4",
+      "Sprite": "keyboard_f4"
+    },
+    {
+      "Path": "/Keyboard/f5",
+      "Sprite": "keyboard_f5"
+    },
+    {
+      "Path": "/Keyboard/f6",
+      "Sprite": "keyboard_f6"
+    },
+    {
+      "Path": "/Keyboard/f7",
+      "Sprite": "keyboard_f7"
+    },
+    {
+      "Path": "/Keyboard/f8",
+      "Sprite": "keyboard_f8"
+    },
+    {
+      "Path": "/Keyboard/f9",
+      "Sprite": "keyboard_f9"
+    },
+    {
+      "Path": "/Keyboard/f10",
+      "Sprite": "keyboard_f10"
+    },
+    {
+      "Path": "/Keyboard/f11",
+      "Sprite": "keyboard_f11"
+    },
+    {
+      "Path": "/Keyboard/f12",
+      "Sprite": "keyboard_f12"
     }
   ]
 }

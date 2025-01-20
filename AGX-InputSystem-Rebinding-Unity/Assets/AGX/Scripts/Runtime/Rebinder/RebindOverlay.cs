@@ -16,15 +16,16 @@ namespace AGX.Scripts.Runtime.Rebinder
 
         [BoxGroup("References"), SerializeField, Required]
         private Button _buttonCancel;
-        
+
         public void Show(Action cancelAction)
         {
-            SetActive(true);
             _buttonCancel.onClick.AddListener(() =>
             {
+                Debug.Log("Cancel button clicked");
                 SetActive(false);
                 cancelAction?.Invoke();
             });
+            SetActive(true);
         }
 
         public void Hide() => SetActive(false);
@@ -34,7 +35,9 @@ namespace AGX.Scripts.Runtime.Rebinder
             if (isActive)
                 gameObject.SetActive(true);
 
-            _canvasGroup.alpha = isActive ? 1 : 0;
+            _canvasGroup.alpha = isActive
+                ? 1
+                : 0;
             _canvasGroup.blocksRaycasts = isActive;
             _canvasGroup.interactable = isActive;
         }
