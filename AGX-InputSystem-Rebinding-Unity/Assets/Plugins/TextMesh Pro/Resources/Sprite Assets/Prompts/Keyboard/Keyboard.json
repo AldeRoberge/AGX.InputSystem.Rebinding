@@ -375,6 +375,54 @@
       "Sprite": "keyboard_f12"
     },
     {
+      "Path": "/Keyboard/f13",
+      "Sprite": "keyboard_f13"
+    },
+    {
+      "Path": "/Keyboard/f14",
+      "Sprite": "keyboard_f14"
+    },
+    {
+      "Path": "/Keyboard/f15",
+      "Sprite": "keyboard_f15"
+    },
+    {
+      "Path": "/Keyboard/f16",
+      "Sprite": "keyboard_f16"
+    },
+    {
+      "Path": "/Keyboard/f17",
+      "Sprite": "keyboard_f17"
+    },
+    {
+      "Path": "/Keyboard/f18",
+      "Sprite": "keyboard_f18"
+    },
+    {
+      "Path": "/Keyboard/f19",
+      "Sprite": "keyboard_f19"
+    },
+    {
+      "Path": "/Keyboard/f20",
+      "Sprite": "keyboard_f20"
+    },
+    {
+      "Path": "/Keyboard/f21",
+      "Sprite": "keyboard_f21"
+    },
+    {
+      "Path": "/Keyboard/f22",
+      "Sprite": "keyboard_f22"
+    },
+    {
+      "Path": "/Keyboard/f23",
+      "Sprite": "keyboard_f23"
+    },
+    {
+      "Path": "/Keyboard/f24",
+      "Sprite": "keyboard_f24"
+    },
+    {
       "Path": "/Keyboard/numpad0",
       "Sprite": "keyboard_0"
     },
