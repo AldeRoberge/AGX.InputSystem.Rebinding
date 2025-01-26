@@ -887,14 +887,14 @@ MonoBehaviour:
       m_Width: 128
       m_Height: 128
       m_HorizontalBearingX: 0
-      m_HorizontalBearingY: 88.29
+      m_HorizontalBearingY: 80
       m_HorizontalAdvance: 128
     m_GlyphRect:
       m_X: 1041
       m_Y: 1919
       m_Width: 128
       m_Height: 128
-    m_Scale: 2
+    m_Scale: 3
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
     sprite: {fileID: -594716851, guid: 434b31ee9e7860c4e8fa103a69e0225c, type: 3}
@@ -935,14 +935,14 @@ MonoBehaviour:
       m_Width: 128
       m_Height: 128
       m_HorizontalBearingX: 0
-      m_HorizontalBearingY: 88.29
+      m_HorizontalBearingY: 80
       m_HorizontalAdvance: 128
     m_GlyphRect:
       m_X: 1431
       m_Y: 1919
       m_Width: 128
       m_Height: 128
-    m_Scale: 2
+    m_Scale: 3
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
     sprite: {fileID: 1211108504, guid: 434b31ee9e7860c4e8fa103a69e0225c, type: 3}
@@ -1239,14 +1239,14 @@ MonoBehaviour:
       m_Width: 128
       m_Height: 128
       m_HorizontalBearingX: 0
-      m_HorizontalBearingY: 88.29
+      m_HorizontalBearingY: 80
       m_HorizontalAdvance: 128
     m_GlyphRect:
       m_X: 1
       m_Y: 1659
       m_Width: 128
       m_Height: 128
-    m_Scale: 2
+    m_Scale: 3
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
     sprite: {fileID: 1142274833, guid: 434b31ee9e7860c4e8fa103a69e0225c, type: 3}
@@ -1879,14 +1879,14 @@ MonoBehaviour:
       m_Width: 128
       m_Height: 128
       m_HorizontalBearingX: 0
-      m_HorizontalBearingY: 88.29
+      m_HorizontalBearingY: 80
       m_HorizontalAdvance: 128
     m_GlyphRect:
       m_X: 1301
       m_Y: 1399
       m_Width: 128
       m_Height: 128
-    m_Scale: 2
+    m_Scale: 3
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
     sprite: {fileID: 506741354, guid: 434b31ee9e7860c4e8fa103a69e0225c, type: 3}
@@ -2007,14 +2007,14 @@ MonoBehaviour:
       m_Width: 128
       m_Height: 128
       m_HorizontalBearingX: 0
-      m_HorizontalBearingY: 88.29
+      m_HorizontalBearingY: 80
       m_HorizontalAdvance: 128
     m_GlyphRect:
       m_X: 391
       m_Y: 1269
       m_Width: 128
       m_Height: 128
-    m_Scale: 2
+    m_Scale: 3
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
     sprite: {fileID: -1160542445, guid: 434b31ee9e7860c4e8fa103a69e0225c, type: 3}
@@ -2023,14 +2023,14 @@ MonoBehaviour:
       m_Width: 128
       m_Height: 128
       m_HorizontalBearingX: 0
-      m_HorizontalBearingY: 88.29
+      m_HorizontalBearingY: 80
       m_HorizontalAdvance: 128
     m_GlyphRect:
       m_X: 521
       m_Y: 1269
       m_Width: 128
       m_Height: 128
-    m_Scale: 2
+    m_Scale: 3
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
     sprite: {fileID: 1854696524, guid: 434b31ee9e7860c4e8fa103a69e0225c, type: 3}
@@ -2151,14 +2151,14 @@ MonoBehaviour:
       m_Width: 128
       m_Height: 128
       m_HorizontalBearingX: 0
-      m_HorizontalBearingY: 88.29
+      m_HorizontalBearingY: 80
       m_HorizontalAdvance: 128
     m_GlyphRect:
       m_X: 1561
       m_Y: 1269
       m_Width: 128
       m_Height: 128
-    m_Scale: 2
+    m_Scale: 3
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
     sprite: {fileID: -266585420, guid: 434b31ee9e7860c4e8fa103a69e0225c, type: 3}
@@ -2215,14 +2215,14 @@ MonoBehaviour:
       m_Width: 128
       m_Height: 128
       m_HorizontalBearingX: 0
-      m_HorizontalBearingY: 88.29
+      m_HorizontalBearingY: 80
       m_HorizontalAdvance: 128
     m_GlyphRect:
       m_X: 131
       m_Y: 1139
       m_Width: 128
       m_Height: 128
-    m_Scale: 2
+    m_Scale: 3
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
     sprite: {fileID: 1927553478, guid: 434b31ee9e7860c4e8fa103a69e0225c, type: 3}
@@ -2231,14 +2231,14 @@ MonoBehaviour:
       m_Width: 128
       m_Height: 128
       m_HorizontalBearingX: 0
-      m_HorizontalBearingY: 88.29
+      m_HorizontalBearingY: 80
       m_HorizontalAdvance: 128
     m_GlyphRect:
       m_X: 261
       m_Y: 1139
       m_Width: 128
       m_Height: 128
-    m_Scale: 2
+    m_Scale: 3
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
     sprite: {fileID: 1660497646, guid: 434b31ee9e7860c4e8fa103a69e0225c, type: 3}

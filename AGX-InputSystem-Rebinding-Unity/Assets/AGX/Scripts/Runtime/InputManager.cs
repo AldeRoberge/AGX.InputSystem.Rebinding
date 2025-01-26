@@ -85,8 +85,14 @@ namespace AGX.Scripts.Runtime.Rebinder
                 rebindOverlay?.Hide();
                 operation.Dispose();
 
-                if (IsDuplicateBinding(actionToRebind, bindingIndex, allCompositeParts))
+                rebindOverlay.SetIsDuplicate(false);
+
+                var duplicateBinding = GetDuplicateBinding(actionToRebind, bindingIndex, allCompositeParts);
+
+                if (duplicateBinding.Exists)
                 {
+                    rebindOverlay.SetIsDuplicate(true, duplicateBinding.AlreadyMappedTo, duplicateBinding.Action);
+
                     actionToRebind.RemoveBindingOverride(bindingIndex);
                     operation.Dispose();
                     DoRebind(actionToRebind, bindingIndex, rebindOverlay, includeMouse, allCompositeParts);
@@ -147,15 +153,15 @@ namespace AGX.Scripts.Runtime.Rebinder
 
                 if (includeMouse)
                 {
-                    text = !string.IsNullOrEmpty(actionToRebind.expectedControlType)
-                        ? $"{partName} Press any button ({actionToRebind.expectedControlType}) or mouse button..."
-                        : $"{partName} Press any button or mouse button...";
+                    text = !string.IsNullOrEmpty(actionToRebind.expectedControlType) ?
+                        $"{partName} Press any button ({actionToRebind.expectedControlType}) or mouse button..." :
+                        $"{partName} Press any button or mouse button...";
                 }
                 else
                 {
-                    text = !string.IsNullOrEmpty(actionToRebind.expectedControlType)
-                        ? $"{partName} Press any button ({actionToRebind.expectedControlType})..."
-                        : $"{partName} Press any button...";
+                    text = !string.IsNullOrEmpty(actionToRebind.expectedControlType) ?
+                        $"{partName} Press any button ({actionToRebind.expectedControlType})..." :
+                        $"{partName} Press any button...";
                 }
 
                 rebindOverlay.SetText(text);
@@ -166,8 +172,16 @@ namespace AGX.Scripts.Runtime.Rebinder
         }
 
 
+        class DuplicateBinding
+        {
+            public bool   Exists;
+            public string Action;
+            public string AlreadyMappedTo;
+            public static DuplicateBinding False => new DuplicateBinding() { Exists = false };
+        }
+
         // Only checks for duplicates within the same action map.
-        private static bool IsDuplicateBinding(InputAction actionToRebind, int bindingIndex, bool allCompositeParts = false)
+        private static DuplicateBinding GetDuplicateBinding(InputAction actionToRebind, int bindingIndex, bool allCompositeParts = false)
         {
             var newBinding = actionToRebind.bindings[bindingIndex];
 
@@ -183,11 +197,18 @@ namespace AGX.Scripts.Runtime.Rebinder
                     continue;
 
                 Debug.LogWarning($"Duplicate binding found: {newBinding.effectivePath}");
-                return true;
+
+                return new DuplicateBinding()
+                {
+                    Action = actionToRebind.name,
+                    Exists = true,
+                    AlreadyMappedTo = binding.action
+                };
             }
 
             // Check for duplicate (composite) bindings
-            if (!allCompositeParts) return false;
+            if (!allCompositeParts)
+                return DuplicateBinding.False;
 
             for (var i = 0; i < bindingIndex; ++i)
             {
@@ -196,10 +217,15 @@ namespace AGX.Scripts.Runtime.Rebinder
                     continue;
 
                 Debug.LogWarning($"Duplicate binding found: {newBinding.effectivePath}");
-                return true;
+                return new DuplicateBinding()
+                {
+                    AlreadyMappedTo = actionToRebind.bindings[i].action,
+                    Exists = true,
+                    Action = actionToRebind.name
+                };
             }
 
-            return false;
+            return DuplicateBinding.False;
         }
 
         /// <summary>
