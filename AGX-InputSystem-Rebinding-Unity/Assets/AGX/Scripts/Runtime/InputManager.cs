@@ -157,8 +157,8 @@ namespace AGX.Scripts.Runtime
                 text.Append($" for </color>{actionToRebind.name}");
 
                 text.Append(actionToRebind.bindings[bindingIndex].isPartOfComposite ?
-                    $" '{actionToRebind.bindings[bindingIndex].name}'<color=white>.</color>" :
-                    "<color=white>.</color>");
+                    $" '{actionToRebind.bindings[bindingIndex].name}'<color=white>...</color>" :
+                    "<color=white>...</color>");
 
                 rebindOverlay.SetText(text.ToString());
             }

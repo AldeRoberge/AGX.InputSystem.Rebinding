@@ -1,4 +1,6 @@
 using AGX.Scripts.Runtime.Searching;
+using DG.Tweening;
+using LitMotion;
 using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
@@ -25,6 +27,15 @@ namespace AGX.Scripts.Runtime.Rebinder
         private void OnEnable()
         {
             UpdateText();
+
+            _inputActionReference.action.performed += ActionOnperformed;
+        }
+
+        private void ActionOnperformed(InputAction.CallbackContext obj)
+        {
+            _actionText.DOKill();
+            _actionText.color = Color.yellow;
+            _actionText.DOColor(Color.white, 2f);
         }
 
         private void UpdateText()

@@ -1,16 +1,5 @@
 {
   "dependencies": {
-    "com.annulusgames.lit-motion": {
-      "version": "https://github.com/AnnulusGames/LitMotion.git?path=src/LitMotion/Assets/LitMotion",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.unity.burst": "1.6.0",
-        "com.unity.collections": "1.5.1",
-        "com.unity.mathematics": "1.0.1"
-      },
-      "hash": "c15b73bb0448f1d1843c87593ef13073e1e48c2d"
-    },
     "com.fredericrp.singleton": {
       "version": "1.3.3",
       "depth": 0,
@@ -46,17 +35,6 @@
       "depth": 0,
       "source": "registry",
       "dependencies": {},
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.collections": {
-      "version": "1.5.1",
-      "depth": 1,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.burst": "1.6.6",
-        "com.unity.test-framework": "1.1.31",
-        "com.unity.nuget.mono-cecil": "1.11.4"
-      },
       "url": "https://packages.unity.com"
     },
     "com.unity.ext.nunit": {
@@ -103,13 +81,6 @@
     "com.unity.mathematics": {
       "version": "1.2.6",
       "depth": 1,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.nuget.mono-cecil": {
-      "version": "1.11.4",
-      "depth": 2,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"

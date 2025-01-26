@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
-using LitMotion;
-using LitMotion.Extensions;
+using DG.Tweening;
 using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
@@ -86,7 +85,6 @@ namespace AGX.Scripts.Runtime.Rebinder
             _text.text = text;
         }
 
-        private MotionHandle _punchScaleTween;
 
         public void SetIsDuplicate(bool isDuplicate, string binding = "", string action = "")
         {
@@ -96,13 +94,7 @@ namespace AGX.Scripts.Runtime.Rebinder
 
             _duplicateWarning.text = $"<b>{binding}</b><color=white> is already used for </color><b>{action}</b>";
 
-            if (_punchScaleTween != default && _punchScaleTween.IsActive())
-                _punchScaleTween.TryComplete();
-
-            _punchScaleTween = LMotion.Punch.Create(_duplicateWarning.transform.position.x, 3f, 0.5f) // Create a Punch motion (regular damping oscillation)
-                .WithFrequency(5) // Specify oscillation count
-                .WithDampingRatio(0f) // Specify damping ratio
-                .BindToPositionX(_duplicateWarning.transform); // Bind to transform.position.x
+            _duplicateWarning.transform.DOPunchScale(Vector3.one * 0.1f, 0.5f, 5, 0.5f);
         }
     }
 }
