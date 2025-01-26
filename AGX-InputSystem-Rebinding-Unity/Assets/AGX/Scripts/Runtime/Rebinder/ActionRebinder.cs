@@ -20,6 +20,7 @@ namespace AGX.Scripts.Runtime.Rebinder
         [BoxGroup("References"), SerializeField, Required] private Button          _buttonReset;
         [BoxGroup("References"), SerializeField, Required] private Button          _buttonRebind;
         [BoxGroup("References"), SerializeField]           private bool            _mouseIncluded;
+        [BoxGroup("References"), SerializeField]           private bool            _canBeRebinded = true;
 
         [SerializeField] private bool _debug;
 
@@ -35,8 +36,18 @@ namespace AGX.Scripts.Runtime.Rebinder
 
         private void OnEnable()
         {
-            _buttonRebind.onClick.AddListener(DoRebind);
-            _buttonReset.onClick.AddListener(ResetBinding);
+            if (!_canBeRebinded)
+            {
+                _buttonRebind.interactable = false;
+                _buttonReset.interactable = false;
+
+                _buttonRebind.gameObject.SetActive(false);
+            }
+            else
+            {
+                _buttonRebind.onClick.AddListener(DoRebind);
+                _buttonReset.onClick.AddListener(ResetBinding);
+            }
 
             if (_actionRebinders.InputActionReference != null)
             {
@@ -66,6 +77,18 @@ namespace AGX.Scripts.Runtime.Rebinder
 
         private void GetBindingInfo()
         {
+            if (_actionRebinders == null)
+            {
+                Debug.LogError("Action rebinders is null!");
+                return;
+            }
+
+            if (_actionRebinders.InputActionReference == null)
+            {
+                Debug.LogError("Action rebinders input action reference is null!");
+                return;
+            }
+
             _actionName = _actionRebinders.InputActionReference.action.name;
         }
 
@@ -73,6 +96,13 @@ namespace AGX.Scripts.Runtime.Rebinder
         internal void UpdateUI()
         {
             var startIndex = _selectedBinding;
+
+            if (string.IsNullOrEmpty(_actionName))
+            {
+                GetBindingInfo();
+            }
+            
+            _buttonRebind.gameObject.SetActive(_canBeRebinded);
 
             var action = InputManager.GetAction(_actionName);
             var bindings = InputManager.GetBindings(_actionName);

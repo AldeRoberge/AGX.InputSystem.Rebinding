@@ -1,5 +1,5 @@
-﻿using FredericRP.GenericSingleton;
-using Generator.Scripts.Runtime;
+﻿using AGX.Runtime;
+using FredericRP.GenericSingleton;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 namespace AGX.Scripts.Runtime
 {
     [DefaultExecutionOrder(-99999)]
-    public class Input : Singleton<Input>, InputActions.IGameplayActions, InputActions.IMenusActions, InputActions.ICheatsActions
+    public class Input : Singleton<Input>, InputActions.IGameplayActions, InputActions.IMenuActions, InputActions.ICheatsActions
     {
         private InputActions? _inputActions;
 
@@ -26,7 +26,7 @@ namespace AGX.Scripts.Runtime
             {
                 _inputActions = InputManager.InputActions;
                 _inputActions.Gameplay.SetCallbacks(this);
-                _inputActions.Menus.SetCallbacks(this);
+                _inputActions.Menu.SetCallbacks(this);
                 _inputActions.Cheats.SetCallbacks(this);
             }
 
@@ -35,7 +35,7 @@ namespace AGX.Scripts.Runtime
 #endif
 
             _inputActions.Gameplay.Enable();
-            _inputActions.Menus.Enable();
+            _inputActions.Menu.Enable();
 
             RegisterLogging();
 
@@ -57,7 +57,7 @@ namespace AGX.Scripts.Runtime
         {
             Debug.Log("[Input] Disabled.");
             _inputActions?.Gameplay.Disable();
-            _inputActions?.Menus.Disable();
+            _inputActions?.Menu.Disable();
             _inputActions?.Cheats.Disable();
         }
 
@@ -94,6 +94,61 @@ namespace AGX.Scripts.Runtime
         public void OnNewaction(InputAction.CallbackContext context)
         {
             Debug.Log("New action (not implemented).");
+        }
+
+        public void OnGameplayMove(InputAction.CallbackContext context)
+        {
+
+        }
+
+        public void OnGameplayAim(InputAction.CallbackContext context)
+        {
+
+        }
+
+        public void OnGameplayAttackToggle(InputAction.CallbackContext context)
+        {
+
+        }
+
+        public void OnGameplayQuickHeal(InputAction.CallbackContext context)
+        {
+
+        }
+
+        public void OnGameplayExit(InputAction.CallbackContext context)
+        {
+
+        }
+
+        public void OnGameplayInteract(InputAction.CallbackContext context)
+        {
+
+        }
+
+        public void OnGameplayCancel(InputAction.CallbackContext context)
+        {
+
+        }
+
+        public void OnMenuOpen(InputAction.CallbackContext context)
+        {
+
+        }
+
+        public void OnMenuProfileOpen(InputAction.CallbackContext context)
+        {
+
+        }
+
+        public void OnMenuMinimapOpen(InputAction.CallbackContext context)
+        {
+
+        }
+
+        public void OnDebugToggle(InputAction.CallbackContext context)
+        {
+
         }
     }
 }

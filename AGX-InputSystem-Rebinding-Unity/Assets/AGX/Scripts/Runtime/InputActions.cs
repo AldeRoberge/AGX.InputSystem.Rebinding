@@ -15,7 +15,7 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-namespace Generator.Scripts.Runtime
+namespace AGX.Runtime
 {
     public partial class @InputActions: IInputActionCollection2, IDisposable
     {
@@ -27,48 +27,66 @@ namespace Generator.Scripts.Runtime
     ""maps"": [
         {
             ""name"": ""Gameplay"",
-            ""id"": ""d25675f7-9a60-4db0-b9d5-039bd18912c9"",
+            ""id"": ""ad81a781-cdc0-4d61-abb1-b058628474fa"",
             ""actions"": [
                 {
-                    ""name"": ""Start"",
-                    ""type"": ""Button"",
-                    ""id"": ""1cd71775-0470-4aea-8ecd-b66126317c39"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Move"",
+                    ""name"": ""Gameplay Move"",
                     ""type"": ""Value"",
-                    ""id"": ""d99c0fcd-4841-49b5-9eca-7615cddf07e9"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""id"": ""4fd14f9f-52fc-415d-ae4a-c053633de383"",
+                    ""expectedControlType"": ""Stick"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Jump"",
+                    ""name"": ""Gameplay Aim"",
+                    ""type"": ""Value"",
+                    ""id"": ""167e270a-7386-4f52-9aae-5c6ea8f71c9f"",
+                    ""expectedControlType"": ""Stick"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Gameplay Interact"",
                     ""type"": ""Button"",
-                    ""id"": ""3460ac16-4532-4d3d-b52c-bafb5890bcb6"",
+                    ""id"": ""1b2a305c-cbbb-4d10-afda-a003457c08f8"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Sneak"",
+                    ""name"": ""Gameplay Attack Toggle"",
                     ""type"": ""Button"",
-                    ""id"": ""92efd1f5-3097-4c15-9c30-1bc9c6a17649"",
+                    ""id"": ""b14bcd07-64f9-4df4-9c1a-195928ccf61e"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Fire"",
+                    ""name"": ""Gameplay Quick Heal"",
                     ""type"": ""Button"",
-                    ""id"": ""8fa0f0c0-88a1-4abd-bad0-73580979dd6d"",
+                    ""id"": ""2c01cf22-5370-494b-a956-11ec7a487cf3"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Gameplay Exit"",
+                    ""type"": ""Button"",
+                    ""id"": ""641acd43-61dd-4a5b-9740-76dcc5cb377f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Gameplay Cancel"",
+                    ""type"": ""Button"",
+                    ""id"": ""4c84f6a9-cd74-4ad0-b6eb-f9a3b99c651b"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -77,224 +95,444 @@ namespace Generator.Scripts.Runtime
             ],
             ""bindings"": [
                 {
-                    ""name"": """",
-                    ""id"": ""a328aee8-7adf-4807-abe3-745bbd2277fa"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard"",
-                    ""action"": ""Start"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""0d4e2bba-5210-4d68-8ebe-545353487a1f"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard"",
-                    ""action"": ""Start"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""01e64c5f-6405-458f-b4f3-b0a977fbddde"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Gamepad"",
-                    ""action"": ""Start"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""1542eda1-0673-44af-ba38-bc5444b4d044"",
-                    ""path"": ""<XInputController>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Start"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""WASD [Keyboard]"",
-                    ""id"": ""72bf64a3-0cc9-45bd-ad6c-2f9a4e11ac3d"",
+                    ""name"": ""Keyboard WASD"",
+                    ""id"": ""f66e316a-9d68-44de-8340-d7605bea6575"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move"",
+                    ""action"": ""Gameplay Move"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""001d1cdb-6e02-429d-9e6e-5424010439c1"",
+                    ""id"": ""49bfcc99-5772-441b-a4c1-d3ef1dfcbaa4"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
-                    ""action"": ""Move"",
+                    ""action"": ""Gameplay Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""671b6fb0-9200-4634-abd7-de78b063d17d"",
+                    ""id"": ""6300ac9a-1649-499e-be84-0080f6ad8437"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
-                    ""action"": ""Move"",
+                    ""action"": ""Gameplay Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""4c792ab8-c8d0-48a9-89c5-5387861d1e87"",
+                    ""id"": ""ac9c6c2a-a9fb-4901-a6d2-ada697304eeb"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
-                    ""action"": ""Move"",
+                    ""action"": ""Gameplay Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""9e7fbaca-7efa-4673-a889-f6057ac67108"",
+                    ""id"": ""da1abadc-67d1-442a-9d12-56d50c4d5f8e"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
-                    ""action"": ""Move"",
+                    ""action"": ""Gameplay Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Arrows [Keyboard]"",
-                    ""id"": ""3b7da0cc-0181-4794-8a67-06f42ae59ac9"",
+                    ""name"": ""Keyboard Arrows"",
+                    ""id"": ""68054e81-a135-4acb-8ffb-f5cd10c6833f"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move"",
+                    ""action"": ""Gameplay Move"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""f68803d8-5a00-4832-a8dd-b4f5d44aee72"",
+                    ""id"": ""2ecb5b0e-5546-4bd9-ba2b-d83eb4449e16"",
                     ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
-                    ""action"": ""Move"",
+                    ""action"": ""Gameplay Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""64415251-9308-4d89-8eed-f93f3244a187"",
+                    ""id"": ""f172ffcb-3b63-4569-85c8-e284a73f45f3"",
                     ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
-                    ""action"": ""Move"",
+                    ""action"": ""Gameplay Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""757fcbcf-2962-460e-8af5-607c7ade0377"",
+                    ""id"": ""3e63a0a1-c3ba-4bc2-a1f0-231fcdac1f18"",
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
-                    ""action"": ""Move"",
+                    ""action"": ""Gameplay Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""e8aca109-604e-49d3-b7bc-2e8e6bda6467"",
+                    ""id"": ""2fcff567-09de-4afd-86c6-5d72c64253a1"",
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
-                    ""action"": ""Move"",
+                    ""action"": ""Gameplay Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
-                    ""id"": ""622e9e6f-6969-4bce-9a02-24f37dca8f36"",
+                    ""id"": ""b756edbf-21be-4ff3-827d-4d0f7e0bfb7c"",
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""Move"",
+                    ""action"": ""Gameplay Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""d813fed6-6b8a-44be-8a64-e30cde5b27a3"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""id"": ""9cd0df25-bf9b-427b-b499-3df536ffd4bb"",
+                    ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
-                    ""action"": ""Jump"",
+                    ""action"": ""Gameplay Aim"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""9014b9fe-7159-486a-8243-3ed0733dd9f8"",
+                    ""id"": ""b5f5bbf7-9624-4160-a300-66a571e054bb"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Gameplay Aim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0ba4b5c0-0fce-4682-a4fe-ce281ed20c6a"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Gameplay Aim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6b04636a-116c-4d0d-88a2-e9827f6ca94e"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Gameplay Attack Toggle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bb1196b2-4c98-4cbd-a922-527d93f3cf84"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Gameplay Attack Toggle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9aac01f8-f4ba-4879-8d56-83ee43d73d14"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Gameplay Attack Toggle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a0c8b299-dee3-4c05-bb02-dc66d7a966d1"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": ""Hold"",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Gameplay Exit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ff93e26e-d573-49a8-b57b-d8c90cfe4fa5"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Gameplay Exit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Triggers [Gamepad]"",
+                    ""id"": ""c2642302-6332-4366-8f88-cf913e841b78"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Gameplay Exit"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""cb162543-be0b-4be8-a8dc-9258a60d9e04"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Gameplay Exit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""e3bd8ec0-f98e-4469-9d6f-71caf771e08c"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Gameplay Exit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aea8491e-3497-4682-8340-b43935a80622"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Gameplay Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9fbe2b70-de26-40a1-9902-6f962829c4af"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Gameplay Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7a52caa0-5a85-406d-af3a-5e39ce7b5307"",
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""Jump"",
+                    ""action"": ""Gameplay Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""00dc0527-4d3f-4952-a173-8463678a01c5"",
-                    ""path"": ""<Keyboard>/leftShift"",
+                    ""id"": ""c6461e77-927a-4e20-ad67-994910315f86"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Sneak"",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Gameplay Quick Heal"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""abc596e7-e716-4f1a-9d47-142fb27e2a85"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""id"": ""da3eb924-81e1-425f-8301-111957034830"",
+                    ""path"": """",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Fire"",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Gameplay Quick Heal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8fcc01e2-3c1d-4fe5-9b78-2fa1d1bfc200"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Gameplay Quick Heal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""49ff32a9-3335-4b48-8c3a-5a5bf8f53376"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Gameplay Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e7d38c8b-9fe6-44be-ba54-b1eff33a5e6d"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Gameplay Cancel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
             ]
         },
         {
-            ""name"": ""Menus"",
-            ""id"": ""aa094381-84d1-4976-ad72-91bf1e34864f"",
+            ""name"": ""Inventory"",
+            ""id"": ""a6174365-1052-4566-bc1a-8326cb553bb7"",
             ""actions"": [
                 {
-                    ""name"": ""New action"",
+                    ""name"": ""Inventory Scroll"",
+                    ""type"": ""Value"",
+                    ""id"": ""5805ca4d-8023-4889-8ca1-62e30ff0f414"",
+                    ""expectedControlType"": ""Analog"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Inventory Select Slot 1"",
                     ""type"": ""Button"",
-                    ""id"": ""b2396ce0-9e30-4219-a6c6-0e888e379938"",
+                    ""id"": ""b876248e-351d-4926-b3a3-2f5bd4a55d48"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Inventory Select Slot 2"",
+                    ""type"": ""Button"",
+                    ""id"": ""803aa1bd-28b6-4e5b-a466-5acd9e9ed405"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Inventory Select Slot 3"",
+                    ""type"": ""Button"",
+                    ""id"": ""e44cc387-60d0-4293-ae9c-de6304966ff4"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Inventory Select Slot 4"",
+                    ""type"": ""Button"",
+                    ""id"": ""f89346b2-8970-4918-8798-ed567ea8041d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Inventory Select Slot 5"",
+                    ""type"": ""Button"",
+                    ""id"": ""ae909092-432c-4db6-b365-85d1c71fe1af"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Inventory Select Slot 6"",
+                    ""type"": ""Button"",
+                    ""id"": ""1fe77dbd-fc98-4820-a637-b3b1380a4ef4"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Inventory Select Slot 7"",
+                    ""type"": ""Button"",
+                    ""id"": ""7bcd7ca3-609f-4f9c-8afa-f457d7e5a9ba"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Inventory Select Slot 8"",
+                    ""type"": ""Button"",
+                    ""id"": ""16dc3132-683b-4d40-b3af-68526af0bf1c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Inventory Select Slot 9"",
+                    ""type"": ""Button"",
+                    ""id"": ""8b0bc1a3-d721-4899-b188-b1adbbfd1b71"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Inventory Drop"",
+                    ""type"": ""Button"",
+                    ""id"": ""2ab23f54-9c76-4307-933c-958cfea7ad35"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": ""Hold"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Inventory Swap"",
+                    ""type"": ""Button"",
+                    ""id"": ""6f30d7dd-7db1-4388-bc7b-003ad8f37d9e"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -304,23 +542,546 @@ namespace Generator.Scripts.Runtime
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""a3d9bdbe-c05e-498b-a112-9df28826102e"",
-                    ""path"": """",
+                    ""id"": ""19d04cde-9f48-4a90-885e-cd9854ae3503"",
+                    ""path"": ""<Mouse>/scroll"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Default"",
+                    ""action"": ""Inventory Scroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Shoulders [Gamepad]"",
+                    ""id"": ""ef3d7eab-41b0-4b02-96de-98f35002f4f8"",
+                    ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
+                    ""action"": ""Inventory Scroll"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""e9f934f3-99d9-48f5-811d-4ed904f896ed"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Inventory Scroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""bcb4cd5e-c2a7-4b1f-bd82-a9f316a88273"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Inventory Scroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5f800f15-dc50-4483-9a04-b65450227556"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Inventory Select Slot 1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""f5215842-123a-4af5-bdb0-d45d97134820"",
-                    ""path"": """",
+                    ""id"": ""dd002b33-2093-4210-8da9-ac823c9a704a"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Inventory Select Slot 2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cba4905d-a7c5-45c8-a162-b44558a6ae37"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Inventory Select Slot 3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""18fe6701-0733-48ec-9fd6-bd319aa1bb11"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Inventory Select Slot 4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b3aa71da-a5ef-4a83-a79d-4c5c42487ee5"",
+                    ""path"": ""<Keyboard>/5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Inventory Select Slot 5"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a87e99ef-56e5-48ba-8b9a-5b6b8a378d38"",
+                    ""path"": ""<Keyboard>/6"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Inventory Select Slot 6"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f837205f-91ea-41ef-b4cf-5845cf3f6747"",
+                    ""path"": ""<Keyboard>/7"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Inventory Select Slot 7"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9b51465f-d479-4781-bf0e-3bd254a74a98"",
+                    ""path"": ""<Keyboard>/8"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Inventory Select Slot 8"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ba3c4398-c037-4d77-a0c0-da52a174440e"",
+                    ""path"": ""<Keyboard>/9"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Inventory Select Slot 9"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ca308e17-79f3-45b0-9c5c-29a9982d8181"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Inventory Drop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""657efaab-a233-4700-8aa5-c39fcdb3217b"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Inventory Swap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f334eb23-9da2-472c-8187-aa83d200ebcb"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Inventory Swap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Menu"",
+            ""id"": ""5bc2487e-37a3-4b3f-8ba4-ce368c36af86"",
+            ""actions"": [
+                {
+                    ""name"": ""Menu Open"",
+                    ""type"": ""Button"",
+                    ""id"": ""8e3fb755-51ef-4ceb-87ef-9a6250cc04fe"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Menu Profile Open"",
+                    ""type"": ""Button"",
+                    ""id"": ""bac62414-96ba-40c4-83dc-03cf206d7181"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Menu Minimap Open"",
+                    ""type"": ""Button"",
+                    ""id"": ""62298e1f-edf2-4f43-b04e-878ed20d7322"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""4d56dbf1-2b88-4fa4-ab9e-435fff8f807c"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Menu Open"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""27b83401-8ffa-40d7-9587-85073ac40bcd"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Menu Profile Open"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""920913d9-7862-4097-aa58-333b52cde7bf"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Menu Minimap Open"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Chat"",
+            ""id"": ""2009432f-5dc5-4021-9125-25b3e9b81651"",
+            ""actions"": [
+                {
+                    ""name"": ""Chat Public Start"",
+                    ""type"": ""Button"",
+                    ""id"": ""4ccdc5f0-d534-4ea7-a6d8-ce380d707823"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Chat Guild Start"",
+                    ""type"": ""Button"",
+                    ""id"": ""f7238d6c-5451-408b-893e-d439ef9234c4"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Chat Private Start"",
+                    ""type"": ""Button"",
+                    ""id"": ""f01c18ce-1a84-44ab-91fa-fa74f29716c3"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Chat Cancel"",
+                    ""type"": ""Button"",
+                    ""id"": ""d6a53117-f5fd-44d2-907f-2919a968fd93"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Chat Send"",
+                    ""type"": ""Button"",
+                    ""id"": ""0cf246bc-d169-40a3-b4cf-3090c9c187bd"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Ping"",
+                    ""type"": ""Button"",
+                    ""id"": ""d41e207a-6384-473c-b86d-1a602c65d2e2"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Emote"",
+                    ""type"": ""Button"",
+                    ""id"": ""d9145eee-9257-483f-ae48-172e2f3c05a1"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""efbf9d3f-c707-4ba3-815e-530e0ef26adf"",
+                    ""path"": ""<Keyboard>/t"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Chat Public Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f2118269-519e-4501-a0ac-8af548720bbc"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Chat Public Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2c9c075e-f4a6-480f-b434-afc49f9dc8ed"",
+                    ""path"": ""<Keyboard>/g"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Chat Guild Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""af0e5bb9-a859-4627-9a33-bc93f9c46ea8"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Chat Private Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cfc2d375-e4ad-4fef-a372-714eef598b0e"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Chat Private Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b608a39a-fde8-483b-a458-d8daa9f0fd90"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Chat Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""83c49b0d-2ad4-47cc-9d54-4ceb52e90aa4"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Chat Send"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5f4c4531-978c-49ec-9f03-91ed6a8232e2"",
+                    ""path"": ""<Gamepad>/rightStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Ping"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c5d30ac1-c1a5-4827-83fd-de1f80bb4040"",
+                    ""path"": ""<Mouse>/middleButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Ping"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""18e5679d-90e3-427c-b6e3-ca8193c505b9"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Emote"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d08f958d-643f-410e-b9fa-7b1235bd8a13"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Emote"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Camera"",
+            ""id"": ""df472513-242f-4b10-a73e-e627c66b4556"",
+            ""actions"": [
+                {
+                    ""name"": ""Camera Zoom"",
+                    ""type"": ""Value"",
+                    ""id"": ""baa69fa1-f1d5-4fee-89f1-7da846ca76ec"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Camera Rotate"",
+                    ""type"": ""Value"",
+                    ""id"": ""be849998-5e5f-43f7-ac8b-1b4e1d9874fb"",
+                    ""expectedControlType"": ""Analog"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""0635628a-7bb7-4948-9c12-a4956999f246"",
+                    ""path"": ""<Mouse>/scroll"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Camera Zoom"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9a617e5d-fc2a-47bb-80d4-6af8e35d2144"",
+                    ""path"": ""<Gamepad>/dpad"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Camera Zoom"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""QE [Keyboard]"",
+                    ""id"": ""4e6005c1-0b5a-4537-afa9-8e4c1cdb5337"",
+                    ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
+                    ""action"": ""Camera Rotate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""25174879-b4f6-408c-a7b0-3201b0dffd3a"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Camera Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""39a52fa0-b323-4b18-9e32-6ec27695f42c"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Camera Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
+        },
+        {
+            ""name"": ""Minimap"",
+            ""id"": ""3ef65c31-3ca9-4678-832a-ae92a40b5b6b"",
+            ""actions"": [
+                {
+                    ""name"": ""Zoom Minimap"",
+                    ""type"": ""Value"",
+                    ""id"": ""388f48db-b07e-43bf-b224-d2161c38b6d0"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""be87d7fa-506a-42aa-8dec-1f5bc0b60a93"",
+                    ""path"": ""<Mouse>/scroll"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Zoom Minimap"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -328,12 +1089,39 @@ namespace Generator.Scripts.Runtime
         },
         {
             ""name"": ""Cheats"",
-            ""id"": ""135a8b2b-eac9-4fcf-8bd2-3e6256fa2cdb"",
-            ""actions"": [],
-            ""bindings"": []
+            ""id"": ""3ad15d18-5d7d-40eb-bb8c-e129ded81d90"",
+            ""actions"": [
+                {
+                    ""name"": ""Debug Toggle"",
+                    ""type"": ""Button"",
+                    ""id"": ""0a7b4843-ddaa-40d1-821e-dfa3b2adf6ce"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""0412146b-a7b0-4230-91c6-42aa7208a2ea"",
+                    ""path"": ""<Keyboard>/backquote"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Debug Toggle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
+        {
+            ""name"": ""Default"",
+            ""bindingGroup"": ""Default"",
+            ""devices"": []
+        },
         {
             ""name"": ""Gamepad"",
             ""bindingGroup"": ""Gamepad"",
@@ -353,9 +1141,15 @@ namespace Generator.Scripts.Runtime
                     ""devicePath"": ""<Keyboard>"",
                     ""isOptional"": false,
                     ""isOR"": false
-                },
+                }
+            ]
+        },
+        {
+            ""name"": ""Touchscreen"",
+            ""bindingGroup"": ""Touchscreen"",
+            ""devices"": [
                 {
-                    ""devicePath"": ""<Mouse>"",
+                    ""devicePath"": ""<Touchscreen>"",
                     ""isOptional"": false,
                     ""isOR"": false
                 }
@@ -365,22 +1159,61 @@ namespace Generator.Scripts.Runtime
 }");
             // Gameplay
             m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
-            m_Gameplay_Start = m_Gameplay.FindAction("Start", throwIfNotFound: true);
-            m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
-            m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
-            m_Gameplay_Sneak = m_Gameplay.FindAction("Sneak", throwIfNotFound: true);
-            m_Gameplay_Fire = m_Gameplay.FindAction("Fire", throwIfNotFound: true);
-            // Menus
-            m_Menus = asset.FindActionMap("Menus", throwIfNotFound: true);
-            m_Menus_Newaction = m_Menus.FindAction("New action", throwIfNotFound: true);
+            m_Gameplay_GameplayMove = m_Gameplay.FindAction("Gameplay Move", throwIfNotFound: true);
+            m_Gameplay_GameplayAim = m_Gameplay.FindAction("Gameplay Aim", throwIfNotFound: true);
+            m_Gameplay_GameplayInteract = m_Gameplay.FindAction("Gameplay Interact", throwIfNotFound: true);
+            m_Gameplay_GameplayAttackToggle = m_Gameplay.FindAction("Gameplay Attack Toggle", throwIfNotFound: true);
+            m_Gameplay_GameplayQuickHeal = m_Gameplay.FindAction("Gameplay Quick Heal", throwIfNotFound: true);
+            m_Gameplay_GameplayExit = m_Gameplay.FindAction("Gameplay Exit", throwIfNotFound: true);
+            m_Gameplay_GameplayCancel = m_Gameplay.FindAction("Gameplay Cancel", throwIfNotFound: true);
+            // Inventory
+            m_Inventory = asset.FindActionMap("Inventory", throwIfNotFound: true);
+            m_Inventory_InventoryScroll = m_Inventory.FindAction("Inventory Scroll", throwIfNotFound: true);
+            m_Inventory_InventorySelectSlot1 = m_Inventory.FindAction("Inventory Select Slot 1", throwIfNotFound: true);
+            m_Inventory_InventorySelectSlot2 = m_Inventory.FindAction("Inventory Select Slot 2", throwIfNotFound: true);
+            m_Inventory_InventorySelectSlot3 = m_Inventory.FindAction("Inventory Select Slot 3", throwIfNotFound: true);
+            m_Inventory_InventorySelectSlot4 = m_Inventory.FindAction("Inventory Select Slot 4", throwIfNotFound: true);
+            m_Inventory_InventorySelectSlot5 = m_Inventory.FindAction("Inventory Select Slot 5", throwIfNotFound: true);
+            m_Inventory_InventorySelectSlot6 = m_Inventory.FindAction("Inventory Select Slot 6", throwIfNotFound: true);
+            m_Inventory_InventorySelectSlot7 = m_Inventory.FindAction("Inventory Select Slot 7", throwIfNotFound: true);
+            m_Inventory_InventorySelectSlot8 = m_Inventory.FindAction("Inventory Select Slot 8", throwIfNotFound: true);
+            m_Inventory_InventorySelectSlot9 = m_Inventory.FindAction("Inventory Select Slot 9", throwIfNotFound: true);
+            m_Inventory_InventoryDrop = m_Inventory.FindAction("Inventory Drop", throwIfNotFound: true);
+            m_Inventory_InventorySwap = m_Inventory.FindAction("Inventory Swap", throwIfNotFound: true);
+            // Menu
+            m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
+            m_Menu_MenuOpen = m_Menu.FindAction("Menu Open", throwIfNotFound: true);
+            m_Menu_MenuProfileOpen = m_Menu.FindAction("Menu Profile Open", throwIfNotFound: true);
+            m_Menu_MenuMinimapOpen = m_Menu.FindAction("Menu Minimap Open", throwIfNotFound: true);
+            // Chat
+            m_Chat = asset.FindActionMap("Chat", throwIfNotFound: true);
+            m_Chat_ChatPublicStart = m_Chat.FindAction("Chat Public Start", throwIfNotFound: true);
+            m_Chat_ChatGuildStart = m_Chat.FindAction("Chat Guild Start", throwIfNotFound: true);
+            m_Chat_ChatPrivateStart = m_Chat.FindAction("Chat Private Start", throwIfNotFound: true);
+            m_Chat_ChatCancel = m_Chat.FindAction("Chat Cancel", throwIfNotFound: true);
+            m_Chat_ChatSend = m_Chat.FindAction("Chat Send", throwIfNotFound: true);
+            m_Chat_Ping = m_Chat.FindAction("Ping", throwIfNotFound: true);
+            m_Chat_Emote = m_Chat.FindAction("Emote", throwIfNotFound: true);
+            // Camera
+            m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
+            m_Camera_CameraZoom = m_Camera.FindAction("Camera Zoom", throwIfNotFound: true);
+            m_Camera_CameraRotate = m_Camera.FindAction("Camera Rotate", throwIfNotFound: true);
+            // Minimap
+            m_Minimap = asset.FindActionMap("Minimap", throwIfNotFound: true);
+            m_Minimap_ZoomMinimap = m_Minimap.FindAction("Zoom Minimap", throwIfNotFound: true);
             // Cheats
             m_Cheats = asset.FindActionMap("Cheats", throwIfNotFound: true);
+            m_Cheats_DebugToggle = m_Cheats.FindAction("Debug Toggle", throwIfNotFound: true);
         }
 
         ~@InputActions()
         {
             UnityEngine.Debug.Assert(!m_Gameplay.enabled, "This will cause a leak and performance issues, InputActions.Gameplay.Disable() has not been called.");
-            UnityEngine.Debug.Assert(!m_Menus.enabled, "This will cause a leak and performance issues, InputActions.Menus.Disable() has not been called.");
+            UnityEngine.Debug.Assert(!m_Inventory.enabled, "This will cause a leak and performance issues, InputActions.Inventory.Disable() has not been called.");
+            UnityEngine.Debug.Assert(!m_Menu.enabled, "This will cause a leak and performance issues, InputActions.Menu.Disable() has not been called.");
+            UnityEngine.Debug.Assert(!m_Chat.enabled, "This will cause a leak and performance issues, InputActions.Chat.Disable() has not been called.");
+            UnityEngine.Debug.Assert(!m_Camera.enabled, "This will cause a leak and performance issues, InputActions.Camera.Disable() has not been called.");
+            UnityEngine.Debug.Assert(!m_Minimap.enabled, "This will cause a leak and performance issues, InputActions.Minimap.Disable() has not been called.");
             UnityEngine.Debug.Assert(!m_Cheats.enabled, "This will cause a leak and performance issues, InputActions.Cheats.Disable() has not been called.");
         }
 
@@ -443,20 +1276,24 @@ namespace Generator.Scripts.Runtime
         // Gameplay
         private readonly InputActionMap m_Gameplay;
         private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
-        private readonly InputAction m_Gameplay_Start;
-        private readonly InputAction m_Gameplay_Move;
-        private readonly InputAction m_Gameplay_Jump;
-        private readonly InputAction m_Gameplay_Sneak;
-        private readonly InputAction m_Gameplay_Fire;
+        private readonly InputAction m_Gameplay_GameplayMove;
+        private readonly InputAction m_Gameplay_GameplayAim;
+        private readonly InputAction m_Gameplay_GameplayInteract;
+        private readonly InputAction m_Gameplay_GameplayAttackToggle;
+        private readonly InputAction m_Gameplay_GameplayQuickHeal;
+        private readonly InputAction m_Gameplay_GameplayExit;
+        private readonly InputAction m_Gameplay_GameplayCancel;
         public struct GameplayActions
         {
             private @InputActions m_Wrapper;
             public GameplayActions(@InputActions wrapper) { m_Wrapper = wrapper; }
-            public InputAction @Start => m_Wrapper.m_Gameplay_Start;
-            public InputAction @Move => m_Wrapper.m_Gameplay_Move;
-            public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
-            public InputAction @Sneak => m_Wrapper.m_Gameplay_Sneak;
-            public InputAction @Fire => m_Wrapper.m_Gameplay_Fire;
+            public InputAction @GameplayMove => m_Wrapper.m_Gameplay_GameplayMove;
+            public InputAction @GameplayAim => m_Wrapper.m_Gameplay_GameplayAim;
+            public InputAction @GameplayInteract => m_Wrapper.m_Gameplay_GameplayInteract;
+            public InputAction @GameplayAttackToggle => m_Wrapper.m_Gameplay_GameplayAttackToggle;
+            public InputAction @GameplayQuickHeal => m_Wrapper.m_Gameplay_GameplayQuickHeal;
+            public InputAction @GameplayExit => m_Wrapper.m_Gameplay_GameplayExit;
+            public InputAction @GameplayCancel => m_Wrapper.m_Gameplay_GameplayCancel;
             public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -466,40 +1303,52 @@ namespace Generator.Scripts.Runtime
             {
                 if (instance == null || m_Wrapper.m_GameplayActionsCallbackInterfaces.Contains(instance)) return;
                 m_Wrapper.m_GameplayActionsCallbackInterfaces.Add(instance);
-                @Start.started += instance.OnStart;
-                @Start.performed += instance.OnStart;
-                @Start.canceled += instance.OnStart;
-                @Move.started += instance.OnMove;
-                @Move.performed += instance.OnMove;
-                @Move.canceled += instance.OnMove;
-                @Jump.started += instance.OnJump;
-                @Jump.performed += instance.OnJump;
-                @Jump.canceled += instance.OnJump;
-                @Sneak.started += instance.OnSneak;
-                @Sneak.performed += instance.OnSneak;
-                @Sneak.canceled += instance.OnSneak;
-                @Fire.started += instance.OnFire;
-                @Fire.performed += instance.OnFire;
-                @Fire.canceled += instance.OnFire;
+                @GameplayMove.started += instance.OnGameplayMove;
+                @GameplayMove.performed += instance.OnGameplayMove;
+                @GameplayMove.canceled += instance.OnGameplayMove;
+                @GameplayAim.started += instance.OnGameplayAim;
+                @GameplayAim.performed += instance.OnGameplayAim;
+                @GameplayAim.canceled += instance.OnGameplayAim;
+                @GameplayInteract.started += instance.OnGameplayInteract;
+                @GameplayInteract.performed += instance.OnGameplayInteract;
+                @GameplayInteract.canceled += instance.OnGameplayInteract;
+                @GameplayAttackToggle.started += instance.OnGameplayAttackToggle;
+                @GameplayAttackToggle.performed += instance.OnGameplayAttackToggle;
+                @GameplayAttackToggle.canceled += instance.OnGameplayAttackToggle;
+                @GameplayQuickHeal.started += instance.OnGameplayQuickHeal;
+                @GameplayQuickHeal.performed += instance.OnGameplayQuickHeal;
+                @GameplayQuickHeal.canceled += instance.OnGameplayQuickHeal;
+                @GameplayExit.started += instance.OnGameplayExit;
+                @GameplayExit.performed += instance.OnGameplayExit;
+                @GameplayExit.canceled += instance.OnGameplayExit;
+                @GameplayCancel.started += instance.OnGameplayCancel;
+                @GameplayCancel.performed += instance.OnGameplayCancel;
+                @GameplayCancel.canceled += instance.OnGameplayCancel;
             }
 
             private void UnregisterCallbacks(IGameplayActions instance)
             {
-                @Start.started -= instance.OnStart;
-                @Start.performed -= instance.OnStart;
-                @Start.canceled -= instance.OnStart;
-                @Move.started -= instance.OnMove;
-                @Move.performed -= instance.OnMove;
-                @Move.canceled -= instance.OnMove;
-                @Jump.started -= instance.OnJump;
-                @Jump.performed -= instance.OnJump;
-                @Jump.canceled -= instance.OnJump;
-                @Sneak.started -= instance.OnSneak;
-                @Sneak.performed -= instance.OnSneak;
-                @Sneak.canceled -= instance.OnSneak;
-                @Fire.started -= instance.OnFire;
-                @Fire.performed -= instance.OnFire;
-                @Fire.canceled -= instance.OnFire;
+                @GameplayMove.started -= instance.OnGameplayMove;
+                @GameplayMove.performed -= instance.OnGameplayMove;
+                @GameplayMove.canceled -= instance.OnGameplayMove;
+                @GameplayAim.started -= instance.OnGameplayAim;
+                @GameplayAim.performed -= instance.OnGameplayAim;
+                @GameplayAim.canceled -= instance.OnGameplayAim;
+                @GameplayInteract.started -= instance.OnGameplayInteract;
+                @GameplayInteract.performed -= instance.OnGameplayInteract;
+                @GameplayInteract.canceled -= instance.OnGameplayInteract;
+                @GameplayAttackToggle.started -= instance.OnGameplayAttackToggle;
+                @GameplayAttackToggle.performed -= instance.OnGameplayAttackToggle;
+                @GameplayAttackToggle.canceled -= instance.OnGameplayAttackToggle;
+                @GameplayQuickHeal.started -= instance.OnGameplayQuickHeal;
+                @GameplayQuickHeal.performed -= instance.OnGameplayQuickHeal;
+                @GameplayQuickHeal.canceled -= instance.OnGameplayQuickHeal;
+                @GameplayExit.started -= instance.OnGameplayExit;
+                @GameplayExit.performed -= instance.OnGameplayExit;
+                @GameplayExit.canceled -= instance.OnGameplayExit;
+                @GameplayCancel.started -= instance.OnGameplayCancel;
+                @GameplayCancel.performed -= instance.OnGameplayCancel;
+                @GameplayCancel.canceled -= instance.OnGameplayCancel;
             }
 
             public void RemoveCallbacks(IGameplayActions instance)
@@ -518,59 +1367,405 @@ namespace Generator.Scripts.Runtime
         }
         public GameplayActions @Gameplay => new GameplayActions(this);
 
-        // Menus
-        private readonly InputActionMap m_Menus;
-        private List<IMenusActions> m_MenusActionsCallbackInterfaces = new List<IMenusActions>();
-        private readonly InputAction m_Menus_Newaction;
-        public struct MenusActions
+        // Inventory
+        private readonly InputActionMap m_Inventory;
+        private List<IInventoryActions> m_InventoryActionsCallbackInterfaces = new List<IInventoryActions>();
+        private readonly InputAction m_Inventory_InventoryScroll;
+        private readonly InputAction m_Inventory_InventorySelectSlot1;
+        private readonly InputAction m_Inventory_InventorySelectSlot2;
+        private readonly InputAction m_Inventory_InventorySelectSlot3;
+        private readonly InputAction m_Inventory_InventorySelectSlot4;
+        private readonly InputAction m_Inventory_InventorySelectSlot5;
+        private readonly InputAction m_Inventory_InventorySelectSlot6;
+        private readonly InputAction m_Inventory_InventorySelectSlot7;
+        private readonly InputAction m_Inventory_InventorySelectSlot8;
+        private readonly InputAction m_Inventory_InventorySelectSlot9;
+        private readonly InputAction m_Inventory_InventoryDrop;
+        private readonly InputAction m_Inventory_InventorySwap;
+        public struct InventoryActions
         {
             private @InputActions m_Wrapper;
-            public MenusActions(@InputActions wrapper) { m_Wrapper = wrapper; }
-            public InputAction @Newaction => m_Wrapper.m_Menus_Newaction;
-            public InputActionMap Get() { return m_Wrapper.m_Menus; }
+            public InventoryActions(@InputActions wrapper) { m_Wrapper = wrapper; }
+            public InputAction @InventoryScroll => m_Wrapper.m_Inventory_InventoryScroll;
+            public InputAction @InventorySelectSlot1 => m_Wrapper.m_Inventory_InventorySelectSlot1;
+            public InputAction @InventorySelectSlot2 => m_Wrapper.m_Inventory_InventorySelectSlot2;
+            public InputAction @InventorySelectSlot3 => m_Wrapper.m_Inventory_InventorySelectSlot3;
+            public InputAction @InventorySelectSlot4 => m_Wrapper.m_Inventory_InventorySelectSlot4;
+            public InputAction @InventorySelectSlot5 => m_Wrapper.m_Inventory_InventorySelectSlot5;
+            public InputAction @InventorySelectSlot6 => m_Wrapper.m_Inventory_InventorySelectSlot6;
+            public InputAction @InventorySelectSlot7 => m_Wrapper.m_Inventory_InventorySelectSlot7;
+            public InputAction @InventorySelectSlot8 => m_Wrapper.m_Inventory_InventorySelectSlot8;
+            public InputAction @InventorySelectSlot9 => m_Wrapper.m_Inventory_InventorySelectSlot9;
+            public InputAction @InventoryDrop => m_Wrapper.m_Inventory_InventoryDrop;
+            public InputAction @InventorySwap => m_Wrapper.m_Inventory_InventorySwap;
+            public InputActionMap Get() { return m_Wrapper.m_Inventory; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
             public bool enabled => Get().enabled;
-            public static implicit operator InputActionMap(MenusActions set) { return set.Get(); }
-            public void AddCallbacks(IMenusActions instance)
+            public static implicit operator InputActionMap(InventoryActions set) { return set.Get(); }
+            public void AddCallbacks(IInventoryActions instance)
             {
-                if (instance == null || m_Wrapper.m_MenusActionsCallbackInterfaces.Contains(instance)) return;
-                m_Wrapper.m_MenusActionsCallbackInterfaces.Add(instance);
-                @Newaction.started += instance.OnNewaction;
-                @Newaction.performed += instance.OnNewaction;
-                @Newaction.canceled += instance.OnNewaction;
+                if (instance == null || m_Wrapper.m_InventoryActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_InventoryActionsCallbackInterfaces.Add(instance);
+                @InventoryScroll.started += instance.OnInventoryScroll;
+                @InventoryScroll.performed += instance.OnInventoryScroll;
+                @InventoryScroll.canceled += instance.OnInventoryScroll;
+                @InventorySelectSlot1.started += instance.OnInventorySelectSlot1;
+                @InventorySelectSlot1.performed += instance.OnInventorySelectSlot1;
+                @InventorySelectSlot1.canceled += instance.OnInventorySelectSlot1;
+                @InventorySelectSlot2.started += instance.OnInventorySelectSlot2;
+                @InventorySelectSlot2.performed += instance.OnInventorySelectSlot2;
+                @InventorySelectSlot2.canceled += instance.OnInventorySelectSlot2;
+                @InventorySelectSlot3.started += instance.OnInventorySelectSlot3;
+                @InventorySelectSlot3.performed += instance.OnInventorySelectSlot3;
+                @InventorySelectSlot3.canceled += instance.OnInventorySelectSlot3;
+                @InventorySelectSlot4.started += instance.OnInventorySelectSlot4;
+                @InventorySelectSlot4.performed += instance.OnInventorySelectSlot4;
+                @InventorySelectSlot4.canceled += instance.OnInventorySelectSlot4;
+                @InventorySelectSlot5.started += instance.OnInventorySelectSlot5;
+                @InventorySelectSlot5.performed += instance.OnInventorySelectSlot5;
+                @InventorySelectSlot5.canceled += instance.OnInventorySelectSlot5;
+                @InventorySelectSlot6.started += instance.OnInventorySelectSlot6;
+                @InventorySelectSlot6.performed += instance.OnInventorySelectSlot6;
+                @InventorySelectSlot6.canceled += instance.OnInventorySelectSlot6;
+                @InventorySelectSlot7.started += instance.OnInventorySelectSlot7;
+                @InventorySelectSlot7.performed += instance.OnInventorySelectSlot7;
+                @InventorySelectSlot7.canceled += instance.OnInventorySelectSlot7;
+                @InventorySelectSlot8.started += instance.OnInventorySelectSlot8;
+                @InventorySelectSlot8.performed += instance.OnInventorySelectSlot8;
+                @InventorySelectSlot8.canceled += instance.OnInventorySelectSlot8;
+                @InventorySelectSlot9.started += instance.OnInventorySelectSlot9;
+                @InventorySelectSlot9.performed += instance.OnInventorySelectSlot9;
+                @InventorySelectSlot9.canceled += instance.OnInventorySelectSlot9;
+                @InventoryDrop.started += instance.OnInventoryDrop;
+                @InventoryDrop.performed += instance.OnInventoryDrop;
+                @InventoryDrop.canceled += instance.OnInventoryDrop;
+                @InventorySwap.started += instance.OnInventorySwap;
+                @InventorySwap.performed += instance.OnInventorySwap;
+                @InventorySwap.canceled += instance.OnInventorySwap;
             }
 
-            private void UnregisterCallbacks(IMenusActions instance)
+            private void UnregisterCallbacks(IInventoryActions instance)
             {
-                @Newaction.started -= instance.OnNewaction;
-                @Newaction.performed -= instance.OnNewaction;
-                @Newaction.canceled -= instance.OnNewaction;
+                @InventoryScroll.started -= instance.OnInventoryScroll;
+                @InventoryScroll.performed -= instance.OnInventoryScroll;
+                @InventoryScroll.canceled -= instance.OnInventoryScroll;
+                @InventorySelectSlot1.started -= instance.OnInventorySelectSlot1;
+                @InventorySelectSlot1.performed -= instance.OnInventorySelectSlot1;
+                @InventorySelectSlot1.canceled -= instance.OnInventorySelectSlot1;
+                @InventorySelectSlot2.started -= instance.OnInventorySelectSlot2;
+                @InventorySelectSlot2.performed -= instance.OnInventorySelectSlot2;
+                @InventorySelectSlot2.canceled -= instance.OnInventorySelectSlot2;
+                @InventorySelectSlot3.started -= instance.OnInventorySelectSlot3;
+                @InventorySelectSlot3.performed -= instance.OnInventorySelectSlot3;
+                @InventorySelectSlot3.canceled -= instance.OnInventorySelectSlot3;
+                @InventorySelectSlot4.started -= instance.OnInventorySelectSlot4;
+                @InventorySelectSlot4.performed -= instance.OnInventorySelectSlot4;
+                @InventorySelectSlot4.canceled -= instance.OnInventorySelectSlot4;
+                @InventorySelectSlot5.started -= instance.OnInventorySelectSlot5;
+                @InventorySelectSlot5.performed -= instance.OnInventorySelectSlot5;
+                @InventorySelectSlot5.canceled -= instance.OnInventorySelectSlot5;
+                @InventorySelectSlot6.started -= instance.OnInventorySelectSlot6;
+                @InventorySelectSlot6.performed -= instance.OnInventorySelectSlot6;
+                @InventorySelectSlot6.canceled -= instance.OnInventorySelectSlot6;
+                @InventorySelectSlot7.started -= instance.OnInventorySelectSlot7;
+                @InventorySelectSlot7.performed -= instance.OnInventorySelectSlot7;
+                @InventorySelectSlot7.canceled -= instance.OnInventorySelectSlot7;
+                @InventorySelectSlot8.started -= instance.OnInventorySelectSlot8;
+                @InventorySelectSlot8.performed -= instance.OnInventorySelectSlot8;
+                @InventorySelectSlot8.canceled -= instance.OnInventorySelectSlot8;
+                @InventorySelectSlot9.started -= instance.OnInventorySelectSlot9;
+                @InventorySelectSlot9.performed -= instance.OnInventorySelectSlot9;
+                @InventorySelectSlot9.canceled -= instance.OnInventorySelectSlot9;
+                @InventoryDrop.started -= instance.OnInventoryDrop;
+                @InventoryDrop.performed -= instance.OnInventoryDrop;
+                @InventoryDrop.canceled -= instance.OnInventoryDrop;
+                @InventorySwap.started -= instance.OnInventorySwap;
+                @InventorySwap.performed -= instance.OnInventorySwap;
+                @InventorySwap.canceled -= instance.OnInventorySwap;
             }
 
-            public void RemoveCallbacks(IMenusActions instance)
+            public void RemoveCallbacks(IInventoryActions instance)
             {
-                if (m_Wrapper.m_MenusActionsCallbackInterfaces.Remove(instance))
+                if (m_Wrapper.m_InventoryActionsCallbackInterfaces.Remove(instance))
                     UnregisterCallbacks(instance);
             }
 
-            public void SetCallbacks(IMenusActions instance)
+            public void SetCallbacks(IInventoryActions instance)
             {
-                foreach (var item in m_Wrapper.m_MenusActionsCallbackInterfaces)
+                foreach (var item in m_Wrapper.m_InventoryActionsCallbackInterfaces)
                     UnregisterCallbacks(item);
-                m_Wrapper.m_MenusActionsCallbackInterfaces.Clear();
+                m_Wrapper.m_InventoryActionsCallbackInterfaces.Clear();
                 AddCallbacks(instance);
             }
         }
-        public MenusActions @Menus => new MenusActions(this);
+        public InventoryActions @Inventory => new InventoryActions(this);
+
+        // Menu
+        private readonly InputActionMap m_Menu;
+        private List<IMenuActions> m_MenuActionsCallbackInterfaces = new List<IMenuActions>();
+        private readonly InputAction m_Menu_MenuOpen;
+        private readonly InputAction m_Menu_MenuProfileOpen;
+        private readonly InputAction m_Menu_MenuMinimapOpen;
+        public struct MenuActions
+        {
+            private @InputActions m_Wrapper;
+            public MenuActions(@InputActions wrapper) { m_Wrapper = wrapper; }
+            public InputAction @MenuOpen => m_Wrapper.m_Menu_MenuOpen;
+            public InputAction @MenuProfileOpen => m_Wrapper.m_Menu_MenuProfileOpen;
+            public InputAction @MenuMinimapOpen => m_Wrapper.m_Menu_MenuMinimapOpen;
+            public InputActionMap Get() { return m_Wrapper.m_Menu; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(MenuActions set) { return set.Get(); }
+            public void AddCallbacks(IMenuActions instance)
+            {
+                if (instance == null || m_Wrapper.m_MenuActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_MenuActionsCallbackInterfaces.Add(instance);
+                @MenuOpen.started += instance.OnMenuOpen;
+                @MenuOpen.performed += instance.OnMenuOpen;
+                @MenuOpen.canceled += instance.OnMenuOpen;
+                @MenuProfileOpen.started += instance.OnMenuProfileOpen;
+                @MenuProfileOpen.performed += instance.OnMenuProfileOpen;
+                @MenuProfileOpen.canceled += instance.OnMenuProfileOpen;
+                @MenuMinimapOpen.started += instance.OnMenuMinimapOpen;
+                @MenuMinimapOpen.performed += instance.OnMenuMinimapOpen;
+                @MenuMinimapOpen.canceled += instance.OnMenuMinimapOpen;
+            }
+
+            private void UnregisterCallbacks(IMenuActions instance)
+            {
+                @MenuOpen.started -= instance.OnMenuOpen;
+                @MenuOpen.performed -= instance.OnMenuOpen;
+                @MenuOpen.canceled -= instance.OnMenuOpen;
+                @MenuProfileOpen.started -= instance.OnMenuProfileOpen;
+                @MenuProfileOpen.performed -= instance.OnMenuProfileOpen;
+                @MenuProfileOpen.canceled -= instance.OnMenuProfileOpen;
+                @MenuMinimapOpen.started -= instance.OnMenuMinimapOpen;
+                @MenuMinimapOpen.performed -= instance.OnMenuMinimapOpen;
+                @MenuMinimapOpen.canceled -= instance.OnMenuMinimapOpen;
+            }
+
+            public void RemoveCallbacks(IMenuActions instance)
+            {
+                if (m_Wrapper.m_MenuActionsCallbackInterfaces.Remove(instance))
+                    UnregisterCallbacks(instance);
+            }
+
+            public void SetCallbacks(IMenuActions instance)
+            {
+                foreach (var item in m_Wrapper.m_MenuActionsCallbackInterfaces)
+                    UnregisterCallbacks(item);
+                m_Wrapper.m_MenuActionsCallbackInterfaces.Clear();
+                AddCallbacks(instance);
+            }
+        }
+        public MenuActions @Menu => new MenuActions(this);
+
+        // Chat
+        private readonly InputActionMap m_Chat;
+        private List<IChatActions> m_ChatActionsCallbackInterfaces = new List<IChatActions>();
+        private readonly InputAction m_Chat_ChatPublicStart;
+        private readonly InputAction m_Chat_ChatGuildStart;
+        private readonly InputAction m_Chat_ChatPrivateStart;
+        private readonly InputAction m_Chat_ChatCancel;
+        private readonly InputAction m_Chat_ChatSend;
+        private readonly InputAction m_Chat_Ping;
+        private readonly InputAction m_Chat_Emote;
+        public struct ChatActions
+        {
+            private @InputActions m_Wrapper;
+            public ChatActions(@InputActions wrapper) { m_Wrapper = wrapper; }
+            public InputAction @ChatPublicStart => m_Wrapper.m_Chat_ChatPublicStart;
+            public InputAction @ChatGuildStart => m_Wrapper.m_Chat_ChatGuildStart;
+            public InputAction @ChatPrivateStart => m_Wrapper.m_Chat_ChatPrivateStart;
+            public InputAction @ChatCancel => m_Wrapper.m_Chat_ChatCancel;
+            public InputAction @ChatSend => m_Wrapper.m_Chat_ChatSend;
+            public InputAction @Ping => m_Wrapper.m_Chat_Ping;
+            public InputAction @Emote => m_Wrapper.m_Chat_Emote;
+            public InputActionMap Get() { return m_Wrapper.m_Chat; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(ChatActions set) { return set.Get(); }
+            public void AddCallbacks(IChatActions instance)
+            {
+                if (instance == null || m_Wrapper.m_ChatActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_ChatActionsCallbackInterfaces.Add(instance);
+                @ChatPublicStart.started += instance.OnChatPublicStart;
+                @ChatPublicStart.performed += instance.OnChatPublicStart;
+                @ChatPublicStart.canceled += instance.OnChatPublicStart;
+                @ChatGuildStart.started += instance.OnChatGuildStart;
+                @ChatGuildStart.performed += instance.OnChatGuildStart;
+                @ChatGuildStart.canceled += instance.OnChatGuildStart;
+                @ChatPrivateStart.started += instance.OnChatPrivateStart;
+                @ChatPrivateStart.performed += instance.OnChatPrivateStart;
+                @ChatPrivateStart.canceled += instance.OnChatPrivateStart;
+                @ChatCancel.started += instance.OnChatCancel;
+                @ChatCancel.performed += instance.OnChatCancel;
+                @ChatCancel.canceled += instance.OnChatCancel;
+                @ChatSend.started += instance.OnChatSend;
+                @ChatSend.performed += instance.OnChatSend;
+                @ChatSend.canceled += instance.OnChatSend;
+                @Ping.started += instance.OnPing;
+                @Ping.performed += instance.OnPing;
+                @Ping.canceled += instance.OnPing;
+                @Emote.started += instance.OnEmote;
+                @Emote.performed += instance.OnEmote;
+                @Emote.canceled += instance.OnEmote;
+            }
+
+            private void UnregisterCallbacks(IChatActions instance)
+            {
+                @ChatPublicStart.started -= instance.OnChatPublicStart;
+                @ChatPublicStart.performed -= instance.OnChatPublicStart;
+                @ChatPublicStart.canceled -= instance.OnChatPublicStart;
+                @ChatGuildStart.started -= instance.OnChatGuildStart;
+                @ChatGuildStart.performed -= instance.OnChatGuildStart;
+                @ChatGuildStart.canceled -= instance.OnChatGuildStart;
+                @ChatPrivateStart.started -= instance.OnChatPrivateStart;
+                @ChatPrivateStart.performed -= instance.OnChatPrivateStart;
+                @ChatPrivateStart.canceled -= instance.OnChatPrivateStart;
+                @ChatCancel.started -= instance.OnChatCancel;
+                @ChatCancel.performed -= instance.OnChatCancel;
+                @ChatCancel.canceled -= instance.OnChatCancel;
+                @ChatSend.started -= instance.OnChatSend;
+                @ChatSend.performed -= instance.OnChatSend;
+                @ChatSend.canceled -= instance.OnChatSend;
+                @Ping.started -= instance.OnPing;
+                @Ping.performed -= instance.OnPing;
+                @Ping.canceled -= instance.OnPing;
+                @Emote.started -= instance.OnEmote;
+                @Emote.performed -= instance.OnEmote;
+                @Emote.canceled -= instance.OnEmote;
+            }
+
+            public void RemoveCallbacks(IChatActions instance)
+            {
+                if (m_Wrapper.m_ChatActionsCallbackInterfaces.Remove(instance))
+                    UnregisterCallbacks(instance);
+            }
+
+            public void SetCallbacks(IChatActions instance)
+            {
+                foreach (var item in m_Wrapper.m_ChatActionsCallbackInterfaces)
+                    UnregisterCallbacks(item);
+                m_Wrapper.m_ChatActionsCallbackInterfaces.Clear();
+                AddCallbacks(instance);
+            }
+        }
+        public ChatActions @Chat => new ChatActions(this);
+
+        // Camera
+        private readonly InputActionMap m_Camera;
+        private List<ICameraActions> m_CameraActionsCallbackInterfaces = new List<ICameraActions>();
+        private readonly InputAction m_Camera_CameraZoom;
+        private readonly InputAction m_Camera_CameraRotate;
+        public struct CameraActions
+        {
+            private @InputActions m_Wrapper;
+            public CameraActions(@InputActions wrapper) { m_Wrapper = wrapper; }
+            public InputAction @CameraZoom => m_Wrapper.m_Camera_CameraZoom;
+            public InputAction @CameraRotate => m_Wrapper.m_Camera_CameraRotate;
+            public InputActionMap Get() { return m_Wrapper.m_Camera; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(CameraActions set) { return set.Get(); }
+            public void AddCallbacks(ICameraActions instance)
+            {
+                if (instance == null || m_Wrapper.m_CameraActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_CameraActionsCallbackInterfaces.Add(instance);
+                @CameraZoom.started += instance.OnCameraZoom;
+                @CameraZoom.performed += instance.OnCameraZoom;
+                @CameraZoom.canceled += instance.OnCameraZoom;
+                @CameraRotate.started += instance.OnCameraRotate;
+                @CameraRotate.performed += instance.OnCameraRotate;
+                @CameraRotate.canceled += instance.OnCameraRotate;
+            }
+
+            private void UnregisterCallbacks(ICameraActions instance)
+            {
+                @CameraZoom.started -= instance.OnCameraZoom;
+                @CameraZoom.performed -= instance.OnCameraZoom;
+                @CameraZoom.canceled -= instance.OnCameraZoom;
+                @CameraRotate.started -= instance.OnCameraRotate;
+                @CameraRotate.performed -= instance.OnCameraRotate;
+                @CameraRotate.canceled -= instance.OnCameraRotate;
+            }
+
+            public void RemoveCallbacks(ICameraActions instance)
+            {
+                if (m_Wrapper.m_CameraActionsCallbackInterfaces.Remove(instance))
+                    UnregisterCallbacks(instance);
+            }
+
+            public void SetCallbacks(ICameraActions instance)
+            {
+                foreach (var item in m_Wrapper.m_CameraActionsCallbackInterfaces)
+                    UnregisterCallbacks(item);
+                m_Wrapper.m_CameraActionsCallbackInterfaces.Clear();
+                AddCallbacks(instance);
+            }
+        }
+        public CameraActions @Camera => new CameraActions(this);
+
+        // Minimap
+        private readonly InputActionMap m_Minimap;
+        private List<IMinimapActions> m_MinimapActionsCallbackInterfaces = new List<IMinimapActions>();
+        private readonly InputAction m_Minimap_ZoomMinimap;
+        public struct MinimapActions
+        {
+            private @InputActions m_Wrapper;
+            public MinimapActions(@InputActions wrapper) { m_Wrapper = wrapper; }
+            public InputAction @ZoomMinimap => m_Wrapper.m_Minimap_ZoomMinimap;
+            public InputActionMap Get() { return m_Wrapper.m_Minimap; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(MinimapActions set) { return set.Get(); }
+            public void AddCallbacks(IMinimapActions instance)
+            {
+                if (instance == null || m_Wrapper.m_MinimapActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_MinimapActionsCallbackInterfaces.Add(instance);
+                @ZoomMinimap.started += instance.OnZoomMinimap;
+                @ZoomMinimap.performed += instance.OnZoomMinimap;
+                @ZoomMinimap.canceled += instance.OnZoomMinimap;
+            }
+
+            private void UnregisterCallbacks(IMinimapActions instance)
+            {
+                @ZoomMinimap.started -= instance.OnZoomMinimap;
+                @ZoomMinimap.performed -= instance.OnZoomMinimap;
+                @ZoomMinimap.canceled -= instance.OnZoomMinimap;
+            }
+
+            public void RemoveCallbacks(IMinimapActions instance)
+            {
+                if (m_Wrapper.m_MinimapActionsCallbackInterfaces.Remove(instance))
+                    UnregisterCallbacks(instance);
+            }
+
+            public void SetCallbacks(IMinimapActions instance)
+            {
+                foreach (var item in m_Wrapper.m_MinimapActionsCallbackInterfaces)
+                    UnregisterCallbacks(item);
+                m_Wrapper.m_MinimapActionsCallbackInterfaces.Clear();
+                AddCallbacks(instance);
+            }
+        }
+        public MinimapActions @Minimap => new MinimapActions(this);
 
         // Cheats
         private readonly InputActionMap m_Cheats;
         private List<ICheatsActions> m_CheatsActionsCallbackInterfaces = new List<ICheatsActions>();
+        private readonly InputAction m_Cheats_DebugToggle;
         public struct CheatsActions
         {
             private @InputActions m_Wrapper;
             public CheatsActions(@InputActions wrapper) { m_Wrapper = wrapper; }
+            public InputAction @DebugToggle => m_Wrapper.m_Cheats_DebugToggle;
             public InputActionMap Get() { return m_Wrapper.m_Cheats; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -580,10 +1775,16 @@ namespace Generator.Scripts.Runtime
             {
                 if (instance == null || m_Wrapper.m_CheatsActionsCallbackInterfaces.Contains(instance)) return;
                 m_Wrapper.m_CheatsActionsCallbackInterfaces.Add(instance);
+                @DebugToggle.started += instance.OnDebugToggle;
+                @DebugToggle.performed += instance.OnDebugToggle;
+                @DebugToggle.canceled += instance.OnDebugToggle;
             }
 
             private void UnregisterCallbacks(ICheatsActions instance)
             {
+                @DebugToggle.started -= instance.OnDebugToggle;
+                @DebugToggle.performed -= instance.OnDebugToggle;
+                @DebugToggle.canceled -= instance.OnDebugToggle;
             }
 
             public void RemoveCallbacks(ICheatsActions instance)
@@ -601,6 +1802,15 @@ namespace Generator.Scripts.Runtime
             }
         }
         public CheatsActions @Cheats => new CheatsActions(this);
+        private int m_DefaultSchemeIndex = -1;
+        public InputControlScheme DefaultScheme
+        {
+            get
+            {
+                if (m_DefaultSchemeIndex == -1) m_DefaultSchemeIndex = asset.FindControlSchemeIndex("Default");
+                return asset.controlSchemes[m_DefaultSchemeIndex];
+            }
+        }
         private int m_GamepadSchemeIndex = -1;
         public InputControlScheme GamepadScheme
         {
@@ -619,20 +1829,68 @@ namespace Generator.Scripts.Runtime
                 return asset.controlSchemes[m_KeyboardSchemeIndex];
             }
         }
+        private int m_TouchscreenSchemeIndex = -1;
+        public InputControlScheme TouchscreenScheme
+        {
+            get
+            {
+                if (m_TouchscreenSchemeIndex == -1) m_TouchscreenSchemeIndex = asset.FindControlSchemeIndex("Touchscreen");
+                return asset.controlSchemes[m_TouchscreenSchemeIndex];
+            }
+        }
         public interface IGameplayActions
         {
-            void OnStart(InputAction.CallbackContext context);
-            void OnMove(InputAction.CallbackContext context);
-            void OnJump(InputAction.CallbackContext context);
-            void OnSneak(InputAction.CallbackContext context);
-            void OnFire(InputAction.CallbackContext context);
+            void OnGameplayMove(InputAction.CallbackContext context);
+            void OnGameplayAim(InputAction.CallbackContext context);
+            void OnGameplayInteract(InputAction.CallbackContext context);
+            void OnGameplayAttackToggle(InputAction.CallbackContext context);
+            void OnGameplayQuickHeal(InputAction.CallbackContext context);
+            void OnGameplayExit(InputAction.CallbackContext context);
+            void OnGameplayCancel(InputAction.CallbackContext context);
         }
-        public interface IMenusActions
+        public interface IInventoryActions
         {
-            void OnNewaction(InputAction.CallbackContext context);
+            void OnInventoryScroll(InputAction.CallbackContext context);
+            void OnInventorySelectSlot1(InputAction.CallbackContext context);
+            void OnInventorySelectSlot2(InputAction.CallbackContext context);
+            void OnInventorySelectSlot3(InputAction.CallbackContext context);
+            void OnInventorySelectSlot4(InputAction.CallbackContext context);
+            void OnInventorySelectSlot5(InputAction.CallbackContext context);
+            void OnInventorySelectSlot6(InputAction.CallbackContext context);
+            void OnInventorySelectSlot7(InputAction.CallbackContext context);
+            void OnInventorySelectSlot8(InputAction.CallbackContext context);
+            void OnInventorySelectSlot9(InputAction.CallbackContext context);
+            void OnInventoryDrop(InputAction.CallbackContext context);
+            void OnInventorySwap(InputAction.CallbackContext context);
+        }
+        public interface IMenuActions
+        {
+            void OnMenuOpen(InputAction.CallbackContext context);
+            void OnMenuProfileOpen(InputAction.CallbackContext context);
+            void OnMenuMinimapOpen(InputAction.CallbackContext context);
+        }
+        public interface IChatActions
+        {
+            void OnChatPublicStart(InputAction.CallbackContext context);
+            void OnChatGuildStart(InputAction.CallbackContext context);
+            void OnChatPrivateStart(InputAction.CallbackContext context);
+            void OnChatCancel(InputAction.CallbackContext context);
+            void OnChatSend(InputAction.CallbackContext context);
+            void OnPing(InputAction.CallbackContext context);
+            void OnEmote(InputAction.CallbackContext context);
+        }
+        public interface ICameraActions
+        {
+            void OnCameraZoom(InputAction.CallbackContext context);
+            void OnCameraRotate(InputAction.CallbackContext context);
+        }
+        public interface IMinimapActions
+        {
+            void OnZoomMinimap(InputAction.CallbackContext context);
         }
         public interface ICheatsActions
         {
+            void OnDebugToggle(InputAction.CallbackContext context);
         }
     }
 }
