@@ -18,6 +18,8 @@ namespace AGX.Scripts.Runtime.Rebinder
         [BoxGroup("References"), SerializeField, Required] private TextMeshProUGUI _duplicateWarning;
         [BoxGroup("References"), SerializeField, Required] private Button          _buttonCancel;
         [BoxGroup("References"), SerializeField, Required] private TextMeshProUGUI _buttonCancelText;
+        [BoxGroup("References"), SerializeField, Required] private Image           _buttonImageFill;
+
 
         private Coroutine _timeoutCoroutine;
 
@@ -40,16 +42,20 @@ namespace AGX.Scripts.Runtime.Rebinder
 
         private IEnumerator StartTimeout()
         {
-            int remainingTime = InputManager.TimeoutSeconds;
+            float remainingTime = InputManager.TimeoutSeconds;
+
+            _buttonImageFill.fillAmount = 0;
 
             while (remainingTime > 0)
             {
                 _buttonCancelText.text = remainingTime < TimeOutThreshold ?
-                    $"Cancelling in {remainingTime}s" :
+                    $"Cancelling in {Mathf.RoundToInt(remainingTime)}s" :
                     "Click to cancel";
 
-                yield return new WaitForSeconds(1f);
-                remainingTime--;
+                yield return null;
+                remainingTime -= Time.deltaTime;
+                
+                _buttonImageFill.fillAmount = 1 - remainingTime / InputManager.TimeoutSeconds;
             }
 
             _buttonCancelText.text = "Time's up!";

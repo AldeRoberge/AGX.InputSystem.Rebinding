@@ -140,7 +140,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <Keyboard>/space
+  m_text: <Keyboard>/g
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0ae800816eb19a14981e78e78d365d11, type: 2}
   m_sharedMaterial: {fileID: -493796175005288581, guid: 0ae800816eb19a14981e78e78d365d11,
@@ -269,10 +269,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _actionRebinders: {fileID: 6937631338274166556}
-  _mouseIncluded: 0
   _textRebind: {fileID: 4985824686241964664}
   _buttonReset: {fileID: 4607890603769534084}
   _buttonRebind: {fileID: 2853951199229873}
+  _mouseIncluded: 0
   _debug: 0
   _selectedBinding: 1
 --- !u!1 &2786485128324207020
@@ -520,7 +520,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7852499201102737902
 RectTransform:
   m_ObjectHideFlags: 0
@@ -682,10 +682,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _actionRebinders: {fileID: 6937631338274166556}
-  _mouseIncluded: 0
   _textRebind: {fileID: 3469075076581291797}
   _buttonReset: {fileID: 4223356448177133873}
   _buttonRebind: {fileID: 3405275398994546399}
+  _mouseIncluded: 0
   _debug: 0
   _selectedBinding: 2
 --- !u!1 &4100831032311894654
@@ -1059,7 +1059,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <Gamepad>/buttonEast
+  m_text: <Gamepad>/rightTrigger
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0ae800816eb19a14981e78e78d365d11, type: 2}
   m_sharedMaterial: {fileID: -493796175005288581, guid: 0ae800816eb19a14981e78e78d365d11,
@@ -1188,10 +1188,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _actionRebinders: {fileID: 6937631338274166556}
-  _mouseIncluded: 1
   _textRebind: {fileID: 2157012504285500225}
   _buttonReset: {fileID: 8946892855387980752}
   _buttonRebind: {fileID: 4808137246275743587}
+  _mouseIncluded: 1
   _debug: 0
   _selectedBinding: 0
 --- !u!1 &5892208112711878200
@@ -1469,7 +1469,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1617642752155793671
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1984,9 +1984,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actionIconMap: {fileID: 11400000, guid: 10e4b06b9dd4c7b4aa3f10d8d7a670b7, type: 2}
   _actionText: {fileID: 3342403134798985403}
+  _rebindOverlay: {fileID: 0}
   _inputActionReference: {fileID: 4137429183621252477, guid: bf1efc4e6801b6b40a5a572caa5feaa4,
     type: 3}
-  _rebindOverlay: {fileID: 0}
 --- !u!114 &588440301699820892
 MonoBehaviour:
   m_ObjectHideFlags: 0
