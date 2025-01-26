@@ -41,3 +41,10 @@ This project is open-source and licensed under the [MIT License](LICENSE).
 This is a quick prototype designed for experimentation.
 Uses [TexturePacker](https://www.codeandweb.com/texturepacker/documentation/user-interface-overview) to pack the prompt sprites.
 
+
+# This project requires DOTween Pro, which is not included because it's paid third-party software.  
+You can easily do without it or replace it with another tweening library. I used it because it's the simplest solution I know, but it's entirely optional.  
+
+![image](https://github.com/user-attachments/assets/5a8f95e5-37d0-4251-8eb0-3ca79284ea7f)
+
+
