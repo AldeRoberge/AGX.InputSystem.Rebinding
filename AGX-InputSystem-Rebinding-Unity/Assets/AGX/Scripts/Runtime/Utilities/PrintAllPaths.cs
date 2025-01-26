@@ -9,7 +9,7 @@ namespace AGX.Scripts.Runtime.Utilities
     {
         public void Start()
         {
-            StringBuilder allPaths = new StringBuilder();
+            var allPaths = new StringBuilder();
 
             // Process each device type
             //PrintDevicePaths(Keyboard.current, "Keyboard", allPaths);

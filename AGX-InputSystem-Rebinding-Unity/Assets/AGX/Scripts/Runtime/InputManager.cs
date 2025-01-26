@@ -12,7 +12,7 @@ namespace AGX.Scripts.Runtime
 {
     public static class InputManager
     {
-        public const int TimeoutSeconds = 8;
+        public const int TimeoutSeconds = 12;
 
         private const string KeyboardEscape    = "<Keyboard>/escape";
         private const string Mouse             = "Mouse";
@@ -93,7 +93,7 @@ namespace AGX.Scripts.Runtime
 
                 var duplicateBinding = GetDuplicateBinding(actionToRebind, bindingIndex, allCompositeParts);
 
-                if (duplicateBinding.Exists)
+                if (duplicateBinding.WasFound)
                 {
                     actionToRebind.RemoveBindingOverride(bindingIndex);
                     operation.Dispose();
@@ -133,7 +133,6 @@ namespace AGX.Scripts.Runtime
             if (debug)
                 Debug.Log($"Rebinding {actionToRebind.name} at index {bindingIndex} for map {actionToRebind.actionMap.name}");
 
-
             // Add filtering based on the input action's control type (Keyboard or Gamepad)
             if (actionToRebind.actionMap.name == "Keyboard")
             {
@@ -145,11 +144,11 @@ namespace AGX.Scripts.Runtime
                 rebind.WithControlsExcluding(KeyboardEscape); // Exclude keyboard escape for gamepad actions
             }
 
-            rebindOverlay?.Show(() => { rebind.Cancel(); });
             if (rebindOverlay != null)
             {
-                StringBuilder text = new StringBuilder();
+                rebindOverlay.Show(() => { rebind.Cancel(); });
 
+                var text = new StringBuilder();
 
                 text.Append("Press any key");
 
@@ -170,13 +169,13 @@ namespace AGX.Scripts.Runtime
             rebind.Start(); //actually starts the rebinding
         }
 
-
         class DuplicateBinding
         {
-            public bool   Exists;
+            public bool   WasFound;
             public string Action;
             public string Binding;
-            public static DuplicateBinding False => new() { Exists = false };
+
+            public static DuplicateBinding None => new() { WasFound = false };
         }
 
         private static DuplicateBinding GetDuplicateBinding(InputAction actionToRebind, int bindingIndex, bool allCompositeParts = false)
@@ -199,17 +198,17 @@ namespace AGX.Scripts.Runtime
                 // Get the localized name for the control (e.g., "Espace" for the Space key on the keyboard)
                 var getBindingName = InputControlPath.ToHumanReadableString(newBinding.effectivePath);
 
-                return new DuplicateBinding()
+                return new DuplicateBinding
                 {
                     Action = binding.action,
-                    Exists = true,
+                    WasFound = true,
                     Binding = getBindingName
                 };
             }
 
             // Check for duplicate (composite) bindings
             if (!allCompositeParts)
-                return DuplicateBinding.False;
+                return DuplicateBinding.None;
 
             for (var i = 0; i < bindingIndex; ++i)
             {
@@ -218,15 +217,15 @@ namespace AGX.Scripts.Runtime
                     continue;
 
                 Debug.LogWarning($"Duplicate binding found: {newBinding.effectivePath}");
-                return new DuplicateBinding()
+                return new DuplicateBinding
                 {
                     Binding = actionToRebind.bindings[i].action,
-                    Exists = true,
+                    WasFound = true,
                     Action = actionToRebind.name
                 };
             }
 
-            return DuplicateBinding.False;
+            return DuplicateBinding.None;
         }
 
 

@@ -25,7 +25,7 @@ namespace AGX.Scripts.Runtime.Rebinder
 
         public void Show(Action cancelAction)
         {
-            _duplicateWarning.gameObject.SetActive(false);
+            _duplicateWarning.text = "Waiting for input...";
 
             _buttonCancel.onClick.AddListener(() =>
             {
@@ -48,14 +48,20 @@ namespace AGX.Scripts.Runtime.Rebinder
 
             while (remainingTime > 0)
             {
-                _buttonCancelText.text = remainingTime < TimeOutThreshold ?
-                    $"Cancelling in {Mathf.RoundToInt(remainingTime)}s" :
+                remainingTime -= Time.deltaTime;
+
+                bool isBeyondThreshold = remainingTime < TimeOutThreshold;
+
+                _buttonCancelText.text = isBeyondThreshold ?
+                    $"Cancelling in {Mathf.RoundToInt(remainingTime) + 1}s" :
                     "Click to cancel";
 
+                if (isBeyondThreshold)
+                    _buttonImageFill.fillAmount = 1 - remainingTime / InputManager.TimeoutSeconds;
+                else
+                    _buttonImageFill.fillAmount = 0;
+
                 yield return null;
-                remainingTime -= Time.deltaTime;
-                
-                _buttonImageFill.fillAmount = 1 - remainingTime / InputManager.TimeoutSeconds;
             }
 
             _buttonCancelText.text = "Time's up!";

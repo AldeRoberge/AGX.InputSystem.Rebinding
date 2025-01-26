@@ -52,11 +52,8 @@ namespace AGX.Scripts.Runtime.Searching
                     keyword.Contains(searchQuery, System.StringComparison.OrdinalIgnoreCase)))
                 .ToList();
 
-            if (matchingSearchables.Count == 0)
-            {
-                Debug.LogWarning("No searchables found");
-                return;
-            }
+            if (matchingSearchables.Count == 0) 
+                Debug.LogWarning("No search result.");
 
             // Update visibility of searchables in list (filtered by search query)
             foreach (var searchable in _searchables)
