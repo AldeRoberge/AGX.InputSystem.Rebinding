@@ -150,17 +150,15 @@ namespace AGX.Scripts.Runtime
 
                 var text = new StringBuilder();
 
-                text.Append("Press any key");
+                text.Append("<color=white>Press any key");
 
                 if (includeMouse) text.Append(" or mouse button");
 
-                text.Append($" for <color=yellow>{actionToRebind.name}");
+                text.Append($" for </color>{actionToRebind.name}");
 
                 text.Append(actionToRebind.bindings[bindingIndex].isPartOfComposite ?
-                    $" '{actionToRebind.bindings[bindingIndex].name}'." :
-                    ".");
-
-                text.Append("</color>");
+                    $" '{actionToRebind.bindings[bindingIndex].name}'<color=white>.</color>" :
+                    "<color=white>.</color>");
 
                 rebindOverlay.SetText(text.ToString());
             }
