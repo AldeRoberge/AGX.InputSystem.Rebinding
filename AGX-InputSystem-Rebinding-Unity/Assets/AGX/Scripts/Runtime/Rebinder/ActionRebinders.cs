@@ -34,8 +34,12 @@ namespace AGX.Scripts.Runtime.Rebinder
         {
             _actionText.DOKill();
             _actionText.color = Color.yellow;
-            _actionText.transform.DOPunchScale(Vector3.one * 0.1f, 0.1f);
             _actionText.DOColor(Color.white, 2f);
+
+            /*
+            _actionText.transform.DOComplete();
+            _actionText.transform.DOPunchScale(Vector3.one * 0.1f, 0.1f);
+            */
         }
 
         private void UpdateText()
