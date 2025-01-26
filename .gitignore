@@ -74,3 +74,4 @@ crashlytics-build.properties
 
 AGX-InputSystem-Rebinding-Unity/Assets/Plugins/Demigiant/*
 /AGX-InputSystem-Rebinding-Unity/Packages/com.singularitygroup.hotreload
+/AGX-InputSystem-Rebinding-Unity/Assets/Plugins/Fullscreen
