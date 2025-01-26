@@ -1,5 +1,4 @@
-﻿using AGX.Scripts.Runtime.Rebinder;
-using FredericRP.GenericSingleton;
+﻿using FredericRP.GenericSingleton;
 using Generator.Scripts.Runtime;
 using UnityEngine;
 using UnityEngine.Events;

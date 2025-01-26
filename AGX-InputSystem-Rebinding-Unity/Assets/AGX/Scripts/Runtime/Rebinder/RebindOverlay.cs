@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using LitMotion;
 using LitMotion.Extensions;
 using NaughtyAttributes;
@@ -12,22 +11,13 @@ namespace AGX.Scripts.Runtime.Rebinder
 {
     public class RebindOverlay : MonoBehaviour
     {
-        [BoxGroup("References"), SerializeField, Required]
-        private CanvasGroup _canvasGroup;
+        private const int TimeOutThreshold = 5;
 
-        [BoxGroup("References"), SerializeField, Required]
-        private TextMeshProUGUI _text;
-
-        [BoxGroup("References"), SerializeField, Required]
-        private TextMeshProUGUI _duplicateWarning;
-
-        [BoxGroup("References"), SerializeField, Required]
-        private Button _buttonCancel;
-
-        [BoxGroup("References"), SerializeField, Required]
-        private TextMeshProUGUI _buttonCancelText;
-
-        private const int _timeOutThreshold = 5;
+        [BoxGroup("References"), SerializeField, Required] private CanvasGroup     _canvasGroup;
+        [BoxGroup("References"), SerializeField, Required] private TextMeshProUGUI _text;
+        [BoxGroup("References"), SerializeField, Required] private TextMeshProUGUI _duplicateWarning;
+        [BoxGroup("References"), SerializeField, Required] private Button          _buttonCancel;
+        [BoxGroup("References"), SerializeField, Required] private TextMeshProUGUI _buttonCancelText;
 
         private Coroutine _timeoutCoroutine;
 
@@ -54,7 +44,7 @@ namespace AGX.Scripts.Runtime.Rebinder
 
             while (remainingTime > 0)
             {
-                _buttonCancelText.text = remainingTime < _timeOutThreshold ?
+                _buttonCancelText.text = remainingTime < TimeOutThreshold ?
                     $"Cancelling in {remainingTime}s" :
                     "Click to cancel";
 
@@ -91,7 +81,7 @@ namespace AGX.Scripts.Runtime.Rebinder
             _duplicateWarning.gameObject.SetActive(isDuplicate);
 
             if (!isDuplicate) return;
-            
+
             _duplicateWarning.text = $"<b>{binding}</b><color=white> is already used for </color><b>{action}</b>";
 
             if (_punchScaleTween != default && _punchScaleTween.IsActive())

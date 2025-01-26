@@ -86,7 +86,7 @@ namespace AGX.Scripts.Runtime
             rebind.OnComplete(operation =>
             {
                 actionToRebind.Enable();
-                rebindOverlay?.Hide();
+                rebindOverlay.Hide();
                 operation.Dispose();
 
                 rebindOverlay.SetIsDuplicate(false);

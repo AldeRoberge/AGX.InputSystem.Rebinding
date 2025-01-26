@@ -8,12 +8,10 @@ namespace AGX.Scripts.Runtime.Rebinder
 {
     public class ActionRebinders : MonoBehaviour, ISearchable
     {
-        [BoxGroup("References"), SerializeField, Required]    private ActionIconMap _actionIconMap;
-        [BoxGroup("References/UI"), SerializeField, Required] private TMP_Text      _actionText;
-
+        [BoxGroup("References"), SerializeField, Required] private ActionIconMap        _actionIconMap;
+        [BoxGroup("References"), SerializeField, Required] private TMP_Text             _actionText;
+        [BoxGroup("References"), SerializeField, Required] private RebindOverlay        _rebindOverlay;
         [BoxGroup("References"), SerializeField, Required] private InputActionReference _inputActionReference;
-
-        [BoxGroup("References/UI"), SerializeField, Required] private RebindOverlay _rebindOverlay;
 
         public InputActionReference InputActionReference => _inputActionReference;
 
@@ -33,10 +31,8 @@ namespace AGX.Scripts.Runtime.Rebinder
         {
             _actionText.text = _actionIconMap.GetFor(_inputActionReference);
 
-            //Input Action Rebinders (Jump)
             name = $"Input Action Rebinders ({_inputActionReference.action.name})";
         }
-
 
         public string[] SearchKeywords => GetActionsNames();
 

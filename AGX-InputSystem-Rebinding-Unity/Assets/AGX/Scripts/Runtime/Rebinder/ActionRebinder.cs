@@ -12,12 +12,14 @@ namespace AGX.Scripts.Runtime.Rebinder
     /// </summary>
     public class ActionRebinder : MonoBehaviour
     {
-        [BoxGroup("References"), SerializeField] private ActionRebinders _actionRebinders;
-        [BoxGroup("References"), SerializeField] private bool            _mouseIncluded;
+        public string ActionName => _actionName;
+        public int BindingIndex => _selectedBinding;
 
-        [BoxGroup("References/UI"), SerializeField, Required] private TMP_Text _textRebind;
-        [BoxGroup("References/UI"), SerializeField, Required] private Button   _buttonReset;
-        [BoxGroup("References/UI"), SerializeField, Required] private Button   _buttonRebind;
+        [BoxGroup("References"), SerializeField, Required] private ActionRebinders _actionRebinders;
+        [BoxGroup("References"), SerializeField, Required] private TMP_Text        _textRebind;
+        [BoxGroup("References"), SerializeField, Required] private Button          _buttonReset;
+        [BoxGroup("References"), SerializeField, Required] private Button          _buttonRebind;
+        [BoxGroup("References"), SerializeField]           private bool            _mouseIncluded;
 
         [SerializeField] private bool _debug;
 
@@ -29,10 +31,7 @@ namespace AGX.Scripts.Runtime.Rebinder
         [BoxGroup("References"), SerializeField] private int _selectedBinding;
 
         [ShowNonSerializedField] private string _actionName;
-
-        [ShowNonSerializedField] private bool _isDirty;
-        public string ActionName => _actionName;
-        public int BindingIndex => _selectedBinding;
+        [ShowNonSerializedField] private bool   _isDirty;
 
         private void OnEnable()
         {
@@ -79,7 +78,6 @@ namespace AGX.Scripts.Runtime.Rebinder
             var bindings = InputManager.GetBindings(_actionName);
 
             var endIndex = startIndex;
-
 
             if (_debug)
                 for (var i = 0; i < bindings.Count; i++)

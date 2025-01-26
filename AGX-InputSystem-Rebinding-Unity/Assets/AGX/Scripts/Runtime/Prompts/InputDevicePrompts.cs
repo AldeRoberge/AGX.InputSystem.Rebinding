@@ -58,7 +58,7 @@ namespace AGX.Scripts.Runtime.Prompts
 
             if (InputDeviceSpriteMap.TryGetValue(input, out var sprite))
                 return sprite;
-            
+
             // Empty action (no binding)
             if (input == "/")
                 return "";
@@ -77,28 +77,23 @@ namespace AGX.Scripts.Runtime.Prompts
                 Debug.Log($"Prompt: {prompt.text}");
 
                 var inputDevicePrompt = Newtonsoft.Json.JsonConvert.DeserializeObject<InputDevicePrompt>(prompt.text);
+
+                if (inputDevicePrompt == null)
+                {
+                    Debug.LogError("InputDevicePrompt is null!");
+                    continue;
+                }
+
                 Debug.Log($"Name: {inputDevicePrompt.Name}");
                 Debug.Log($"SpriteAsset: {inputDevicePrompt.SpriteAsset}");
-                if (inputDevicePrompt.Mappings == null)
+
+                foreach (var mapping in inputDevicePrompt.Mappings)
                 {
-                    Debug.LogError("Mappings are null!");
-                }
-                else
-                {
-                    foreach (var mapping in inputDevicePrompt.Mappings)
-                    {
-                        Debug.Log($"Path: {mapping.Path}, Sprite: {mapping.Sprite}");
-                    }
+                    Debug.Log($"Path: {mapping.Path}, Sprite: {mapping.Sprite}");
                 }
 
                 foreach (var mapping in inputDevicePrompt.Mappings)
                 {
-                    if (mapping.Path == null)
-                    {
-                        Debug.LogError("Input is null");
-                        continue;
-                    }
-
                     InputDeviceSpriteMap[mapping.Path] = GetFullPath($"{inputDevicePrompt.SpriteAsset}/{inputDevicePrompt.Name}", mapping.Sprite);
                 }
             }
@@ -125,6 +120,6 @@ namespace AGX.Scripts.Runtime.Prompts
     {
         public string Name { get; set; }
         public string SpriteAsset { get; set; }
-        public List<Mapping> Mappings { get; set; }
+        public List<Mapping> Mappings { get; set; } = new();
     }
 }

@@ -48,11 +48,11 @@ namespace AGX.Scripts.Runtime.Searching
             }
 
             // Filter searchables based on keywords
-            var matchingSearchables = _searchables?.Where(s => s.SearchKeywords != null && s.SearchKeywords.Any(keyword =>
+            var matchingSearchables = _searchables.Where(s => s.SearchKeywords.Any(keyword =>
                     keyword.Contains(searchQuery, System.StringComparison.OrdinalIgnoreCase)))
                 .ToList();
 
-            if (matchingSearchables == null)
+            if (matchingSearchables.Count == 0)
             {
                 Debug.LogWarning("No searchables found");
                 return;
