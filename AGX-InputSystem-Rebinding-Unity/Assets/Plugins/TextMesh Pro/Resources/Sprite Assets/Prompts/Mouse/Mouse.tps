@@ -173,17 +173,19 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">../../../../../../AGX/Prompts/Devices/Mouse/Sprites/mouse.png</key>
-            <key type="filename">../../../../../../AGX/Prompts/Devices/Mouse/Sprites/mouse_horizontal.png</key>
-            <key type="filename">../../../../../../AGX/Prompts/Devices/Mouse/Sprites/mouse_left.png</key>
-            <key type="filename">../../../../../../AGX/Prompts/Devices/Mouse/Sprites/mouse_move.png</key>
-            <key type="filename">../../../../../../AGX/Prompts/Devices/Mouse/Sprites/mouse_right.png</key>
-            <key type="filename">../../../../../../AGX/Prompts/Devices/Mouse/Sprites/mouse_scroll.png</key>
-            <key type="filename">../../../../../../AGX/Prompts/Devices/Mouse/Sprites/mouse_scroll_down.png</key>
-            <key type="filename">../../../../../../AGX/Prompts/Devices/Mouse/Sprites/mouse_scroll_up.png</key>
-            <key type="filename">../../../../../../AGX/Prompts/Devices/Mouse/Sprites/mouse_scroll_vertical.png</key>
-            <key type="filename">../../../../../../AGX/Prompts/Devices/Mouse/Sprites/mouse_small.png</key>
-            <key type="filename">../../../../../../AGX/Prompts/Devices/Mouse/Sprites/mouse_vertical.png</key>
+            <key type="filename">../../../../../../AGX/Sprites/Prompts/Devices/Mouse/Sprites/mouse.png</key>
+            <key type="filename">../../../../../../AGX/Sprites/Prompts/Devices/Mouse/Sprites/mouse_backward.png</key>
+            <key type="filename">../../../../../../AGX/Sprites/Prompts/Devices/Mouse/Sprites/mouse_forward.png</key>
+            <key type="filename">../../../../../../AGX/Sprites/Prompts/Devices/Mouse/Sprites/mouse_horizontal.png</key>
+            <key type="filename">../../../../../../AGX/Sprites/Prompts/Devices/Mouse/Sprites/mouse_left.png</key>
+            <key type="filename">../../../../../../AGX/Sprites/Prompts/Devices/Mouse/Sprites/mouse_move.png</key>
+            <key type="filename">../../../../../../AGX/Sprites/Prompts/Devices/Mouse/Sprites/mouse_right.png</key>
+            <key type="filename">../../../../../../AGX/Sprites/Prompts/Devices/Mouse/Sprites/mouse_scroll.png</key>
+            <key type="filename">../../../../../../AGX/Sprites/Prompts/Devices/Mouse/Sprites/mouse_scroll_down.png</key>
+            <key type="filename">../../../../../../AGX/Sprites/Prompts/Devices/Mouse/Sprites/mouse_scroll_up.png</key>
+            <key type="filename">../../../../../../AGX/Sprites/Prompts/Devices/Mouse/Sprites/mouse_scroll_vertical.png</key>
+            <key type="filename">../../../../../../AGX/Sprites/Prompts/Devices/Mouse/Sprites/mouse_small.png</key>
+            <key type="filename">../../../../../../AGX/Sprites/Prompts/Devices/Mouse/Sprites/mouse_vertical.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0.8</point_f>
@@ -205,7 +207,7 @@
             <struct type="SpriteSheet">
                 <key>files</key>
                 <array>
-                    <filename>../../../../../../AGX/Prompts/Devices/Mouse/Sprites</filename>
+                    <filename>../../../../../../AGX/Sprites/Prompts/Devices/Mouse/Sprites</filename>
                 </array>
             </struct>
         </map>

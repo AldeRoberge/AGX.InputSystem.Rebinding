@@ -139,7 +139,7 @@ TextureImporter:
       name: mouse
       rect:
         serializedVersion: 2
-        x: 521
+        x: 651
         y: 383
         width: 128
         height: 128
@@ -366,6 +366,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: mouse_backward
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 253
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77b2d7f88a70a5943b80d6835a3f0a0b
+      internalID: -2037976127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mouse_forward
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 383
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 774f03a120f45ac499ab35755dde9aba
+      internalID: 780699433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -378,6 +420,8 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       mouse: 29026918
+      mouse_backward: -2037976127
+      mouse_forward: 780699433
       mouse_horizontal: 786693899
       mouse_left: 2025317713
       mouse_move: -1384692423

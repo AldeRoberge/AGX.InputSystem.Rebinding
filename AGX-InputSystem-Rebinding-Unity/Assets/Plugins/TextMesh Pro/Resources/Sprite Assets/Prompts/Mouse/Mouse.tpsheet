@@ -4,7 +4,7 @@
 # To import these sprites into your Unity project, download "TexturePackerImporter":
 # https://www.codeandweb.com/texturepacker/unity
 #
-# $TexturePacker:SmartUpdate:8a29db39512922f3c5048e2430fa4742:b4d1ed827c810975188dea7c62e8584f:d565dcb69e32cf908c841d5088ded397$
+# $TexturePacker:SmartUpdate:8262ef719d7cc142fb703d8edd083005:50244a6f0f0bc3a6709a50ce459f9dcd:d565dcb69e32cf908c841d5088ded397$
 #
 :format=40300
 :texture=Mouse.png
@@ -13,7 +13,9 @@
 :borders=disabled
 :alphahandling=ClearTransparentPixels
 
-mouse;521;383;128;128; 0;0.19999999999999996; 0;0;0;0
+mouse;651;383;128;128; 0;0.19999999999999996; 0;0;0;0
+mouse_backward;391;253;128;128; 0;0.19999999999999996; 0;0;0;0
+mouse_forward;521;383;128;128; 0;0.19999999999999996; 0;0;0;0
 mouse_horizontal;391;383;128;128; 0;0.19999999999999996; 0;0;0;0
 mouse_left;261;123;128;128; 0;0.19999999999999996; 0;0;0;0
 mouse_move;131;123;128;128; 0;0.19999999999999996; 0;0;0;0

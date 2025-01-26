@@ -88,15 +88,15 @@
     },
     {
       "Path": "/Mouse/middleButton",
-      "Sprite": "mouse_vertical"
+      "Sprite": "mouse_scroll"
     },
     {
       "Path": "/Mouse/forwardButton",
-      "Sprite": "mouse_right"
+      "Sprite": "mouse_forward"
     },
     {
       "Path": "/Mouse/backButton",
-      "Sprite": "mouse_left"
+      "Sprite": "mouse_backward"
     },
     {
       "Path": "/Mouse/pressure",
