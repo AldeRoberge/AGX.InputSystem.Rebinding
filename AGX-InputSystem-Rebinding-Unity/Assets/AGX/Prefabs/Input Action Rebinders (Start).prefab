@@ -140,7 +140,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <Mouse>/leftButton
+  m_text: <Keyboard>/numpadMinus
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0ae800816eb19a14981e78e78d365d11, type: 2}
   m_sharedMaterial: {fileID: -493796175005288581, guid: 0ae800816eb19a14981e78e78d365d11,
@@ -1381,7 +1381,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <Keyboard>/g
+  m_text: <Keyboard>/f
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0ae800816eb19a14981e78e78d365d11, type: 2}
   m_sharedMaterial: {fileID: -493796175005288581, guid: 0ae800816eb19a14981e78e78d365d11,

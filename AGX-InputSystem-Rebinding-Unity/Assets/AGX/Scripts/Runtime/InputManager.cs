@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using Generator.Scripts.Runtime;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,6 +12,8 @@ namespace AGX.Scripts.Runtime.Rebinder
 {
     public class InputManager
     {
+        public const int TimeoutSeconds = 8;
+
         private const string KeyboardEscape    = "<Keyboard>/escape";
         private const string Mouse             = "Mouse";
         private const string GamepadLeftstick  = "<Gamepad>/leftstick";
@@ -77,7 +81,7 @@ namespace AGX.Scripts.Runtime.Rebinder
             var rebind = actionToRebind
                 .PerformInteractiveRebinding(bindingIndex)
                 .OnMatchWaitForAnother(0.2f)
-                .WithTimeout(6f);
+                .WithTimeout(TimeoutSeconds);
 
             rebind.OnComplete(operation =>
             {
@@ -91,11 +95,10 @@ namespace AGX.Scripts.Runtime.Rebinder
 
                 if (duplicateBinding.Exists)
                 {
-                    rebindOverlay.SetIsDuplicate(true, duplicateBinding.AlreadyMappedTo, duplicateBinding.Action);
-
                     actionToRebind.RemoveBindingOverride(bindingIndex);
                     operation.Dispose();
                     DoRebind(actionToRebind, bindingIndex, rebindOverlay, includeMouse, allCompositeParts);
+                    rebindOverlay.SetIsDuplicate(true, duplicateBinding.Binding, duplicateBinding.Action);
                     return;
                 }
 
@@ -145,26 +148,22 @@ namespace AGX.Scripts.Runtime.Rebinder
             rebindOverlay?.Show(() => { rebind.Cancel(); });
             if (rebindOverlay != null)
             {
-                var partName = string.Empty;
-                if (actionToRebind.bindings[bindingIndex].isPartOfComposite)
-                    partName = $"Binding '{actionToRebind.bindings[bindingIndex].name}'.";
+                StringBuilder text = new StringBuilder();
 
-                string text;
 
-                if (includeMouse)
-                {
-                    text = !string.IsNullOrEmpty(actionToRebind.expectedControlType) ?
-                        $"{partName} Press any button ({actionToRebind.expectedControlType}) or mouse button..." :
-                        $"{partName} Press any button or mouse button...";
-                }
-                else
-                {
-                    text = !string.IsNullOrEmpty(actionToRebind.expectedControlType) ?
-                        $"{partName} Press any button ({actionToRebind.expectedControlType})..." :
-                        $"{partName} Press any button...";
-                }
+                text.Append("Press any key");
 
-                rebindOverlay.SetText(text);
+                if (includeMouse) text.Append(" or mouse button");
+
+                text.Append($" for <color=yellow>{actionToRebind.name}");
+
+                text.Append(actionToRebind.bindings[bindingIndex].isPartOfComposite ?
+                    $" '{actionToRebind.bindings[bindingIndex].name}'." :
+                    ".");
+
+                text.Append("</color>");
+
+                rebindOverlay.SetText(text.ToString());
             }
 
             RebindStarted?.Invoke(actionToRebind, bindingIndex);
@@ -176,11 +175,10 @@ namespace AGX.Scripts.Runtime.Rebinder
         {
             public bool   Exists;
             public string Action;
-            public string AlreadyMappedTo;
-            public static DuplicateBinding False => new DuplicateBinding() { Exists = false };
+            public string Binding;
+            public static DuplicateBinding False => new() { Exists = false };
         }
 
-        // Only checks for duplicates within the same action map.
         private static DuplicateBinding GetDuplicateBinding(InputAction actionToRebind, int bindingIndex, bool allCompositeParts = false)
         {
             var newBinding = actionToRebind.bindings[bindingIndex];
@@ -198,11 +196,14 @@ namespace AGX.Scripts.Runtime.Rebinder
 
                 Debug.LogWarning($"Duplicate binding found: {newBinding.effectivePath}");
 
+                // Get the localized name for the control (e.g., "Espace" for the Space key on the keyboard)
+                var getBindingName = InputControlPath.ToHumanReadableString(newBinding.effectivePath);
+
                 return new DuplicateBinding()
                 {
                     Action = actionToRebind.name,
                     Exists = true,
-                    AlreadyMappedTo = binding.action
+                    Binding = getBindingName
                 };
             }
 
@@ -219,7 +220,7 @@ namespace AGX.Scripts.Runtime.Rebinder
                 Debug.LogWarning($"Duplicate binding found: {newBinding.effectivePath}");
                 return new DuplicateBinding()
                 {
-                    AlreadyMappedTo = actionToRebind.bindings[i].action,
+                    Binding = actionToRebind.bindings[i].action,
                     Exists = true,
                     Action = actionToRebind.name
                 };
@@ -227,6 +228,7 @@ namespace AGX.Scripts.Runtime.Rebinder
 
             return DuplicateBinding.False;
         }
+
 
         /// <summary>
         /// TODO we should export this to JSON so that it's easy to save to a single PlayerPrefs slot

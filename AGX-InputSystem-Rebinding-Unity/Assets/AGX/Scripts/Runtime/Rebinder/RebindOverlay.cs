@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using LitMotion;
 using LitMotion.Extensions;
 using NaughtyAttributes;
@@ -22,8 +24,17 @@ namespace AGX.Scripts.Runtime.Rebinder
         [BoxGroup("References"), SerializeField, Required]
         private Button _buttonCancel;
 
+        [BoxGroup("References"), SerializeField, Required]
+        private TextMeshProUGUI _buttonCancelText;
+
+        private const int _timeOutThreshold = 5;
+
+        private Coroutine _timeoutCoroutine;
+
         public void Show(Action cancelAction)
         {
+            _duplicateWarning.gameObject.SetActive(false);
+
             _buttonCancel.onClick.AddListener(() =>
             {
                 Debug.Log("Cancel button clicked");
@@ -31,6 +42,27 @@ namespace AGX.Scripts.Runtime.Rebinder
                 cancelAction?.Invoke();
             });
             SetActive(true);
+
+            if (_timeoutCoroutine != null)
+                StopCoroutine(_timeoutCoroutine);
+            _timeoutCoroutine = StartCoroutine(StartTimeout());
+        }
+
+        private IEnumerator StartTimeout()
+        {
+            int remainingTime = InputManager.TimeoutSeconds;
+
+            while (remainingTime > 0)
+            {
+                _buttonCancelText.text = remainingTime < _timeOutThreshold ?
+                    $"Cancelling in {remainingTime}s" :
+                    "Click to cancel";
+
+                yield return new WaitForSeconds(1f);
+                remainingTime--;
+            }
+
+            _buttonCancelText.text = "Time's up!";
         }
 
         public void Hide() => SetActive(false);
@@ -54,15 +86,15 @@ namespace AGX.Scripts.Runtime.Rebinder
 
         private MotionHandle _punchScaleTween;
 
-        public void SetIsDuplicate(bool p0, string action = "", string binding = "")
+        public void SetIsDuplicate(bool p0, string binding = "", string action = "")
         {
             Debug.Log($"SetIsDuplicate({p0})");
-            
+
             _duplicateWarning.gameObject.SetActive(p0);
 
             if (p0)
             {
-                _duplicateWarning.text = $"Action {action} is already binded to {binding}";
+                _duplicateWarning.text = $"<b>{binding}</b><color=white> is already used for </color><b>{action}</b>";
 
                 if (_punchScaleTween != default && _punchScaleTween.IsActive())
                 {
