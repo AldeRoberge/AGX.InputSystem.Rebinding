@@ -58,12 +58,12 @@ namespace AGX.Scripts.Runtime.Prompts
 
             if (InputDeviceSpriteMap.TryGetValue(input, out var sprite))
                 return sprite;
-
-            Debug.LogWarning($"No sprite found for input: '{input}'");
-
+            
             // Empty action (no binding)
             if (input == "/")
                 return "";
+
+            Debug.LogWarning($"No sprite found for input: '{input}'");
 
             return input;
         }

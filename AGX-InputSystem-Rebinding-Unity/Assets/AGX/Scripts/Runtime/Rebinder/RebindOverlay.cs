@@ -86,26 +86,21 @@ namespace AGX.Scripts.Runtime.Rebinder
 
         private MotionHandle _punchScaleTween;
 
-        public void SetIsDuplicate(bool p0, string binding = "", string action = "")
+        public void SetIsDuplicate(bool isDuplicate, string binding = "", string action = "")
         {
-            Debug.Log($"SetIsDuplicate({p0})");
+            _duplicateWarning.gameObject.SetActive(isDuplicate);
 
-            _duplicateWarning.gameObject.SetActive(p0);
+            if (!isDuplicate) return;
+            
+            _duplicateWarning.text = $"<b>{binding}</b><color=white> is already used for </color><b>{action}</b>";
 
-            if (p0)
-            {
-                _duplicateWarning.text = $"<b>{binding}</b><color=white> is already used for </color><b>{action}</b>";
+            if (_punchScaleTween != default && _punchScaleTween.IsActive())
+                _punchScaleTween.TryComplete();
 
-                if (_punchScaleTween != default && _punchScaleTween.IsActive())
-                {
-                    _punchScaleTween.TryComplete();
-                }
-
-                _punchScaleTween = LMotion.Punch.Create(_duplicateWarning.transform.position.x, 3f, 0.5f) // Create a Punch motion (regular damping oscillation)
-                    .WithFrequency(5) // Specify oscillation count
-                    .WithDampingRatio(0f) // Specify damping ratio
-                    .BindToPositionX(_duplicateWarning.transform); // Bind to transform.position.x
-            }
+            _punchScaleTween = LMotion.Punch.Create(_duplicateWarning.transform.position.x, 3f, 0.5f) // Create a Punch motion (regular damping oscillation)
+                .WithFrequency(5) // Specify oscillation count
+                .WithDampingRatio(0f) // Specify damping ratio
+                .BindToPositionX(_duplicateWarning.transform); // Bind to transform.position.x
         }
     }
 }

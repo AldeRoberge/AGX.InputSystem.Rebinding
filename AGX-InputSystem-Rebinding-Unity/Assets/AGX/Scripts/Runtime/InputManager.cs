@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
+using AGX.Scripts.Runtime.Rebinder;
 using Generator.Scripts.Runtime;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 using Object = UnityEngine.Object;
 
-namespace AGX.Scripts.Runtime.Rebinder
+namespace AGX.Scripts.Runtime
 {
-    public class InputManager
+    public static class InputManager
     {
         public const int TimeoutSeconds = 8;
 
@@ -201,7 +201,7 @@ namespace AGX.Scripts.Runtime.Rebinder
 
                 return new DuplicateBinding()
                 {
-                    Action = actionToRebind.name,
+                    Action = binding.action,
                     Exists = true,
                     Binding = getBindingName
                 };

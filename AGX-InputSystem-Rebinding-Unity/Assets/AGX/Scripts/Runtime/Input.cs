@@ -54,7 +54,7 @@ namespace AGX.Scripts.Runtime
             OnFireEvent += () => Debug.Log("[Input] <b>Fire</b> event invoked.");
         }
 
-        internal void OnDisable()
+        internal void OnDestroy()
         {
             Debug.Log("[Input] Disabled.");
             _inputActions?.Gameplay.Disable();
