@@ -6165,7 +6165,7 @@ PrefabInstance:
     - target: {fileID: 2157012504285500225, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_text
-      value: <Keyboard>/space
+      value: <Mouse>/rightButton
       objectReference: {fileID: 0}
     - target: {fileID: 2157012504285500225, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
@@ -6204,7 +6204,7 @@ PrefabInstance:
     - target: {fileID: 3201731491751595180, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3342403134798985403, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}

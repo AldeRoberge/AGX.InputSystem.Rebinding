@@ -1,6 +1,5 @@
 using AGX.Scripts.Runtime.Searching;
 using DG.Tweening;
-using LitMotion;
 using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
@@ -35,6 +34,7 @@ namespace AGX.Scripts.Runtime.Rebinder
         {
             _actionText.DOKill();
             _actionText.color = Color.yellow;
+            _actionText.transform.DOPunchScale(Vector3.one * 0.1f, 0.1f);
             _actionText.DOColor(Color.white, 2f);
         }
 
