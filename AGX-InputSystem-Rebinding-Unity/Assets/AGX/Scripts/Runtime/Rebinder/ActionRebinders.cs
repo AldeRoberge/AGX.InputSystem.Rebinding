@@ -1,6 +1,6 @@
 using AGX.Scripts.Runtime.Searching;
 using DG.Tweening;
-using NaughtyAttributes;
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;

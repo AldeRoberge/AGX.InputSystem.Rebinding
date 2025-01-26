@@ -1,6 +1,6 @@
 using System.Text;
 using AGX.Scripts.Runtime.Prompts;
-using NaughtyAttributes;
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,8 +31,8 @@ namespace AGX.Scripts.Runtime.Rebinder
         /// </summary>
         [BoxGroup("References"), SerializeField] private int _selectedBinding;
 
-        [ShowNonSerializedField] private string _actionName;
-        [ShowNonSerializedField] private bool   _isDirty;
+        [BoxGroup("Debug"),ShowInInspector, ReadOnly] private string _actionName;
+        [BoxGroup("Debug"),ShowInInspector, ReadOnly] private bool   _isDirty;
 
         private void OnEnable()
         {
@@ -101,7 +101,7 @@ namespace AGX.Scripts.Runtime.Rebinder
             {
                 GetBindingInfo();
             }
-            
+
             _buttonRebind.gameObject.SetActive(_canBeRebinded);
 
             var action = InputManager.GetAction(_actionName);

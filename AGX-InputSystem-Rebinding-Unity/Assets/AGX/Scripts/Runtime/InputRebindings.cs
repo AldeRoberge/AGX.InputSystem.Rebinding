@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -21,17 +22,20 @@ namespace AGX.Scripts.Runtime
             {
                 foreach (var action in actionMap.actions)
                 {
-                    // Check if the action is rebindable
-                    bool isRebindable = action.bindings.Count > 0;
-
-                    // Create an InputActionRebinding and add it to the list
-                    var rebinding = new InputActionRebinding
+                    // Create rebindings for each binding of this action
+                    for (var index = 0; index < action.bindings.Count; index++)
                     {
-                        ActionMap = actionMap.name,
-                        IsRebindable = isRebindable
-                    };
+                        var binding = action.bindings[index];
+                        var rebinding = new InputActionRebinding
+                        {
+                            ActionMap = actionMap.name,
+                            IsRebindable = true,
+                            BindingIndex = index,
+                            InputActionReference = new InputActionReference(action)
+                        };
 
-                    _inputActionRebindings.Add(rebinding);
+                        _inputActionRebindings.Add(rebinding);
+                    }
                 }
             }
         }
@@ -40,7 +44,16 @@ namespace AGX.Scripts.Runtime
     [Serializable]
     public class InputActionRebinding
     {
-        public string ActionMap { get; set; }
-        public bool IsRebindable { get; set; }
+        [ShowInInspector, SerializeField]
+        public string ActionMap;
+
+        [ShowInInspector, SerializeField]
+        public bool IsRebindable;
+
+        [ShowInInspector, SerializeField]
+        public int BindingIndex;
+
+        [ShowInInspector, SerializeField]
+        public InputActionReference InputActionReference;
     }
 }

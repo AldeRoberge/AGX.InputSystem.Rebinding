@@ -1,4 +1,4 @@
-using NaughtyAttributes;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,7 +8,7 @@ namespace AGX.Scripts.Runtime
     {
         [BoxGroup("References"), SerializeField, Required] private InputActionAsset _inputActions;
 
-        [BoxGroup("References"), SerializeField, Required] 
+        [BoxGroup("References"), SerializeField, Required, InlineEditor] 
         private InputRebindings _inputRebindings = new();
 
         [Button]
