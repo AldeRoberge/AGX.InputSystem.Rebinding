@@ -8,10 +8,10 @@ namespace AGX.Scripts.Runtime
     {
         [BoxGroup("References"), SerializeField, Required] private InputActionAsset _inputActions;
 
-        [BoxGroup("References"), SerializeField, Required, InlineEditor] 
+        [BoxGroup("References"), SerializeField, Required, InlineEditor]
         private InputRebindings _inputRebindings = new();
 
-        [Button]
+        [Button, PropertyOrder(-1)]
         private void RebuildList()
         {
             _inputRebindings.Rebuild(_inputActions);

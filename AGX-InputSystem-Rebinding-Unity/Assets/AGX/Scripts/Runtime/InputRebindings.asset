@@ -12,4 +12,400 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bab451c5ed644dabad947ce17bfcf565, type: 3}
   m_Name: InputRebindings
   m_EditorClassIdentifier: 
-  _inputActionRebindings: []
+  _inputActionRebindings:
+  - ActionMap: Gameplay
+    IsRebindable: 1
+    BindingIndex: 0
+    InputActionReference:
+      m_Name: Input Action Reference
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 959e6fdd-1277-45a6-a402-2bd31b206c1d
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+  - ActionMap: Gameplay
+    IsRebindable: 1
+    BindingIndex: 0
+    InputActionReference:
+      m_Name: Input Action Reference
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 321b7230-8158-437d-bade-03bb528790d2
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+  - ActionMap: Gameplay
+    IsRebindable: 1
+    BindingIndex: 0
+    InputActionReference:
+      m_Name: Input Action Reference
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 6ed8b6dc-44eb-4049-a370-b123c7854f3b
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+  - ActionMap: Gameplay
+    IsRebindable: 1
+    BindingIndex: 0
+    InputActionReference:
+      m_Name: Input Action Reference
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 36fbc56b-17c7-4f3c-9102-3bacf16ac2c3
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+  - ActionMap: Gameplay
+    IsRebindable: 1
+    BindingIndex: 0
+    InputActionReference:
+      m_Name: Input Action Reference
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: f831391d-68fa-46e9-b158-1a1e5f4e915b
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+  - ActionMap: Gameplay
+    IsRebindable: 1
+    BindingIndex: 0
+    InputActionReference:
+      m_Name: Input Action Reference
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 39d3dbab-dca5-4a83-a042-279121c02f25
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+  - ActionMap: Gameplay
+    IsRebindable: 1
+    BindingIndex: 0
+    InputActionReference:
+      m_Name: Input Action Reference
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 51fc42bd-0b91-40a8-90bf-45da066ea565
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+  - ActionMap: Inventory
+    IsRebindable: 1
+    BindingIndex: 0
+    InputActionReference:
+      m_Name: Input Action Reference
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: f3f56692-efc0-4148-8f40-d16a01a877b0
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+  - ActionMap: Inventory
+    IsRebindable: 1
+    BindingIndex: 0
+    InputActionReference:
+      m_Name: Input Action Reference
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: cd74dbe0-3af0-4d2c-acab-ea4529a6a647
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+  - ActionMap: Inventory
+    IsRebindable: 1
+    BindingIndex: 0
+    InputActionReference:
+      m_Name: Input Action Reference
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 1876b148-8b5c-4753-acd1-773ac29f5add
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+  - ActionMap: Inventory
+    IsRebindable: 1
+    BindingIndex: 0
+    InputActionReference:
+      m_Name: Input Action Reference
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 4ed7413a-9c21-40fd-b257-2eb0dc8f7e14
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+  - ActionMap: Inventory
+    IsRebindable: 1
+    BindingIndex: 0
+    InputActionReference:
+      m_Name: Input Action Reference
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: df6e4487-e84f-4987-b65a-2bee3c8184d3
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+  - ActionMap: Inventory
+    IsRebindable: 1
+    BindingIndex: 0
+    InputActionReference:
+      m_Name: Input Action Reference
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 7a814182-8627-43a2-b01e-9cccb31e9563
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+  - ActionMap: Inventory
+    IsRebindable: 1
+    BindingIndex: 0
+    InputActionReference:
+      m_Name: Input Action Reference
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 96661025-4aa9-454f-8b07-50c98f0c430a
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+  - ActionMap: Inventory
+    IsRebindable: 1
+    BindingIndex: 0
+    InputActionReference:
+      m_Name: Input Action Reference
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 0fe10e12-b6fb-48f4-b2d3-2b1b2362b01b
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+  - ActionMap: Inventory
+    IsRebindable: 1
+    BindingIndex: 0
+    InputActionReference:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 2bd00a1d-85c9-494b-93b9-c38e92da39c0
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+  - ActionMap: Inventory
+    IsRebindable: 1
+    BindingIndex: 0
+    InputActionReference:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 814cf991-a68b-423d-8cdc-8995048d54e8
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+  - ActionMap: Inventory
+    IsRebindable: 1
+    BindingIndex: 0
+    InputActionReference:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 94fd19c9-7562-4831-ab4e-4277681ffec8
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+  - ActionMap: Inventory
+    IsRebindable: 1
+    BindingIndex: 0
+    InputActionReference:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 4d11d103-93d0-4dfc-9873-f4659a754d67
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+  - ActionMap: Menu
+    IsRebindable: 1
+    BindingIndex: 0
+    InputActionReference:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: c861b41c-2442-45e2-8195-225aa841a46f
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+  - ActionMap: Menu
+    IsRebindable: 1
+    BindingIndex: 0
+    InputActionReference:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 604711d7-68c9-4fce-ae7d-ff63b150f769
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+  - ActionMap: Menu
+    IsRebindable: 1
+    BindingIndex: 0
+    InputActionReference:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 9c57ae66-d0a2-4410-b937-54139f5db583
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+  - ActionMap: Chat
+    IsRebindable: 1
+    BindingIndex: 0
+    InputActionReference:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 69e84b56-f591-405d-80af-5a04c493da62
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+  - ActionMap: Chat
+    IsRebindable: 1
+    BindingIndex: 0
+    InputActionReference:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 6df559d4-1711-4cf3-ae75-8d83154c3a5f
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+  - ActionMap: Chat
+    IsRebindable: 1
+    BindingIndex: 0
+    InputActionReference:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 43b5f6f9-2e54-494c-8964-8f036a058b9c
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+  - ActionMap: Chat
+    IsRebindable: 1
+    BindingIndex: 0
+    InputActionReference:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: a1173eb7-11be-4022-93ad-c7eb39aefaf6
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+  - ActionMap: Chat
+    IsRebindable: 1
+    BindingIndex: 0
+    InputActionReference:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: dfbd99ef-9236-4e30-ba4f-c9895384b41a
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+  - ActionMap: Chat
+    IsRebindable: 1
+    BindingIndex: 0
+    InputActionReference:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 5dd55971-d67f-4a16-90ea-af5e23f78605
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+  - ActionMap: Chat
+    IsRebindable: 1
+    BindingIndex: 0
+    InputActionReference:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 021123d1-e039-46a7-af3b-c0837533ad03
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+  - ActionMap: Camera
+    IsRebindable: 1
+    BindingIndex: 0
+    InputActionReference:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 9593d034-fdfb-4600-868b-e527ee57e40d
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+  - ActionMap: Camera
+    IsRebindable: 1
+    BindingIndex: 0
+    InputActionReference:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 87a90d6c-a645-4918-b370-832b06dca929
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+  - ActionMap: Minimap
+    IsRebindable: 1
+    BindingIndex: 0
+    InputActionReference:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 5b11c0b6-71bf-43f0-8e25-82073dc96fe7
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+  - ActionMap: Cheats
+    IsRebindable: 1
+    BindingIndex: 0
+    InputActionReference:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 83b2b34b-1fbf-4b96-8761-23703d436cf3
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
