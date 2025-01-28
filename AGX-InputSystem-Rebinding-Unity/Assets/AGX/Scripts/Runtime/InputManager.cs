@@ -285,7 +285,7 @@ namespace AGX.Scripts.Runtime
         public static void ResetBinding(ActionRebinder actionRebinder)
         {
             var actionName = actionRebinder.ActionName;
-            var bindingIndex = actionRebinder.BindingIndex;
+            var bindingIndex = actionRebinder.BindingStartIndexIndex;
 
             var action = InputActions.asset.FindAction(actionName);
 
@@ -383,7 +383,7 @@ namespace AGX.Scripts.Runtime
 
             foreach (var rebindControl in _actionRebinders)
             {
-                if (IsBindingOverriden(rebindControl.ActionName, rebindControl.BindingIndex))
+                if (IsBindingOverriden(rebindControl.ActionName, rebindControl.BindingStartIndexIndex))
                 {
                     count++;
                 }
@@ -395,6 +395,13 @@ namespace AGX.Scripts.Runtime
         public static ReadOnlyArray<InputBinding> GetBindings(string actionName)
         {
             var action = InputActions.asset.FindAction(actionName);
+
+            if (action == null)
+            {
+                Debug.LogError($"Could not find action with name '{actionName}' in action map {InputActions.asset.name}...");
+                return new ReadOnlyArray<InputBinding>();
+            }
+
             return action.bindings;
         }
 

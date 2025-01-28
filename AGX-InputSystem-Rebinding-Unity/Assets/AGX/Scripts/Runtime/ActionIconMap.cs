@@ -16,26 +16,33 @@ namespace AGX.Scripts.Runtime
         [SerializeField]
         public List<ActionIcon> ActionIcons = new();
 
-        public string GetFor(InputActionReference inputActionReference)
+        public string GetFor(InputAction inputActionReference)
         {
             foreach (var actionIcon in ActionIcons)
             {
-                if (actionIcon.Action == inputActionReference)
+                if (actionIcon.Action == null)
                 {
-                    return $"<sprite=\"General/General\" name=\"{actionIcon.Icon.name}\"> {inputActionReference.action.name}";
+                    Debug.LogWarning("There is a null action in ActionIconMap. Has the value gone missing?");
+                    continue;
+                }
+
+                if (actionIcon.Action.action == inputActionReference)
+                {
+                    return $"<sprite=\"General/General\" name=\"{actionIcon.Icon.name}\"> {inputActionReference.name}";
                 }
             }
 
-            return inputActionReference.action.name;
+            return inputActionReference.name;
         }
     }
 
     [Serializable]
     public class ActionIcon
     {
+        [BoxGroup("References"), SerializeField, Required]
         public InputActionReference Action;
 
-        [PreviewField]
+        [BoxGroup("References"), SerializeField, Required, PreviewField]
         public Sprite Icon;
     }
 }

@@ -12,400 +12,1613 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bab451c5ed644dabad947ce17bfcf565, type: 3}
   m_Name: InputRebindings
   m_EditorClassIdentifier: 
-  _inputActionRebindings:
+  inputActionRebindings:
   - ActionMap: Gameplay
-    IsRebindable: 1
-    BindingIndex: 0
-    InputActionReference:
-      m_Name: Input Action Reference
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 959e6fdd-1277-45a6-a402-2bd31b206c1d
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-  - ActionMap: Gameplay
-    IsRebindable: 1
-    BindingIndex: 0
-    InputActionReference:
-      m_Name: Input Action Reference
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 321b7230-8158-437d-bade-03bb528790d2
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-  - ActionMap: Gameplay
-    IsRebindable: 1
-    BindingIndex: 0
-    InputActionReference:
-      m_Name: Input Action Reference
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 6ed8b6dc-44eb-4049-a370-b123c7854f3b
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-  - ActionMap: Gameplay
-    IsRebindable: 1
-    BindingIndex: 0
-    InputActionReference:
-      m_Name: Input Action Reference
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 36fbc56b-17c7-4f3c-9102-3bacf16ac2c3
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-  - ActionMap: Gameplay
-    IsRebindable: 1
-    BindingIndex: 0
-    InputActionReference:
-      m_Name: Input Action Reference
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: f831391d-68fa-46e9-b158-1a1e5f4e915b
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-  - ActionMap: Gameplay
-    IsRebindable: 1
-    BindingIndex: 0
-    InputActionReference:
-      m_Name: Input Action Reference
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 39d3dbab-dca5-4a83-a042-279121c02f25
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-  - ActionMap: Gameplay
-    IsRebindable: 1
-    BindingIndex: 0
-    InputActionReference:
-      m_Name: Input Action Reference
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 51fc42bd-0b91-40a8-90bf-45da066ea565
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
+    Bindings:
+    - InputAction:
+        m_Name: Gameplay Move
+        m_Type: 0
+        m_ExpectedControlType: Stick
+        m_Id: 4fd14f9f-52fc-415d-ae4a-c053633de383
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 1
+      Action: Gameplay Move
+      Group: 
+      CompositeType: 2DVector_Keyboard WASD
+      StartIndex: 0
+      StopIndex: 4
+      Paths:
+      - <Keyboard>/w
+      - <Keyboard>/s
+      - <Keyboard>/a
+      - <Keyboard>/d
+    - InputAction:
+        m_Name: Gameplay Move
+        m_Type: 0
+        m_ExpectedControlType: Stick
+        m_Id: 4fd14f9f-52fc-415d-ae4a-c053633de383
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 1
+      Action: Gameplay Move
+      Group: 
+      CompositeType: 2DVector_Keyboard Arrows
+      StartIndex: 5
+      StopIndex: 9
+      Paths:
+      - <Keyboard>/upArrow
+      - <Keyboard>/downArrow
+      - <Keyboard>/leftArrow
+      - <Keyboard>/rightArrow
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 0f0f2a26-c8ee-4d36-8ffe-07cbc8fe7149
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Gameplay Move
+      Group: ;Gamepad
+      CompositeType: 
+      StartIndex: 10
+      StopIndex: 10
+      Paths:
+      - <Gamepad>/leftStick
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 0c0de705-4a85-4a58-8c4f-e3abf5fbe445
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Gameplay Aim
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 0
+      StopIndex: 0
+      Paths:
+      - <Mouse>/delta
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 47b42c48-1e50-4314-92fd-3a087ba694b8
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Gameplay Aim
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 1
+      StopIndex: 1
+      Paths:
+      - 
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 940bb42b-5a03-4194-82e6-5132be5cc3e9
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Gameplay Aim
+      Group: ;Gamepad
+      CompositeType: 
+      StartIndex: 2
+      StopIndex: 2
+      Paths:
+      - <Gamepad>/rightStick
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: b82dee77-9e7c-48a2-88af-ddfcf054480e
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Gameplay Interact
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 0
+      StopIndex: 0
+      Paths:
+      - <Mouse>/leftButton
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: f4cb83f5-b0b5-45eb-a508-0fc6a7e1fc45
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Gameplay Interact
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 1
+      StopIndex: 1
+      Paths:
+      - 
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: cd87f7bd-23fb-479a-b309-5fa6d9375f5e
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Gameplay Interact
+      Group: ;Gamepad
+      CompositeType: 
+      StartIndex: 2
+      StopIndex: 2
+      Paths:
+      - <Gamepad>/buttonSouth
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 25928381-3932-4936-b545-59a84ec18d3b
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Gameplay Attack Toggle
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 0
+      StopIndex: 0
+      Paths:
+      - <Keyboard>/i
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 958f197e-33e5-4cde-a317-379b92a21628
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Gameplay Attack Toggle
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 1
+      StopIndex: 1
+      Paths:
+      - 
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 7164081d-29e1-4f14-bfb1-2c11b88cc06f
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Gameplay Attack Toggle
+      Group: ;Gamepad
+      CompositeType: 
+      StartIndex: 2
+      StopIndex: 2
+      Paths:
+      - <Gamepad>/rightTrigger
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 0150d593-6f67-48b0-814c-0e132b3c7659
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Gameplay Quick Heal
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 0
+      StopIndex: 0
+      Paths:
+      - <Keyboard>/f
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 654a29ff-d65b-4ec1-96f8-e2f58b183d3e
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Gameplay Quick Heal
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 1
+      StopIndex: 1
+      Paths:
+      - 
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: bd9c586c-7208-4bd1-9a3c-838e466200fe
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Gameplay Quick Heal
+      Group: ;Gamepad
+      CompositeType: 
+      StartIndex: 2
+      StopIndex: 2
+      Paths:
+      - 
+    - InputAction:
+        m_Name: 
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: a72f3f53-c84f-40b9-a026-8b601ecb3084
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Gameplay Exit
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 0
+      StopIndex: 0
+      Paths:
+      - <Keyboard>/escape
+    - InputAction:
+        m_Name: 
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: ed921980-9ac6-4586-b25a-b048e73c9642
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Gameplay Exit
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 1
+      StopIndex: 1
+      Paths:
+      - 
+    - InputAction:
+        m_Name: Gameplay Exit
+        m_Type: 1
+        m_ExpectedControlType: 
+        m_Id: 641acd43-61dd-4a5b-9740-76dcc5cb377f
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Gameplay Exit
+      Group: 
+      CompositeType: OneModifier_Triggers [Gamepad]
+      StartIndex: 2
+      StopIndex: 4
+      Paths:
+      - <Gamepad>/leftTrigger
+      - <Gamepad>/rightTrigger
+    - InputAction:
+        m_Name: 
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 6d970c2f-bf64-4a46-8022-12af50ecd718
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Gameplay Cancel
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 0
+      StopIndex: 0
+      Paths:
+      - <Keyboard>/escape
+    - InputAction:
+        m_Name: 
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 03a3e2b1-b34b-4a3a-8896-9534b1eafacd
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Gameplay Cancel
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 1
+      StopIndex: 1
+      Paths:
+      - 
+    - InputAction:
+        m_Name: 
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: fc8e697f-0b3c-4a6c-a2a8-8efdb4283398
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Gameplay Cancel
+      Group: ;Gamepad
+      CompositeType: 
+      StartIndex: 2
+      StopIndex: 2
+      Paths:
+      - <Gamepad>/buttonEast
   - ActionMap: Inventory
-    IsRebindable: 1
-    BindingIndex: 0
-    InputActionReference:
-      m_Name: Input Action Reference
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: f3f56692-efc0-4148-8f40-d16a01a877b0
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-  - ActionMap: Inventory
-    IsRebindable: 1
-    BindingIndex: 0
-    InputActionReference:
-      m_Name: Input Action Reference
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: cd74dbe0-3af0-4d2c-acab-ea4529a6a647
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-  - ActionMap: Inventory
-    IsRebindable: 1
-    BindingIndex: 0
-    InputActionReference:
-      m_Name: Input Action Reference
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 1876b148-8b5c-4753-acd1-773ac29f5add
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-  - ActionMap: Inventory
-    IsRebindable: 1
-    BindingIndex: 0
-    InputActionReference:
-      m_Name: Input Action Reference
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 4ed7413a-9c21-40fd-b257-2eb0dc8f7e14
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-  - ActionMap: Inventory
-    IsRebindable: 1
-    BindingIndex: 0
-    InputActionReference:
-      m_Name: Input Action Reference
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: df6e4487-e84f-4987-b65a-2bee3c8184d3
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-  - ActionMap: Inventory
-    IsRebindable: 1
-    BindingIndex: 0
-    InputActionReference:
-      m_Name: Input Action Reference
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 7a814182-8627-43a2-b01e-9cccb31e9563
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-  - ActionMap: Inventory
-    IsRebindable: 1
-    BindingIndex: 0
-    InputActionReference:
-      m_Name: Input Action Reference
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 96661025-4aa9-454f-8b07-50c98f0c430a
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-  - ActionMap: Inventory
-    IsRebindable: 1
-    BindingIndex: 0
-    InputActionReference:
-      m_Name: Input Action Reference
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 0fe10e12-b6fb-48f4-b2d3-2b1b2362b01b
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-  - ActionMap: Inventory
-    IsRebindable: 1
-    BindingIndex: 0
-    InputActionReference:
-      m_Name: 
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 2bd00a1d-85c9-494b-93b9-c38e92da39c0
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-  - ActionMap: Inventory
-    IsRebindable: 1
-    BindingIndex: 0
-    InputActionReference:
-      m_Name: 
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 814cf991-a68b-423d-8cdc-8995048d54e8
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-  - ActionMap: Inventory
-    IsRebindable: 1
-    BindingIndex: 0
-    InputActionReference:
-      m_Name: 
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 94fd19c9-7562-4831-ab4e-4277681ffec8
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-  - ActionMap: Inventory
-    IsRebindable: 1
-    BindingIndex: 0
-    InputActionReference:
-      m_Name: 
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 4d11d103-93d0-4dfc-9873-f4659a754d67
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
+    Bindings:
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 003044a0-e5b5-4dc5-a568-312f881095e3
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Inventory Scroll
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 0
+      StopIndex: 0
+      Paths:
+      - <Mouse>/scroll
+    - InputAction:
+        m_Name: Inventory Scroll
+        m_Type: 0
+        m_ExpectedControlType: Analog
+        m_Id: 5805ca4d-8023-4889-8ca1-62e30ff0f414
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 1
+      Action: Inventory Scroll
+      Group: 
+      CompositeType: 1DAxis_Shoulders [Gamepad]
+      StartIndex: 1
+      StopIndex: 3
+      Paths:
+      - <Gamepad>/leftShoulder
+      - <Gamepad>/rightShoulder
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: f94f4b59-23bb-457d-9b6e-bac042f819e4
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Inventory Scroll
+      Group: ;Gamepad
+      CompositeType: 
+      StartIndex: 4
+      StopIndex: 4
+      Paths:
+      - 
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: c3c7a28e-8008-4aed-b501-a8bda5c84be4
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Inventory Select Slot 1
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 0
+      StopIndex: 0
+      Paths:
+      - <Keyboard>/1
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: e469c215-eed9-4d31-ae24-01eaabdc2615
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Inventory Select Slot 1
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 1
+      StopIndex: 1
+      Paths:
+      - 
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: ad887ca6-2af4-4d0a-bad1-06cf8cbe5db8
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Inventory Select Slot 1
+      Group: ;Gamepad
+      CompositeType: 
+      StartIndex: 2
+      StopIndex: 2
+      Paths:
+      - 
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: cbe0ac65-7733-4e3c-88fa-66f2a45fc063
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Inventory Select Slot 2
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 0
+      StopIndex: 0
+      Paths:
+      - <Keyboard>/2
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: fe93ed89-6830-4bcd-97d3-33714b1cf9b3
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Inventory Select Slot 2
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 1
+      StopIndex: 1
+      Paths:
+      - 
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 05d4dbf3-d957-4218-907f-6dd6f390442a
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Inventory Select Slot 2
+      Group: ;Gamepad
+      CompositeType: 
+      StartIndex: 2
+      StopIndex: 2
+      Paths:
+      - 
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: d07373e8-5560-4c65-8189-aed66a9521c3
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Inventory Select Slot 3
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 0
+      StopIndex: 0
+      Paths:
+      - <Keyboard>/3
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: cb92b94f-be62-4d50-993b-b56ddb89dbe5
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Inventory Select Slot 3
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 1
+      StopIndex: 1
+      Paths:
+      - 
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 98e205c6-4d34-40de-9141-b9387527a87f
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Inventory Select Slot 3
+      Group: ;Gamepad
+      CompositeType: 
+      StartIndex: 2
+      StopIndex: 2
+      Paths:
+      - 
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: f3867206-b522-4db8-b359-62dc2cb82586
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Inventory Select Slot 4
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 0
+      StopIndex: 0
+      Paths:
+      - <Keyboard>/4
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 9b0d6efb-2214-4a06-a929-5091eb58689e
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Inventory Select Slot 4
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 1
+      StopIndex: 1
+      Paths:
+      - 
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 6a06b2fe-be65-4042-b44c-1d00e84bef78
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Inventory Select Slot 4
+      Group: ;Gamepad
+      CompositeType: 
+      StartIndex: 2
+      StopIndex: 2
+      Paths:
+      - 
+    - InputAction:
+        m_Name: 
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: a5f736b1-5978-42a7-aa0e-8918d04d667e
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Inventory Select Slot 5
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 0
+      StopIndex: 0
+      Paths:
+      - <Keyboard>/5
+    - InputAction:
+        m_Name: 
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: f6141ae3-cfcd-4cb7-9cf9-2a8db02920fe
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Inventory Select Slot 5
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 1
+      StopIndex: 1
+      Paths:
+      - 
+    - InputAction:
+        m_Name: 
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 6bfb8637-2319-45f8-bb32-6de896576bee
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Inventory Select Slot 5
+      Group: ;Gamepad
+      CompositeType: 
+      StartIndex: 2
+      StopIndex: 2
+      Paths:
+      - 
+    - InputAction:
+        m_Name: 
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 8d5e1e70-758e-4be2-b3cc-bd3d243b368d
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Inventory Select Slot 6
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 0
+      StopIndex: 0
+      Paths:
+      - <Keyboard>/6
+    - InputAction:
+        m_Name: 
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 1f4ef745-4635-4d11-9971-6fc1166399df
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Inventory Select Slot 6
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 1
+      StopIndex: 1
+      Paths:
+      - 
+    - InputAction:
+        m_Name: 
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 4b5e7278-4202-470c-9842-3c24b484c3d8
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Inventory Select Slot 6
+      Group: ;Gamepad
+      CompositeType: 
+      StartIndex: 2
+      StopIndex: 2
+      Paths:
+      - 
+    - InputAction:
+        m_Name: 
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 64eb702a-e0c5-43f7-8963-a396bb3af3a3
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Inventory Select Slot 7
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 0
+      StopIndex: 0
+      Paths:
+      - <Keyboard>/7
+    - InputAction:
+        m_Name: 
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 079cd0c1-1a19-4cc0-bc93-2d2a24ff7c2e
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Inventory Select Slot 7
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 1
+      StopIndex: 1
+      Paths:
+      - 
+    - InputAction:
+        m_Name: 
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: cdd05f1f-a9e3-4c71-a632-ec7e67c2275a
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Inventory Select Slot 7
+      Group: ;Gamepad
+      CompositeType: 
+      StartIndex: 2
+      StopIndex: 2
+      Paths:
+      - 
+    - InputAction:
+        m_Name: 
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: b5ac59ce-5021-49d1-995c-d564da88ef86
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Inventory Select Slot 8
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 0
+      StopIndex: 0
+      Paths:
+      - <Keyboard>/8
+    - InputAction:
+        m_Name: 
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 6bf6ee59-9812-4754-a053-1d1fa57642ee
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Inventory Select Slot 8
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 1
+      StopIndex: 1
+      Paths:
+      - 
+    - InputAction:
+        m_Name: 
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 9d781825-8ffa-4e51-93e5-a6311e201c9f
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Inventory Select Slot 8
+      Group: ;Gamepad
+      CompositeType: 
+      StartIndex: 2
+      StopIndex: 2
+      Paths:
+      - 
+    - InputAction:
+        m_Name: 
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: a0d36ce9-9e51-4547-95c2-47f1e85b9658
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Inventory Select Slot 9
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 0
+      StopIndex: 0
+      Paths:
+      - <Keyboard>/9
+    - InputAction:
+        m_Name: 
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 92d86c86-0537-421f-a42e-03e0e77a7921
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Inventory Select Slot 9
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 1
+      StopIndex: 1
+      Paths:
+      - 
+    - InputAction:
+        m_Name: 
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 7457927d-56fa-48f8-9041-34ab25dee63c
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Inventory Select Slot 9
+      Group: ;Gamepad
+      CompositeType: 
+      StartIndex: 2
+      StopIndex: 2
+      Paths:
+      - 
+    - InputAction:
+        m_Name: 
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: a0ae2f8c-ce88-4f89-8dfb-3e08de5bab07
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Inventory Drop
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 0
+      StopIndex: 0
+      Paths:
+      - 
+    - InputAction:
+        m_Name: 
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 4658474d-265c-457d-bcce-c3a2c962ab3f
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Inventory Drop
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 1
+      StopIndex: 1
+      Paths:
+      - 
+    - InputAction:
+        m_Name: 
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: b7626de5-f087-4399-b292-cb967bfffdd2
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Inventory Drop
+      Group: ;Gamepad
+      CompositeType: 
+      StartIndex: 2
+      StopIndex: 2
+      Paths:
+      - <Gamepad>/buttonEast
+    - InputAction:
+        m_Name: 
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: c229a290-76c2-482d-bdc2-6c8459e2c7b2
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Inventory Swap
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 0
+      StopIndex: 0
+      Paths:
+      - <Keyboard>/f
+    - InputAction:
+        m_Name: 
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 70c18e0d-ee4c-4744-96e8-9159890ef262
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Inventory Swap
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 1
+      StopIndex: 1
+      Paths:
+      - 
+    - InputAction:
+        m_Name: 
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 2299e105-d69b-4cf8-a76c-081eacc8b0e4
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Inventory Swap
+      Group: ;Gamepad
+      CompositeType: 
+      StartIndex: 2
+      StopIndex: 2
+      Paths:
+      - <Gamepad>/buttonNorth
   - ActionMap: Menu
-    IsRebindable: 1
-    BindingIndex: 0
-    InputActionReference:
-      m_Name: 
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: c861b41c-2442-45e2-8195-225aa841a46f
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-  - ActionMap: Menu
-    IsRebindable: 1
-    BindingIndex: 0
-    InputActionReference:
-      m_Name: 
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 604711d7-68c9-4fce-ae7d-ff63b150f769
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-  - ActionMap: Menu
-    IsRebindable: 1
-    BindingIndex: 0
-    InputActionReference:
-      m_Name: 
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 9c57ae66-d0a2-4410-b937-54139f5db583
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
+    Bindings:
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 9113241f-0e9d-410f-8810-d36932d625a0
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Menu Open
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 0
+      StopIndex: 0
+      Paths:
+      - <Keyboard>/o
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 52658345-69e8-4ceb-9f4f-cce11b43af66
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Menu Open
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 1
+      StopIndex: 1
+      Paths:
+      - 
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 5d7f7fd5-2a02-44c5-89d1-2805413d8b4f
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Menu Open
+      Group: ;Gamepad
+      CompositeType: 
+      StartIndex: 2
+      StopIndex: 2
+      Paths:
+      - <Gamepad>/start
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 4a94d550-b853-4570-a91d-a113432ce9e7
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Menu Profile Open
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 0
+      StopIndex: 0
+      Paths:
+      - 
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: b52ae927-66ff-48a5-ae67-e241d7267f52
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Menu Profile Open
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 1
+      StopIndex: 1
+      Paths:
+      - 
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 1af97d8e-fe8b-490d-b600-5bd455bba7fc
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Menu Profile Open
+      Group: ;Gamepad
+      CompositeType: 
+      StartIndex: 2
+      StopIndex: 2
+      Paths:
+      - <Gamepad>/select
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 91412660-8d7e-4999-b21d-0ce4824b5b75
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Menu Minimap Open
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 0
+      StopIndex: 0
+      Paths:
+      - <Keyboard>/m
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: ee06a885-1b09-4716-84ca-7b5b323aa606
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Menu Minimap Open
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 1
+      StopIndex: 1
+      Paths:
+      - 
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 5855c404-a3f2-426d-98dc-c314225b2607
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Menu Minimap Open
+      Group: ;Gamepad
+      CompositeType: 
+      StartIndex: 2
+      StopIndex: 2
+      Paths:
+      - 
   - ActionMap: Chat
-    IsRebindable: 1
-    BindingIndex: 0
-    InputActionReference:
-      m_Name: 
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 69e84b56-f591-405d-80af-5a04c493da62
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-  - ActionMap: Chat
-    IsRebindable: 1
-    BindingIndex: 0
-    InputActionReference:
-      m_Name: 
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 6df559d4-1711-4cf3-ae75-8d83154c3a5f
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-  - ActionMap: Chat
-    IsRebindable: 1
-    BindingIndex: 0
-    InputActionReference:
-      m_Name: 
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 43b5f6f9-2e54-494c-8964-8f036a058b9c
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-  - ActionMap: Chat
-    IsRebindable: 1
-    BindingIndex: 0
-    InputActionReference:
-      m_Name: 
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: a1173eb7-11be-4022-93ad-c7eb39aefaf6
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-  - ActionMap: Chat
-    IsRebindable: 1
-    BindingIndex: 0
-    InputActionReference:
-      m_Name: 
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: dfbd99ef-9236-4e30-ba4f-c9895384b41a
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-  - ActionMap: Chat
-    IsRebindable: 1
-    BindingIndex: 0
-    InputActionReference:
-      m_Name: 
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 5dd55971-d67f-4a16-90ea-af5e23f78605
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-  - ActionMap: Chat
-    IsRebindable: 1
-    BindingIndex: 0
-    InputActionReference:
-      m_Name: 
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 021123d1-e039-46a7-af3b-c0837533ad03
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
+    Bindings:
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: ca8b1578-c06a-43ee-a982-06140974e2d3
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Chat Public Start
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 0
+      StopIndex: 0
+      Paths:
+      - <Keyboard>/t
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 5ee8d0ae-a96f-432e-b5f4-1e163452b6d1
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Chat Public Start
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 1
+      StopIndex: 1
+      Paths:
+      - <Keyboard>/enter
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 14b85278-8000-4225-8a41-6d64016e08af
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Chat Public Start
+      Group: ;Gamepad
+      CompositeType: 
+      StartIndex: 2
+      StopIndex: 2
+      Paths:
+      - 
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: dc712bb9-ff6e-483e-8bfb-14473cc09d1b
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Chat Guild Start
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 0
+      StopIndex: 0
+      Paths:
+      - <Keyboard>/g
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 021b5d76-d391-427e-8224-bbc2c881c8a5
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Chat Guild Start
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 1
+      StopIndex: 1
+      Paths:
+      - 
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: f70cf57f-fe11-4c26-82aa-9e71abe2b958
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Chat Guild Start
+      Group: ;Gamepad
+      CompositeType: 
+      StartIndex: 2
+      StopIndex: 2
+      Paths:
+      - 
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: ad3df886-f95b-4bd6-a607-e6f14df76ffe
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Chat Private Start
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 0
+      StopIndex: 0
+      Paths:
+      - <Keyboard>/tab
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 7880eb0f-36e5-466c-b3a2-d666dffea0d0
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Chat Private Start
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 1
+      StopIndex: 1
+      Paths:
+      - <Keyboard>/p
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 6feb248a-f9e9-4b99-a538-5bdf4d44c631
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Chat Private Start
+      Group: ;Gamepad
+      CompositeType: 
+      StartIndex: 2
+      StopIndex: 2
+      Paths:
+      - 
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: f1bc50fb-b5fd-49ab-a88e-b21008dec543
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Chat Cancel
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 0
+      StopIndex: 0
+      Paths:
+      - <Keyboard>/escape
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 11c39da2-0971-4495-b81b-026a375adbc5
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Chat Cancel
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 1
+      StopIndex: 1
+      Paths:
+      - 
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: e19a1d30-3f43-48f2-b62c-3e4bd595fb11
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Chat Cancel
+      Group: ;Gamepad
+      CompositeType: 
+      StartIndex: 2
+      StopIndex: 2
+      Paths:
+      - 
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 03e0741a-da94-4937-986f-a49f5051407a
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Chat Send
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 0
+      StopIndex: 0
+      Paths:
+      - <Keyboard>/enter
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: cada1ca4-7d50-44c5-be54-756deebe9ae1
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Chat Send
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 1
+      StopIndex: 1
+      Paths:
+      - 
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 6d952abc-6db6-445d-b791-c3b74547db86
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Chat Send
+      Group: ;Gamepad
+      CompositeType: 
+      StartIndex: 2
+      StopIndex: 2
+      Paths:
+      - 
+    - InputAction:
+        m_Name: 
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: c505b1db-740c-4562-ab7a-93876432c317
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Ping
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 0
+      StopIndex: 0
+      Paths:
+      - <Mouse>/middleButton
+    - InputAction:
+        m_Name: 
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 8129682a-59d5-4a64-8e33-9a3457d820a1
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Ping
+      Group: ;Gamepad
+      CompositeType: 
+      StartIndex: 1
+      StopIndex: 1
+      Paths:
+      - <Gamepad>/rightStickPress
+    - InputAction:
+        m_Name: 
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 0bb56961-2859-4696-ad75-4d10ea5f2dbe
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Ping
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 2
+      StopIndex: 2
+      Paths:
+      - 
+    - InputAction:
+        m_Name: 
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 81d8e25f-f031-433e-8f19-f1a3c836d0db
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Emote
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 0
+      StopIndex: 0
+      Paths:
+      - <Keyboard>/x
+    - InputAction:
+        m_Name: 
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: c2c82f57-8ecb-4992-939e-34e7fd5409f5
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Emote
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 1
+      StopIndex: 1
+      Paths:
+      - 
+    - InputAction:
+        m_Name: 
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 0643a30b-1029-4ccf-ab9d-a4b645feefab
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Emote
+      Group: ;Gamepad
+      CompositeType: 
+      StartIndex: 2
+      StopIndex: 2
+      Paths:
+      - <Gamepad>/buttonWest
   - ActionMap: Camera
-    IsRebindable: 1
-    BindingIndex: 0
-    InputActionReference:
-      m_Name: 
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 9593d034-fdfb-4600-868b-e527ee57e40d
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-  - ActionMap: Camera
-    IsRebindable: 1
-    BindingIndex: 0
-    InputActionReference:
-      m_Name: 
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 87a90d6c-a645-4918-b370-832b06dca929
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
+    Bindings:
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 78226d37-e2f7-4f2c-95e9-4905b8b05f1a
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Camera Zoom
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 0
+      StopIndex: 0
+      Paths:
+      - 
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 30dada67-6942-4ac2-82cf-39264a7c5ed5
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Camera Zoom
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 1
+      StopIndex: 1
+      Paths:
+      - <Mouse>/scroll
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 6d8615ca-e105-4b7c-a5e6-a2f608d51489
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Camera Zoom
+      Group: ;Gamepad
+      CompositeType: 
+      StartIndex: 2
+      StopIndex: 2
+      Paths:
+      - <Gamepad>/dpad
+    - InputAction:
+        m_Name: Camera Rotate
+        m_Type: 0
+        m_ExpectedControlType: Analog
+        m_Id: be849998-5e5f-43f7-ac8b-1b4e1d9874fb
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 1
+      Action: Camera Rotate
+      Group: 
+      CompositeType: 1DAxis_QE [Keyboard]
+      StartIndex: 0
+      StopIndex: 2
+      Paths:
+      - <Keyboard>/q
+      - <Keyboard>/e
+    - InputAction:
+        m_Name: Camera Rotate
+        m_Type: 0
+        m_ExpectedControlType: Analog
+        m_Id: be849998-5e5f-43f7-ac8b-1b4e1d9874fb
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 1
+      Action: Camera Rotate
+      Group: 
+      CompositeType: 1DAxis_1D Axis
+      StartIndex: 3
+      StopIndex: 5
+      Paths:
+      - 
+      - 
+    - InputAction:
+        m_Name: Camera Rotate
+        m_Type: 0
+        m_ExpectedControlType: Analog
+        m_Id: be849998-5e5f-43f7-ac8b-1b4e1d9874fb
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 1
+      Action: Camera Rotate
+      Group: 
+      CompositeType: 1DAxis_1D Axis
+      StartIndex: 6
+      StopIndex: 8
+      Paths:
+      - 
+      - 
   - ActionMap: Minimap
-    IsRebindable: 1
-    BindingIndex: 0
-    InputActionReference:
-      m_Name: 
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 5b11c0b6-71bf-43f0-8e25-82073dc96fe7
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
+    Bindings:
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: eb870832-444c-4641-b8aa-b2fe8720ba5c
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Zoom Minimap
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 0
+      StopIndex: 0
+      Paths:
+      - <Mouse>/scroll
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: e43701b0-82fc-4007-83bd-b17f099e360c
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Zoom Minimap
+      Group: 
+      CompositeType: 
+      StartIndex: 1
+      StopIndex: 1
+      Paths:
+      - 
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 8661478d-e463-4905-9bb6-ef6a375b288f
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Zoom Minimap
+      Group: ;Gamepad
+      CompositeType: 
+      StartIndex: 2
+      StopIndex: 2
+      Paths:
+      - 
   - ActionMap: Cheats
-    IsRebindable: 1
-    BindingIndex: 0
-    InputActionReference:
-      m_Name: 
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 83b2b34b-1fbf-4b96-8761-23703d436cf3
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
+    Bindings:
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: b1c6b03e-e6df-4ab8-9b4d-12eaa1f77987
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Debug Toggle
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 0
+      StopIndex: 0
+      Paths:
+      - <Keyboard>/backquote
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: c02d60d3-ae04-45f9-8888-878c8a92f344
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Debug Toggle
+      Group: ;Keyboard
+      CompositeType: 
+      StartIndex: 1
+      StopIndex: 1
+      Paths:
+      - 
+    - InputAction:
+        m_Name: Input
+        m_Type: 0
+        m_ExpectedControlType: 
+        m_Id: 7e67d0be-4a73-4856-86be-4faadb6f1e40
+        m_Processors: 
+        m_Interactions: 
+        m_SingletonActionBindings: []
+        m_Flags: 0
+      Action: Debug Toggle
+      Group: ;Gamepad
+      CompositeType: 
+      StartIndex: 2
+      StopIndex: 2
+      Paths:
+      - 

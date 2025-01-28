@@ -70,11 +70,14 @@ namespace AGX.Scripts.Runtime.Prompts
 
         public void Awake()
         {
+            bool debug = false;
+
             InputDeviceSpriteMap.Clear();
 
             foreach (var prompt in _prompts)
             {
-                Debug.Log($"Prompt: {prompt.text}");
+                if (debug)
+                    Debug.Log($"Prompt: {prompt.text}");
 
                 var inputDevicePrompt = Newtonsoft.Json.JsonConvert.DeserializeObject<InputDevicePrompt>(prompt.text);
 
@@ -83,14 +86,19 @@ namespace AGX.Scripts.Runtime.Prompts
                     Debug.LogError("InputDevicePrompt is null!");
                     continue;
                 }
-
-                Debug.Log($"Name: {inputDevicePrompt.Name}");
-                Debug.Log($"SpriteAsset: {inputDevicePrompt.SpriteAsset}");
-
-                foreach (var mapping in inputDevicePrompt.Mappings)
+                
+                if (debug)
                 {
-                    Debug.Log($"Path: {mapping.Path}, Sprite: {mapping.Sprite}");
+                    Debug.Log($"Name: {inputDevicePrompt.Name}");
+                    Debug.Log($"SpriteAsset: {inputDevicePrompt.SpriteAsset}");
+
+                    foreach (var mapping in inputDevicePrompt.Mappings)
+                    {
+                        if (debug)
+                            Debug.Log($"Path: {mapping.Path}, Sprite: {mapping.Sprite}");
+                    }
                 }
+
 
                 foreach (var mapping in inputDevicePrompt.Mappings)
                 {

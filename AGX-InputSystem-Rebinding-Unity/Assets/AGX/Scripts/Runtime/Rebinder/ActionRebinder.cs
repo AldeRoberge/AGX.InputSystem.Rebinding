@@ -13,7 +13,7 @@ namespace AGX.Scripts.Runtime.Rebinder
     public class ActionRebinder : MonoBehaviour
     {
         public string ActionName => _actionName;
-        public int BindingIndex => _selectedBinding;
+        public int BindingStartIndexIndex => _selectedBindingStartIndex;
 
         [BoxGroup("References"), SerializeField, Required] private ActionRebinders _actionRebinders;
         [BoxGroup("References"), SerializeField, Required] private TMP_Text        _textRebind;
@@ -29,12 +29,13 @@ namespace AGX.Scripts.Runtime.Rebinder
         /// To get the first binding use index 0.
         /// Usually, the second binding will be at index 1, but if the first binding is a composite of 2 controls, the next binding will be at index 5.
         /// </summary>
-        [BoxGroup("References"), SerializeField] private int _selectedBinding;
+        [BoxGroup("References"), SerializeField] private int _selectedBindingStartIndex;
 
         [BoxGroup("Debug"),ShowInInspector, ReadOnly] private string _actionName;
         [BoxGroup("Debug"),ShowInInspector, ReadOnly] private bool   _isDirty;
 
-        private void OnEnable()
+
+        public void SetBinding()
         {
             if (!_canBeRebinded)
             {
@@ -49,17 +50,18 @@ namespace AGX.Scripts.Runtime.Rebinder
                 _buttonReset.onClick.AddListener(ResetBinding);
             }
 
-            if (_actionRebinders.InputActionReference != null)
-            {
-                GetBindingInfo();
-                UpdateUI();
-            }
+            GetBindingInfo();
+            UpdateUI();
+            
+
+            name = $"Input Action Rebinder ({_actionName}:{_selectedBindingStartIndex})";
 
             InputManager.RegisterRebind(this);
 
             InputManager.RebindComplete += UpdateUI;
             InputManager.RebindCanceled += UpdateUI;
         }
+        
 
         private void OnDestroy()
         {
@@ -67,13 +69,6 @@ namespace AGX.Scripts.Runtime.Rebinder
             InputManager.RebindCanceled -= UpdateUI;
         }
 
-        private void OnValidate()
-        {
-            GetBindingInfo();
-            UpdateUI();
-
-            name = $"Input Action Rebinder ({_actionName}:{_selectedBinding})";
-        }
 
         private void GetBindingInfo()
         {
@@ -83,19 +78,19 @@ namespace AGX.Scripts.Runtime.Rebinder
                 return;
             }
 
-            if (_actionRebinders.InputActionReference == null)
+            if (_actionRebinders.InputAction == null)
             {
                 Debug.LogError("Action rebinders input action reference is null!");
                 return;
             }
 
-            _actionName = _actionRebinders.InputActionReference.action.name;
+            _actionName = _actionRebinders.InputAction.name;
         }
 
         [Button]
         internal void UpdateUI()
         {
-            var startIndex = _selectedBinding;
+            var startIndex = _selectedBindingStartIndex;
 
             if (string.IsNullOrEmpty(_actionName))
             {
@@ -146,7 +141,7 @@ namespace AGX.Scripts.Runtime.Rebinder
             }
 
             if (_debug)
-                Debug.Log($"Start Index: {startIndex} End Index: {endIndex} for {action.bindings.Count} bindings of {_actionRebinders.InputActionReference.action.name}");
+                Debug.Log($"Start Index: {startIndex} End Index: {endIndex} for {action.bindings.Count} bindings of {_actionRebinders.InputAction.name}");
 
             var fullString = new StringBuilder();
 
@@ -176,13 +171,13 @@ namespace AGX.Scripts.Runtime.Rebinder
 
             _textRebind.text = fullString.ToString();
 
-            _isDirty = InputManager.IsBindingOverriden(_actionName, _selectedBinding);
+            _isDirty = InputManager.IsBindingOverriden(_actionName, _selectedBindingStartIndex);
             _buttonReset.gameObject.SetActive(_isDirty);
         }
 
         private void DoRebind()
         {
-            InputManager.StartRebind(_actionName, _selectedBinding, _actionRebinders.RebindingOverlay, _mouseIncluded);
+            InputManager.StartRebind(_actionName, _selectedBindingStartIndex, _actionRebinders.RebindingOverlay, _mouseIncluded);
         }
 
         private void ResetBinding()

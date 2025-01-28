@@ -1,3 +1,4 @@
+using System;
 using AGX.Scripts.Runtime.Searching;
 using DG.Tweening;
 using Sirenix.OdinInspector;
@@ -9,65 +10,60 @@ namespace AGX.Scripts.Runtime.Rebinder
 {
     public class ActionRebinders : MonoBehaviour, ISearchable
     {
-        [BoxGroup("Settings"), SerializeField, Required] private InputActionReference _inputActionReference;
+        [BoxGroup("Settings"), SerializeField, Required] private InputAction _inputAction;
 
         [BoxGroup("References"), SerializeField, Required] private ActionIconMap _actionIconMap;
         [BoxGroup("References"), SerializeField, Required] private TMP_Text      _actionText;
         [BoxGroup("References"), SerializeField, Required] private RebindOverlay _rebindOverlay;
 
 
-        public InputActionReference InputActionReference => _inputActionReference;
+        public InputAction InputAction => _inputAction;
 
         public RebindOverlay RebindingOverlay => _rebindOverlay;
 
-        private void OnValidate()
+
+        private void Awake()
         {
-            UpdateText();
+            _inputAction.performed += OnActionPerformed;
         }
 
-        private void OnEnable()
-        {
-            UpdateText();
 
-            _inputActionReference.action.performed += ActionOnperformed;
-        }
-
-        private void ActionOnperformed(InputAction.CallbackContext obj)
+        private void OnActionPerformed(InputAction.CallbackContext obj)
         {
             _actionText.DOKill();
             _actionText.color = Color.yellow;
             _actionText.DOColor(Color.white, 2f);
-
-            /*
-            _actionText.transform.DOComplete();
-            _actionText.transform.DOPunchScale(Vector3.one * 0.1f, 0.1f);
-            */
         }
 
         private void UpdateText()
         {
-            _actionText.text = _actionIconMap.GetFor(_inputActionReference);
+            _actionText.text = _actionIconMap.GetFor(_inputAction);
 
-            name = $"Input Action Rebinders ({_inputActionReference.action.name})";
+            name = $"Input Action Rebinders ({_inputAction.name})";
         }
 
-        public string[] SearchKeywords => GetActionsNames();
+        public string[] SearchKeywords => GetSearchKeywords();
 
-        private string[] GetActionsNames()
+        private string[] GetSearchKeywords()
         {
-            // Get children 'ActionRebinder' components on this object.
             var actionRebinds = gameObject.GetComponentsInChildren<ActionRebinder>();
-
-            // Create a string array with the same size as the number of children.
             var actionNames = new string[actionRebinds.Length];
+            for (var i = 0; i < actionRebinds.Length; i++) actionNames[i] = actionRebinds[i].ActionName;
+            return actionNames;
+        }
 
-            // Loop through each child and set the action name to the array.
-            for (var i = 0; i < actionRebinds.Length; i++)
+        public void SetBindingData(ControlsData controlsData)
+        {
+            _inputAction = controlsData.InputAction;
+
+            if (_inputAction == null)
             {
-                actionNames[i] = actionRebinds[i].ActionName;
+                Debug.LogError("Null input action");
             }
 
-            return actionNames;
+            Debug.Log(_inputAction.name + ", " + _inputAction.actionMap?.name);
+
+            UpdateText();
         }
     }
 }

@@ -13,21 +13,12 @@ MonoBehaviour:
   m_Name: Action Icon Map
   m_EditorClassIdentifier: 
   ActionIcons:
-  - Action: {fileID: -436110834621127343, guid: bf1efc4e6801b6b40a5a572caa5feaa4,
+  - Action: {fileID: 5239092889159039155, guid: bf1efc4e6801b6b40a5a572caa5feaa4,
       type: 3}
     Icon: {fileID: 195651471, guid: ddaf56871da644a488d7912b20843505, type: 3}
-  - Action: {fileID: -2523124660656823200, guid: bf1efc4e6801b6b40a5a572caa5feaa4,
+  - Action: {fileID: 5239092889159039155, guid: bf1efc4e6801b6b40a5a572caa5feaa4,
       type: 3}
     Icon: {fileID: -1553491184, guid: ddaf56871da644a488d7912b20843505, type: 3}
-  - Action: {fileID: -2523124660656823200, guid: bf1efc4e6801b6b40a5a572caa5feaa4,
-      type: 3}
-    Icon: {fileID: 1987447425, guid: ddaf56871da644a488d7912b20843505, type: 3}
-  - Action: {fileID: 7978532731956525062, guid: bf1efc4e6801b6b40a5a572caa5feaa4,
+  - Action: {fileID: -5164055613734000827, guid: bf1efc4e6801b6b40a5a572caa5feaa4,
       type: 3}
     Icon: {fileID: 170243423, guid: ddaf56871da644a488d7912b20843505, type: 3}
-  - Action: {fileID: 4137429183621252477, guid: bf1efc4e6801b6b40a5a572caa5feaa4,
-      type: 3}
-    Icon: {fileID: 21300000, guid: 75b72578d7cfc59438d23736539cc80f, type: 3}
-  - Action: {fileID: 6979321881034650268, guid: bf1efc4e6801b6b40a5a572caa5feaa4,
-      type: 3}
-    Icon: {fileID: 1987447425, guid: ddaf56871da644a488d7912b20843505, type: 3}

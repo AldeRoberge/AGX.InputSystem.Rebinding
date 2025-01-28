@@ -9,8 +9,11 @@ namespace AGX.Scripts.Runtime
     [CreateAssetMenu(fileName = "InputRebindings", menuName = "AGX/Input Rebindings")]
     public class InputRebindings : ScriptableObject
     {
+        public List<ActionMapControls> ActionMapDatas => inputActionRebindings;
+
         [SerializeField, HideLabel]
-        private List<InputActionRebinding> inputActionRebindings = new();
+        private List<ActionMapControls> inputActionRebindings = new();
+
 
         /// <summary>
         /// Rebuilds the rebindings based on the provided InputActionAsset.
@@ -63,85 +66,81 @@ namespace AGX.Scripts.Runtime
             foreach (var group in groupedBindings)
             {
                 // Add the grouped rebinding data for the specific action map and action
-                actionRebinding.ActionMapRebinders.ActionMapBindings.Add(group);
+                actionRebinding.Controls.Add(group);
             }
         }
 
         /// <summary>
         /// Groups the bindings by their composite type (if any).
         /// </summary>
-        private List<GroupedBindingData> GroupBindings(InputAction action)
+        private List<ControlsData> GroupBindings(InputAction action)
         {
-            var groupedBindings = new List<GroupedBindingData>();
-            GroupedBindingData currentGroup = null;
+            var groupedBindings = new List<ControlsData>();
+            ControlsData currentGroup = null;
 
             for (int i = 0; i < action.bindings.Count; i++)
             {
                 var binding = action.bindings[i];
 
-                // Check if the binding is part of a composite
                 if (binding.isComposite)
                 {
-                    // We group based on both the composite type (path) and name (to distinguish WASD and Arrow Keys)
+                    // Start a new group for this composite
                     string compositeIdentifier = $"{binding.path}_{binding.name}";
-
-                    // Start a new group if this is the first binding of a composite (distinct by path + name)
-                    if (currentGroup == null || currentGroup.CompositeType != compositeIdentifier)
+                    if (currentGroup != null)
                     {
-                        // Add the previous group if it exists
-                        if (currentGroup != null)
-                        {
-                            groupedBindings.Add(currentGroup);
-                        }
+                        // Finalize the previous group
+                        currentGroup.StopIndex = i - 1;
+                        groupedBindings.Add(currentGroup);
+                    }
 
-                        // Start a new group
-                        currentGroup = new GroupedBindingData
-                        {
-                            Action = action.name,
-                            Group = string.Join(";", binding.groups),
-                            CompositeType = compositeIdentifier, // Distinguish composites by path and name
-                            StartIndex = i,
-                            Paths = new List<string>() // Do not include the '2DVector' path
-                        };
+                    // Start a new group
+                    currentGroup = new ControlsData
+                    {
+                        InputAction = action,
+                        Action = action.name,
+                        Group = binding.groups,
+                        CompositeType = compositeIdentifier,
+                        StartIndex = i,
+                        Paths = new List<string>()
+                    };
+                }
+                else if (binding.isPartOfComposite)
+                {
+                    // Add this binding to the current group
+                    if (currentGroup != null)
+                    {
+                        currentGroup.Paths.Add(binding.path);
+                        currentGroup.StopIndex = i; // Update StopIndex as this is part of the composite
                     }
                 }
                 else
                 {
-                    // If this binding is part of a composite, add it to the current group (without re-creating a new group)
-                    if (binding.isPartOfComposite)
+                    // Handle non-composite bindings
+                    if (currentGroup != null)
                     {
-                        if (currentGroup != null)
-                        {
-                            // Add non-composite individual bindings to the group without re-including the composite path
-                            currentGroup.Paths.Add(binding.path);
-                        }
+                        // Finalize the current group
+                        currentGroup.StopIndex = i - 1;
+                        groupedBindings.Add(currentGroup);
+                        currentGroup = null;
                     }
-                    else
-                    {
-                        // For non-composite bindings, close the previous group if exists
-                        if (currentGroup != null)
-                        {
-                            groupedBindings.Add(currentGroup);
-                            currentGroup = null;
-                        }
 
-                        // Create a new single entry for non-composite bindings
-                        groupedBindings.Add(new GroupedBindingData
-                        {
-                            Action = action.name,
-                            Group = string.Join(";", binding.groups),
-                            CompositeType = "",
-                            StartIndex = i,
-                            StopIndex = i,
-                            Paths = new List<string> { binding.path }
-                        });
-                    }
+                    // Add this as a standalone binding
+                    groupedBindings.Add(new ControlsData
+                    {
+                        Action = action.name,
+                        Group = binding.groups,
+                        CompositeType = "",
+                        StartIndex = i,
+                        StopIndex = i,
+                        Paths = new List<string> { binding.path }
+                    });
                 }
             }
 
             // Add the last group if it exists
             if (currentGroup != null)
             {
+                currentGroup.StopIndex = action.bindings.Count - 1;
                 groupedBindings.Add(currentGroup);
             }
 
@@ -152,7 +151,7 @@ namespace AGX.Scripts.Runtime
         /// <summary>
         /// Gets or creates a rebinding entry for a specific action map.
         /// </summary>
-        private InputActionRebinding GetOrCreateRebindingEntry(string actionMapName)
+        private ActionMapControls GetOrCreateRebindingEntry(string actionMapName)
         {
             // Try to find the rebinding entry for the given action map name
             var actionRebinding = inputActionRebindings.Find(rebinding => rebinding.ActionMap == actionMapName);
@@ -160,7 +159,7 @@ namespace AGX.Scripts.Runtime
             // If not found, create a new one and add it to the list
             if (actionRebinding == null)
             {
-                actionRebinding = new InputActionRebinding { ActionMap = actionMapName };
+                actionRebinding = new ActionMapControls { ActionMap = actionMapName };
                 inputActionRebindings.Add(actionRebinding);
             }
 
@@ -169,25 +168,21 @@ namespace AGX.Scripts.Runtime
     }
 
     [Serializable]
-    public class InputActionRebinding
+    public class ActionMapControls
     {
         [ShowInInspector, SerializeField, ReadOnly]
         public string ActionMap;
 
         [ShowInInspector, SerializeField, ReadOnly, HideLabel]
-        public InputActionRebindingData ActionMapRebinders = new();
+        public List<ControlsData> Controls = new();
     }
 
     [Serializable]
-    public class InputActionRebindingData
+    public class ControlsData
     {
         [ShowInInspector, SerializeField, ReadOnly]
-        public List<GroupedBindingData> ActionMapBindings = new();
-    }
+        public InputBinding InputBinding;
 
-    [Serializable]
-    public class GroupedBindingData
-    {
         [ShowInInspector, SerializeField, ReadOnly]
         public string Action;
 
@@ -206,7 +201,7 @@ namespace AGX.Scripts.Runtime
         [ShowInInspector, SerializeField, ReadOnly]
         public List<string> Paths = new();
 
-        public GroupedBindingData()
+        public ControlsData()
         {
             StopIndex = StartIndex;
         }
