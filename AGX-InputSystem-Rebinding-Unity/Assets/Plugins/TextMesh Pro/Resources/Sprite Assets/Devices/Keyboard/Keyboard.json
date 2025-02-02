@@ -1,0 +1,482 @@
+{
+  "Name": "Keyboard",
+  "SpriteAsset": "Devices/Keyboard",
+  "Sprites": [
+    {
+      "Key": "/Keyboard/anyKey",
+      "Value": "keyboard_any"
+    },
+    {
+      "Key": "/Keyboard/escape",
+      "Value": "keyboard_escape"
+    },
+    {
+      "Key": "/Keyboard/space",
+      "Value": "keyboard_space"
+    },
+    {
+      "Key": "/Keyboard/enter",
+      "Value": "keyboard_enter"
+    },
+    {
+      "Key": "/Keyboard/tab",
+      "Value": "keyboard_tab_icon"
+    },
+    {
+      "Key": "/Keyboard/backquote",
+      "Value": "keyboard_tilde"
+    },
+    {
+      "Key": "/Keyboard/quote",
+      "Value": "keyboard_quote"
+    },
+    {
+      "Key": "/Keyboard/semicolon",
+      "Value": "keyboard_semicolon"
+    },
+    {
+      "Key": "/Keyboard/comma",
+      "Value": "keyboard_comma"
+    },
+    {
+      "Key": "/Keyboard/period",
+      "Value": "keyboard_period"
+    },
+    {
+      "Key": "/Keyboard/slash",
+      "Value": "keyboard_slash_back"
+    },
+    {
+      "Key": "/Keyboard/backslash",
+      "Value": "keyboard_backslash"
+    },
+    {
+      "Key": "/Keyboard/leftBracket",
+      "Value": "keyboard_bracket_open"
+    },
+    {
+      "Key": "/Keyboard/rightBracket",
+      "Value": "keyboard_bracket_close"
+    },
+    {
+      "Key": "/Keyboard/minus",
+      "Value": "keyboard_minus"
+    },
+    {
+      "Key": "/Keyboard/equals",
+      "Value": "keyboard_equals"
+    },
+    {
+      "Key": "/Keyboard/upArrow",
+      "Value": "keyboard_arrow_up"
+    },
+    {
+      "Key": "/Keyboard/downArrow",
+      "Value": "keyboard_arrow_down"
+    },
+    {
+      "Key": "/Keyboard/leftArrow",
+      "Value": "keyboard_arrow_left"
+    },
+    {
+      "Key": "/Keyboard/rightArrow",
+      "Value": "keyboard_arrow_right"
+    },
+    {
+      "Key": "/Keyboard/a",
+      "Value": "keyboard_a"
+    },
+    {
+      "Key": "/Keyboard/b",
+      "Value": "keyboard_b"
+    },
+    {
+      "Key": "/Keyboard/c",
+      "Value": "keyboard_c"
+    },
+    {
+      "Key": "/Keyboard/d",
+      "Value": "keyboard_d"
+    },
+    {
+      "Key": "/Keyboard/e",
+      "Value": "keyboard_e"
+    },
+    {
+      "Key": "/Keyboard/f",
+      "Value": "keyboard_f"
+    },
+    {
+      "Key": "/Keyboard/g",
+      "Value": "keyboard_g"
+    },
+    {
+      "Key": "/Keyboard/h",
+      "Value": "keyboard_h"
+    },
+    {
+      "Key": "/Keyboard/i",
+      "Value": "keyboard_i"
+    },
+    {
+      "Key": "/Keyboard/j",
+      "Value": "keyboard_j"
+    },
+    {
+      "Key": "/Keyboard/k",
+      "Value": "keyboard_k"
+    },
+    {
+      "Key": "/Keyboard/l",
+      "Value": "keyboard_l"
+    },
+    {
+      "Key": "/Keyboard/m",
+      "Value": "keyboard_m"
+    },
+    {
+      "Key": "/Keyboard/n",
+      "Value": "keyboard_n"
+    },
+    {
+      "Key": "/Keyboard/o",
+      "Value": "keyboard_o"
+    },
+    {
+      "Key": "/Keyboard/p",
+      "Value": "keyboard_p"
+    },
+    {
+      "Key": "/Keyboard/q",
+      "Value": "keyboard_q"
+    },
+    {
+      "Key": "/Keyboard/r",
+      "Value": "keyboard_r"
+    },
+    {
+      "Key": "/Keyboard/s",
+      "Value": "keyboard_s"
+    },
+    {
+      "Key": "/Keyboard/t",
+      "Value": "keyboard_t"
+    },
+    {
+      "Key": "/Keyboard/u",
+      "Value": "keyboard_u"
+    },
+    {
+      "Key": "/Keyboard/v",
+      "Value": "keyboard_v"
+    },
+    {
+      "Key": "/Keyboard/w",
+      "Value": "keyboard_w"
+    },
+    {
+      "Key": "/Keyboard/x",
+      "Value": "keyboard_x"
+    },
+    {
+      "Key": "/Keyboard/y",
+      "Value": "keyboard_y"
+    },
+    {
+      "Key": "/Keyboard/z",
+      "Value": "keyboard_z"
+    },
+    {
+      "Key": "/Keyboard/1",
+      "Value": "keyboard_1"
+    },
+    {
+      "Key": "/Keyboard/2",
+      "Value": "keyboard_2"
+    },
+    {
+      "Key": "/Keyboard/3",
+      "Value": "keyboard_3"
+    },
+    {
+      "Key": "/Keyboard/4",
+      "Value": "keyboard_4"
+    },
+    {
+      "Key": "/Keyboard/5",
+      "Value": "keyboard_5"
+    },
+    {
+      "Key": "/Keyboard/6",
+      "Value": "keyboard_6"
+    },
+    {
+      "Key": "/Keyboard/7",
+      "Value": "keyboard_7"
+    },
+    {
+      "Key": "/Keyboard/8",
+      "Value": "keyboard_8"
+    },
+    {
+      "Key": "/Keyboard/9",
+      "Value": "keyboard_9"
+    },
+    {
+      "Key": "/Keyboard/0",
+      "Value": "keyboard_0"
+    },
+    {
+      "Key": "/Keyboard/leftShift",
+      "Value": "keyboard_shift"
+    },
+    {
+      "Key": "/Keyboard/rightShift",
+      "Value": "keyboard_shift"
+    },
+    {
+      "Key": "/Keyboard/shift",
+      "Value": "keyboard_shift"
+    },
+    {
+      "Key": "/Keyboard/leftAlt",
+      "Value": "keyboard_alt"
+    },
+    {
+      "Key": "/Keyboard/rightAlt",
+      "Value": "keyboard_alt"
+    },
+    {
+      "Key": "/Keyboard/alt",
+      "Value": "keyboard_alt"
+    },
+    {
+      "Key": "/Keyboard/leftCtrl",
+      "Value": "keyboard_ctrl"
+    },
+    {
+      "Key": "/Keyboard/rightCtrl",
+      "Value": "keyboard_ctrl"
+    },
+    {
+      "Key": "/Keyboard/ctrl",
+      "Value": "keyboard_ctrl"
+    },
+    {
+      "Key": "/Keyboard/leftMeta",
+      "Value": "keyboard_win"
+    },
+    {
+      "Key": "/Keyboard/rightMeta",
+      "Value": "keyboard_win"
+    },
+    {
+      "Key": "/Keyboard/contextMenu",
+      "Value": "keyboard_command"
+    },
+    {
+      "Key": "/Keyboard/backspace",
+      "Value": "keyboard_backspace"
+    },
+    {
+      "Key": "/Keyboard/pageDown",
+      "Value": "keyboard_page_down"
+    },
+    {
+      "Key": "/Keyboard/pageUp",
+      "Value": "keyboard_page_up"
+    },
+    {
+      "Key": "/Keyboard/home",
+      "Value": "keyboard_home"
+    },
+    {
+      "Key": "/Keyboard/end",
+      "Value": "keyboard_end"
+    },
+    {
+      "Key": "/Keyboard/insert",
+      "Value": "keyboard_insert"
+    },
+    {
+      "Key": "/Keyboard/delete",
+      "Value": "keyboard_delete"
+    },
+    {
+      "Key": "/Keyboard/capsLock",
+      "Value": "keyboard_capslock"
+    },
+    {
+      "Key": "/Keyboard/numLock",
+      "Value": "keyboard_numlock"
+    },
+    {
+      "Key": "/Keyboard/printScreen",
+      "Value": "keyboard_printscreen"
+    },
+    {
+      "Key": "/Keyboard/scrollLock",
+      "Value": "keyboard_scrollLock"
+    },
+    {
+      "Key": "/Keyboard/pause",
+      "Value": "keyboard_pause"
+    },
+    {
+      "Key": "/Keyboard/numpadEnter",
+      "Value": "keyboard_numpad_enter"
+    },
+    {
+      "Key": "/Keyboard/f1",
+      "Value": "keyboard_f1"
+    },
+    {
+      "Key": "/Keyboard/f2",
+      "Value": "keyboard_f2"
+    },
+    {
+      "Key": "/Keyboard/f3",
+      "Value": "keyboard_f3"
+    },
+    {
+      "Key": "/Keyboard/f4",
+      "Value": "keyboard_f4"
+    },
+    {
+      "Key": "/Keyboard/f5",
+      "Value": "keyboard_f5"
+    },
+    {
+      "Key": "/Keyboard/f6",
+      "Value": "keyboard_f6"
+    },
+    {
+      "Key": "/Keyboard/f7",
+      "Value": "keyboard_f7"
+    },
+    {
+      "Key": "/Keyboard/f8",
+      "Value": "keyboard_f8"
+    },
+    {
+      "Key": "/Keyboard/f9",
+      "Value": "keyboard_f9"
+    },
+    {
+      "Key": "/Keyboard/f10",
+      "Value": "keyboard_f10"
+    },
+    {
+      "Key": "/Keyboard/f11",
+      "Value": "keyboard_f11"
+    },
+    {
+      "Key": "/Keyboard/f12",
+      "Value": "keyboard_f12"
+    },
+    {
+      "Key": "/Keyboard/f13",
+      "Value": "keyboard_f13"
+    },
+    {
+      "Key": "/Keyboard/f14",
+      "Value": "keyboard_f14"
+    },
+    {
+      "Key": "/Keyboard/f15",
+      "Value": "keyboard_f15"
+    },
+    {
+      "Key": "/Keyboard/f16",
+      "Value": "keyboard_f16"
+    },
+    {
+      "Key": "/Keyboard/f17",
+      "Value": "keyboard_f17"
+    },
+    {
+      "Key": "/Keyboard/f18",
+      "Value": "keyboard_f18"
+    },
+    {
+      "Key": "/Keyboard/f19",
+      "Value": "keyboard_f19"
+    },
+    {
+      "Key": "/Keyboard/f20",
+      "Value": "keyboard_f20"
+    },
+    {
+      "Key": "/Keyboard/f21",
+      "Value": "keyboard_f21"
+    },
+    {
+      "Key": "/Keyboard/f22",
+      "Value": "keyboard_f22"
+    },
+    {
+      "Key": "/Keyboard/f23",
+      "Value": "keyboard_f23"
+    },
+    {
+      "Key": "/Keyboard/f24",
+      "Value": "keyboard_f24"
+    },
+    {
+      "Key": "/Keyboard/numpad0",
+      "Value": "keyboard_0"
+    },
+    {
+      "Key": "/Keyboard/numpad1",
+      "Value": "keyboard_1"
+    },
+    {
+      "Key": "/Keyboard/numpad2",
+      "Value": "keyboard_2"
+    },
+    {
+      "Key": "/Keyboard/numpad3",
+      "Value": "keyboard_3"
+    },
+    {
+      "Key": "/Keyboard/numpad4",
+      "Value": "keyboard_4"
+    },
+    {
+      "Key": "/Keyboard/numpad5",
+      "Value": "keyboard_5"
+    },
+    {
+      "Key": "/Keyboard/numpad6",
+      "Value": "keyboard_6"
+    },
+    {
+      "Key": "/Keyboard/numpad7",
+      "Value": "keyboard_7"
+    },
+    {
+      "Key": "/Keyboard/numpad8",
+      "Value": "keyboard_8"
+    },
+    {
+      "Key": "/Keyboard/numpad9",
+      "Value": "keyboard_9"
+    },
+    {
+      "Key": "/Keyboard/numpadPlus",
+      "Value": "keyboard_numpad_plus"
+    },
+    {
+      "Key": "/Keyboard/numpadMinus",
+      "Value": "keyboard_minus"
+    },
+    {
+      "Key": "/Keyboard/numpadMultiply",
+      "Value": "keyboard_asterisk"
+    },
+    {
+      "Key": "/Keyboard/numpadDivide",
+      "Value": "keyboard_slash_forward"
+    }
+  ]
+}

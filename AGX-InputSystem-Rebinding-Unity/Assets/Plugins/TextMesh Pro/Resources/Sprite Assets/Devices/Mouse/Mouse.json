@@ -1,0 +1,130 @@
+{
+  "Name": "Mouse",
+  "SpriteAsset": "Devices/Mouse",
+  "Sprites": [
+    {
+      "Key": "/Mouse",
+      "Value": "mouse"
+    },
+    {
+      "Key": "/Mouse/position",
+      "Value": "mouse_move"
+    },
+    {
+      "Key": "/Mouse/position/x",
+      "Value": "mouse_move"
+    },
+    {
+      "Key": "/Mouse/position/y",
+      "Value": "mouse_move"
+    },
+    {
+      "Key": "/Mouse/delta",
+      "Value": "mouse_move"
+    },
+    {
+      "Key": "/Mouse/delta/up",
+      "Value": "mouse_scroll_up"
+    },
+    {
+      "Key": "/Mouse/delta/down",
+      "Value": "mouse_scroll_down"
+    },
+    {
+      "Key": "/Mouse/delta/left",
+      "Value": "mouse_left"
+    },
+    {
+      "Key": "/Mouse/delta/right",
+      "Value": "mouse_right"
+    },
+    {
+      "Key": "/Mouse/delta/x",
+      "Value": "mouse_horizontal"
+    },
+    {
+      "Key": "/Mouse/delta/y",
+      "Value": "mouse_vertical"
+    },
+    {
+      "Key": "/Mouse/scroll",
+      "Value": "mouse_scroll"
+    },
+    {
+      "Key": "/Mouse/scroll/up",
+      "Value": "mouse_scroll_up"
+    },
+    {
+      "Key": "/Mouse/scroll/down",
+      "Value": "mouse_scroll_down"
+    },
+    {
+      "Key": "/Mouse/scroll/left",
+      "Value": "mouse_left"
+    },
+    {
+      "Key": "/Mouse/scroll/right",
+      "Value": "mouse_right"
+    },
+    {
+      "Key": "/Mouse/scroll/x",
+      "Value": "mouse_horizontal"
+    },
+    {
+      "Key": "/Mouse/scroll/y",
+      "Value": "mouse_vertical"
+    },
+    {
+      "Key": "/Mouse/press",
+      "Value": "mouse_small"
+    },
+    {
+      "Key": "/Mouse/leftButton",
+      "Value": "mouse_left"
+    },
+    {
+      "Key": "/Mouse/rightButton",
+      "Value": "mouse_right"
+    },
+    {
+      "Key": "/Mouse/middleButton",
+      "Value": "mouse_scroll"
+    },
+    {
+      "Key": "/Mouse/forwardButton",
+      "Value": "mouse_forward"
+    },
+    {
+      "Key": "/Mouse/backButton",
+      "Value": "mouse_backward"
+    },
+    {
+      "Key": "/Mouse/pressure",
+      "Value": "mouse_scroll"
+    },
+    {
+      "Key": "/Mouse/radius",
+      "Value": "mouse_small"
+    },
+    {
+      "Key": "/Mouse/radius/x",
+      "Value": "mouse_horizontal"
+    },
+    {
+      "Key": "/Mouse/radius/y",
+      "Value": "mouse_vertical"
+    },
+    {
+      "Key": "/Mouse/pointerId",
+      "Value": "mouse"
+    },
+    {
+      "Key": "/Mouse/displayIndex",
+      "Value": "mouse"
+    },
+    {
+      "Key": "/Mouse/clickCount",
+      "Value": "mouse"
+    }
+  ]
+}

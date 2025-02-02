@@ -13,6 +13,7 @@ namespace AGX.Scripts.Runtime.Rebinder
     /// </summary>
     public class ActionRebinder : MonoBehaviour
     {
+
         public string ActionName => _actionName;
         public int BindingStartIndexIndex => _selectedBindingStartIndex;
 
@@ -172,7 +173,7 @@ namespace AGX.Scripts.Runtime.Rebinder
                     ? InputManager.GetBindingName(_actionName, _bindingIndex)
                     : action.GetBindingDisplayString(_bindingIndex); // From the input action reference
              */
-
+            
             _textRebind.text = fullString.ToString();
 
             _isDirty = InputManager.IsBindingOverriden(_actionName, _selectedBindingStartIndex);

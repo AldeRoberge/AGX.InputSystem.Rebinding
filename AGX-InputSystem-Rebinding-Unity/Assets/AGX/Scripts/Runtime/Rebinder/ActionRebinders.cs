@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using AGX.Scripts.Runtime.Icons;
 using AGX.Scripts.Runtime.Searching;
 using DG.Tweening;
 using Sirenix.OdinInspector;
@@ -11,6 +12,8 @@ namespace AGX.Scripts.Runtime.Rebinder
 {
     public class ActionRebinders : MonoBehaviour, ISearchable
     {
+
+
         [BoxGroup("Settings"), SerializeField, Required, OnValueChanged(nameof(Wait1FrameAndUpdateUI))] private InputActionReference _inputAction;
 
         [BoxGroup("References"), SerializeField, Required] private ActionIconMap _actionIconMap;
@@ -183,7 +186,9 @@ namespace AGX.Scripts.Runtime.Rebinder
 
         private void UpdateText()
         {
-            _actionText.text = _actionIconMap.GetFor(_inputAction);
+            var icon = _actionIconMap.GetFor(_inputAction);
+
+            _actionText.text = icon;
 
             name = $"Input Action Rebinders ({_inputAction.name})";
         }

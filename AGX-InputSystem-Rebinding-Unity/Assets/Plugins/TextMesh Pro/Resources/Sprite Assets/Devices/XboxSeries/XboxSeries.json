@@ -1,0 +1,138 @@
+﻿{
+  "Name": "XboxSeries",
+  "SpriteAsset": "Devices/XboxSeries",
+  "Sprites": [
+    {
+      "Key": "/Gamepad/dpad",
+      "Value": "xbox_dpad"
+    },
+    {
+      "Key": "/Gamepad/dpad/x",
+      "Value": "xbox_dpad_horizontal"
+    },
+    {
+      "Key": "/Gamepad/dpad/y",
+      "Value": "xbox_dpad_vertical"
+    },
+    {
+      "Key": "/Gamepad/dpad/up",
+      "Value": "xbox_dpad_up"
+    },
+    {
+      "Key": "/Gamepad/dpad/down",
+      "Value": "xbox_dpad_down"
+    },
+    {
+      "Key": "/Gamepad/dpad/left",
+      "Value": "xbox_dpad_left"
+    },
+    {
+      "Key": "/Gamepad/dpad/right",
+      "Value": "xbox_dpad_right"
+    },
+    {
+      "Key": "/Gamepad/start",
+      "Value": "xbox_button_start"
+    },
+    {
+      "Key": "/Gamepad/select",
+      "Value": "xbox_button_back"
+    },
+    {
+      "Key": "/Gamepad/leftStickPress",
+      "Value": "xbox_stick_l_press"
+    },
+    {
+      "Key": "/Gamepad/rightStickPress",
+      "Value": "xbox_stick_r_press"
+    },
+    {
+      "Key": "/Gamepad/leftShoulder",
+      "Value": "xbox_lb"
+    },
+    {
+      "Key": "/Gamepad/rightShoulder",
+      "Value": "xbox_rb"
+    },
+    {
+      "Key": "/Gamepad/buttonSouth",
+      "Value": "xbox_button_a"
+    },
+    {
+      "Key": "/Gamepad/buttonEast",
+      "Value": "xbox_button_b"
+    },
+    {
+      "Key": "/Gamepad/buttonWest",
+      "Value": "xbox_button_x"
+    },
+    {
+      "Key": "/Gamepad/buttonNorth",
+      "Value": "xbox_button_y"
+    },
+    {
+      "Key": "/Gamepad/leftTrigger",
+      "Value": "xbox_lt"
+    },
+    {
+      "Key": "/Gamepad/rightTrigger",
+      "Value": "xbox_rt"
+    },
+    {
+      "Key": "/Gamepad/leftStick",
+      "Value": "xbox_stick_l"
+    },
+    {
+      "Key": "/Gamepad/leftStick/up",
+      "Value": "xbox_stick_l_up"
+    },
+    {
+      "Key": "/Gamepad/leftStick/x",
+      "Value": "xbox_stick_l_horizontal"
+    },
+    {
+      "Key": "/Gamepad/leftStick/y",
+      "Value": "xbox_stick_l_vertical"
+    },
+    {
+      "Key": "/Gamepad/leftStick/down",
+      "Value": "xbox_stick_l_down"
+    },
+    {
+      "Key": "/Gamepad/leftStick/left",
+      "Value": "xbox_stick_l_left"
+    },
+    {
+      "Key": "/Gamepad/leftStick/right",
+      "Value": "xbox_stick_l_right"
+    },
+    {
+      "Key": "/Gamepad/rightStick",
+      "Value": "xbox_stick_r"
+    },
+    {
+      "Key": "/Gamepad/rightStick/up",
+      "Value": "xbox_stick_r_up"
+    },
+    {
+      "Key": "/Gamepad/rightStick/x",
+      "Value": "xbox_stick_r_horizontal"
+    },
+    {
+      "Key": "/Gamepad/rightStick/y",
+      "Value": "xbox_stick_r_vertical"
+    },
+    {
+      "Key": "/Gamepad/rightStick/down",
+      "Value": "xbox_stick_r_down"
+    },
+    {
+      "Key": "/Gamepad/rightStick/left",
+      "Value": "xbox_stick_r_left"
+    },
+    {
+      "Key": "/Gamepad/rightStick/right",
+      "Value": "xbox_stick_r_right"
+    }
+  ]
+}

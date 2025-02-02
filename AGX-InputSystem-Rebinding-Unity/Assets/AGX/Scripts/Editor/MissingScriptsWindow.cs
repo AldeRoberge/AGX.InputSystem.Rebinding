@@ -14,7 +14,7 @@ namespace AGX.Scripts.Editor
         [SerializeField]
         private List<GameObject> _objectsWithMissingScriptsInCurrentScene = new();
 
-        [MenuItem("Tools/Find missing scripts")]
+        [MenuItem("Tools/Find Missing Scripts")]
         public static void ShowWindow()
         {
             GetWindow(typeof(MissingScriptWindow));
@@ -122,20 +122,16 @@ namespace AGX.Scripts.Editor
             foreach (var assetPath in allAssets)
             {
                 if (assetPath.StartsWith("Packages/"))
-                {
                     continue;
-                }
 
-                if (Path.GetExtension(assetPath) == ".prefab")
-                {
-                    var assetRoot = AssetDatabase.LoadAssetAtPath<GameObject>(assetPath);
-                    var components = assetRoot.GetComponentsInChildren<Component>(true);
-                    var hasMissingScript = components.Any(c => c == null);
-                    if (hasMissingScript)
-                    {
-                        _missingAssets.Add(assetPath);
-                    }
-                }
+                if (Path.GetExtension(assetPath) != ".prefab") continue;
+
+                var assetRoot = AssetDatabase.LoadAssetAtPath<GameObject>(assetPath);
+                var components = assetRoot.GetComponentsInChildren<Component>(true);
+                var hasMissingScript = components.Any(c => c == null);
+                
+                if (hasMissingScript) 
+                    _missingAssets.Add(assetPath);
             }
         }
     }

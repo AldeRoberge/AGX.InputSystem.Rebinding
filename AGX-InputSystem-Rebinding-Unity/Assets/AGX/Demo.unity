@@ -719,8 +719,14 @@ PrefabInstance:
     - target: {fileID: 8430003413874098648, guid: a05379416e5949b4b9bc5e3e0464d1b8,
         type: 3}
       propertyPath: m_text
-      value: <sprite="General/General" name="Joystick"> Chat
+      value: <sprite="General/General" name="Chat"> Chat
       objectReference: {fileID: 0}
+    - target: {fileID: 8430003413874098648, guid: a05379416e5949b4b9bc5e3e0464d1b8,
+        type: 3}
+      propertyPath: m_spriteAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5700ff02e2b803b4a9f44570d850e385,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7402,10 +7408,16 @@ PrefabInstance:
     - target: {fileID: 8430003413874098648, guid: a05379416e5949b4b9bc5e3e0464d1b8,
         type: 3}
       propertyPath: m_text
-      value: '<sprite="General/General" name="Joystick"> Minimap
+      value: '<sprite="General/General" name="Minimap"> Minimap
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 8430003413874098648, guid: a05379416e5949b4b9bc5e3e0464d1b8,
+        type: 3}
+      propertyPath: m_spriteAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5700ff02e2b803b4a9f44570d850e385,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11092,7 +11104,7 @@ GameObject:
   - component: {fileID: 1448459152}
   - component: {fileID: 1448459151}
   m_Layer: 0
-  m_Name: Input Device Icons
+  m_Name: Icons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12639,8 +12651,14 @@ PrefabInstance:
     - target: {fileID: 8430003413874098648, guid: a05379416e5949b4b9bc5e3e0464d1b8,
         type: 3}
       propertyPath: m_text
-      value: <sprite="General/General" name="Joystick"> Inventory
+      value: <sprite="General/General" name="Inventory"> Inventory
       objectReference: {fileID: 0}
+    - target: {fileID: 8430003413874098648, guid: a05379416e5949b4b9bc5e3e0464d1b8,
+        type: 3}
+      propertyPath: m_spriteAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5700ff02e2b803b4a9f44570d850e385,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13780,7 +13798,7 @@ PrefabInstance:
     - target: {fileID: 8430003413874098648, guid: a05379416e5949b4b9bc5e3e0464d1b8,
         type: 3}
       propertyPath: m_text
-      value: <sprite="General/General" name="Joystick"> Menu
+      value: <sprite="General/General" name="Menu"> Menu
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14315,10 +14333,16 @@ PrefabInstance:
     - target: {fileID: 8430003413874098648, guid: a05379416e5949b4b9bc5e3e0464d1b8,
         type: 3}
       propertyPath: m_text
-      value: '<sprite="General/General" name="Joystick"> Minimap
+      value: '<sprite="General/General" name="Cheats"> Cheats
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 8430003413874098648, guid: a05379416e5949b4b9bc5e3e0464d1b8,
+        type: 3}
+      propertyPath: m_spriteAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5700ff02e2b803b4a9f44570d850e385,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14550,8 +14574,14 @@ PrefabInstance:
     - target: {fileID: 8430003413874098648, guid: a05379416e5949b4b9bc5e3e0464d1b8,
         type: 3}
       propertyPath: m_text
-      value: <sprite="General/General" name="Joystick"> Camera
+      value: <sprite="General/General" name="Camera"> Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 8430003413874098648, guid: a05379416e5949b4b9bc5e3e0464d1b8,
+        type: 3}
+      propertyPath: m_spriteAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5700ff02e2b803b4a9f44570d850e385,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17852,7 +17882,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 362498011}
   m_Direction: 2
   m_Value: 0.5
-  m_Size: 0.2380124
+  m_Size: 0.24028522
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -19360,6 +19390,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gameplay
       objectReference: {fileID: 0}
+    - target: {fileID: 8430003413874098648, guid: a05379416e5949b4b9bc5e3e0464d1b8,
+        type: 3}
+      propertyPath: m_text
+      value: <sprite="General/General" name="Gameplay"> Gameplay
+      objectReference: {fileID: 0}
+    - target: {fileID: 8430003413874098648, guid: a05379416e5949b4b9bc5e3e0464d1b8,
+        type: 3}
+      propertyPath: m_spriteAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5700ff02e2b803b4a9f44570d850e385,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
