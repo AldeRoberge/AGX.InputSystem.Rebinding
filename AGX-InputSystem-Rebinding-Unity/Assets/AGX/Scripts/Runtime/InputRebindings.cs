@@ -181,6 +181,9 @@ namespace AGX.Scripts.Runtime
     public class ControlsData
     {
         [ShowInInspector, SerializeField, ReadOnly]
+        public InputAction InputAction;
+
+        [ShowInInspector, SerializeField, ReadOnly]
         public InputBinding InputBinding;
 
         [ShowInInspector, SerializeField, ReadOnly]
