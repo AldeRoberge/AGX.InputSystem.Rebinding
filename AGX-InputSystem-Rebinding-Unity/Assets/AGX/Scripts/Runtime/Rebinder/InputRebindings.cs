@@ -4,31 +4,32 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace AGX.Scripts.Runtime
+namespace AGX.Scripts.Runtime.Rebinder
 {
-    [CreateAssetMenu(fileName = "InputRebindings", menuName = "AGX/Input Rebindings")]
-    public class InputRebindings : ScriptableObject
+    [Serializable]
+    public class InputRebindings
     {
-        public List<ActionMapControls> ActionMapDatas => inputActionRebindings;
+        [SerializeField]
+        public List<ActionMapControls> InputActionRebindings = new();
 
-        [SerializeField, HideLabel]
-        private List<ActionMapControls> inputActionRebindings = new();
-
-
-        /// <summary>
-        /// Rebuilds the rebindings based on the provided InputActionAsset.
-        /// </summary>
-        /// <param name="inputActions">The InputActionAsset containing the input actions.</param>
-        public void Rebuild(InputActionAsset inputActions)
+        public static InputRebindings Create(InputActionAsset inputActions)
         {
             if (inputActions == null)
             {
                 Debug.LogError("InputActionAsset is null.");
-                return;
+                return new InputRebindings();
             }
 
+            var rebindings = new InputRebindings();
+            rebindings.BuildRebindings(inputActions);
+
+            return rebindings;
+        }
+
+        private void BuildRebindings(InputActionAsset inputActions)
+        {
             // Clear existing rebindings before rebuilding.
-            inputActionRebindings.Clear();
+            InputActionRebindings.Clear();
 
             // Process each action map in the input action asset
             foreach (var actionMap in inputActions.actionMaps)
@@ -73,14 +74,14 @@ namespace AGX.Scripts.Runtime
         /// <summary>
         /// Groups the bindings by their composite type (if any).
         /// </summary>
-        private List<ControlsData> GroupBindings(InputAction action)
+        private List<ControlsData> GroupBindings(InputAction inputAction)
         {
             var groupedBindings = new List<ControlsData>();
             ControlsData currentGroup = null;
 
-            for (int i = 0; i < action.bindings.Count; i++)
+            for (int i = 0; i < inputAction.bindings.Count; i++)
             {
-                var binding = action.bindings[i];
+                var binding = inputAction.bindings[i];
 
                 if (binding.isComposite)
                 {
@@ -93,11 +94,35 @@ namespace AGX.Scripts.Runtime
                         groupedBindings.Add(currentGroup);
                     }
 
+                    if (inputAction == null)
+                    {
+                        Debug.LogError("Null input action");
+                        continue;
+                    }
+                    else
+                    {
+                        Debug.Log("Input action is not null");
+                    }
+
+                    var reference = InputActionReference.Create(inputAction);
+
+                    if (reference == null)
+                    {
+                        Debug.LogError("Null reference");
+                    }
+                    else
+                    {
+                        Debug.Log("Reference is not null");
+                    }
+
+
+                    Debug.Log(reference.GetType().FullName);
+
                     // Start a new group
                     currentGroup = new ControlsData
                     {
-                        InputAction = action,
-                        Action = action.name,
+                        InputActionReference = reference,
+                        Action = inputAction.name,
                         Group = binding.groups,
                         CompositeType = compositeIdentifier,
                         StartIndex = i,
@@ -127,7 +152,7 @@ namespace AGX.Scripts.Runtime
                     // Add this as a standalone binding
                     groupedBindings.Add(new ControlsData
                     {
-                        Action = action.name,
+                        Action = inputAction.name,
                         Group = binding.groups,
                         CompositeType = "",
                         StartIndex = i,
@@ -140,7 +165,7 @@ namespace AGX.Scripts.Runtime
             // Add the last group if it exists
             if (currentGroup != null)
             {
-                currentGroup.StopIndex = action.bindings.Count - 1;
+                currentGroup.StopIndex = inputAction.bindings.Count - 1;
                 groupedBindings.Add(currentGroup);
             }
 
@@ -154,13 +179,13 @@ namespace AGX.Scripts.Runtime
         private ActionMapControls GetOrCreateRebindingEntry(string actionMapName)
         {
             // Try to find the rebinding entry for the given action map name
-            var actionRebinding = inputActionRebindings.Find(rebinding => rebinding.ActionMap == actionMapName);
+            var actionRebinding = InputActionRebindings.Find(rebinding => rebinding.ActionMap == actionMapName);
 
             // If not found, create a new one and add it to the list
             if (actionRebinding == null)
             {
                 actionRebinding = new ActionMapControls { ActionMap = actionMapName };
-                inputActionRebindings.Add(actionRebinding);
+                InputActionRebindings.Add(actionRebinding);
             }
 
             return actionRebinding;
@@ -173,15 +198,18 @@ namespace AGX.Scripts.Runtime
         [ShowInInspector, SerializeField, ReadOnly]
         public string ActionMap;
 
-        [ShowInInspector, SerializeField, ReadOnly, HideLabel]
+        [ShowInInspector, SerializeField, ReadOnly]
         public List<ControlsData> Controls = new();
+
+        [ShowInInspector, SerializeField]
+        public bool IsIncludedInRebindingUI = true;
     }
 
     [Serializable]
     public class ControlsData
     {
         [ShowInInspector, SerializeField, ReadOnly]
-        public InputAction InputAction;
+        public InputActionReference InputActionReference;
 
         [ShowInInspector, SerializeField, ReadOnly]
         public InputBinding InputBinding;

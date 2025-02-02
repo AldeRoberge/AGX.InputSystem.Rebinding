@@ -4,8 +4,8 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace AGX.Scripts.Runtime
-{
+namespace AGX.Scripts.Runtime.Rebinder
+{ 
     /// <summary>
     /// Used to display icons for InputActionReferences in UI elements.
     /// I.e. to show a Settings icon sprite for the "Open Settings" action.

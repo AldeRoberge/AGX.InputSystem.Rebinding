@@ -1,8 +1,7 @@
-using AGX.Scripts.Runtime.Rebinder;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace AGX.Scripts.Runtime
+namespace AGX.Scripts.Runtime.Rebinder
 {
     public class ActionRebindersContent : MonoBehaviour
     {
@@ -24,18 +23,22 @@ namespace AGX.Scripts.Runtime
 
         private void ParseActionMap()
         {
-            foreach (var inputRebinding in _inputRebindings.ActionMapDatas)
+            foreach (var inputRebinding in _inputRebindings.InputActionRebindings)
             {
-                AddActionMapCategory(inputRebinding.ActionMap);
+                // Skip non-included rebindings
+                if (!inputRebinding.IsIncludedInRebindingUI)
+                    continue;
+
+                CreateActionMapCategoryHeader(inputRebinding.ActionMap);
 
                 foreach (ControlsData? binding in inputRebinding.Controls)
                 {
-                    AddAction(binding);
+                    AddActionRebindingButton(binding);
                 }
             }
         }
 
-        private void AddAction(ControlsData? bindingData)
+        private void AddActionRebindingButton(ControlsData? bindingData)
         {
             if (bindingData == null)
                 return;
@@ -46,7 +49,7 @@ namespace AGX.Scripts.Runtime
             newRebinder.gameObject.SetActive(true);
         }
 
-        private void AddActionMapCategory(string category)
+        private void CreateActionMapCategoryHeader(string category)
         {
             if (string.IsNullOrWhiteSpace(category))
             {

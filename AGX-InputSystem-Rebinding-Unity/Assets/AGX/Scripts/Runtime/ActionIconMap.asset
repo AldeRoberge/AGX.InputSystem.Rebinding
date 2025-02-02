@@ -9,7 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bab451c5ed644dabad947ce17bfcf565, type: 3}
-  m_Name: InputRebindings
+  m_Script: {fileID: 11500000, guid: 4b2639c4709d8a6429ddede18837b25d, type: 3}
+  m_Name: ActionIconMap
   m_EditorClassIdentifier: 
-  inputActionRebindings: []
+  ActionIcons:
+  - Action: {fileID: 5239092889159039155, guid: bf1efc4e6801b6b40a5a572caa5feaa4,
+      type: 3}
+    Icon: {fileID: 21300000, guid: 31192da487f860b4da63a1501176ae35, type: 3}

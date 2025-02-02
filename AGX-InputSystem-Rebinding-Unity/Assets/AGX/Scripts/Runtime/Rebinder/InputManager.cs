@@ -2,13 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using AGX.Runtime;
-using AGX.Scripts.Runtime.Rebinder;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 using Object = UnityEngine.Object;
 
-namespace AGX.Scripts.Runtime
+namespace AGX.Scripts.Runtime.Rebinder
 {
     public static class InputManager
     {

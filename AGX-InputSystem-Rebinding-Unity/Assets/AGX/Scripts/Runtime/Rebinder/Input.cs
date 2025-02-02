@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-namespace AGX.Scripts.Runtime
+namespace AGX.Scripts.Runtime.Rebinder
 {
     [DefaultExecutionOrder(-99999)]
     public class Input : Singleton<Input>, InputActions.IGameplayActions, InputActions.IMenuActions, InputActions.ICheatsActions

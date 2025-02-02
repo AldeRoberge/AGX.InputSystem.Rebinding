@@ -485,6 +485,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6937631338274166556, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
+      propertyPath: _actionIconMap
+      value: 
+      objectReference: {fileID: 11400000, guid: 995005a2215768b4d9abdeb6c1255c0d,
+        type: 2}
+    - target: {fileID: 6937631338274166556, guid: a0f60e4b636033a40a0979db346d8dd8,
+        type: 3}
       propertyPath: _rebindOverlay
       value: 
       objectReference: {fileID: 74857982}
@@ -1024,6 +1030,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding: {x: -8, y: -5, z: -8, w: -5}
   m_Softness: {x: 0, y: 0}
+--- !u!114 &234615237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: Gameplay/Gameplay Move
+  m_EditorClassIdentifier: 
+  m_Asset: {fileID: -944628639613478452, guid: bf1efc4e6801b6b40a5a572caa5feaa4, type: 3}
+  m_ActionId: 4fd14f9f-52fc-415d-ae4a-c053633de383
 --- !u!1 &349759212
 GameObject:
   m_ObjectHideFlags: 0
@@ -1234,6 +1254,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 362498010}
   m_CullTransparentMesh: 1
+--- !u!114 &379645745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: Camera/Camera Rotate
+  m_EditorClassIdentifier: 
+  m_Asset: {fileID: -944628639613478452, guid: bf1efc4e6801b6b40a5a572caa5feaa4, type: 3}
+  m_ActionId: be849998-5e5f-43f7-ac8b-1b4e1d9874fb
+--- !u!114 &494891234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: Camera/Camera Rotate
+  m_EditorClassIdentifier: 
+  m_Asset: {fileID: -944628639613478452, guid: bf1efc4e6801b6b40a5a572caa5feaa4, type: 3}
+  m_ActionId: be849998-5e5f-43f7-ac8b-1b4e1d9874fb
 --- !u!1 &589398709
 GameObject:
   m_ObjectHideFlags: 0
@@ -1947,6 +1995,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 744796163}
   m_CullTransparentMesh: 1
+--- !u!114 &753862847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: Gameplay/Gameplay Move
+  m_EditorClassIdentifier: 
+  m_Asset: {fileID: -944628639613478452, guid: bf1efc4e6801b6b40a5a572caa5feaa4, type: 3}
+  m_ActionId: 4fd14f9f-52fc-415d-ae4a-c053633de383
 --- !u!1 &789142651
 GameObject:
   m_ObjectHideFlags: 0
@@ -2764,6 +2826,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1137694252}
   m_CullTransparentMesh: 1
+--- !u!114 &1248954739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: Gameplay/Gameplay Exit
+  m_EditorClassIdentifier: 
+  m_Asset: {fileID: -944628639613478452, guid: bf1efc4e6801b6b40a5a572caa5feaa4, type: 3}
+  m_ActionId: 641acd43-61dd-4a5b-9740-76dcc5cb377f
 --- !u!1 &1254042089
 GameObject:
   m_ObjectHideFlags: 0
@@ -3376,6 +3452,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputField: {fileID: 1504294932}
   _clearButton: {fileID: 1454325563}
+--- !u!114 &1538862162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: Inventory/Inventory Scroll
+  m_EditorClassIdentifier: 
+  m_Asset: {fileID: -944628639613478452, guid: bf1efc4e6801b6b40a5a572caa5feaa4, type: 3}
+  m_ActionId: 5805ca4d-8023-4889-8ca1-62e30ff0f414
 --- !u!1 &1622659287
 GameObject:
   m_ObjectHideFlags: 0
@@ -3490,12 +3580,1728 @@ MonoBehaviour:
   m_GameObject: {fileID: 1622659287}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 589cc523ae06c304280064d6161c87d0, type: 3}
+  m_Script: {fileID: 11500000, guid: 6103d69a6f8616943aa1b976b239ac7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _inputActions: {fileID: -944628639613478452, guid: bf1efc4e6801b6b40a5a572caa5feaa4,
     type: 3}
-  _inputRebindings: {fileID: 11400000, guid: 211b85b4c46d27b488919377da0bed3c, type: 2}
+  _inputRebindings:
+    InputActionRebindings:
+    - ActionMap: Gameplay
+      Controls:
+      - InputActionReference: {fileID: 234615237}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Gameplay Move
+        Group: 
+        CompositeType: 2DVector_Keyboard WASD
+        StartIndex: 0
+        StopIndex: 4
+        Paths:
+        - <Keyboard>/w
+        - <Keyboard>/s
+        - <Keyboard>/a
+        - <Keyboard>/d
+      - InputActionReference: {fileID: 753862847}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Gameplay Move
+        Group: 
+        CompositeType: 2DVector_Keyboard Arrows
+        StartIndex: 5
+        StopIndex: 9
+        Paths:
+        - <Keyboard>/upArrow
+        - <Keyboard>/downArrow
+        - <Keyboard>/leftArrow
+        - <Keyboard>/rightArrow
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Gameplay Move
+        Group: ;Gamepad
+        CompositeType: 
+        StartIndex: 10
+        StopIndex: 10
+        Paths:
+        - <Gamepad>/leftStick
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Gameplay Aim
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 0
+        StopIndex: 0
+        Paths:
+        - <Mouse>/delta
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Gameplay Aim
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 1
+        StopIndex: 1
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Gameplay Aim
+        Group: ;Gamepad
+        CompositeType: 
+        StartIndex: 2
+        StopIndex: 2
+        Paths:
+        - <Gamepad>/rightStick
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Gameplay Interact
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 0
+        StopIndex: 0
+        Paths:
+        - <Mouse>/leftButton
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Gameplay Interact
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 1
+        StopIndex: 1
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Gameplay Interact
+        Group: ;Gamepad
+        CompositeType: 
+        StartIndex: 2
+        StopIndex: 2
+        Paths:
+        - <Gamepad>/buttonSouth
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Gameplay Attack Toggle
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 0
+        StopIndex: 0
+        Paths:
+        - <Keyboard>/i
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Gameplay Attack Toggle
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 1
+        StopIndex: 1
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Gameplay Attack Toggle
+        Group: ;Gamepad
+        CompositeType: 
+        StartIndex: 2
+        StopIndex: 2
+        Paths:
+        - <Gamepad>/rightTrigger
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Gameplay Quick Heal
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 0
+        StopIndex: 0
+        Paths:
+        - <Keyboard>/f
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Gameplay Quick Heal
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 1
+        StopIndex: 1
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Gameplay Quick Heal
+        Group: ;Gamepad
+        CompositeType: 
+        StartIndex: 2
+        StopIndex: 2
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Gameplay Exit
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 0
+        StopIndex: 0
+        Paths:
+        - <Keyboard>/escape
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Gameplay Exit
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 1
+        StopIndex: 1
+        Paths:
+        - 
+      - InputActionReference: {fileID: 1248954739}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Gameplay Exit
+        Group: 
+        CompositeType: OneModifier_Triggers [Gamepad]
+        StartIndex: 2
+        StopIndex: 4
+        Paths:
+        - <Gamepad>/leftTrigger
+        - <Gamepad>/rightTrigger
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Gameplay Cancel
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 0
+        StopIndex: 0
+        Paths:
+        - <Keyboard>/escape
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Gameplay Cancel
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 1
+        StopIndex: 1
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Gameplay Cancel
+        Group: ;Gamepad
+        CompositeType: 
+        StartIndex: 2
+        StopIndex: 2
+        Paths:
+        - <Gamepad>/buttonEast
+      IsIncludedInRebindingUI: 1
+    - ActionMap: Inventory
+      Controls:
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Scroll
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 0
+        StopIndex: 0
+        Paths:
+        - <Mouse>/scroll
+      - InputActionReference: {fileID: 1538862162}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Scroll
+        Group: 
+        CompositeType: 1DAxis_Shoulders [Gamepad]
+        StartIndex: 1
+        StopIndex: 3
+        Paths:
+        - <Gamepad>/leftShoulder
+        - <Gamepad>/rightShoulder
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Scroll
+        Group: ;Gamepad
+        CompositeType: 
+        StartIndex: 4
+        StopIndex: 4
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Select Slot 1
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 0
+        StopIndex: 0
+        Paths:
+        - <Keyboard>/1
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Select Slot 1
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 1
+        StopIndex: 1
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Select Slot 1
+        Group: ;Gamepad
+        CompositeType: 
+        StartIndex: 2
+        StopIndex: 2
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Select Slot 2
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 0
+        StopIndex: 0
+        Paths:
+        - <Keyboard>/2
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Select Slot 2
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 1
+        StopIndex: 1
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Select Slot 2
+        Group: ;Gamepad
+        CompositeType: 
+        StartIndex: 2
+        StopIndex: 2
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Select Slot 3
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 0
+        StopIndex: 0
+        Paths:
+        - <Keyboard>/3
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Select Slot 3
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 1
+        StopIndex: 1
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Select Slot 3
+        Group: ;Gamepad
+        CompositeType: 
+        StartIndex: 2
+        StopIndex: 2
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Select Slot 4
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 0
+        StopIndex: 0
+        Paths:
+        - <Keyboard>/4
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Select Slot 4
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 1
+        StopIndex: 1
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Select Slot 4
+        Group: ;Gamepad
+        CompositeType: 
+        StartIndex: 2
+        StopIndex: 2
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Select Slot 5
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 0
+        StopIndex: 0
+        Paths:
+        - <Keyboard>/5
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Select Slot 5
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 1
+        StopIndex: 1
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Select Slot 5
+        Group: ;Gamepad
+        CompositeType: 
+        StartIndex: 2
+        StopIndex: 2
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Select Slot 6
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 0
+        StopIndex: 0
+        Paths:
+        - <Keyboard>/6
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Select Slot 6
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 1
+        StopIndex: 1
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Select Slot 6
+        Group: ;Gamepad
+        CompositeType: 
+        StartIndex: 2
+        StopIndex: 2
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Select Slot 7
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 0
+        StopIndex: 0
+        Paths:
+        - <Keyboard>/7
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Select Slot 7
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 1
+        StopIndex: 1
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Select Slot 7
+        Group: ;Gamepad
+        CompositeType: 
+        StartIndex: 2
+        StopIndex: 2
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Select Slot 8
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 0
+        StopIndex: 0
+        Paths:
+        - <Keyboard>/8
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Select Slot 8
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 1
+        StopIndex: 1
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Select Slot 8
+        Group: ;Gamepad
+        CompositeType: 
+        StartIndex: 2
+        StopIndex: 2
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Select Slot 9
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 0
+        StopIndex: 0
+        Paths:
+        - <Keyboard>/9
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Select Slot 9
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 1
+        StopIndex: 1
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Select Slot 9
+        Group: ;Gamepad
+        CompositeType: 
+        StartIndex: 2
+        StopIndex: 2
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Drop
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 0
+        StopIndex: 0
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Drop
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 1
+        StopIndex: 1
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Drop
+        Group: ;Gamepad
+        CompositeType: 
+        StartIndex: 2
+        StopIndex: 2
+        Paths:
+        - <Gamepad>/buttonEast
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Swap
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 0
+        StopIndex: 0
+        Paths:
+        - <Keyboard>/f
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Swap
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 1
+        StopIndex: 1
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Inventory Swap
+        Group: ;Gamepad
+        CompositeType: 
+        StartIndex: 2
+        StopIndex: 2
+        Paths:
+        - <Gamepad>/buttonNorth
+      IsIncludedInRebindingUI: 1
+    - ActionMap: Menu
+      Controls:
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Menu Open
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 0
+        StopIndex: 0
+        Paths:
+        - <Keyboard>/o
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Menu Open
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 1
+        StopIndex: 1
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Menu Open
+        Group: ;Gamepad
+        CompositeType: 
+        StartIndex: 2
+        StopIndex: 2
+        Paths:
+        - <Gamepad>/start
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Menu Profile Open
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 0
+        StopIndex: 0
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Menu Profile Open
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 1
+        StopIndex: 1
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Menu Profile Open
+        Group: ;Gamepad
+        CompositeType: 
+        StartIndex: 2
+        StopIndex: 2
+        Paths:
+        - <Gamepad>/select
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Menu Minimap Open
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 0
+        StopIndex: 0
+        Paths:
+        - <Keyboard>/m
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Menu Minimap Open
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 1
+        StopIndex: 1
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Menu Minimap Open
+        Group: ;Gamepad
+        CompositeType: 
+        StartIndex: 2
+        StopIndex: 2
+        Paths:
+        - 
+      IsIncludedInRebindingUI: 1
+    - ActionMap: Chat
+      Controls:
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Chat Public Start
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 0
+        StopIndex: 0
+        Paths:
+        - <Keyboard>/t
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Chat Public Start
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 1
+        StopIndex: 1
+        Paths:
+        - <Keyboard>/enter
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Chat Public Start
+        Group: ;Gamepad
+        CompositeType: 
+        StartIndex: 2
+        StopIndex: 2
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Chat Guild Start
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 0
+        StopIndex: 0
+        Paths:
+        - <Keyboard>/g
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Chat Guild Start
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 1
+        StopIndex: 1
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Chat Guild Start
+        Group: ;Gamepad
+        CompositeType: 
+        StartIndex: 2
+        StopIndex: 2
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Chat Private Start
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 0
+        StopIndex: 0
+        Paths:
+        - <Keyboard>/tab
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Chat Private Start
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 1
+        StopIndex: 1
+        Paths:
+        - <Keyboard>/p
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Chat Private Start
+        Group: ;Gamepad
+        CompositeType: 
+        StartIndex: 2
+        StopIndex: 2
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Chat Cancel
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 0
+        StopIndex: 0
+        Paths:
+        - <Keyboard>/escape
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Chat Cancel
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 1
+        StopIndex: 1
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Chat Cancel
+        Group: ;Gamepad
+        CompositeType: 
+        StartIndex: 2
+        StopIndex: 2
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Chat Send
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 0
+        StopIndex: 0
+        Paths:
+        - <Keyboard>/enter
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Chat Send
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 1
+        StopIndex: 1
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Chat Send
+        Group: ;Gamepad
+        CompositeType: 
+        StartIndex: 2
+        StopIndex: 2
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Ping
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 0
+        StopIndex: 0
+        Paths:
+        - <Mouse>/middleButton
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Ping
+        Group: ;Gamepad
+        CompositeType: 
+        StartIndex: 1
+        StopIndex: 1
+        Paths:
+        - <Gamepad>/rightStickPress
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Ping
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 2
+        StopIndex: 2
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Emote
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 0
+        StopIndex: 0
+        Paths:
+        - <Keyboard>/x
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Emote
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 1
+        StopIndex: 1
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Emote
+        Group: ;Gamepad
+        CompositeType: 
+        StartIndex: 2
+        StopIndex: 2
+        Paths:
+        - <Gamepad>/buttonWest
+      IsIncludedInRebindingUI: 1
+    - ActionMap: Camera
+      Controls:
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Camera Zoom
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 0
+        StopIndex: 0
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Camera Zoom
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 1
+        StopIndex: 1
+        Paths:
+        - <Mouse>/scroll
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Camera Zoom
+        Group: ;Gamepad
+        CompositeType: 
+        StartIndex: 2
+        StopIndex: 2
+        Paths:
+        - <Gamepad>/dpad
+      - InputActionReference: {fileID: 1694017982}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Camera Rotate
+        Group: 
+        CompositeType: 1DAxis_QE [Keyboard]
+        StartIndex: 0
+        StopIndex: 2
+        Paths:
+        - <Keyboard>/q
+        - <Keyboard>/e
+      - InputActionReference: {fileID: 494891234}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Camera Rotate
+        Group: 
+        CompositeType: 1DAxis_1D Axis
+        StartIndex: 3
+        StopIndex: 5
+        Paths:
+        - 
+        - 
+      - InputActionReference: {fileID: 379645745}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Camera Rotate
+        Group: 
+        CompositeType: 1DAxis_1D Axis
+        StartIndex: 6
+        StopIndex: 8
+        Paths:
+        - 
+        - 
+      IsIncludedInRebindingUI: 1
+    - ActionMap: Minimap
+      Controls:
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Zoom Minimap
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 0
+        StopIndex: 0
+        Paths:
+        - <Mouse>/scroll
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Zoom Minimap
+        Group: 
+        CompositeType: 
+        StartIndex: 1
+        StopIndex: 1
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Zoom Minimap
+        Group: ;Gamepad
+        CompositeType: 
+        StartIndex: 2
+        StopIndex: 2
+        Paths:
+        - 
+      IsIncludedInRebindingUI: 1
+    - ActionMap: Cheats
+      Controls:
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Debug Toggle
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 0
+        StopIndex: 0
+        Paths:
+        - <Keyboard>/backquote
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Debug Toggle
+        Group: ;Keyboard
+        CompositeType: 
+        StartIndex: 1
+        StopIndex: 1
+        Paths:
+        - 
+      - InputActionReference: {fileID: 0}
+        InputBinding:
+          m_Name: 
+          m_Id: 
+          m_Path: 
+          m_Interactions: 
+          m_Processors: 
+          m_Groups: 
+          m_Action: 
+          m_Flags: 0
+        Action: Debug Toggle
+        Group: ;Gamepad
+        CompositeType: 
+        StartIndex: 2
+        StopIndex: 2
+        Paths:
+        - 
+      IsIncludedInRebindingUI: 1
 --- !u!1 &1629779169
 GameObject:
   m_ObjectHideFlags: 0
@@ -3920,6 +5726,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1683332087}
   m_CullTransparentMesh: 1
+--- !u!114 &1694017982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: Camera/Camera Rotate
+  m_EditorClassIdentifier: 
+  m_Asset: {fileID: -944628639613478452, guid: bf1efc4e6801b6b40a5a572caa5feaa4, type: 3}
+  m_ActionId: be849998-5e5f-43f7-ac8b-1b4e1d9874fb
 --- !u!1 &1704252455
 GameObject:
   m_ObjectHideFlags: 0
@@ -4322,6 +6142,7 @@ GameObject:
   - component: {fileID: 1865093160}
   - component: {fileID: 1865093159}
   - component: {fileID: 1865093158}
+  - component: {fileID: 1865093161}
   m_Layer: 5
   m_Name: Panel Content Input Action Rebinders
   m_TagString: Untagged
@@ -4420,6 +6241,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1865093156}
   m_CullTransparentMesh: 1
+--- !u!114 &1865093161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865093156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e7536ad11455394f9900b79d0128b9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scrollRect: {fileID: 1865093158}
 --- !u!1 &1902889311
 GameObject:
   m_ObjectHideFlags: 0
@@ -4506,8 +6340,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1909273952}
   - component: {fileID: 1909273953}
-  - component: {fileID: 1909273954}
   - component: {fileID: 1909273955}
+  - component: {fileID: 1909273956}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -4563,21 +6397,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &1909273954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1909273951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b302adf5cf19f0b479ab8feb00ac36d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _actionRebindersCategoryPrefab: {fileID: 2008421744}
-  _actionRebindersPrefab: {fileID: 720490008}
-  _inputRebindings: {fileID: 11400000, guid: 211b85b4c46d27b488919377da0bed3c, type: 2}
 --- !u!114 &1909273955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4592,6 +6411,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
+--- !u!114 &1909273956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909273951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2ad9fd956500e247adfcf16760f38d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionRebindersCategoryPrefab: {fileID: 2008421748}
+  _actionRebindersPrefab: {fileID: 720490008}
+  _inputRebindings:
+    InputActionRebindings: []
 --- !u!1 &1979057725
 GameObject:
   m_ObjectHideFlags: 0
@@ -4674,7 +6509,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 362498012}
   m_HandleRect: {fileID: 362498011}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -4820,7 +6655,7 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 6700024818415330160}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2008421744
+--- !u!114 &2008421748
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4829,7 +6664,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2008421738}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84dbe0146f6a4a36ad0304053e15a09a, type: 3}
+  m_Script: {fileID: 11500000, guid: fd6e2aa13397b54449f8a4c7ab7df3ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _title: {fileID: 677879726}
@@ -5378,17 +7213,17 @@ PrefabInstance:
     - target: {fileID: 8143130499171033122, guid: a05379416e5949b4b9bc5e3e0464d1b8,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.13962269
+      value: 0.15471691
       objectReference: {fileID: 0}
     - target: {fileID: 8143130499171033122, guid: a05379416e5949b4b9bc5e3e0464d1b8,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.13962269
+      value: 0.15471691
       objectReference: {fileID: 0}
     - target: {fileID: 8143130499171033122, guid: a05379416e5949b4b9bc5e3e0464d1b8,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.13962269
+      value: 0.15471691
       objectReference: {fileID: 0}
     - target: {fileID: 8143130499171033122, guid: a05379416e5949b4b9bc5e3e0464d1b8,
         type: 3}
@@ -5407,7 +7242,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8405292248837232699, guid: a05379416e5949b4b9bc5e3e0464d1b8,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2008421744}
+      addedObject: {fileID: 2008421748}
   m_SourcePrefab: {fileID: 100100000, guid: a05379416e5949b4b9bc5e3e0464d1b8, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
