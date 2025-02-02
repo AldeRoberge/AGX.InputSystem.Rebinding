@@ -13,14 +13,14 @@ namespace AGX.Scripts.Runtime.Rebinder
     {
         public const int TimeoutSeconds = 12;
 
-        private const string KeyboardEscape    = "<Keyboard>/escape";
         private const string Mouse             = "Mouse";
-        private const string GamepadLeftstick  = "<Gamepad>/leftstick";
-        private const string GamepadRightstick = "<Gamepad>/rightstick";
+        private const string KeyboardEscape    = "<Keyboard>/escape";
+        private const string GamepadLeftStick  = "<Gamepad>/leftstick";
+        private const string GamepadRightStick = "<Gamepad>/rightstick";
 
-        private static InputActions? inputActions;
+        private static InputActions? _inputActions;
 
-        public static InputActions InputActions => inputActions ??= new InputActions();
+        public static InputActions InputActions => _inputActions ??= new InputActions();
 
         public static event Action RebindComplete = delegate { };
         public static event Action RebindCanceled = delegate { };
@@ -30,7 +30,7 @@ namespace AGX.Scripts.Runtime.Rebinder
 
         public static event Action<int> RebindCountChanged = delegate { };
 
-        private static bool debug = false;
+        private static readonly bool _debug = false;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void Initialize()
@@ -38,7 +38,7 @@ namespace AGX.Scripts.Runtime.Rebinder
             RebindComplete = delegate { };
             RebindCanceled = delegate { };
             RebindStarted = delegate { };
-            inputActions = new InputActions();
+            _inputActions = new InputActions();
             _actionRebinders = new List<ActionRebinder>();
             RebindCountChanged = delegate { };
         }
@@ -129,14 +129,14 @@ namespace AGX.Scripts.Runtime.Rebinder
                 rebind.WithControlsExcluding(Mouse);
 
 
-            if (debug)
+            if (_debug)
                 Debug.Log($"Rebinding {actionToRebind.name} at index {bindingIndex} for map {actionToRebind.actionMap.name}");
 
             // Add filtering based on the input action's control type (Keyboard or Gamepad)
             if (actionToRebind.actionMap.name == "Keyboard")
             {
-                rebind.WithControlsExcluding(GamepadLeftstick);
-                rebind.WithControlsExcluding(GamepadRightstick);
+                rebind.WithControlsExcluding(GamepadLeftStick);
+                rebind.WithControlsExcluding(GamepadRightStick);
             }
             else if (actionToRebind.actionMap.name == "Gamepad")
             {
@@ -348,7 +348,7 @@ namespace AGX.Scripts.Runtime.Rebinder
                     }
                 }
 
-                if (debug)
+                if (_debug)
                     Debug.Log("No changes found in composite binding parts.");
                 return false;
             }

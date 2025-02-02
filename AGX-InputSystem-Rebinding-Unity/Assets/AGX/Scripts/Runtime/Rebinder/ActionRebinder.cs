@@ -1,3 +1,4 @@
+using System;
 using System.Text;
 using AGX.Scripts.Runtime.Prompts;
 using Sirenix.OdinInspector;
@@ -8,7 +9,7 @@ using UnityEngine.UI;
 namespace AGX.Scripts.Runtime.Rebinder
 {
     /// <summary>
-    /// Allows rebinding an action to a new key/button/mouse input.
+    /// Allows rebinding an action to a new input.
     /// </summary>
     public class ActionRebinder : MonoBehaviour
     {
@@ -20,7 +21,8 @@ namespace AGX.Scripts.Runtime.Rebinder
         [BoxGroup("References"), SerializeField, Required] private Button          _buttonReset;
         [BoxGroup("References"), SerializeField, Required] private Button          _buttonRebind;
         [BoxGroup("References"), SerializeField]           private bool            _mouseIncluded;
-        [BoxGroup("References"), SerializeField]           private bool            _canBeRebinded = true;
+
+        [BoxGroup("References"), SerializeField, OnValueChanged(nameof(UpdateButtonBasedOnCanBeRebinded))] private bool _canBeRebinded = true;
 
         [SerializeField] private bool _debug;
 
@@ -29,39 +31,44 @@ namespace AGX.Scripts.Runtime.Rebinder
         /// To get the first binding use index 0.
         /// Usually, the second binding will be at index 1, but if the first binding is a composite of 2 controls, the next binding will be at index 5.
         /// </summary>
-        [BoxGroup("References"), SerializeField] private int _selectedBindingStartIndex;
+        [BoxGroup("References"), SerializeField, ReadOnly] private int _selectedBindingStartIndex;
 
-        [BoxGroup("Debug"),ShowInInspector, ReadOnly] private string _actionName;
-        [BoxGroup("Debug"),ShowInInspector, ReadOnly] private bool   _isDirty;
+        [BoxGroup("Debug"), ShowInInspector, ReadOnly] private string _actionName;
+        [BoxGroup("Debug"), ShowInInspector, ReadOnly] private bool   _isDirty;
 
 
-        public void SetBinding()
+        internal void SetBindingIndex(int index)
         {
-            if (!_canBeRebinded)
-            {
-                _buttonRebind.interactable = false;
-                _buttonReset.interactable = false;
+            _selectedBindingStartIndex = index;
+            UpdateUI();
+            name = $"Input Action Rebinder ({_actionName}:{_selectedBindingStartIndex})";
+        }
 
-                _buttonRebind.gameObject.SetActive(false);
-            }
-            else
-            {
-                _buttonRebind.onClick.AddListener(DoRebind);
-                _buttonReset.onClick.AddListener(ResetBinding);
-            }
+        private void UpdateButtonBasedOnCanBeRebinded()
+        {
+            _buttonRebind.interactable = _canBeRebinded;
+            _buttonReset.interactable = _canBeRebinded;
+        }
+
+        private void Awake()
+        {
+            UpdateButtonBasedOnCanBeRebinded();
+
+            _buttonRebind.onClick.AddListener(DoRebind);
+            _buttonReset.onClick.AddListener(ResetBinding);
+
+            name = $"Input Action Rebinder ({_actionName}:{_selectedBindingStartIndex})";
 
             GetBindingInfo();
             UpdateUI();
-            
 
-            name = $"Input Action Rebinder ({_actionName}:{_selectedBindingStartIndex})";
 
             InputManager.RegisterRebind(this);
 
             InputManager.RebindComplete += UpdateUI;
             InputManager.RebindCanceled += UpdateUI;
         }
-        
+
 
         private void OnDestroy()
         {
@@ -87,7 +94,6 @@ namespace AGX.Scripts.Runtime.Rebinder
             _actionName = _actionRebinders.InputAction.name;
         }
 
-        [Button]
         internal void UpdateUI()
         {
             var startIndex = _selectedBindingStartIndex;
@@ -96,8 +102,6 @@ namespace AGX.Scripts.Runtime.Rebinder
             {
                 GetBindingInfo();
             }
-
-            _buttonRebind.gameObject.SetActive(_canBeRebinded);
 
             var action = InputManager.GetAction(_actionName);
             var bindings = InputManager.GetBindings(_actionName);
@@ -154,7 +158,7 @@ namespace AGX.Scripts.Runtime.Rebinder
                     continue;
 
                 // get the action as a string like '/Keyboard/anyKey'
-                var tmpSprite = InputDevicePrompts.GetSprite(b.effectivePath);
+                var tmpSprite = InputDeviceIcons.GetSprite(b.effectivePath);
 
                 if (_debug)
                     Debug.Log($"Binding {i}: name {b.name} - path {b.path} - effective path {b.effectivePath} - sprite {tmpSprite}");

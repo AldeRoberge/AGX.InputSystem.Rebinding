@@ -140,7 +140,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <Keyboard>/w<Keyboard>/s<Keyboard>/a<Keyboard>/d
+  m_text: Unknown
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5f2376ac0631f5841b65bc1821bf792b, type: 2}
   m_sharedMaterial: {fileID: -2888141525992646026, guid: 5f2376ac0631f5841b65bc1821bf792b,
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
+  m_fontSize: 32
   m_fontSizeBase: 48
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 800362840647609458}
   - component: {fileID: 245565668650081327}
   m_Layer: 5
-  m_Name: Input Action Rebinder (Move:5)
+  m_Name: Input Action Rebinder (Gameplay Move:5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -275,7 +275,7 @@ MonoBehaviour:
   _mouseIncluded: 0
   _canBeRebinded: 1
   _debug: 0
-  _selectedBindingStartIndex: 0
+  _selectedBindingStartIndex: 5
 --- !u!1 &2786485128324207020
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,7 +636,7 @@ GameObject:
   - component: {fileID: 6986232547859547272}
   - component: {fileID: 1851242182459269930}
   m_Layer: 5
-  m_Name: Input Action Rebinder (Move:10)
+  m_Name: Input Action Rebinder (Gameplay Move:10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -689,7 +689,7 @@ MonoBehaviour:
   _mouseIncluded: 0
   _canBeRebinded: 1
   _debug: 0
-  _selectedBindingStartIndex: 0
+  _selectedBindingStartIndex: 10
 --- !u!1 &4100831032311894654
 GameObject:
   m_ObjectHideFlags: 0
@@ -1061,7 +1061,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <Gamepad>/leftStick
+  m_text: Unknown
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5f2376ac0631f5841b65bc1821bf792b, type: 2}
   m_sharedMaterial: {fileID: -2888141525992646026, guid: 5f2376ac0631f5841b65bc1821bf792b,
@@ -1143,7 +1143,7 @@ GameObject:
   - component: {fileID: 8738125617541430562}
   - component: {fileID: 8314681865553305727}
   m_Layer: 5
-  m_Name: Input Action Rebinder (Move:0)
+  m_Name: Input Action Rebinder (Gameplay Move:0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1384,7 +1384,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <Keyboard>/upArrow<Keyboard>/downArrow<Keyboard>/leftArrow<Keyboard>/rightArrow
+  m_text: Unknown
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5f2376ac0631f5841b65bc1821bf792b, type: 2}
   m_sharedMaterial: {fileID: -2888141525992646026, guid: 5f2376ac0631f5841b65bc1821bf792b,
@@ -1412,7 +1412,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
+  m_fontSize: 32
   m_fontSizeBase: 48
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1908,7 +1908,7 @@ GameObject:
   - component: {fileID: 6937631338274166556}
   - component: {fileID: 588440301699820892}
   m_Layer: 5
-  m_Name: Input Action Rebinders ()
+  m_Name: Input Action Rebinders (Prefab)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1985,16 +1985,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd4c5f50e9436984eade5fd561f86cdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inputActionReference:
-    m_Name: 
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 69819a5f-4d52-48bc-8636-37e4e2a122ae
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  _actionIconMap: {fileID: 11400000, guid: 10e4b06b9dd4c7b4aa3f10d8d7a670b7, type: 2}
+  _inputAction: {fileID: 0}
+  _actionIconMap: {fileID: 11400000, guid: 995005a2215768b4d9abdeb6c1255c0d, type: 2}
   _actionText: {fileID: 3342403134798985403}
   _rebindOverlay: {fileID: 0}
 --- !u!114 &588440301699820892

@@ -1408,20 +1408,42 @@
             ],
             "bindings": [
                 {
-                    "name": "",
-                    "id": "99fae55d-ad64-43f5-87ba-aef77cb1bea5",
-                    "path": "",
+                    "name": "Scroll [Mouse]",
+                    "id": "19be3f31-7c85-4b4c-8c49-8453be331988",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Camera Zoom",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "f98f7ce7-7c34-45a1-9093-33ddb3b7613c",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
                     "action": "Camera Zoom",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "dc37741b-8fbb-4fe0-a52e-3a4e14ef0adb",
+                    "path": "<Mouse>/scroll",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "Camera Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
                     "id": "0635628a-7bb7-4948-9c12-a4956999f246",
-                    "path": "<Mouse>/scroll",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",

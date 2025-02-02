@@ -5,26 +5,24 @@ using UnityEngine;
 namespace AGX.Scripts.Runtime.Prompts
 {
     [DefaultExecutionOrder(-999)]
-    public class InputDevicePrompts : MonoBehaviour
+    public class InputDeviceIcons : MonoBehaviour
     {
-        public List<TextAsset> _prompts = new();
+        public List<TextAsset> _icons = new();
 
-        private static readonly Dictionary<string, string> InputDeviceSpriteMap = new();
+        private static readonly Dictionary<string, string> InputDeviceToSprite = new();
 
-        private static InputDevicePrompts Instance;
+        private static InputDeviceIcons Instance;
 
         public static string GetSprite(string input)
         {
             if (Instance == null)
-                Instance = FindObjectOfType<InputDevicePrompts>(true);
+                Instance = FindObjectOfType<InputDeviceIcons>(true);
 
-            if (Instance == null)
-            {
-                Debug.LogError("No InputDevicePrompts found in scene");
-                return input;
-            }
+            if (Instance != null) 
+                return Instance.GetSpriteImpl(input);
 
-            return Instance.GetSpriteImpl(input);
+            Debug.LogError("No InputDevicePrompts found in scene");
+            return input;
         }
 
         [ReadOnly]
@@ -56,7 +54,7 @@ namespace AGX.Scripts.Runtime.Prompts
             if (!input.StartsWith("/"))
                 input = "/" + input;
 
-            if (InputDeviceSpriteMap.TryGetValue(input, out var sprite))
+            if (InputDeviceToSprite.TryGetValue(input, out var sprite))
                 return sprite;
 
             // Empty action (no binding)
@@ -72,9 +70,9 @@ namespace AGX.Scripts.Runtime.Prompts
         {
             bool debug = false;
 
-            InputDeviceSpriteMap.Clear();
+            InputDeviceToSprite.Clear();
 
-            foreach (var prompt in _prompts)
+            foreach (var prompt in _icons)
             {
                 if (debug)
                     Debug.Log($"Prompt: {prompt.text}");
@@ -86,7 +84,7 @@ namespace AGX.Scripts.Runtime.Prompts
                     Debug.LogError("InputDevicePrompt is null!");
                     continue;
                 }
-                
+
                 if (debug)
                 {
                     Debug.Log($"Name: {inputDevicePrompt.Name}");
@@ -102,11 +100,11 @@ namespace AGX.Scripts.Runtime.Prompts
 
                 foreach (var mapping in inputDevicePrompt.Mappings)
                 {
-                    InputDeviceSpriteMap[mapping.Path] = GetFullPath($"{inputDevicePrompt.SpriteAsset}/{inputDevicePrompt.Name}", mapping.Sprite);
+                    InputDeviceToSprite[mapping.Path] = GetFullPath($"{inputDevicePrompt.SpriteAsset}/{inputDevicePrompt.Name}", mapping.Sprite);
                 }
             }
 
-            _spriteCount = InputDeviceSpriteMap.Count;
+            _spriteCount = InputDeviceToSprite.Count;
 
             Debug.Log("InputDevicePrompts.Start");
         }
@@ -116,8 +114,7 @@ namespace AGX.Scripts.Runtime.Prompts
             return $"<sprite=\"{spriteAsset}\" name=\"{mappingSprite}\">";
         }
     }
-
-
+    
     public class Mapping
     {
         public string Path { get; set; }
