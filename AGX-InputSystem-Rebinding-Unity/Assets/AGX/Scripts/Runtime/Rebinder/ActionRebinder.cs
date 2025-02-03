@@ -1,6 +1,6 @@
 using System;
 using System.Text;
-using AGX.Scripts.Runtime.Prompts;
+using AGX.Scripts.Runtime.Icons;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -13,7 +13,6 @@ namespace AGX.Scripts.Runtime.Rebinder
     /// </summary>
     public class ActionRebinder : MonoBehaviour
     {
-
         public string ActionName => _actionName;
         public int BindingStartIndexIndex => _selectedBindingStartIndex;
 
@@ -25,7 +24,7 @@ namespace AGX.Scripts.Runtime.Rebinder
 
         [BoxGroup("References"), SerializeField, OnValueChanged(nameof(UpdateButtonBasedOnCanBeRebinded))] private bool _canBeRebinded = true;
 
-        [SerializeField] private bool _debug;
+        private bool _debug = false;
 
         /// <summary>
         /// The selected binding index.
@@ -152,19 +151,36 @@ namespace AGX.Scripts.Runtime.Rebinder
 
             for (var i = startIndex; i <= endIndex; i++)
             {
-                var b = action.bindings[i];
+                var inputBinding = action.bindings[i];
 
                 // ensure this input binding is not the start of a composite
-                if (b.isComposite)
+                if (inputBinding.isComposite)
                     continue;
 
-                // get the action as a string like '/Keyboard/anyKey'
-                var tmpSprite = InputDeviceIcons.GetSprite(b.effectivePath);
 
-                if (_debug)
-                    Debug.Log($"Binding {i}: name {b.name} - path {b.path} - effective path {b.effectivePath} - sprite {tmpSprite}");
+                var effectivePathParsed = inputBinding.effectivePath;
 
-                fullString.Append(tmpSprite);
+
+                // remove < and >
+                effectivePathParsed = effectivePathParsed.Replace("<", "").Replace(">", "");
+
+                // add / at the beginning
+                if (!effectivePathParsed.StartsWith("/"))
+                    effectivePathParsed = "/" + effectivePathParsed;
+
+                if (effectivePathParsed != "/")
+                {
+                    var actualSpritePath = SpriteMapReference.GetSprite(effectivePathParsed);
+
+                    if (_debug)
+                        Debug.Log($"Binding {i}: name {inputBinding.name} - path {inputBinding.path} - effective path {inputBinding.effectivePath} - sprite {actualSpritePath}");
+
+                    fullString.Append(actualSpritePath);
+                }
+                else
+                {
+                    fullString.Append("");
+                }
             }
 
             /* IF ANYTHING GOES WRONG
@@ -173,8 +189,11 @@ namespace AGX.Scripts.Runtime.Rebinder
                     ? InputManager.GetBindingName(_actionName, _bindingIndex)
                     : action.GetBindingDisplayString(_bindingIndex); // From the input action reference
              */
+
+            var val = fullString.ToString();
             
-            _textRebind.text = fullString.ToString();
+
+            _textRebind.text = val;
 
             _isDirty = InputManager.IsBindingOverriden(_actionName, _selectedBindingStartIndex);
             _buttonReset.gameObject.SetActive(_isDirty);

@@ -719,7 +719,7 @@ PrefabInstance:
     - target: {fileID: 8430003413874098648, guid: a05379416e5949b4b9bc5e3e0464d1b8,
         type: 3}
       propertyPath: m_text
-      value: <sprite="General/General" name="Chat"> Chat
+      value: <sprite="Categories/Categories" name="Chat"> Chat
       objectReference: {fileID: 0}
     - target: {fileID: 8430003413874098648, guid: a05379416e5949b4b9bc5e3e0464d1b8,
         type: 3}
@@ -6007,7 +6007,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: bb4d5a0ba0e2e1d45913c41596c095fe, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -6016,7 +6016,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4294967295
   m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSizeBase: 18.5
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 5
@@ -6964,7 +6964,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: bb4d5a0ba0e2e1d45913c41596c095fe, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -7008,7 +7008,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 10, y: 10, z: 20, w: 10}
+  m_margin: {x: 10, y: 10, z: 10, w: 10}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -7079,7 +7079,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <sprite="General/General" name="Joystick"> Action
+  m_text: <sprite="Actions/Actions" name="Interact"> Action
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5f2376ac0631f5841b65bc1821bf792b, type: 2}
   m_sharedMaterial: {fileID: -2888141525992646026, guid: 5f2376ac0631f5841b65bc1821bf792b,
@@ -7099,7 +7099,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: 5700ff02e2b803b4a9f44570d850e385, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -7408,7 +7408,7 @@ PrefabInstance:
     - target: {fileID: 8430003413874098648, guid: a05379416e5949b4b9bc5e3e0464d1b8,
         type: 3}
       propertyPath: m_text
-      value: '<sprite="General/General" name="Minimap"> Minimap
+      value: '<sprite="Categories/Categories" name="Minimap"> Minimap
 
 '
       objectReference: {fileID: 0}
@@ -11122,10 +11122,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc84a803f6964363869762678dfab7d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _icons:
-  - {fileID: 4900000, guid: df457cea17df8f44fadae9f85be230e0, type: 3}
+  Icons:
   - {fileID: 4900000, guid: 6ac3e773fb647a747b7278d1b52921d4, type: 3}
+  - {fileID: 4900000, guid: df457cea17df8f44fadae9f85be230e0, type: 3}
   - {fileID: 4900000, guid: 59657a0ad0e14c5faffac5dc15342b19, type: 3}
+  - {fileID: 4900000, guid: 1bc0067b8d0f4b96aa6b92746c7123e0, type: 3}
+  - {fileID: 4900000, guid: aaeec0d5f03547d3919abdf20b23f1fc, type: 3}
 --- !u!4 &1448459152
 Transform:
   m_ObjectHideFlags: 0
@@ -12651,7 +12653,7 @@ PrefabInstance:
     - target: {fileID: 8430003413874098648, guid: a05379416e5949b4b9bc5e3e0464d1b8,
         type: 3}
       propertyPath: m_text
-      value: <sprite="General/General" name="Inventory"> Inventory
+      value: <sprite="Categories/Categories" name="Inventory"> Inventory
       objectReference: {fileID: 0}
     - target: {fileID: 8430003413874098648, guid: a05379416e5949b4b9bc5e3e0464d1b8,
         type: 3}
@@ -13798,7 +13800,7 @@ PrefabInstance:
     - target: {fileID: 8430003413874098648, guid: a05379416e5949b4b9bc5e3e0464d1b8,
         type: 3}
       propertyPath: m_text
-      value: <sprite="General/General" name="Menu"> Menu
+      value: <sprite="Categories/Categories" name="Menu"> Menu
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14333,7 +14335,7 @@ PrefabInstance:
     - target: {fileID: 8430003413874098648, guid: a05379416e5949b4b9bc5e3e0464d1b8,
         type: 3}
       propertyPath: m_text
-      value: '<sprite="General/General" name="Cheats"> Cheats
+      value: '<sprite="Categories/Categories" name="Cheats"> Cheats
 
 '
       objectReference: {fileID: 0}
@@ -14574,7 +14576,7 @@ PrefabInstance:
     - target: {fileID: 8430003413874098648, guid: a05379416e5949b4b9bc5e3e0464d1b8,
         type: 3}
       propertyPath: m_text
-      value: <sprite="General/General" name="Camera"> Camera
+      value: <sprite="Categories/Categories" name="Camera"> Camera
       objectReference: {fileID: 0}
     - target: {fileID: 8430003413874098648, guid: a05379416e5949b4b9bc5e3e0464d1b8,
         type: 3}
@@ -19393,7 +19395,7 @@ PrefabInstance:
     - target: {fileID: 8430003413874098648, guid: a05379416e5949b4b9bc5e3e0464d1b8,
         type: 3}
       propertyPath: m_text
-      value: <sprite="General/General" name="Gameplay"> Gameplay
+      value: <sprite="Categories/Categories" name="Gameplay"> Gameplay
       objectReference: {fileID: 0}
     - target: {fileID: 8430003413874098648, guid: a05379416e5949b4b9bc5e3e0464d1b8,
         type: 3}
@@ -19413,7 +19415,7 @@ SceneRoots:
   - {fileID: 2042796272}
   - {fileID: 1981269520}
   - {fileID: 635344205}
-  - {fileID: 1622659291}
   - {fileID: 2083242139}
   - {fileID: 1448459152}
   - {fileID: 710065868}
+  - {fileID: 1622659291}

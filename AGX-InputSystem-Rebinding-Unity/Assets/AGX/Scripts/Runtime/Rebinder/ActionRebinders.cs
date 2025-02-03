@@ -12,11 +12,8 @@ namespace AGX.Scripts.Runtime.Rebinder
 {
     public class ActionRebinders : MonoBehaviour, ISearchable
     {
-
-
         [BoxGroup("Settings"), SerializeField, Required, OnValueChanged(nameof(Wait1FrameAndUpdateUI))] private InputActionReference _inputAction;
 
-        [BoxGroup("References"), SerializeField, Required] private ActionIconMap _actionIconMap;
         [BoxGroup("References"), SerializeField, Required] private TMP_Text      _actionText;
         [BoxGroup("References"), SerializeField, Required] private RebindOverlay _rebindOverlay;
 
@@ -179,18 +176,22 @@ namespace AGX.Scripts.Runtime.Rebinder
                 return;
             }
 
-            Debug.Log($"{_inputAction.name}, {_inputAction.action?.name}");
+            //Debug.Log($"{_inputAction.name}, {_inputAction.action?.name}");
 
             UpdateText();
         }
 
         private void UpdateText()
         {
-            var icon = _actionIconMap.GetFor(_inputAction);
+            var icon = SpriteMapReference.GetSprite(_inputAction.action.name);
 
-            _actionText.text = icon;
 
-            name = $"Input Action Rebinders ({_inputAction.name})";
+            var actionMapName = _inputAction.action.actionMap.name;
+
+            // Remove the action map prefix of the name of the action
+            var actionName = _inputAction.action.name.Replace(actionMapName, "");
+
+            _actionText.text = icon + " " + actionName;
         }
 
 

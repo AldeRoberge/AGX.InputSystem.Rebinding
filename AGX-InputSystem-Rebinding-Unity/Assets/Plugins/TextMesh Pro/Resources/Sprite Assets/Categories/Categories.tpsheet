@@ -1,0 +1,23 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# https://www.codeandweb.com/texturepacker/unity
+#
+# $TexturePacker:SmartUpdate:1ab2b9601a179a99edb0bb2ed028d251:b3ddfe504ca4690330ad0913d61be52e:ecacc12d9e755433567f14d8951886a7$
+#
+:format=40300
+:texture=Categories.png
+:size=1024x1024
+:pivotpoints=enabled
+:borders=disabled
+:alphahandling=ClearTransparentPixels
+
+Camera;299;191;256;256; 0;0.19999999999999996; 0;0;0;0
+Chat;577;469;256;256; 0;0.19999999999999996; 0;0;0;0
+Cheats;299;469;256;256; 0;0.19999999999999996; 0;0;0;0
+Gameplay;21;191;256;256; 0;0.19999999999999996; 0;0;0;0
+Inventory;21;469;256;256; 0;0.19999999999999996; 0;0;0;0
+Menu;577;747;256;256; 0;0.19999999999999996; 0;0;0;0
+Minimap;299;747;256;256; 0;0.19999999999999996; 0;0;0;0
+Settings;21;747;256;256; 0;0.19999999999999996; 0;0;0;0

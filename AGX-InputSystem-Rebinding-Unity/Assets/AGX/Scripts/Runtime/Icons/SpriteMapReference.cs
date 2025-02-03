@@ -2,24 +2,24 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace AGX.Scripts.Runtime.Prompts
+namespace AGX.Scripts.Runtime.Icons
 {
     [DefaultExecutionOrder(-999)]
-    public class InputDeviceIcons : MonoBehaviour
+    public class SpriteMapReference : MonoBehaviour
     {
-        public List<TextAsset> _icons = new();
+        public List<TextAsset> Icons = new();
 
         private static readonly Dictionary<string, string> InputDeviceToSprite = new();
 
-        private static InputDeviceIcons Instance;
+        private static SpriteMapReference _instance;
 
         public static string GetSprite(string input)
         {
-            if (Instance == null)
-                Instance = FindObjectOfType<InputDeviceIcons>(true);
+            if (_instance == null)
+                _instance = FindObjectOfType<SpriteMapReference>(true);
 
-            if (Instance != null) 
-                return Instance.GetSpriteImpl(input);
+            if (_instance != null)
+                return _instance.GetSpriteImpl(input);
 
             Debug.LogError("No InputDevicePrompts found in scene");
             return input;
@@ -38,32 +38,22 @@ namespace AGX.Scripts.Runtime.Prompts
         ///     <sprite="Prompts/Keyboard" name="keyboard_any"/>
         /// </code>
         /// </summary>
-        public string GetSpriteImpl(string input)
+        public string GetSpriteImpl(string key)
         {
             // Since GetSprite will sometimes run in edit mode, we need to check if the application is playing
             // To avoid the map not being initialized
             if (!Application.isPlaying)
             {
-                return input;
+                return key;
             }
 
-            // remove < and >
-            input = input.Replace("<", "").Replace(">", "");
-
-            // add / at the beginning
-            if (!input.StartsWith("/"))
-                input = "/" + input;
-
-            if (InputDeviceToSprite.TryGetValue(input, out var sprite))
+            if (InputDeviceToSprite.TryGetValue(key, out var sprite))
+            {
                 return sprite;
+            }
 
-            // Empty action (no binding)
-            if (input == "/")
-                return "";
-
-            Debug.LogWarning($"No sprite found for input: '{input}'");
-
-            return input;
+            Debug.LogWarning($"No sprite found for {key}");
+            return key;
         }
 
         public void Awake()
@@ -72,14 +62,14 @@ namespace AGX.Scripts.Runtime.Prompts
 
             InputDeviceToSprite.Clear();
 
-            foreach (var prompt in _icons)
+            foreach (var prompt in Icons)
             {
                 if (debug)
                     Debug.Log($"Prompt: {prompt.text}");
 
-                var inputDevicePrompt = Newtonsoft.Json.JsonConvert.DeserializeObject<InputDevicePrompt>(prompt.text);
+                var spriteMap = Newtonsoft.Json.JsonConvert.DeserializeObject<SpriteMap>(prompt.text);
 
-                if (inputDevicePrompt == null)
+                if (spriteMap == null)
                 {
                     Debug.LogError("InputDevicePrompt is null!");
                     continue;
@@ -87,10 +77,10 @@ namespace AGX.Scripts.Runtime.Prompts
 
                 if (debug)
                 {
-                    Debug.Log($"Name: {inputDevicePrompt.Name}");
-                    Debug.Log($"SpriteAsset: {inputDevicePrompt.SpriteAsset}");
+                    Debug.Log($"Name: {spriteMap.Name}");
+                    Debug.Log($"SpriteAsset: {spriteMap.SpriteAsset}");
 
-                    foreach (var mapping in inputDevicePrompt.Sprites)
+                    foreach (var mapping in spriteMap.Sprites)
                     {
                         if (debug)
                             Debug.Log($"Path: {mapping.Key}, Sprite: {mapping.Value}");
@@ -98,9 +88,9 @@ namespace AGX.Scripts.Runtime.Prompts
                 }
 
 
-                foreach (var mapping in inputDevicePrompt.Sprites)
+                foreach (var mapping in spriteMap.Sprites)
                 {
-                    InputDeviceToSprite[mapping.Key] = GetFullPath($"{inputDevicePrompt.SpriteAsset}/{inputDevicePrompt.Name}", mapping.Value);
+                    InputDeviceToSprite[mapping.Key] = GetFullPath($"{spriteMap.SpriteAsset}/{spriteMap.Name}", mapping.Value);
                 }
             }
 
@@ -109,22 +99,22 @@ namespace AGX.Scripts.Runtime.Prompts
             Debug.Log("InputDevicePrompts.Start");
         }
 
-        private string GetFullPath(string spriteAsset, string mappingSprite)
+        private string GetFullPath(string spriteAsset, string spriteName)
         {
-            return $"<sprite=\"{spriteAsset}\" name=\"{mappingSprite}\">";
+            return $"<sprite=\"{spriteAsset}\" name=\"{spriteName}\">";
         }
     }
-    
-    public class Mapping
+
+    public class SpriteValue
     {
         public string Key { get; set; }
         public string Value { get; set; }
     }
 
-    public class InputDevicePrompt
+    public class SpriteMap
     {
         public string Name { get; set; }
         public string SpriteAsset { get; set; }
-        public List<Mapping> Sprites { get; set; } = new();
+        public List<SpriteValue> Sprites { get; set; } = new();
     }
 }

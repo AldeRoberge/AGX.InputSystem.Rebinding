@@ -29,7 +29,7 @@ namespace AGX.Scripts.Runtime.Utilities
             Debug.Log($"{deviceName}:");
             foreach (var binding in DeviceInputSpritesDefaults.GetActionBindingsForDevice(device))
             {
-                Debug.Log(binding.Path);
+                //Debug.Log(binding.Path);
                 allPaths.AppendLine(binding.Path);
             }
 
