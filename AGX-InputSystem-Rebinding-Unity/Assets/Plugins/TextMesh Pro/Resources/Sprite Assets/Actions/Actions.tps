@@ -176,7 +176,7 @@
             <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Ability.png</key>
             <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Attack.png</key>
             <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Menu.png</key>
-            <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Person.png</key>
+            <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Profile.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0.8</point_f>
@@ -192,13 +192,16 @@
                 <false/>
             </struct>
             <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Aim.png</key>
+            <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Cancel.png</key>
             <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Chat.png</key>
             <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Close.png</key>
+            <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Console.png</key>
             <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Crouch.png</key>
             <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Dash.png</key>
             <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Down.png</key>
             <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Drop.png</key>
             <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Emote.png</key>
+            <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Exit.png</key>
             <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Interact.png</key>
             <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Inventory-Select.png</key>
             <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Map.png</key>
@@ -206,15 +209,18 @@
             <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Ping.png</key>
             <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Quick-Heal.png</key>
             <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Reset.png</key>
+            <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Rotate.png</key>
             <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Run.png</key>
             <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Screenshot.png</key>
-            <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Search.png</key>
+            <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Scroll.png</key>
             <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Settings.png</key>
+            <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Shrink.png</key>
             <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Swap.png</key>
             <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Sword.png</key>
             <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Tab-Right.png</key>
             <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Up.png</key>
             <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Walk.png</key>
+            <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Zoom.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0.8</point_f>
@@ -241,6 +247,30 @@
                 <rect>16,16,32,32</rect>
                 <key>scale9Paddings</key>
                 <rect>16,16,32,32</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Select Slot 0.png</key>
+            <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Select Slot 1.png</key>
+            <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Select Slot 2.png</key>
+            <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Select Slot 3.png</key>
+            <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Select Slot 4.png</key>
+            <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Select Slot 5.png</key>
+            <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Select Slot 6.png</key>
+            <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Select Slot 7.png</key>
+            <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Select Slot 8.png</key>
+            <key type="filename">../../../../../AGX/Sprites/Packed/General/Actions/Select Slot 9.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0.8</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>32,32,64,64</rect>
+                <key>scale9Paddings</key>
+                <rect>32,32,64,64</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>

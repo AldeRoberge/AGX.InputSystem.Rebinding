@@ -98,57 +98,46 @@ namespace AGX.Scripts.Runtime.Rebinder
 
         public void OnGameplayMove(InputAction.CallbackContext context)
         {
-
         }
 
         public void OnGameplayAim(InputAction.CallbackContext context)
         {
-
         }
 
         public void OnGameplayAttackToggle(InputAction.CallbackContext context)
         {
-
         }
 
         public void OnGameplayQuickHeal(InputAction.CallbackContext context)
         {
-
         }
 
         public void OnGameplayExit(InputAction.CallbackContext context)
         {
-
         }
 
         public void OnGameplayInteract(InputAction.CallbackContext context)
         {
-
         }
 
         public void OnGameplayCancel(InputAction.CallbackContext context)
         {
-
         }
 
         public void OnMenuOpen(InputAction.CallbackContext context)
         {
-
         }
 
         public void OnMenuProfileOpen(InputAction.CallbackContext context)
         {
-
         }
 
-        public void OnMenuMinimapOpen(InputAction.CallbackContext context)
+        public void OnMenuMapOpen(InputAction.CallbackContext context)
         {
-
         }
 
         public void OnDebugToggle(InputAction.CallbackContext context)
         {
-
         }
     }
 }

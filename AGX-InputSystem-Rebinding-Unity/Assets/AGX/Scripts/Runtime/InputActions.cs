@@ -994,7 +994,7 @@ namespace AGX.Runtime
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Menu Minimap Open"",
+                    ""name"": ""Menu Map Open"",
                     ""type"": ""Button"",
                     ""id"": ""62298e1f-edf2-4f43-b04e-878ed20d7322"",
                     ""expectedControlType"": """",
@@ -1077,7 +1077,7 @@ namespace AGX.Runtime
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
-                    ""action"": ""Menu Minimap Open"",
+                    ""action"": ""Menu Map Open"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1088,7 +1088,7 @@ namespace AGX.Runtime
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
-                    ""action"": ""Menu Minimap Open"",
+                    ""action"": ""Menu Map Open"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1099,7 +1099,7 @@ namespace AGX.Runtime
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""Menu Minimap Open"",
+                    ""action"": ""Menu Map Open"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1588,11 +1588,11 @@ namespace AGX.Runtime
             ]
         },
         {
-            ""name"": ""Minimap"",
+            ""name"": ""Map"",
             ""id"": ""3ef65c31-3ca9-4678-832a-ae92a40b5b6b"",
             ""actions"": [
                 {
-                    ""name"": ""Zoom Minimap"",
+                    ""name"": ""Map Zoom"",
                     ""type"": ""Value"",
                     ""id"": ""388f48db-b07e-43bf-b224-d2161c38b6d0"",
                     ""expectedControlType"": ""Vector2"",
@@ -1609,7 +1609,7 @@ namespace AGX.Runtime
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
-                    ""action"": ""Zoom Minimap"",
+                    ""action"": ""Map Zoom"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1620,7 +1620,7 @@ namespace AGX.Runtime
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Zoom Minimap"",
+                    ""action"": ""Map Zoom"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1631,7 +1631,7 @@ namespace AGX.Runtime
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""Zoom Minimap"",
+                    ""action"": ""Map Zoom"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1756,7 +1756,7 @@ namespace AGX.Runtime
             m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
             m_Menu_MenuOpen = m_Menu.FindAction("Menu Open", throwIfNotFound: true);
             m_Menu_MenuProfileOpen = m_Menu.FindAction("Menu Profile Open", throwIfNotFound: true);
-            m_Menu_MenuMinimapOpen = m_Menu.FindAction("Menu Minimap Open", throwIfNotFound: true);
+            m_Menu_MenuMapOpen = m_Menu.FindAction("Menu Map Open", throwIfNotFound: true);
             // Chat
             m_Chat = asset.FindActionMap("Chat", throwIfNotFound: true);
             m_Chat_ChatPublicStart = m_Chat.FindAction("Chat Public Start", throwIfNotFound: true);
@@ -1770,9 +1770,9 @@ namespace AGX.Runtime
             m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
             m_Camera_CameraZoom = m_Camera.FindAction("Camera Zoom", throwIfNotFound: true);
             m_Camera_CameraRotate = m_Camera.FindAction("Camera Rotate", throwIfNotFound: true);
-            // Minimap
-            m_Minimap = asset.FindActionMap("Minimap", throwIfNotFound: true);
-            m_Minimap_ZoomMinimap = m_Minimap.FindAction("Zoom Minimap", throwIfNotFound: true);
+            // Map
+            m_Map = asset.FindActionMap("Map", throwIfNotFound: true);
+            m_Map_MapZoom = m_Map.FindAction("Map Zoom", throwIfNotFound: true);
             // Cheats
             m_Cheats = asset.FindActionMap("Cheats", throwIfNotFound: true);
             m_Cheats_DebugToggle = m_Cheats.FindAction("Debug Toggle", throwIfNotFound: true);
@@ -1785,7 +1785,7 @@ namespace AGX.Runtime
             UnityEngine.Debug.Assert(!m_Menu.enabled, "This will cause a leak and performance issues, InputActions.Menu.Disable() has not been called.");
             UnityEngine.Debug.Assert(!m_Chat.enabled, "This will cause a leak and performance issues, InputActions.Chat.Disable() has not been called.");
             UnityEngine.Debug.Assert(!m_Camera.enabled, "This will cause a leak and performance issues, InputActions.Camera.Disable() has not been called.");
-            UnityEngine.Debug.Assert(!m_Minimap.enabled, "This will cause a leak and performance issues, InputActions.Minimap.Disable() has not been called.");
+            UnityEngine.Debug.Assert(!m_Map.enabled, "This will cause a leak and performance issues, InputActions.Map.Disable() has not been called.");
             UnityEngine.Debug.Assert(!m_Cheats.enabled, "This will cause a leak and performance issues, InputActions.Cheats.Disable() has not been called.");
         }
 
@@ -2078,14 +2078,14 @@ namespace AGX.Runtime
         private List<IMenuActions> m_MenuActionsCallbackInterfaces = new List<IMenuActions>();
         private readonly InputAction m_Menu_MenuOpen;
         private readonly InputAction m_Menu_MenuProfileOpen;
-        private readonly InputAction m_Menu_MenuMinimapOpen;
+        private readonly InputAction m_Menu_MenuMapOpen;
         public struct MenuActions
         {
             private @InputActions m_Wrapper;
             public MenuActions(@InputActions wrapper) { m_Wrapper = wrapper; }
             public InputAction @MenuOpen => m_Wrapper.m_Menu_MenuOpen;
             public InputAction @MenuProfileOpen => m_Wrapper.m_Menu_MenuProfileOpen;
-            public InputAction @MenuMinimapOpen => m_Wrapper.m_Menu_MenuMinimapOpen;
+            public InputAction @MenuMapOpen => m_Wrapper.m_Menu_MenuMapOpen;
             public InputActionMap Get() { return m_Wrapper.m_Menu; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -2101,9 +2101,9 @@ namespace AGX.Runtime
                 @MenuProfileOpen.started += instance.OnMenuProfileOpen;
                 @MenuProfileOpen.performed += instance.OnMenuProfileOpen;
                 @MenuProfileOpen.canceled += instance.OnMenuProfileOpen;
-                @MenuMinimapOpen.started += instance.OnMenuMinimapOpen;
-                @MenuMinimapOpen.performed += instance.OnMenuMinimapOpen;
-                @MenuMinimapOpen.canceled += instance.OnMenuMinimapOpen;
+                @MenuMapOpen.started += instance.OnMenuMapOpen;
+                @MenuMapOpen.performed += instance.OnMenuMapOpen;
+                @MenuMapOpen.canceled += instance.OnMenuMapOpen;
             }
 
             private void UnregisterCallbacks(IMenuActions instance)
@@ -2114,9 +2114,9 @@ namespace AGX.Runtime
                 @MenuProfileOpen.started -= instance.OnMenuProfileOpen;
                 @MenuProfileOpen.performed -= instance.OnMenuProfileOpen;
                 @MenuProfileOpen.canceled -= instance.OnMenuProfileOpen;
-                @MenuMinimapOpen.started -= instance.OnMenuMinimapOpen;
-                @MenuMinimapOpen.performed -= instance.OnMenuMinimapOpen;
-                @MenuMinimapOpen.canceled -= instance.OnMenuMinimapOpen;
+                @MenuMapOpen.started -= instance.OnMenuMapOpen;
+                @MenuMapOpen.performed -= instance.OnMenuMapOpen;
+                @MenuMapOpen.canceled -= instance.OnMenuMapOpen;
             }
 
             public void RemoveCallbacks(IMenuActions instance)
@@ -2283,51 +2283,51 @@ namespace AGX.Runtime
         }
         public CameraActions @Camera => new CameraActions(this);
 
-        // Minimap
-        private readonly InputActionMap m_Minimap;
-        private List<IMinimapActions> m_MinimapActionsCallbackInterfaces = new List<IMinimapActions>();
-        private readonly InputAction m_Minimap_ZoomMinimap;
-        public struct MinimapActions
+        // Map
+        private readonly InputActionMap m_Map;
+        private List<IMapActions> m_MapActionsCallbackInterfaces = new List<IMapActions>();
+        private readonly InputAction m_Map_MapZoom;
+        public struct MapActions
         {
             private @InputActions m_Wrapper;
-            public MinimapActions(@InputActions wrapper) { m_Wrapper = wrapper; }
-            public InputAction @ZoomMinimap => m_Wrapper.m_Minimap_ZoomMinimap;
-            public InputActionMap Get() { return m_Wrapper.m_Minimap; }
+            public MapActions(@InputActions wrapper) { m_Wrapper = wrapper; }
+            public InputAction @MapZoom => m_Wrapper.m_Map_MapZoom;
+            public InputActionMap Get() { return m_Wrapper.m_Map; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
             public bool enabled => Get().enabled;
-            public static implicit operator InputActionMap(MinimapActions set) { return set.Get(); }
-            public void AddCallbacks(IMinimapActions instance)
+            public static implicit operator InputActionMap(MapActions set) { return set.Get(); }
+            public void AddCallbacks(IMapActions instance)
             {
-                if (instance == null || m_Wrapper.m_MinimapActionsCallbackInterfaces.Contains(instance)) return;
-                m_Wrapper.m_MinimapActionsCallbackInterfaces.Add(instance);
-                @ZoomMinimap.started += instance.OnZoomMinimap;
-                @ZoomMinimap.performed += instance.OnZoomMinimap;
-                @ZoomMinimap.canceled += instance.OnZoomMinimap;
+                if (instance == null || m_Wrapper.m_MapActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_MapActionsCallbackInterfaces.Add(instance);
+                @MapZoom.started += instance.OnMapZoom;
+                @MapZoom.performed += instance.OnMapZoom;
+                @MapZoom.canceled += instance.OnMapZoom;
             }
 
-            private void UnregisterCallbacks(IMinimapActions instance)
+            private void UnregisterCallbacks(IMapActions instance)
             {
-                @ZoomMinimap.started -= instance.OnZoomMinimap;
-                @ZoomMinimap.performed -= instance.OnZoomMinimap;
-                @ZoomMinimap.canceled -= instance.OnZoomMinimap;
+                @MapZoom.started -= instance.OnMapZoom;
+                @MapZoom.performed -= instance.OnMapZoom;
+                @MapZoom.canceled -= instance.OnMapZoom;
             }
 
-            public void RemoveCallbacks(IMinimapActions instance)
+            public void RemoveCallbacks(IMapActions instance)
             {
-                if (m_Wrapper.m_MinimapActionsCallbackInterfaces.Remove(instance))
+                if (m_Wrapper.m_MapActionsCallbackInterfaces.Remove(instance))
                     UnregisterCallbacks(instance);
             }
 
-            public void SetCallbacks(IMinimapActions instance)
+            public void SetCallbacks(IMapActions instance)
             {
-                foreach (var item in m_Wrapper.m_MinimapActionsCallbackInterfaces)
+                foreach (var item in m_Wrapper.m_MapActionsCallbackInterfaces)
                     UnregisterCallbacks(item);
-                m_Wrapper.m_MinimapActionsCallbackInterfaces.Clear();
+                m_Wrapper.m_MapActionsCallbackInterfaces.Clear();
                 AddCallbacks(instance);
             }
         }
-        public MinimapActions @Minimap => new MinimapActions(this);
+        public MapActions @Map => new MapActions(this);
 
         // Cheats
         private readonly InputActionMap m_Cheats;
@@ -2439,7 +2439,7 @@ namespace AGX.Runtime
         {
             void OnMenuOpen(InputAction.CallbackContext context);
             void OnMenuProfileOpen(InputAction.CallbackContext context);
-            void OnMenuMinimapOpen(InputAction.CallbackContext context);
+            void OnMenuMapOpen(InputAction.CallbackContext context);
         }
         public interface IChatActions
         {
@@ -2456,9 +2456,9 @@ namespace AGX.Runtime
             void OnCameraZoom(InputAction.CallbackContext context);
             void OnCameraRotate(InputAction.CallbackContext context);
         }
-        public interface IMinimapActions
+        public interface IMapActions
         {
-            void OnZoomMinimap(InputAction.CallbackContext context);
+            void OnMapZoom(InputAction.CallbackContext context);
         }
         public interface ICheatsActions
         {

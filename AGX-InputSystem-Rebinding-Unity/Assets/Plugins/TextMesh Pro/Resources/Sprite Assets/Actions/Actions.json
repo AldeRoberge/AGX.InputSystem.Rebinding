@@ -4,7 +4,7 @@
   "Sprites": [
     {
       "Key": "Gameplay Move",
-      "Value": "Move"
+      "Value": "Run"
     },
     {
       "Key": "Gameplay Aim",
@@ -16,11 +16,11 @@
     },
     {
       "Key": "Gameplay Attack Toggle",
-      "Value": "Attack Toggle"
+      "Value": "Attack"
     },
     {
       "Key": "Gameplay Quick Heal",
-      "Value": "Quick Heal"
+      "Value": "Quick-Heal"
     },
     {
       "Key": "Gameplay Exit",
@@ -79,16 +79,16 @@
       "Value": "Swap"
     },
     {
-      "Key": "Menu Open",
-      "Value": "Open Menu"
+      "Key": "Menu Settings",
+      "Value": "Settings"
     },
     {
-      "Key": "Menu Profile Open",
+      "Key": "Menu Profile",
       "Value": "Profile"
     },
     {
-      "Key": "Menu Minimap Open",
-      "Value": "Minimap"
+      "Key": "Menu Map Open",
+      "Value": "Map"
     },
     {
       "Key": "Chat Public Start",
@@ -132,7 +132,7 @@
     },
     {
       "Key": "Debug Toggle",
-      "Value": "Debug"
+      "Value": "Console"
     }
   ]
 }

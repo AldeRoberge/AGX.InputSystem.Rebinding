@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -140,7 +140,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 775
-        y: 1791
+        y: 1533
         width: 256
         height: 256
       alignment: 9
@@ -160,7 +160,7 @@ TextureImporter:
       name: Joystick
       rect:
         serializedVersion: 2
-        x: 1679
+        x: 1745
         y: 2015
         width: 32
         height: 32
@@ -181,7 +181,7 @@ TextureImporter:
       name: Close
       rect:
         serializedVersion: 2
-        x: 1
+        x: 775
         y: 1017
         width: 256
         height: 256
@@ -199,32 +199,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Search
-      rect:
-        serializedVersion: 2
-        x: 517
-        y: 1533
-        width: 256
-        height: 256
-      alignment: 9
-      pivot: {x: 0, y: 0.2}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5f3a63fe2a757394292dde3a6ac5c828
-      internalID: 1441529031
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Crouch
       rect:
         serializedVersion: 2
-        x: 1291
-        y: 1275
+        x: 259
+        y: 1017
         width: 256
         height: 256
       alignment: 9
@@ -244,8 +223,8 @@ TextureImporter:
       name: Down
       rect:
         serializedVersion: 2
-        x: 1291
-        y: 1533
+        x: 1
+        y: 1
         width: 256
         height: 256
       alignment: 9
@@ -265,8 +244,8 @@ TextureImporter:
       name: Sword
       rect:
         serializedVersion: 2
-        x: 517
-        y: 1791
+        x: 259
+        y: 1533
         width: 256
         height: 256
       alignment: 9
@@ -286,8 +265,8 @@ TextureImporter:
       name: Up
       rect:
         serializedVersion: 2
-        x: 259
-        y: 1791
+        x: 1
+        y: 1533
         width: 256
         height: 256
       alignment: 9
@@ -307,7 +286,7 @@ TextureImporter:
       name: Walk
       rect:
         serializedVersion: 2
-        x: 1
+        x: 259
         y: 1791
         width: 256
         height: 256
@@ -328,8 +307,8 @@ TextureImporter:
       name: Chat
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
+        x: 517
+        y: 1017
         width: 256
         height: 256
       alignment: 9
@@ -349,7 +328,7 @@ TextureImporter:
       name: Menu
       rect:
         serializedVersion: 2
-        x: 259
+        x: 1291
         y: 1145
         width: 128
         height: 128
@@ -370,7 +349,7 @@ TextureImporter:
       name: Settings
       rect:
         serializedVersion: 2
-        x: 1
+        x: 259
         y: 1275
         width: 256
         height: 256
@@ -391,7 +370,7 @@ TextureImporter:
       name: Ability
       rect:
         serializedVersion: 2
-        x: 1
+        x: 259
         y: 887
         width: 128
         height: 128
@@ -412,8 +391,8 @@ TextureImporter:
       name: Aim
       rect:
         serializedVersion: 2
-        x: 1791
-        y: 1
+        x: 1033
+        y: 1017
         width: 256
         height: 256
       alignment: 9
@@ -454,8 +433,8 @@ TextureImporter:
       name: Dash
       rect:
         serializedVersion: 2
-        x: 1033
-        y: 1275
+        x: 1791
+        y: 1
         width: 256
         height: 256
       alignment: 9
@@ -475,8 +454,8 @@ TextureImporter:
       name: Drop
       rect:
         serializedVersion: 2
-        x: 1791
-        y: 1275
+        x: 1
+        y: 1017
         width: 256
         height: 256
       alignment: 9
@@ -496,8 +475,8 @@ TextureImporter:
       name: Emote
       rect:
         serializedVersion: 2
-        x: 1791
-        y: 1533
+        x: 1291
+        y: 1275
         width: 256
         height: 256
       alignment: 9
@@ -517,8 +496,8 @@ TextureImporter:
       name: Interact
       rect:
         serializedVersion: 2
-        x: 775
-        y: 1275
+        x: 1291
+        y: 1533
         width: 256
         height: 256
       alignment: 9
@@ -538,8 +517,8 @@ TextureImporter:
       name: Inventory-Select
       rect:
         serializedVersion: 2
-        x: 1033
-        y: 1533
+        x: 1791
+        y: 1275
         width: 256
         height: 256
       alignment: 9
@@ -559,8 +538,8 @@ TextureImporter:
       name: Map
       rect:
         serializedVersion: 2
-        x: 1291
-        y: 1791
+        x: 1791
+        y: 1533
         width: 256
         height: 256
       alignment: 9
@@ -581,7 +560,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 775
-        y: 1533
+        y: 1275
         width: 256
         height: 256
       alignment: 9
@@ -598,32 +577,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Person
-      rect:
-        serializedVersion: 2
-        x: 1549
-        y: 1919
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0, y: 0.2}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 68cd7f7c68dccdf43b9b9045a09134b1
-      internalID: -1703299883
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Ping
       rect:
         serializedVersion: 2
         x: 1033
-        y: 1791
+        y: 1533
         width: 256
         height: 256
       alignment: 9
@@ -643,7 +601,7 @@ TextureImporter:
       name: Quick-Heal
       rect:
         serializedVersion: 2
-        x: 1791
+        x: 1291
         y: 1791
         width: 256
         height: 256
@@ -664,8 +622,8 @@ TextureImporter:
       name: Run
       rect:
         serializedVersion: 2
-        x: 517
-        y: 1275
+        x: 1791
+        y: 1791
         width: 256
         height: 256
       alignment: 9
@@ -685,8 +643,8 @@ TextureImporter:
       name: Screenshot
       rect:
         serializedVersion: 2
-        x: 259
-        y: 1275
+        x: 775
+        y: 1791
         width: 256
         height: 256
       alignment: 9
@@ -706,8 +664,8 @@ TextureImporter:
       name: Swap
       rect:
         serializedVersion: 2
-        x: 259
-        y: 1533
+        x: 1
+        y: 1275
         width: 256
         height: 256
       alignment: 9
@@ -727,8 +685,8 @@ TextureImporter:
       name: Tab-Right
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1533
+        x: 517
+        y: 1791
         width: 256
         height: 256
       alignment: 9
@@ -740,6 +698,384 @@ TextureImporter:
       bones: []
       spriteID: ce0037de4b17f934ba53ee8af1ebc0a3
       internalID: -378166088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cancel
+      rect:
+        serializedVersion: 2
+        x: 775
+        y: 1017
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebc86621145c2334ba83ef7c57266528
+      internalID: -131897819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exit
+      rect:
+        serializedVersion: 2
+        x: 1033
+        y: 1275
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22b6ce4b6a637ff4c9d9239302e367af
+      internalID: 367894288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Profile
+      rect:
+        serializedVersion: 2
+        x: 1549
+        y: 1919
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f989b3a984793da4f9ebf8434a5233fd
+      internalID: -31691868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scroll
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 1275
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcccd5f7936404344899672905f9bb5e
+      internalID: 1265670370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Select Slot 0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 259
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7d4051df718b4940a6f51847c890374
+      internalID: -528951887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Select Slot 1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 693
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70ebbf29101224f46bbdb23aa35e0295
+      internalID: -1235646610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Select Slot 2
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 821
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8b1eff75d54d7349b5c4c7296e62784
+      internalID: -976953704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Select Slot 3
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 951
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3000e18d810f47847be2f8ee2052045c
+      internalID: 385754038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Select Slot 4
+      rect:
+        serializedVersion: 2
+        x: 1983
+        y: 1079
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95f9c646244afde48a2ec33c352ab9e7
+      internalID: 2077569220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Select Slot 5
+      rect:
+        serializedVersion: 2
+        x: 1291
+        y: 1079
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5491b0c9a7e388742893d0a9ee859602
+      internalID: 211656567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Select Slot 6
+      rect:
+        serializedVersion: 2
+        x: 1853
+        y: 1209
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de4d2c16becec72488062e33fe1ab037
+      internalID: -1869901019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Select Slot 7
+      rect:
+        serializedVersion: 2
+        x: 1421
+        y: 1209
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1016a080430d6704fa981e9e124880ee
+      internalID: 522936291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Select Slot 8
+      rect:
+        serializedVersion: 2
+        x: 1549
+        y: 1853
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f3388c901a5ffa42ae85645428f0768
+      internalID: 1672086695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Select Slot 9
+      rect:
+        serializedVersion: 2
+        x: 1679
+        y: 1983
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 113152f355a8fb944b51cc45671d57ed
+      internalID: 1200155226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Console
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 759
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8020e4f21be24664a9ae61a287faa892
+      internalID: -1002048149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rotate
+      rect:
+        serializedVersion: 2
+        x: 1033
+        y: 1791
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74d738ab25bb1594ea39f86c3c74b6a1
+      internalID: 1802863004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shrink
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 1533
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0e3fba9c4fa29f438269c4f9499476f
+      internalID: -1228835404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zoom
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1791
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc45a960114ce094e8517187b2361b3e
+      internalID: 1069389631
       vertices: []
       indices: 
       edges: []
@@ -758,32 +1094,48 @@ TextureImporter:
       Ability: -573195872
       Aim: -1445392027
       Attack: -1251743752
+      Cancel: -131897819
       Chat: 1805076974
       Close: -1891087110
+      Console: -1002048149
       Crouch: -1139365725
       Dash: 378060164
       Down: 1987447425
       Drop: 618148719
       Emote: 934813469
+      Exit: 367894288
       Interact: -1334012671
       Inventory-Select: 174569757
       Joystick: 2060932315
       Map: -2144337599
       Menu: -1883056936
       Move: -2109680337
-      Person: -1703299883
       Ping: 863638075
+      Profile: -31691868
       Quick-Heal: 2118000403
       Reset: -214806896
+      Rotate: 1802863004
       Run: -562057903
       Screenshot: -746426648
-      Search: 1441529031
+      Scroll: 1265670370
+      Select Slot 0: -528951887
+      Select Slot 1: -1235646610
+      Select Slot 2: -976953704
+      Select Slot 3: 385754038
+      Select Slot 4: 2077569220
+      Select Slot 5: 211656567
+      Select Slot 6: -1869901019
+      Select Slot 7: 522936291
+      Select Slot 8: 1672086695
+      Select Slot 9: 1200155226
       Settings: 1735670971
+      Shrink: -1228835404
       Swap: -1804585232
       Sword: 170243423
       Tab-Right: -378166088
       Up: 195651471
       Walk: -1553491184
+      Zoom: 1069389631
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
