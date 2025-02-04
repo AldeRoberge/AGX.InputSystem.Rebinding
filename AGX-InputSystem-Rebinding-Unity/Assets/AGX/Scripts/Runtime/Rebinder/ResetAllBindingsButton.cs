@@ -32,15 +32,13 @@ namespace AGX.Scripts.Runtime.Rebinder
         private void RebindCountChanged(int count)
         {
             _buttonReset.gameObject.SetActive(count > 0);
-            
+
             // INTERNAL : TODO sprites should be from AGX.Resources
-            _textReset.text = count == 1
-                ?
-                //
-                "<sprite=\"General/General\" name=\"Close\" tint=1> Reset 1 custom mapping"
-                :
-                // 
-                $"<sprite=\"General/General\" name=\"Close\" tint=1> Reset {count} custom mappings";
+            _textReset.text = count == 1 ?
+                // One
+                "<sprite=\"General/General\" name=\"Cancel\" tint=1> Reset 1 custom mapping" :
+                // Many
+                $"<sprite=\"General/General\" name=\"Cancel\" tint=1> Reset {count} custom mappings";
         }
     }
 }

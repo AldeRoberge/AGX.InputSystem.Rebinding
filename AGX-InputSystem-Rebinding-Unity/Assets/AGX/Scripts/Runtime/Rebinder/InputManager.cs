@@ -79,7 +79,7 @@ namespace AGX.Scripts.Runtime.Rebinder
 
             var rebind = actionToRebind
                 .PerformInteractiveRebinding(bindingIndex)
-                .OnMatchWaitForAnother(0.2f)
+                .OnMatchWaitForAnother(0.1f)
                 .WithTimeout(TimeoutSeconds);
 
             rebind.OnComplete(operation =>

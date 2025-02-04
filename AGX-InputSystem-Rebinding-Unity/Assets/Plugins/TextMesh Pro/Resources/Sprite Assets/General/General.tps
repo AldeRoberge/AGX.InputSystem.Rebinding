@@ -173,6 +173,7 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
+            <key type="filename">../../../../../AGX/Sprites/Packed/General/General/Cancel.png</key>
             <key type="filename">../../../../../AGX/Sprites/Packed/General/General/Gamepad.png</key>
             <key type="filename">../../../../../AGX/Sprites/Packed/General/General/Keyboard.png</key>
             <key type="filename">../../../../../AGX/Sprites/Packed/General/General/Search.png</key>

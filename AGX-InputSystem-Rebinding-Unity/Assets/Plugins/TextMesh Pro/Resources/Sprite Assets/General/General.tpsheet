@@ -4,7 +4,7 @@
 # To import these sprites into your Unity project, download "TexturePackerImporter":
 # https://www.codeandweb.com/texturepacker/unity
 #
-# $TexturePacker:SmartUpdate:61c81bdfb58b8eb6493767f6698177e4:c9948832a6b0c24d4f2a5d5ccac503ea:65a7aa57881b688cb5eac16042e9bfc4$
+# $TexturePacker:SmartUpdate:84cbee3059dde73b2988a941c263dfa9:90888bf0a4fe4d67f4e4e8b4858cdb99:65a7aa57881b688cb5eac16042e9bfc4$
 #
 :format=40300
 :texture=General.png
@@ -13,6 +13,7 @@
 :borders=disabled
 :alphahandling=ClearTransparentPixels
 
+Cancel;21;21;512;512; 0;0.19999999999999996; 0;0;0;0
 Gamepad;21;981;512;512; 0;0.19999999999999996; 0;0;0;0
 Keyboard;1515;1515;512;512; 0;0.19999999999999996; 0;0;0;0
 Search;555;1515;512;512; 0;0.19999999999999996; 0;0;0;0

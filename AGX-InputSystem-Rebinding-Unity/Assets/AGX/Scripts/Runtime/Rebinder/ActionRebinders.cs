@@ -32,6 +32,14 @@ namespace AGX.Scripts.Runtime.Rebinder
             DOVirtual.DelayedCall(0.1f, UpdateUI);
         }
 
+
+        private void OnEnable()
+        {
+            UpdateText();
+            UpdateUI();
+        }
+
+
         [Button]
         private void UpdateUI()
         {
@@ -162,11 +170,6 @@ namespace AGX.Scripts.Runtime.Rebinder
             return groupedBindings;
         }
 
-
-        private void OnEnable()
-        {
-            UpdateText();
-        }
 
         public void Awake()
         {

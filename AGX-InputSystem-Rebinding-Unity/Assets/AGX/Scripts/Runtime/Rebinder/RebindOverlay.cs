@@ -4,6 +4,7 @@ using DG.Tweening;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem.UI;
 using UnityEngine.UI;
 
 namespace AGX.Scripts.Runtime.Rebinder
@@ -19,12 +20,16 @@ namespace AGX.Scripts.Runtime.Rebinder
         [BoxGroup("References"), SerializeField, Required] private TextMeshProUGUI _buttonCancelText;
         [BoxGroup("References"), SerializeField, Required] private Image           _buttonImageFill;
 
+        // Reference to the default UI input action
+        [BoxGroup("References"), SerializeField, Required] private InputSystemUIInputModule _inputSystemUiInputModule;
 
         private Coroutine _timeoutCoroutine;
 
         public void Show(Action cancelAction)
         {
             _duplicateWarning.text = "Waiting for input...";
+
+            _inputSystemUiInputModule.enabled = false;
 
             _buttonCancel.onClick.AddListener(() =>
             {
@@ -70,6 +75,8 @@ namespace AGX.Scripts.Runtime.Rebinder
 
         private void SetActive(bool isActive)
         {
+            _inputSystemUiInputModule.enabled = true;
+
             if (isActive)
                 gameObject.SetActive(true);
 
