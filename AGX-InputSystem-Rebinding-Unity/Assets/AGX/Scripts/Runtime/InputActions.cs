@@ -976,7 +976,7 @@ namespace AGX.Runtime
             ""id"": ""5bc2487e-37a3-4b3f-8ba4-ce368c36af86"",
             ""actions"": [
                 {
-                    ""name"": ""Menu Open"",
+                    ""name"": ""Menu Settings"",
                     ""type"": ""Button"",
                     ""id"": ""8e3fb755-51ef-4ceb-87ef-9a6250cc04fe"",
                     ""expectedControlType"": """",
@@ -985,7 +985,7 @@ namespace AGX.Runtime
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Menu Profile Open"",
+                    ""name"": ""Menu Profile"",
                     ""type"": ""Button"",
                     ""id"": ""bac62414-96ba-40c4-83dc-03cf206d7181"",
                     ""expectedControlType"": """",
@@ -994,7 +994,7 @@ namespace AGX.Runtime
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Menu Map Open"",
+                    ""name"": ""Menu Map"",
                     ""type"": ""Button"",
                     ""id"": ""62298e1f-edf2-4f43-b04e-878ed20d7322"",
                     ""expectedControlType"": """",
@@ -1011,7 +1011,7 @@ namespace AGX.Runtime
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
-                    ""action"": ""Menu Open"",
+                    ""action"": ""Menu Settings"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1022,7 +1022,7 @@ namespace AGX.Runtime
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
-                    ""action"": ""Menu Open"",
+                    ""action"": ""Menu Settings"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1033,7 +1033,7 @@ namespace AGX.Runtime
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""Menu Open"",
+                    ""action"": ""Menu Settings"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1044,7 +1044,7 @@ namespace AGX.Runtime
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
-                    ""action"": ""Menu Profile Open"",
+                    ""action"": ""Menu Profile"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1055,7 +1055,7 @@ namespace AGX.Runtime
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
-                    ""action"": ""Menu Profile Open"",
+                    ""action"": ""Menu Profile"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1066,7 +1066,7 @@ namespace AGX.Runtime
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""Menu Profile Open"",
+                    ""action"": ""Menu Profile"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1077,7 +1077,7 @@ namespace AGX.Runtime
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
-                    ""action"": ""Menu Map Open"",
+                    ""action"": ""Menu Map"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1088,7 +1088,7 @@ namespace AGX.Runtime
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
-                    ""action"": ""Menu Map Open"",
+                    ""action"": ""Menu Map"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1099,7 +1099,7 @@ namespace AGX.Runtime
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""Menu Map Open"",
+                    ""action"": ""Menu Map"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1110,7 +1110,7 @@ namespace AGX.Runtime
             ""id"": ""2009432f-5dc5-4021-9125-25b3e9b81651"",
             ""actions"": [
                 {
-                    ""name"": ""Chat Public Start"",
+                    ""name"": ""Chat Public Chat"",
                     ""type"": ""Button"",
                     ""id"": ""4ccdc5f0-d534-4ea7-a6d8-ce380d707823"",
                     ""expectedControlType"": """",
@@ -1119,7 +1119,7 @@ namespace AGX.Runtime
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Chat Guild Start"",
+                    ""name"": ""Chat Guild Chat"",
                     ""type"": ""Button"",
                     ""id"": ""f7238d6c-5451-408b-893e-d439ef9234c4"",
                     ""expectedControlType"": """",
@@ -1128,7 +1128,7 @@ namespace AGX.Runtime
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Chat Private Start"",
+                    ""name"": ""Chat Private Chat"",
                     ""type"": ""Button"",
                     ""id"": ""f01c18ce-1a84-44ab-91fa-fa74f29716c3"",
                     ""expectedControlType"": """",
@@ -1181,7 +1181,7 @@ namespace AGX.Runtime
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
-                    ""action"": ""Chat Public Start"",
+                    ""action"": ""Chat Public Chat"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1192,7 +1192,7 @@ namespace AGX.Runtime
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
-                    ""action"": ""Chat Public Start"",
+                    ""action"": ""Chat Public Chat"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1203,7 +1203,7 @@ namespace AGX.Runtime
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""Chat Public Start"",
+                    ""action"": ""Chat Public Chat"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1214,7 +1214,7 @@ namespace AGX.Runtime
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
-                    ""action"": ""Chat Guild Start"",
+                    ""action"": ""Chat Guild Chat"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1225,7 +1225,7 @@ namespace AGX.Runtime
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
-                    ""action"": ""Chat Guild Start"",
+                    ""action"": ""Chat Guild Chat"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1236,7 +1236,7 @@ namespace AGX.Runtime
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""Chat Guild Start"",
+                    ""action"": ""Chat Guild Chat"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1247,7 +1247,7 @@ namespace AGX.Runtime
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
-                    ""action"": ""Chat Private Start"",
+                    ""action"": ""Chat Private Chat"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1258,7 +1258,7 @@ namespace AGX.Runtime
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
-                    ""action"": ""Chat Private Start"",
+                    ""action"": ""Chat Private Chat"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1269,7 +1269,7 @@ namespace AGX.Runtime
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""Chat Private Start"",
+                    ""action"": ""Chat Private Chat"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1754,14 +1754,14 @@ namespace AGX.Runtime
             m_Inventory_InventorySwap = m_Inventory.FindAction("Inventory Swap", throwIfNotFound: true);
             // Menu
             m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
-            m_Menu_MenuOpen = m_Menu.FindAction("Menu Open", throwIfNotFound: true);
-            m_Menu_MenuProfileOpen = m_Menu.FindAction("Menu Profile Open", throwIfNotFound: true);
-            m_Menu_MenuMapOpen = m_Menu.FindAction("Menu Map Open", throwIfNotFound: true);
+            m_Menu_MenuSettings = m_Menu.FindAction("Menu Settings", throwIfNotFound: true);
+            m_Menu_MenuProfile = m_Menu.FindAction("Menu Profile", throwIfNotFound: true);
+            m_Menu_MenuMap = m_Menu.FindAction("Menu Map", throwIfNotFound: true);
             // Chat
             m_Chat = asset.FindActionMap("Chat", throwIfNotFound: true);
-            m_Chat_ChatPublicStart = m_Chat.FindAction("Chat Public Start", throwIfNotFound: true);
-            m_Chat_ChatGuildStart = m_Chat.FindAction("Chat Guild Start", throwIfNotFound: true);
-            m_Chat_ChatPrivateStart = m_Chat.FindAction("Chat Private Start", throwIfNotFound: true);
+            m_Chat_ChatPublicChat = m_Chat.FindAction("Chat Public Chat", throwIfNotFound: true);
+            m_Chat_ChatGuildChat = m_Chat.FindAction("Chat Guild Chat", throwIfNotFound: true);
+            m_Chat_ChatPrivateChat = m_Chat.FindAction("Chat Private Chat", throwIfNotFound: true);
             m_Chat_ChatCancel = m_Chat.FindAction("Chat Cancel", throwIfNotFound: true);
             m_Chat_ChatSend = m_Chat.FindAction("Chat Send", throwIfNotFound: true);
             m_Chat_Ping = m_Chat.FindAction("Ping", throwIfNotFound: true);
@@ -2076,16 +2076,16 @@ namespace AGX.Runtime
         // Menu
         private readonly InputActionMap m_Menu;
         private List<IMenuActions> m_MenuActionsCallbackInterfaces = new List<IMenuActions>();
-        private readonly InputAction m_Menu_MenuOpen;
-        private readonly InputAction m_Menu_MenuProfileOpen;
-        private readonly InputAction m_Menu_MenuMapOpen;
+        private readonly InputAction m_Menu_MenuSettings;
+        private readonly InputAction m_Menu_MenuProfile;
+        private readonly InputAction m_Menu_MenuMap;
         public struct MenuActions
         {
             private @InputActions m_Wrapper;
             public MenuActions(@InputActions wrapper) { m_Wrapper = wrapper; }
-            public InputAction @MenuOpen => m_Wrapper.m_Menu_MenuOpen;
-            public InputAction @MenuProfileOpen => m_Wrapper.m_Menu_MenuProfileOpen;
-            public InputAction @MenuMapOpen => m_Wrapper.m_Menu_MenuMapOpen;
+            public InputAction @MenuSettings => m_Wrapper.m_Menu_MenuSettings;
+            public InputAction @MenuProfile => m_Wrapper.m_Menu_MenuProfile;
+            public InputAction @MenuMap => m_Wrapper.m_Menu_MenuMap;
             public InputActionMap Get() { return m_Wrapper.m_Menu; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -2095,28 +2095,28 @@ namespace AGX.Runtime
             {
                 if (instance == null || m_Wrapper.m_MenuActionsCallbackInterfaces.Contains(instance)) return;
                 m_Wrapper.m_MenuActionsCallbackInterfaces.Add(instance);
-                @MenuOpen.started += instance.OnMenuOpen;
-                @MenuOpen.performed += instance.OnMenuOpen;
-                @MenuOpen.canceled += instance.OnMenuOpen;
-                @MenuProfileOpen.started += instance.OnMenuProfileOpen;
-                @MenuProfileOpen.performed += instance.OnMenuProfileOpen;
-                @MenuProfileOpen.canceled += instance.OnMenuProfileOpen;
-                @MenuMapOpen.started += instance.OnMenuMapOpen;
-                @MenuMapOpen.performed += instance.OnMenuMapOpen;
-                @MenuMapOpen.canceled += instance.OnMenuMapOpen;
+                @MenuSettings.started += instance.OnMenuSettings;
+                @MenuSettings.performed += instance.OnMenuSettings;
+                @MenuSettings.canceled += instance.OnMenuSettings;
+                @MenuProfile.started += instance.OnMenuProfile;
+                @MenuProfile.performed += instance.OnMenuProfile;
+                @MenuProfile.canceled += instance.OnMenuProfile;
+                @MenuMap.started += instance.OnMenuMap;
+                @MenuMap.performed += instance.OnMenuMap;
+                @MenuMap.canceled += instance.OnMenuMap;
             }
 
             private void UnregisterCallbacks(IMenuActions instance)
             {
-                @MenuOpen.started -= instance.OnMenuOpen;
-                @MenuOpen.performed -= instance.OnMenuOpen;
-                @MenuOpen.canceled -= instance.OnMenuOpen;
-                @MenuProfileOpen.started -= instance.OnMenuProfileOpen;
-                @MenuProfileOpen.performed -= instance.OnMenuProfileOpen;
-                @MenuProfileOpen.canceled -= instance.OnMenuProfileOpen;
-                @MenuMapOpen.started -= instance.OnMenuMapOpen;
-                @MenuMapOpen.performed -= instance.OnMenuMapOpen;
-                @MenuMapOpen.canceled -= instance.OnMenuMapOpen;
+                @MenuSettings.started -= instance.OnMenuSettings;
+                @MenuSettings.performed -= instance.OnMenuSettings;
+                @MenuSettings.canceled -= instance.OnMenuSettings;
+                @MenuProfile.started -= instance.OnMenuProfile;
+                @MenuProfile.performed -= instance.OnMenuProfile;
+                @MenuProfile.canceled -= instance.OnMenuProfile;
+                @MenuMap.started -= instance.OnMenuMap;
+                @MenuMap.performed -= instance.OnMenuMap;
+                @MenuMap.canceled -= instance.OnMenuMap;
             }
 
             public void RemoveCallbacks(IMenuActions instance)
@@ -2138,9 +2138,9 @@ namespace AGX.Runtime
         // Chat
         private readonly InputActionMap m_Chat;
         private List<IChatActions> m_ChatActionsCallbackInterfaces = new List<IChatActions>();
-        private readonly InputAction m_Chat_ChatPublicStart;
-        private readonly InputAction m_Chat_ChatGuildStart;
-        private readonly InputAction m_Chat_ChatPrivateStart;
+        private readonly InputAction m_Chat_ChatPublicChat;
+        private readonly InputAction m_Chat_ChatGuildChat;
+        private readonly InputAction m_Chat_ChatPrivateChat;
         private readonly InputAction m_Chat_ChatCancel;
         private readonly InputAction m_Chat_ChatSend;
         private readonly InputAction m_Chat_Ping;
@@ -2149,9 +2149,9 @@ namespace AGX.Runtime
         {
             private @InputActions m_Wrapper;
             public ChatActions(@InputActions wrapper) { m_Wrapper = wrapper; }
-            public InputAction @ChatPublicStart => m_Wrapper.m_Chat_ChatPublicStart;
-            public InputAction @ChatGuildStart => m_Wrapper.m_Chat_ChatGuildStart;
-            public InputAction @ChatPrivateStart => m_Wrapper.m_Chat_ChatPrivateStart;
+            public InputAction @ChatPublicChat => m_Wrapper.m_Chat_ChatPublicChat;
+            public InputAction @ChatGuildChat => m_Wrapper.m_Chat_ChatGuildChat;
+            public InputAction @ChatPrivateChat => m_Wrapper.m_Chat_ChatPrivateChat;
             public InputAction @ChatCancel => m_Wrapper.m_Chat_ChatCancel;
             public InputAction @ChatSend => m_Wrapper.m_Chat_ChatSend;
             public InputAction @Ping => m_Wrapper.m_Chat_Ping;
@@ -2165,15 +2165,15 @@ namespace AGX.Runtime
             {
                 if (instance == null || m_Wrapper.m_ChatActionsCallbackInterfaces.Contains(instance)) return;
                 m_Wrapper.m_ChatActionsCallbackInterfaces.Add(instance);
-                @ChatPublicStart.started += instance.OnChatPublicStart;
-                @ChatPublicStart.performed += instance.OnChatPublicStart;
-                @ChatPublicStart.canceled += instance.OnChatPublicStart;
-                @ChatGuildStart.started += instance.OnChatGuildStart;
-                @ChatGuildStart.performed += instance.OnChatGuildStart;
-                @ChatGuildStart.canceled += instance.OnChatGuildStart;
-                @ChatPrivateStart.started += instance.OnChatPrivateStart;
-                @ChatPrivateStart.performed += instance.OnChatPrivateStart;
-                @ChatPrivateStart.canceled += instance.OnChatPrivateStart;
+                @ChatPublicChat.started += instance.OnChatPublicChat;
+                @ChatPublicChat.performed += instance.OnChatPublicChat;
+                @ChatPublicChat.canceled += instance.OnChatPublicChat;
+                @ChatGuildChat.started += instance.OnChatGuildChat;
+                @ChatGuildChat.performed += instance.OnChatGuildChat;
+                @ChatGuildChat.canceled += instance.OnChatGuildChat;
+                @ChatPrivateChat.started += instance.OnChatPrivateChat;
+                @ChatPrivateChat.performed += instance.OnChatPrivateChat;
+                @ChatPrivateChat.canceled += instance.OnChatPrivateChat;
                 @ChatCancel.started += instance.OnChatCancel;
                 @ChatCancel.performed += instance.OnChatCancel;
                 @ChatCancel.canceled += instance.OnChatCancel;
@@ -2190,15 +2190,15 @@ namespace AGX.Runtime
 
             private void UnregisterCallbacks(IChatActions instance)
             {
-                @ChatPublicStart.started -= instance.OnChatPublicStart;
-                @ChatPublicStart.performed -= instance.OnChatPublicStart;
-                @ChatPublicStart.canceled -= instance.OnChatPublicStart;
-                @ChatGuildStart.started -= instance.OnChatGuildStart;
-                @ChatGuildStart.performed -= instance.OnChatGuildStart;
-                @ChatGuildStart.canceled -= instance.OnChatGuildStart;
-                @ChatPrivateStart.started -= instance.OnChatPrivateStart;
-                @ChatPrivateStart.performed -= instance.OnChatPrivateStart;
-                @ChatPrivateStart.canceled -= instance.OnChatPrivateStart;
+                @ChatPublicChat.started -= instance.OnChatPublicChat;
+                @ChatPublicChat.performed -= instance.OnChatPublicChat;
+                @ChatPublicChat.canceled -= instance.OnChatPublicChat;
+                @ChatGuildChat.started -= instance.OnChatGuildChat;
+                @ChatGuildChat.performed -= instance.OnChatGuildChat;
+                @ChatGuildChat.canceled -= instance.OnChatGuildChat;
+                @ChatPrivateChat.started -= instance.OnChatPrivateChat;
+                @ChatPrivateChat.performed -= instance.OnChatPrivateChat;
+                @ChatPrivateChat.canceled -= instance.OnChatPrivateChat;
                 @ChatCancel.started -= instance.OnChatCancel;
                 @ChatCancel.performed -= instance.OnChatCancel;
                 @ChatCancel.canceled -= instance.OnChatCancel;
@@ -2437,15 +2437,15 @@ namespace AGX.Runtime
         }
         public interface IMenuActions
         {
-            void OnMenuOpen(InputAction.CallbackContext context);
-            void OnMenuProfileOpen(InputAction.CallbackContext context);
-            void OnMenuMapOpen(InputAction.CallbackContext context);
+            void OnMenuSettings(InputAction.CallbackContext context);
+            void OnMenuProfile(InputAction.CallbackContext context);
+            void OnMenuMap(InputAction.CallbackContext context);
         }
         public interface IChatActions
         {
-            void OnChatPublicStart(InputAction.CallbackContext context);
-            void OnChatGuildStart(InputAction.CallbackContext context);
-            void OnChatPrivateStart(InputAction.CallbackContext context);
+            void OnChatPublicChat(InputAction.CallbackContext context);
+            void OnChatGuildChat(InputAction.CallbackContext context);
+            void OnChatPrivateChat(InputAction.CallbackContext context);
             void OnChatCancel(InputAction.CallbackContext context);
             void OnChatSend(InputAction.CallbackContext context);
             void OnPing(InputAction.CallbackContext context);

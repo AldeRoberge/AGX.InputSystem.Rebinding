@@ -52,7 +52,7 @@ namespace AGX.Scripts.Runtime.Icons
                 return sprite;
             }
 
-            Debug.LogWarning($"No sprite found for {key}");
+            Debug.LogWarning($"No sprite found for key '{key}'.");
             return key;
         }
 

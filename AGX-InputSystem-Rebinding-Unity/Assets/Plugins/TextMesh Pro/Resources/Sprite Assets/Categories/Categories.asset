@@ -56,7 +56,7 @@ MonoBehaviour:
   hashCode: 996476630
   material: {fileID: -7066226556852610835}
   materialHashCode: 0
-  m_Version: 1.1.0
+  m_Version: 1.1.1
   m_FaceInfo:
     m_FaceIndex: 0
     m_FamilyName: 
@@ -154,8 +154,8 @@ MonoBehaviour:
       m_HorizontalBearingY: 204.8
       m_HorizontalAdvance: 256
     m_GlyphRect:
-      m_X: 259
-      m_Y: 251
+      m_X: 299
+      m_Y: 191
       m_Width: 256
       m_Height: 256
     m_Scale: 1
@@ -170,8 +170,8 @@ MonoBehaviour:
       m_HorizontalBearingY: 204.8
       m_HorizontalAdvance: 256
     m_GlyphRect:
-      m_X: 517
-      m_Y: 509
+      m_X: 577
+      m_Y: 469
       m_Width: 256
       m_Height: 256
     m_Scale: 1
@@ -186,8 +186,8 @@ MonoBehaviour:
       m_HorizontalBearingY: 204.8
       m_HorizontalAdvance: 256
     m_GlyphRect:
-      m_X: 1
-      m_Y: 251
+      m_X: 299
+      m_Y: 469
       m_Width: 256
       m_Height: 256
     m_Scale: 1
@@ -202,8 +202,8 @@ MonoBehaviour:
       m_HorizontalBearingY: 204.8
       m_HorizontalAdvance: 256
     m_GlyphRect:
-      m_X: 259
-      m_Y: 509
+      m_X: 21
+      m_Y: 191
       m_Width: 256
       m_Height: 256
     m_Scale: 1
@@ -218,8 +218,8 @@ MonoBehaviour:
       m_HorizontalBearingY: 204.8
       m_HorizontalAdvance: 256
     m_GlyphRect:
-      m_X: 1
-      m_Y: 509
+      m_X: 21
+      m_Y: 469
       m_Width: 256
       m_Height: 256
     m_Scale: 1
@@ -234,8 +234,8 @@ MonoBehaviour:
       m_HorizontalBearingY: 204.8
       m_HorizontalAdvance: 256
     m_GlyphRect:
-      m_X: 517
-      m_Y: 767
+      m_X: 577
+      m_Y: 747
       m_Width: 256
       m_Height: 256
     m_Scale: 1
@@ -250,8 +250,8 @@ MonoBehaviour:
       m_HorizontalBearingY: 204.8
       m_HorizontalAdvance: 256
     m_GlyphRect:
-      m_X: 259
-      m_Y: 767
+      m_X: 299
+      m_Y: 747
       m_Width: 256
       m_Height: 256
     m_Scale: 1
@@ -266,8 +266,8 @@ MonoBehaviour:
       m_HorizontalBearingY: 204.8
       m_HorizontalAdvance: 256
     m_GlyphRect:
-      m_X: 1
-      m_Y: 767
+      m_X: 21
+      m_Y: 747
       m_Width: 256
       m_Height: 256
     m_Scale: 1

@@ -952,7 +952,7 @@
             "id": "5bc2487e-37a3-4b3f-8ba4-ce368c36af86",
             "actions": [
                 {
-                    "name": "Menu Open",
+                    "name": "Menu Settings",
                     "type": "Button",
                     "id": "8e3fb755-51ef-4ceb-87ef-9a6250cc04fe",
                     "expectedControlType": "",
@@ -961,7 +961,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Menu Profile Open",
+                    "name": "Menu Profile",
                     "type": "Button",
                     "id": "bac62414-96ba-40c4-83dc-03cf206d7181",
                     "expectedControlType": "",
@@ -970,7 +970,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Menu Map Open",
+                    "name": "Menu Map",
                     "type": "Button",
                     "id": "62298e1f-edf2-4f43-b04e-878ed20d7322",
                     "expectedControlType": "",
@@ -987,7 +987,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
-                    "action": "Menu Open",
+                    "action": "Menu Settings",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -998,7 +998,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
-                    "action": "Menu Open",
+                    "action": "Menu Settings",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1009,7 +1009,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Menu Open",
+                    "action": "Menu Settings",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1020,7 +1020,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
-                    "action": "Menu Profile Open",
+                    "action": "Menu Profile",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1031,7 +1031,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
-                    "action": "Menu Profile Open",
+                    "action": "Menu Profile",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1042,7 +1042,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Menu Profile Open",
+                    "action": "Menu Profile",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1053,7 +1053,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
-                    "action": "Menu Map Open",
+                    "action": "Menu Map",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1064,7 +1064,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
-                    "action": "Menu Map Open",
+                    "action": "Menu Map",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1075,7 +1075,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Menu Map Open",
+                    "action": "Menu Map",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -1086,7 +1086,7 @@
             "id": "2009432f-5dc5-4021-9125-25b3e9b81651",
             "actions": [
                 {
-                    "name": "Chat Public Start",
+                    "name": "Chat Public Chat",
                     "type": "Button",
                     "id": "4ccdc5f0-d534-4ea7-a6d8-ce380d707823",
                     "expectedControlType": "",
@@ -1095,7 +1095,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Chat Guild Start",
+                    "name": "Chat Guild Chat",
                     "type": "Button",
                     "id": "f7238d6c-5451-408b-893e-d439ef9234c4",
                     "expectedControlType": "",
@@ -1104,7 +1104,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Chat Private Start",
+                    "name": "Chat Private Chat",
                     "type": "Button",
                     "id": "f01c18ce-1a84-44ab-91fa-fa74f29716c3",
                     "expectedControlType": "",
@@ -1157,7 +1157,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
-                    "action": "Chat Public Start",
+                    "action": "Chat Public Chat",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1168,7 +1168,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
-                    "action": "Chat Public Start",
+                    "action": "Chat Public Chat",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1179,7 +1179,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Chat Public Start",
+                    "action": "Chat Public Chat",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1190,7 +1190,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
-                    "action": "Chat Guild Start",
+                    "action": "Chat Guild Chat",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1201,7 +1201,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
-                    "action": "Chat Guild Start",
+                    "action": "Chat Guild Chat",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1212,7 +1212,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Chat Guild Start",
+                    "action": "Chat Guild Chat",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1223,7 +1223,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
-                    "action": "Chat Private Start",
+                    "action": "Chat Private Chat",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1234,7 +1234,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
-                    "action": "Chat Private Start",
+                    "action": "Chat Private Chat",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1245,7 +1245,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Chat Private Start",
+                    "action": "Chat Private Chat",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

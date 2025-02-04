@@ -124,19 +124,23 @@ namespace AGX.Scripts.Runtime.Rebinder
         {
         }
 
-        public void OnMenuOpen(InputAction.CallbackContext context)
-        {
-        }
 
-        public void OnMenuProfileOpen(InputAction.CallbackContext context)
-        {
-        }
-
-        public void OnMenuMapOpen(InputAction.CallbackContext context)
-        {
-        }
+        
 
         public void OnDebugToggle(InputAction.CallbackContext context)
+        {
+        }
+
+        public void OnMenuSettings(InputAction.CallbackContext context)
+        {
+            
+        }
+
+        public void OnMenuProfile(InputAction.CallbackContext context)
+        {
+        }
+
+        public void OnMenuMap(InputAction.CallbackContext context)
         {
         }
     }

@@ -87,24 +87,24 @@
       "Value": "Profile"
     },
     {
-      "Key": "Menu Map Open",
+      "Key": "Menu Map",
       "Value": "Map"
     },
     {
-      "Key": "Chat Public Start",
-      "Value": "Public Chat"
+      "Key": "Chat Public Chat",
+      "Value": "Chat"
     },
     {
-      "Key": "Chat Guild Start",
-      "Value": "Guild Chat"
+      "Key": "Chat Guild Chat",
+      "Value": "Chat"
     },
     {
-      "Key": "Chat Private Start",
-      "Value": "Private Chat"
+      "Key": "Chat Private Chat",
+      "Value": "Chat"
     },
     {
       "Key": "Chat Cancel",
-      "Value": "Cancel Chat"
+      "Value": "Cancel"
     },
     {
       "Key": "Chat Send",
@@ -127,8 +127,8 @@
       "Value": "Rotate"
     },
     {
-      "Key": "Zoom Minimap",
-      "Value": "Minimap Zoom"
+      "Key": "Map Zoom",
+      "Value": "Zoom"
     },
     {
       "Key": "Debug Toggle",
