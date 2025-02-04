@@ -5,11 +5,15 @@ namespace AGX.Scripts.Runtime.Utilities
 {
     public class InputFieldWithClearButton : MonoBehaviour
     {
-        [SerializeField, BoxGroup("References")]
+        [SerializeField, BoxGroup("References"), Required]
         private TMPro.TMP_InputField _inputField;
 
-        [SerializeField, BoxGroup("References")]
+        [SerializeField, BoxGroup("References"), Required]
         private UnityEngine.UI.Button _clearButton;
+
+
+        [SerializeField, BoxGroup("References")]
+        private InputFieldHidePlaceholderOnSelection _inputFieldHidePlaceholderOnSelection;
 
         private void Reset()
         {
@@ -33,6 +37,9 @@ namespace AGX.Scripts.Runtime.Utilities
         {
             _inputField.text = string.Empty;
             _clearButton.gameObject.SetActive(false);
+
+            if (_inputFieldHidePlaceholderOnSelection != null)
+                _inputFieldHidePlaceholderOnSelection.ShowPlaceholder();
         }
     }
 }
