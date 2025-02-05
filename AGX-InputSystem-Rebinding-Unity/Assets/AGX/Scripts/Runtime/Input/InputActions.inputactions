@@ -539,6 +539,17 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "c2f441fd-95b4-44ce-925c-87eaefde7f5e",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "Inventory Scroll",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "Shoulders [Gamepad]",
                     "id": "ef3d7eab-41b0-4b02-96de-98f35002f4f8",
                     "path": "1DAxis",

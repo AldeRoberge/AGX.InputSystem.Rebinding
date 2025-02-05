@@ -1,13 +1,14 @@
 ﻿using AGX.Runtime;
+using AGX.Scripts.Runtime.Rebinder;
 using FredericRP.GenericSingleton;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-namespace AGX.Scripts.Runtime.Rebinder
+namespace AGX.Scripts.Runtime.Input
 {
     [DefaultExecutionOrder(-99999)]
-    public class Input : Singleton<Input>, InputActions.IGameplayActions, InputActions.IMenuActions, InputActions.ICheatsActions
+    public class InputReader : Singleton<InputReader>, InputActions.IGameplayActions, InputActions.IMenuActions, InputActions.ICheatsActions
     {
         private InputActions? _inputActions;
 

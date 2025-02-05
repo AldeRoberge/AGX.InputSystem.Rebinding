@@ -1909,7 +1909,7 @@ PrefabInstance:
     - target: {fileID: 1941943764570272251, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_Name
-      value: Input Action Rebinder (Chat Public Start:1)
+      value: Input Action Rebinder (Chat Public Chat:1)
       objectReference: {fileID: 0}
     - target: {fileID: 2068684086413102461, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
@@ -2074,7 +2074,7 @@ PrefabInstance:
     - target: {fileID: 4045703756285070486, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_Name
-      value: Input Action Rebinder (Chat Public Start:2)
+      value: Input Action Rebinder (Chat Public Chat:2)
       objectReference: {fileID: 0}
     - target: {fileID: 4733217309745446132, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
@@ -2114,7 +2114,7 @@ PrefabInstance:
     - target: {fileID: 5235950691211989352, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_Name
-      value: Input Action Rebinder (Chat Public Start:0)
+      value: Input Action Rebinder (Chat Public Chat:0)
       objectReference: {fileID: 0}
     - target: {fileID: 6937631338274166556, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
@@ -2215,7 +2215,7 @@ PrefabInstance:
     - target: {fileID: 8475569955636373340, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_Name
-      value: Input Action Rebinders (Chat/Chat Public Start)
+      value: Input Action Rebinders (Chat/Chat Public Chat)
       objectReference: {fileID: 0}
     - target: {fileID: 8475569955636373340, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
@@ -2731,7 +2731,7 @@ PrefabInstance:
     - target: {fileID: 1941943764570272251, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_Name
-      value: Input Action Rebinder (Menu Minimap Open:1)
+      value: Input Action Rebinder (Menu Map:1)
       objectReference: {fileID: 0}
     - target: {fileID: 2068684086413102461, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
@@ -2901,7 +2901,7 @@ PrefabInstance:
     - target: {fileID: 4045703756285070486, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_Name
-      value: Input Action Rebinder (Menu Minimap Open:2)
+      value: Input Action Rebinder (Menu Map:2)
       objectReference: {fileID: 0}
     - target: {fileID: 4733217309745446132, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
@@ -2941,7 +2941,7 @@ PrefabInstance:
     - target: {fileID: 5235950691211989352, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_Name
-      value: Input Action Rebinder (Menu Minimap Open:0)
+      value: Input Action Rebinder (Menu Map:0)
       objectReference: {fileID: 0}
     - target: {fileID: 6937631338274166556, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
@@ -3042,7 +3042,7 @@ PrefabInstance:
     - target: {fileID: 8475569955636373340, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_Name
-      value: Input Action Rebinders (Menu/Menu Minimap Open)
+      value: Input Action Rebinders (Menu/Menu Map)
       objectReference: {fileID: 0}
     - target: {fileID: 8475569955636373340, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
@@ -3942,7 +3942,7 @@ PrefabInstance:
     - target: {fileID: 1941943764570272251, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_Name
-      value: Input Action Rebinder (Chat Private Start:1)
+      value: Input Action Rebinder (Chat Private Chat:1)
       objectReference: {fileID: 0}
     - target: {fileID: 2068684086413102461, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
@@ -4107,7 +4107,7 @@ PrefabInstance:
     - target: {fileID: 4045703756285070486, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_Name
-      value: Input Action Rebinder (Chat Private Start:2)
+      value: Input Action Rebinder (Chat Private Chat:2)
       objectReference: {fileID: 0}
     - target: {fileID: 4733217309745446132, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
@@ -4147,7 +4147,7 @@ PrefabInstance:
     - target: {fileID: 5235950691211989352, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_Name
-      value: Input Action Rebinder (Chat Private Start:0)
+      value: Input Action Rebinder (Chat Private Chat:0)
       objectReference: {fileID: 0}
     - target: {fileID: 6937631338274166556, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
@@ -4248,7 +4248,7 @@ PrefabInstance:
     - target: {fileID: 8475569955636373340, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_Name
-      value: Input Action Rebinders (Chat/Chat Private Start)
+      value: Input Action Rebinders (Chat/Chat Private Chat)
       objectReference: {fileID: 0}
     - target: {fileID: 8475569955636373340, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
@@ -8173,7 +8173,7 @@ PrefabInstance:
     - target: {fileID: 1941943764570272251, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_Name
-      value: Input Action Rebinder (Chat Guild Start:1)
+      value: Input Action Rebinder (Chat Guild Chat:1)
       objectReference: {fileID: 0}
     - target: {fileID: 2068684086413102461, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
@@ -8338,7 +8338,7 @@ PrefabInstance:
     - target: {fileID: 4045703756285070486, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_Name
-      value: Input Action Rebinder (Chat Guild Start:2)
+      value: Input Action Rebinder (Chat Guild Chat:2)
       objectReference: {fileID: 0}
     - target: {fileID: 4733217309745446132, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
@@ -8378,7 +8378,7 @@ PrefabInstance:
     - target: {fileID: 5235950691211989352, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_Name
-      value: Input Action Rebinder (Chat Guild Start:0)
+      value: Input Action Rebinder (Chat Guild Chat:0)
       objectReference: {fileID: 0}
     - target: {fileID: 6937631338274166556, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
@@ -8479,7 +8479,7 @@ PrefabInstance:
     - target: {fileID: 8475569955636373340, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_Name
-      value: Input Action Rebinders (Chat/Chat Guild Start)
+      value: Input Action Rebinders (Chat/Chat Guild Chat)
       objectReference: {fileID: 0}
     - target: {fileID: 8475569955636373340, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
@@ -10495,7 +10495,7 @@ PrefabInstance:
     - target: {fileID: 4045703756285070486, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_Name
-      value: Input Action Rebinder (Inventory Scroll:4)
+      value: Input Action Rebinder (Inventory Scroll:2)
       objectReference: {fileID: 0}
     - target: {fileID: 4733217309745446132, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
@@ -11452,7 +11452,7 @@ PrefabInstance:
     - target: {fileID: 1941943764570272251, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_Name
-      value: Input Action Rebinder (Menu Open:1)
+      value: Input Action Rebinder (Menu Settings:1)
       objectReference: {fileID: 0}
     - target: {fileID: 2068684086413102461, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
@@ -11617,7 +11617,7 @@ PrefabInstance:
     - target: {fileID: 4045703756285070486, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_Name
-      value: Input Action Rebinder (Menu Open:2)
+      value: Input Action Rebinder (Menu Settings:2)
       objectReference: {fileID: 0}
     - target: {fileID: 4733217309745446132, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
@@ -11657,7 +11657,7 @@ PrefabInstance:
     - target: {fileID: 5235950691211989352, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_Name
-      value: Input Action Rebinder (Menu Open:0)
+      value: Input Action Rebinder (Menu Settings:0)
       objectReference: {fileID: 0}
     - target: {fileID: 6937631338274166556, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
@@ -11758,7 +11758,7 @@ PrefabInstance:
     - target: {fileID: 8475569955636373340, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_Name
-      value: Input Action Rebinders (Menu/Menu Open)
+      value: Input Action Rebinders (Menu/Menu Settings)
       objectReference: {fileID: 0}
     - target: {fileID: 8475569955636373340, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
@@ -17155,7 +17155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00024414062, y: -1386.49}
+  m_AnchoredPosition: {x: -0.00024414062, y: 0.00024414062}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1909273953
@@ -17686,8 +17686,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 362498012}
   m_HandleRect: {fileID: 362498011}
   m_Direction: 2
-  m_Value: 0.99472916
-  m_Size: 0.27395755
+  m_Value: 0.4999999
+  m_Size: 0.25756437
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -18697,7 +18697,7 @@ PrefabInstance:
     - target: {fileID: 1941943764570272251, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_Name
-      value: Input Action Rebinder (Menu Profile Open:1)
+      value: Input Action Rebinder (Menu Profile:1)
       objectReference: {fileID: 0}
     - target: {fileID: 2068684086413102461, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
@@ -18867,7 +18867,7 @@ PrefabInstance:
     - target: {fileID: 4045703756285070486, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_Name
-      value: Input Action Rebinder (Menu Profile Open:2)
+      value: Input Action Rebinder (Menu Profile:2)
       objectReference: {fileID: 0}
     - target: {fileID: 4733217309745446132, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
@@ -18907,7 +18907,7 @@ PrefabInstance:
     - target: {fileID: 5235950691211989352, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_Name
-      value: Input Action Rebinder (Menu Profile Open:0)
+      value: Input Action Rebinder (Menu Profile:0)
       objectReference: {fileID: 0}
     - target: {fileID: 6937631338274166556, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
@@ -19008,7 +19008,7 @@ PrefabInstance:
     - target: {fileID: 8475569955636373340, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_Name
-      value: Input Action Rebinders (Menu/Menu Profile Open)
+      value: Input Action Rebinders (Menu/Menu Profile)
       objectReference: {fileID: 0}
     - target: {fileID: 8475569955636373340, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}

@@ -314,9 +314,16 @@ namespace AGX.Scripts.Runtime.Rebinder
         {
             var action = InputActions.asset.FindAction(actionName);
 
-            if (action == null || action.bindings.Count <= bindingIndex)
+
+            if (action == null)
             {
-                Debug.LogError($"Action '{actionName}' or binding at index {bindingIndex} not found.");
+                Debug.LogError($"Action '{actionName}' not found.");
+                return false;
+            }
+
+            if (action.bindings.Count <= bindingIndex)
+            {
+                Debug.LogError($"Binding index {bindingIndex} out of range for action '{actionName}', which only has {action.bindings.Count} bindings.");
                 return false;
             }
 

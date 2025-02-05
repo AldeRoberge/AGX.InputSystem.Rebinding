@@ -112,9 +112,16 @@ namespace AGX.Scripts.Runtime.Rebinder
                 for (var i = 0; i < bindings.Count; i++)
                     Debug.Log($"Binding {i}: {bindings[i].name} - {bindings[i].effectivePath} - {bindings[i].isComposite} - {bindings[i].isPartOfComposite}");
 
-            if (startIndex < 0 || startIndex >= bindings.Count)
+
+            if (startIndex < 0)
             {
                 Debug.LogError($"Invalid binding index: {startIndex}, Action: {action.name}");
+                return;
+            }
+
+            if (startIndex >= bindings.Count)
+            {
+                Debug.LogError($"Binding index out of range: {startIndex} out of {bindings.Count}, Action: {action.name}");
                 return;
             }
 
@@ -191,7 +198,7 @@ namespace AGX.Scripts.Runtime.Rebinder
              */
 
             var val = fullString.ToString();
-            
+
 
             _textRebind.text = val;
 
