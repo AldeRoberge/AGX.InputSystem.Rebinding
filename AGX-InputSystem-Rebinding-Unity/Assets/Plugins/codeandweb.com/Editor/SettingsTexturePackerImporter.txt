@@ -1,18 +1,18 @@
 version: 2
 tpsheetFileNames:
-- Assets/Plugins/TextMesh Pro/Resources/Sprite Assets/Actions/Actions.tpsheet
-- Assets/Plugins/TextMesh Pro/Resources/Sprite Assets/Categories/Categories.tpsheet
-- Assets/Plugins/TextMesh Pro/Resources/Sprite Assets/Devices/Keyboard/Keyboard.tpsheet
-- Assets/Plugins/TextMesh Pro/Resources/Sprite Assets/Devices/Mouse/Mouse.tpsheet
-- Assets/Plugins/TextMesh Pro/Resources/Sprite Assets/Devices/XboxSeries/XboxSeries.tpsheet
-- Assets/Plugins/TextMesh Pro/Resources/Sprite Assets/General/General.tpsheet
+- Assets/AGX/Resources/Sprites/Actions/Actions.tpsheet
+- Assets/AGX/Resources/Sprites/Categories/Categories.tpsheet
+- Assets/AGX/Resources/Sprites/Devices/Keyboard/Keyboard.tpsheet
+- Assets/AGX/Resources/Sprites/Devices/Mouse/Mouse.tpsheet
+- Assets/AGX/Resources/Sprites/Devices/XboxSeries/XboxSeries.tpsheet
+- Assets/AGX/Resources/Sprites/General/General.tpsheet
 textureFileNames:
-- Assets/Plugins/TextMesh Pro/Resources/Sprite Assets/Actions/Actions.png
-- Assets/Plugins/TextMesh Pro/Resources/Sprite Assets/Categories/Categories.png
-- Assets/Plugins/TextMesh Pro/Resources/Sprite Assets/Devices/Keyboard/Keyboard.png
-- Assets/Plugins/TextMesh Pro/Resources/Sprite Assets/Devices/Mouse/Mouse.png
-- Assets/Plugins/TextMesh Pro/Resources/Sprite Assets/Devices/XboxSeries/XboxSeries.png
-- Assets/Plugins/TextMesh Pro/Resources/Sprite Assets/General/General.png
+- Assets/AGX/Resources/Sprites/Actions/Actions.png
+- Assets/AGX/Resources/Sprites/Categories/Categories.png
+- Assets/AGX/Resources/Sprites/Devices/Keyboard/Keyboard.png
+- Assets/AGX/Resources/Sprites/Devices/Mouse/Mouse.png
+- Assets/AGX/Resources/Sprites/Devices/XboxSeries/XboxSeries.png
+- Assets/AGX/Resources/Sprites/General/General.png
 normalmapFileNames:
 - 
 - 
