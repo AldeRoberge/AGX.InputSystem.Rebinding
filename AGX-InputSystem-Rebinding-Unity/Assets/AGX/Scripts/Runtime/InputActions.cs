@@ -394,7 +394,7 @@ namespace AGX.Runtime
                 {
                     ""name"": """",
                     ""id"": ""8fcc01e2-3c1d-4fe5-9b78-2fa1d1bfc200"",
-                    ""path"": """",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
@@ -594,17 +594,6 @@ namespace AGX.Runtime
                     ""action"": ""Inventory Scroll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""2f358c72-9b00-4fb1-86be-f7b90777756b"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Gamepad"",
-                    ""action"": ""Inventory Scroll"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
@@ -1062,7 +1051,7 @@ namespace AGX.Runtime
                 {
                     ""name"": """",
                     ""id"": ""27b83401-8ffa-40d7-9587-85073ac40bcd"",
-                    ""path"": ""<Gamepad>/select"",
+                    ""path"": """",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
@@ -1095,7 +1084,7 @@ namespace AGX.Runtime
                 {
                     ""name"": """",
                     ""id"": ""86f7854c-fd66-401e-8a94-9fbd50824990"",
-                    ""path"": """",
+                    ""path"": ""<Gamepad>/select"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
@@ -1364,7 +1353,7 @@ namespace AGX.Runtime
                 {
                     ""name"": """",
                     ""id"": ""a5a2cb04-a6a8-4da8-9924-1ff45618028c"",
-                    ""path"": """",
+                    ""path"": ""<Gamepad>/dpad/up"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
@@ -1397,7 +1386,7 @@ namespace AGX.Runtime
                 {
                     ""name"": """",
                     ""id"": ""d08f958d-643f-410e-b9fa-7b1235bd8a13"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""path"": ""<Gamepad>/dpad/down"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
