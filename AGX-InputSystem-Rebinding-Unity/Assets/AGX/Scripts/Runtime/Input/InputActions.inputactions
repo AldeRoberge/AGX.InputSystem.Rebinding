@@ -33,6 +33,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Gameplay Sneak",
+                    "type": "Button",
+                    "id": "e8287f98-410b-46ae-a7e0-936245791584",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Gameplay Interact",
                     "type": "Button",
                     "id": "1b2a305c-cbbb-4d10-afda-a003457c08f8",
@@ -384,6 +393,39 @@
                     "processors": "",
                     "groups": ";Gamepad",
                     "action": "Gameplay Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "025fa54c-8d2c-47f9-b68b-33d4a9750e46",
+                    "path": "<Keyboard>/ctrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "Gameplay Sneak",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c15d8f80-3106-4142-851b-9f612f6fb95f",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "Gameplay Sneak",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5cbe5c84-4617-4bf5-8dd3-f8fb27daee90",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Gameplay Sneak",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

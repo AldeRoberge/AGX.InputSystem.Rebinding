@@ -57,6 +57,15 @@ namespace AGX.Runtime
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Gameplay Sneak"",
+                    ""type"": ""Button"",
+                    ""id"": ""e8287f98-410b-46ae-a7e0-936245791584"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Gameplay Interact"",
                     ""type"": ""Button"",
                     ""id"": ""1b2a305c-cbbb-4d10-afda-a003457c08f8"",
@@ -408,6 +417,39 @@ namespace AGX.Runtime
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
                     ""action"": ""Gameplay Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""025fa54c-8d2c-47f9-b68b-33d4a9750e46"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Gameplay Sneak"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c15d8f80-3106-4142-851b-9f612f6fb95f"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Gameplay Sneak"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5cbe5c84-4617-4bf5-8dd3-f8fb27daee90"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Gameplay Sneak"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1776,6 +1818,7 @@ namespace AGX.Runtime
             m_Gameplay_GameplayMove = m_Gameplay.FindAction("Gameplay Move", throwIfNotFound: true);
             m_Gameplay_GameplayAim = m_Gameplay.FindAction("Gameplay Aim", throwIfNotFound: true);
             m_Gameplay_GameplayDash = m_Gameplay.FindAction("Gameplay Dash", throwIfNotFound: true);
+            m_Gameplay_GameplaySneak = m_Gameplay.FindAction("Gameplay Sneak", throwIfNotFound: true);
             m_Gameplay_GameplayInteract = m_Gameplay.FindAction("Gameplay Interact", throwIfNotFound: true);
             m_Gameplay_GameplayAttackToggle = m_Gameplay.FindAction("Gameplay Attack Toggle", throwIfNotFound: true);
             m_Gameplay_GameplayQuickHeal = m_Gameplay.FindAction("Gameplay Quick Heal", throwIfNotFound: true);
@@ -1894,6 +1937,7 @@ namespace AGX.Runtime
         private readonly InputAction m_Gameplay_GameplayMove;
         private readonly InputAction m_Gameplay_GameplayAim;
         private readonly InputAction m_Gameplay_GameplayDash;
+        private readonly InputAction m_Gameplay_GameplaySneak;
         private readonly InputAction m_Gameplay_GameplayInteract;
         private readonly InputAction m_Gameplay_GameplayAttackToggle;
         private readonly InputAction m_Gameplay_GameplayQuickHeal;
@@ -1906,6 +1950,7 @@ namespace AGX.Runtime
             public InputAction @GameplayMove => m_Wrapper.m_Gameplay_GameplayMove;
             public InputAction @GameplayAim => m_Wrapper.m_Gameplay_GameplayAim;
             public InputAction @GameplayDash => m_Wrapper.m_Gameplay_GameplayDash;
+            public InputAction @GameplaySneak => m_Wrapper.m_Gameplay_GameplaySneak;
             public InputAction @GameplayInteract => m_Wrapper.m_Gameplay_GameplayInteract;
             public InputAction @GameplayAttackToggle => m_Wrapper.m_Gameplay_GameplayAttackToggle;
             public InputAction @GameplayQuickHeal => m_Wrapper.m_Gameplay_GameplayQuickHeal;
@@ -1929,6 +1974,9 @@ namespace AGX.Runtime
                 @GameplayDash.started += instance.OnGameplayDash;
                 @GameplayDash.performed += instance.OnGameplayDash;
                 @GameplayDash.canceled += instance.OnGameplayDash;
+                @GameplaySneak.started += instance.OnGameplaySneak;
+                @GameplaySneak.performed += instance.OnGameplaySneak;
+                @GameplaySneak.canceled += instance.OnGameplaySneak;
                 @GameplayInteract.started += instance.OnGameplayInteract;
                 @GameplayInteract.performed += instance.OnGameplayInteract;
                 @GameplayInteract.canceled += instance.OnGameplayInteract;
@@ -1957,6 +2005,9 @@ namespace AGX.Runtime
                 @GameplayDash.started -= instance.OnGameplayDash;
                 @GameplayDash.performed -= instance.OnGameplayDash;
                 @GameplayDash.canceled -= instance.OnGameplayDash;
+                @GameplaySneak.started -= instance.OnGameplaySneak;
+                @GameplaySneak.performed -= instance.OnGameplaySneak;
+                @GameplaySneak.canceled -= instance.OnGameplaySneak;
                 @GameplayInteract.started -= instance.OnGameplayInteract;
                 @GameplayInteract.performed -= instance.OnGameplayInteract;
                 @GameplayInteract.canceled -= instance.OnGameplayInteract;
@@ -2466,6 +2517,7 @@ namespace AGX.Runtime
             void OnGameplayMove(InputAction.CallbackContext context);
             void OnGameplayAim(InputAction.CallbackContext context);
             void OnGameplayDash(InputAction.CallbackContext context);
+            void OnGameplaySneak(InputAction.CallbackContext context);
             void OnGameplayInteract(InputAction.CallbackContext context);
             void OnGameplayAttackToggle(InputAction.CallbackContext context);
             void OnGameplayQuickHeal(InputAction.CallbackContext context);

@@ -109,6 +109,10 @@ namespace AGX.Scripts.Runtime.Input
         {
         }
 
+        public void OnGameplaySneak(InputAction.CallbackContext context)
+        {
+        }
+
         public void OnGameplayAttackToggle(InputAction.CallbackContext context)
         {
         }

@@ -139,8 +139,8 @@ TextureImporter:
       name: Reset
       rect:
         serializedVersion: 2
-        x: 1400
-        y: 1772
+        x: 1772
+        y: 1496
         width: 256
         height: 256
       alignment: 9
@@ -161,7 +161,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1676
-        y: 1660
+        y: 1408
         width: 32
         height: 32
       alignment: 9
@@ -181,8 +181,8 @@ TextureImporter:
       name: Close
       rect:
         serializedVersion: 2
-        x: 20
-        y: 392
+        x: 1772
+        y: 668
         width: 256
         height: 256
       alignment: 9
@@ -194,48 +194,6 @@ TextureImporter:
       bones: []
       spriteID: 750c9edab508fcf418a9ad457cf2bf30
       internalID: -1891087110
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Crouch
-      rect:
-        serializedVersion: 2
-        x: 20
-        y: 668
-        width: 256
-        height: 256
-      alignment: 9
-      pivot: {x: 0, y: 0.2}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 33af0f6a66fd21b4aa6b9f778897d070
-      internalID: -1139365725
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Down
-      rect:
-        serializedVersion: 2
-        x: 1772
-        y: 20
-        width: 256
-        height: 256
-      alignment: 9
-      pivot: {x: 0, y: 0.2}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5a62f38131394f4408c714623cce39d0
-      internalID: 1987447425
       vertices: []
       indices: 
       edges: []
@@ -307,8 +265,8 @@ TextureImporter:
       name: Chat
       rect:
         serializedVersion: 2
-        x: 1772
-        y: 668
+        x: 296
+        y: 944
         width: 256
         height: 256
       alignment: 9
@@ -349,7 +307,7 @@ TextureImporter:
       name: Settings
       rect:
         serializedVersion: 2
-        x: 296
+        x: 572
         y: 1220
         width: 256
         height: 256
@@ -370,8 +328,8 @@ TextureImporter:
       name: Ability
       rect:
         serializedVersion: 2
-        x: 1624
-        y: 20
+        x: 1900
+        y: 296
         width: 128
         height: 128
       alignment: 9
@@ -391,7 +349,7 @@ TextureImporter:
       name: Aim
       rect:
         serializedVersion: 2
-        x: 1772
+        x: 20
         y: 392
         width: 256
         height: 256
@@ -412,8 +370,8 @@ TextureImporter:
       name: Attack
       rect:
         serializedVersion: 2
-        x: 296
-        y: 20
+        x: 1900
+        y: 520
         width: 128
         height: 128
       alignment: 9
@@ -454,7 +412,7 @@ TextureImporter:
       name: Drop
       rect:
         serializedVersion: 2
-        x: 20
+        x: 1772
         y: 20
         width: 256
         height: 256
@@ -476,7 +434,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 20
-        y: 944
+        y: 20
         width: 256
         height: 256
       alignment: 9
@@ -496,7 +454,7 @@ TextureImporter:
       name: Interact
       rect:
         serializedVersion: 2
-        x: 1124
+        x: 1400
         y: 1220
         width: 256
         height: 256
@@ -517,8 +475,8 @@ TextureImporter:
       name: Inventory-Select
       rect:
         serializedVersion: 2
-        x: 1400
-        y: 1496
+        x: 1124
+        y: 1220
         width: 256
         height: 256
       alignment: 9
@@ -538,8 +496,8 @@ TextureImporter:
       name: Map
       rect:
         serializedVersion: 2
-        x: 848
-        y: 1220
+        x: 1400
+        y: 1496
         width: 256
         height: 256
       alignment: 9
@@ -559,8 +517,8 @@ TextureImporter:
       name: Move
       rect:
         serializedVersion: 2
-        x: 1124
-        y: 1496
+        x: 848
+        y: 1220
         width: 256
         height: 256
       alignment: 9
@@ -580,8 +538,8 @@ TextureImporter:
       name: Ping
       rect:
         serializedVersion: 2
-        x: 1772
-        y: 1220
+        x: 1124
+        y: 1496
         width: 256
         height: 256
       alignment: 9
@@ -602,7 +560,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1772
-        y: 1496
+        y: 1220
         width: 256
         height: 256
       alignment: 9
@@ -622,8 +580,8 @@ TextureImporter:
       name: Run
       rect:
         serializedVersion: 2
-        x: 1124
-        y: 1772
+        x: 848
+        y: 1496
         width: 256
         height: 256
       alignment: 9
@@ -643,7 +601,7 @@ TextureImporter:
       name: Screenshot
       rect:
         serializedVersion: 2
-        x: 1772
+        x: 1124
         y: 1772
         width: 256
         height: 256
@@ -706,8 +664,8 @@ TextureImporter:
       name: Cancel
       rect:
         serializedVersion: 2
-        x: 20
-        y: 392
+        x: 1772
+        y: 668
         width: 256
         height: 256
       alignment: 9
@@ -727,8 +685,8 @@ TextureImporter:
       name: Exit
       rect:
         serializedVersion: 2
-        x: 1400
-        y: 1220
+        x: 20
+        y: 944
         width: 256
         height: 256
       alignment: 9
@@ -769,7 +727,7 @@ TextureImporter:
       name: Scroll
       rect:
         serializedVersion: 2
-        x: 848
+        x: 1772
         y: 1772
         width: 256
         height: 256
@@ -791,7 +749,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1676
-        y: 1712
+        y: 1460
         width: 64
         height: 64
       alignment: 9
@@ -811,8 +769,8 @@ TextureImporter:
       name: Select Slot 1
       rect:
         serializedVersion: 2
-        x: 1796
-        y: 308
+        x: 1676
+        y: 1544
         width: 64
         height: 64
       alignment: 9
@@ -832,8 +790,8 @@ TextureImporter:
       name: Select Slot 2
       rect:
         serializedVersion: 2
-        x: 1880
-        y: 308
+        x: 1676
+        y: 1628
         width: 64
         height: 64
       alignment: 9
@@ -853,8 +811,8 @@ TextureImporter:
       name: Select Slot 3
       rect:
         serializedVersion: 2
-        x: 188
-        y: 308
+        x: 1676
+        y: 1712
         width: 64
         height: 64
       alignment: 9
@@ -874,7 +832,7 @@ TextureImporter:
       name: Select Slot 4
       rect:
         serializedVersion: 2
-        x: 104
+        x: 188
         y: 308
         width: 64
         height: 64
@@ -895,8 +853,8 @@ TextureImporter:
       name: Select Slot 5
       rect:
         serializedVersion: 2
-        x: 1676
-        y: 1796
+        x: 104
+        y: 308
         width: 64
         height: 64
       alignment: 9
@@ -917,7 +875,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1676
-        y: 1880
+        y: 1796
         width: 64
         height: 64
       alignment: 9
@@ -937,8 +895,8 @@ TextureImporter:
       name: Select Slot 7
       rect:
         serializedVersion: 2
-        x: 1964
-        y: 308
+        x: 1676
+        y: 1880
         width: 64
         height: 64
       alignment: 9
@@ -1000,8 +958,8 @@ TextureImporter:
       name: Console
       rect:
         serializedVersion: 2
-        x: 296
-        y: 944
+        x: 20
+        y: 668
         width: 256
         height: 256
       alignment: 9
@@ -1021,8 +979,8 @@ TextureImporter:
       name: Rotate
       rect:
         serializedVersion: 2
-        x: 848
-        y: 1496
+        x: 1400
+        y: 1772
         width: 256
         height: 256
       alignment: 9
@@ -1042,8 +1000,8 @@ TextureImporter:
       name: Shrink
       rect:
         serializedVersion: 2
-        x: 572
-        y: 1496
+        x: 296
+        y: 1220
         width: 256
         height: 256
       alignment: 9
@@ -1084,8 +1042,8 @@ TextureImporter:
       name: Send
       rect:
         serializedVersion: 2
-        x: 572
-        y: 1220
+        x: 848
+        y: 1772
         width: 256
         height: 256
       alignment: 9
@@ -1097,6 +1055,27 @@ TextureImporter:
       bones: []
       spriteID: af4ee44434b996b418d31ab1eda523fc
       internalID: 2001224658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sneak
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 1496
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f42d557bb5814584686e45230e982f65
+      internalID: -747387258
       vertices: []
       indices: 
       edges: []
@@ -1119,9 +1098,7 @@ TextureImporter:
       Chat: 1805076974
       Close: -1891087110
       Console: -1002048149
-      Crouch: -1139365725
       Dash: 378060164
-      Down: 1987447425
       Drop: 618148719
       Emote: 934813469
       Exit: 367894288
@@ -1152,6 +1129,7 @@ TextureImporter:
       Send: 2001224658
       Settings: 1735670971
       Shrink: -1228835404
+      Sneak: -747387258
       Swap: -1804585232
       Sword: 170243423
       Tab-Right: -378166088
