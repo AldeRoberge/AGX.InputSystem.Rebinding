@@ -48,6 +48,15 @@ namespace AGX.Runtime
                     ""initialStateCheck"": true
                 },
                 {
+                    ""name"": ""Gameplay Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""2f14e5ba-918e-4e9b-a179-cff3ec13be66"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Gameplay Interact"",
                     ""type"": ""Button"",
                     ""id"": ""1b2a305c-cbbb-4d10-afda-a003457c08f8"",
@@ -339,7 +348,7 @@ namespace AGX.Runtime
                 {
                     ""name"": """",
                     ""id"": ""aea8491e-3497-4682-8340-b43935a80622"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard"",
@@ -366,6 +375,39 @@ namespace AGX.Runtime
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
                     ""action"": ""Gameplay Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2cff74f4-fb78-40d5-8cb1-6c3f6d2226a7"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Gameplay Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9f8b42a1-bbe8-47a7-98f5-6a6e041ececb"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard"",
+                    ""action"": ""Gameplay Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cd7f6a49-2d50-496d-8a21-31594aee364f"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Gameplay Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1733,6 +1775,7 @@ namespace AGX.Runtime
             m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
             m_Gameplay_GameplayMove = m_Gameplay.FindAction("Gameplay Move", throwIfNotFound: true);
             m_Gameplay_GameplayAim = m_Gameplay.FindAction("Gameplay Aim", throwIfNotFound: true);
+            m_Gameplay_GameplayDash = m_Gameplay.FindAction("Gameplay Dash", throwIfNotFound: true);
             m_Gameplay_GameplayInteract = m_Gameplay.FindAction("Gameplay Interact", throwIfNotFound: true);
             m_Gameplay_GameplayAttackToggle = m_Gameplay.FindAction("Gameplay Attack Toggle", throwIfNotFound: true);
             m_Gameplay_GameplayQuickHeal = m_Gameplay.FindAction("Gameplay Quick Heal", throwIfNotFound: true);
@@ -1850,6 +1893,7 @@ namespace AGX.Runtime
         private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
         private readonly InputAction m_Gameplay_GameplayMove;
         private readonly InputAction m_Gameplay_GameplayAim;
+        private readonly InputAction m_Gameplay_GameplayDash;
         private readonly InputAction m_Gameplay_GameplayInteract;
         private readonly InputAction m_Gameplay_GameplayAttackToggle;
         private readonly InputAction m_Gameplay_GameplayQuickHeal;
@@ -1861,6 +1905,7 @@ namespace AGX.Runtime
             public GameplayActions(@InputActions wrapper) { m_Wrapper = wrapper; }
             public InputAction @GameplayMove => m_Wrapper.m_Gameplay_GameplayMove;
             public InputAction @GameplayAim => m_Wrapper.m_Gameplay_GameplayAim;
+            public InputAction @GameplayDash => m_Wrapper.m_Gameplay_GameplayDash;
             public InputAction @GameplayInteract => m_Wrapper.m_Gameplay_GameplayInteract;
             public InputAction @GameplayAttackToggle => m_Wrapper.m_Gameplay_GameplayAttackToggle;
             public InputAction @GameplayQuickHeal => m_Wrapper.m_Gameplay_GameplayQuickHeal;
@@ -1881,6 +1926,9 @@ namespace AGX.Runtime
                 @GameplayAim.started += instance.OnGameplayAim;
                 @GameplayAim.performed += instance.OnGameplayAim;
                 @GameplayAim.canceled += instance.OnGameplayAim;
+                @GameplayDash.started += instance.OnGameplayDash;
+                @GameplayDash.performed += instance.OnGameplayDash;
+                @GameplayDash.canceled += instance.OnGameplayDash;
                 @GameplayInteract.started += instance.OnGameplayInteract;
                 @GameplayInteract.performed += instance.OnGameplayInteract;
                 @GameplayInteract.canceled += instance.OnGameplayInteract;
@@ -1906,6 +1954,9 @@ namespace AGX.Runtime
                 @GameplayAim.started -= instance.OnGameplayAim;
                 @GameplayAim.performed -= instance.OnGameplayAim;
                 @GameplayAim.canceled -= instance.OnGameplayAim;
+                @GameplayDash.started -= instance.OnGameplayDash;
+                @GameplayDash.performed -= instance.OnGameplayDash;
+                @GameplayDash.canceled -= instance.OnGameplayDash;
                 @GameplayInteract.started -= instance.OnGameplayInteract;
                 @GameplayInteract.performed -= instance.OnGameplayInteract;
                 @GameplayInteract.canceled -= instance.OnGameplayInteract;
@@ -2414,6 +2465,7 @@ namespace AGX.Runtime
         {
             void OnGameplayMove(InputAction.CallbackContext context);
             void OnGameplayAim(InputAction.CallbackContext context);
+            void OnGameplayDash(InputAction.CallbackContext context);
             void OnGameplayInteract(InputAction.CallbackContext context);
             void OnGameplayAttackToggle(InputAction.CallbackContext context);
             void OnGameplayQuickHeal(InputAction.CallbackContext context);

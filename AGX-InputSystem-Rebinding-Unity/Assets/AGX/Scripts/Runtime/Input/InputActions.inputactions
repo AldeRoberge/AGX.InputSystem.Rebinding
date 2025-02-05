@@ -24,6 +24,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Gameplay Dash",
+                    "type": "Button",
+                    "id": "2f14e5ba-918e-4e9b-a179-cff3ec13be66",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Gameplay Interact",
                     "type": "Button",
                     "id": "1b2a305c-cbbb-4d10-afda-a003457c08f8",
@@ -315,7 +324,7 @@
                 {
                     "name": "",
                     "id": "aea8491e-3497-4682-8340-b43935a80622",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
@@ -342,6 +351,39 @@
                     "processors": "",
                     "groups": ";Gamepad",
                     "action": "Gameplay Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2cff74f4-fb78-40d5-8cb1-6c3f6d2226a7",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "Gameplay Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9f8b42a1-bbe8-47a7-98f5-6a6e041ececb",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "Gameplay Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cd7f6a49-2d50-496d-8a21-31594aee364f",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Gameplay Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

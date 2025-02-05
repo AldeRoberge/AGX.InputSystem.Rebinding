@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 8638866473066409764}
   - component: {fileID: 8704406184862892373}
   m_Layer: 5
-  m_Name: Input Action Category (Prefab)
+  m_Name: Input Action Category
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

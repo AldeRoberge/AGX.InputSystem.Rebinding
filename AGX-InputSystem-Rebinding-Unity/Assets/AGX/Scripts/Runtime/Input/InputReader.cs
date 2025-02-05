@@ -105,6 +105,10 @@ namespace AGX.Scripts.Runtime.Input
         {
         }
 
+        public void OnGameplayDash(InputAction.CallbackContext context)
+        {
+        }
+
         public void OnGameplayAttackToggle(InputAction.CallbackContext context)
         {
         }

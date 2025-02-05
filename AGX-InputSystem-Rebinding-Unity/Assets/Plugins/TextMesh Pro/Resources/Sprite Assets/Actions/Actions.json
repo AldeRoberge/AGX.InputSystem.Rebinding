@@ -11,6 +11,14 @@
       "Value": "Aim"
     },
     {
+      "Key": "Gameplay Dash",
+      "Value": "Dash"
+    },
+    {
+      "Key": "Gameplay Sneak",
+      "Value": "Sneak"
+    },
+    {
       "Key": "Gameplay Interact",
       "Value": "Interact"
     },

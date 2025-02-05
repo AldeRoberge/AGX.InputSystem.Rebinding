@@ -1905,7 +1905,7 @@ GameObject:
   - component: {fileID: 6937631338274166556}
   - component: {fileID: 588440301699820892}
   m_Layer: 5
-  m_Name: Input Action Rebinders (Prefab)
+  m_Name: Input Action Rebinders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
