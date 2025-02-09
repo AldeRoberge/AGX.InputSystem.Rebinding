@@ -18,6 +18,11 @@ namespace AGX.Input.Rebinding.Core.Scripts.Runtime.Rebinding
         [BoxGroup("References"), SerializeField, Required]
         private Button _button;
 
+        [BoxGroup("References"), SerializeField, Required]
+        private ActionRebinder _actionRebinder;
+
+        public ActionRebinder ActionRebinder => _actionRebinder;
+
         private void Reset()
         {
             if (_parent == null)
@@ -25,6 +30,14 @@ namespace AGX.Input.Rebinding.Core.Scripts.Runtime.Rebinding
 
             if (_button == null)
                 _button = GetComponentInChildren<Button>();
+
+            if (_actionRebinder == null)
+                _actionRebinder = GetComponent<ActionRebinder>();
+        }
+
+        public void Select()
+        {
+            EventSystem.current.SetSelectedGameObject(_button.gameObject);
         }
 
         public void OnPointerEnter(PointerEventData eventData)

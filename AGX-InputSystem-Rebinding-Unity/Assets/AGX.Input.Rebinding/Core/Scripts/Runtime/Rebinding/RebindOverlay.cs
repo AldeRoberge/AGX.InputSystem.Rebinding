@@ -110,6 +110,7 @@ namespace AGX.Input.Rebinding.Core.Scripts.Runtime.Rebinding
 
             _duplicateWarning.text = $"<b>{binding}</b><color=white> is already used for </color><b>{action}</b>";
 
+            _duplicateWarning.transform.DOComplete();
             _duplicateWarning.transform.DOPunchScale(Vector3.one * 0.1f, 0.25f, 5, 0.5f);
         }
     }

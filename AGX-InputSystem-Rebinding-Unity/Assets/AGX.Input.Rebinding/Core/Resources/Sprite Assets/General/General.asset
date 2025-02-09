@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: General
   m_EditorClassIdentifier: 
   hashCode: -1616193674
-  material: {fileID: 8679141325505867660}
+  material: {fileID: 5916026414774531842}
   materialHashCode: 0
-  m_Version: 1.1.1
+  m_Version: 1.1.0
   m_FaceInfo:
     m_FaceIndex: 0
     m_FamilyName: 
@@ -64,6 +64,12 @@ MonoBehaviour:
     m_Scale: 1
     m_Name: Gamepad
     m_HashCode: -1463209733
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 4
+    m_Scale: 1
+    m_Name: Cancel
+    m_HashCode: -1632427738
   m_SpriteGlyphTable:
   - m_Index: 0
     m_Metrics:
@@ -129,9 +135,25 @@ MonoBehaviour:
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
     sprite: {fileID: -1979127866, guid: 3ae1cb37641739d49b71bb801ddbd921, type: 3}
+  - m_Index: 4
+    m_Metrics:
+      m_Width: 512
+      m_Height: 512
+      m_HorizontalBearingX: -0
+      m_HorizontalBearingY: 409.6
+      m_HorizontalAdvance: 512
+    m_GlyphRect:
+      m_X: 21
+      m_Y: 21
+      m_Width: 512
+      m_Height: 512
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: 964494634, guid: 3ae1cb37641739d49b71bb801ddbd921, type: 3}
   spriteInfoList: []
   fallbackSpriteAssets: []
---- !u!21 &8679141325505867660
+--- !u!21 &5916026414774531842
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 1

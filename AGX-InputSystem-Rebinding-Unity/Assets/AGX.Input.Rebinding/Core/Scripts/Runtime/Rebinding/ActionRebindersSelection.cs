@@ -28,7 +28,16 @@ namespace AGX.Input.Rebinding.Core.Scripts.Runtime.Rebinding
             yield return null;
             yield return null;
             yield return null;
-            EventSystem.current.SetSelectedGameObject(_actionRebinderSelections[0].gameObject);
+
+            // get the first active, rebindable action
+            foreach (ActionRebinderSelection actionRebinderSelection in _actionRebinderSelections)
+            {
+                if (!actionRebinderSelection.gameObject.activeInHierarchy) continue;
+                if (!actionRebinderSelection.ActionRebinder.CanBeRebinded) continue;
+
+                actionRebinderSelection.Select();
+                break;
+            }
         }
     }
 }

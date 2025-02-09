@@ -13,6 +13,9 @@ namespace AGX.Input.Rebinding.Core.Scripts.Runtime.Rebinding
     public class ActionRebinder : MonoBehaviour
     {
         public string ActionName => _actionName;
+
+        public bool CanBeRebinded => _canBeRebinded;
+
         public int BindingStartIndexIndex => _selectedBindingStartIndex;
 
         [BoxGroup("References"), SerializeField, Required] private ActionRebinders _actionRebinders;

@@ -7,19 +7,19 @@ namespace AGX.Input.Rebinding.Core.Scripts.Runtime.Utilities
 {
     public class ScrollRectAutoScrollToSelected : MonoBehaviour
     {
-        [BoxGroup("References"), SerializeField, Required] private ScrollRect scrollRect;
+        [BoxGroup("References"), SerializeField, Required] private ScrollRect _scrollRect;
 
-        [BoxGroup("References"), SerializeField, Required] private RectTransform contentPanel;
+        [BoxGroup("References"), SerializeField, Required] private RectTransform _contentPanel;
 
-        [BoxGroup("References"), SerializeField, Required] private float scrollMargin = 20f; // Margin from top/bottom of scroll view
+        [BoxGroup("References"), SerializeField, Required] private float _scrollMargin = 20f;
 
         private void Reset()
         {
-            if (scrollRect == null)
-                scrollRect = GetComponent<ScrollRect>();
+            if (_scrollRect == null)
+                _scrollRect = GetComponent<ScrollRect>();
 
-            if (contentPanel == null)
-                contentPanel = scrollRect.content;
+            if (_contentPanel == null)
+                _contentPanel = _scrollRect.content;
         }
 
         private void Update()
@@ -29,7 +29,7 @@ namespace AGX.Input.Rebinding.Core.Scripts.Runtime.Utilities
             if (selectedObject == null) return;
 
             // Ensure the selected object is a child of our scroll content
-            if (!selectedObject.transform.IsChildOf(contentPanel.transform)) return;
+            if (!selectedObject.transform.IsChildOf(_contentPanel.transform)) return;
 
             // Get the RectTransform of the selected object
             RectTransform selectedRect = selectedObject.GetComponent<RectTransform>();
@@ -40,7 +40,7 @@ namespace AGX.Input.Rebinding.Core.Scripts.Runtime.Utilities
             Vector3[] scrollCorners = new Vector3[4];
 
             selectedRect.GetWorldCorners(selectedCorners);
-            scrollRect.viewport.GetWorldCorners(scrollCorners);
+            _scrollRect.viewport.GetWorldCorners(scrollCorners);
 
             // Convert positions to local viewport space
             float selectedTop = TransformToViewportSpace(selectedCorners[1]).y;
@@ -49,25 +49,25 @@ namespace AGX.Input.Rebinding.Core.Scripts.Runtime.Utilities
             float scrollBottom = TransformToViewportSpace(scrollCorners[0]).y;
 
             // Calculate the normalized position to scroll to
-            float newVerticalNormalizedPosition = scrollRect.verticalNormalizedPosition;
+            float newVerticalNormalizedPosition = _scrollRect.verticalNormalizedPosition;
 
-            // If selected object is above visible area
-            if (selectedTop > scrollTop - scrollMargin)
+            // If the selected object is above visible area
+            if (selectedTop > scrollTop - _scrollMargin)
             {
-                float overflow = (selectedTop - scrollTop + scrollMargin) / (scrollRect.viewport.rect.height);
+                float overflow = (selectedTop - scrollTop + _scrollMargin) / (_scrollRect.viewport.rect.height);
                 newVerticalNormalizedPosition += overflow;
             }
-            // If selected object is below visible area
-            else if (selectedBottom < scrollBottom + scrollMargin)
+            // If the selected object is below visible area
+            else if (selectedBottom < scrollBottom + _scrollMargin)
             {
-                float overflow = (selectedBottom - scrollBottom - scrollMargin) / (scrollRect.viewport.rect.height);
+                float overflow = (selectedBottom - scrollBottom - _scrollMargin) / (_scrollRect.viewport.rect.height);
                 newVerticalNormalizedPosition += overflow;
             }
 
             // Clamp and apply the new scroll position
             newVerticalNormalizedPosition = Mathf.Clamp01(newVerticalNormalizedPosition);
-            scrollRect.verticalNormalizedPosition = Mathf.Lerp(
-                scrollRect.verticalNormalizedPosition,
+            _scrollRect.verticalNormalizedPosition = Mathf.Lerp(
+                _scrollRect.verticalNormalizedPosition,
                 newVerticalNormalizedPosition,
                 Time.deltaTime * 10f
             );
@@ -75,7 +75,7 @@ namespace AGX.Input.Rebinding.Core.Scripts.Runtime.Utilities
 
         private Vector2 TransformToViewportSpace(Vector3 worldPosition)
         {
-            Vector2 viewportPoint = scrollRect.viewport.InverseTransformPoint(worldPosition);
+            Vector2 viewportPoint = _scrollRect.viewport.InverseTransformPoint(worldPosition);
             return viewportPoint;
         }
     }
