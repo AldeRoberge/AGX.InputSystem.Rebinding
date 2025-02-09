@@ -14,15 +14,6 @@
       "dependencies": {},
       "hash": "5764d44d4232c8ea628549137559050ea6f6dc10"
     },
-    "com.simonoliver.inputsystemactionprompts": {
-      "version": "file:../../../InputSystemActionPrompts",
-      "depth": 0,
-      "source": "local",
-      "dependencies": {
-        "com.unity.textmeshpro": "2.0.1",
-        "com.unity.inputsystem": "1.5.0"
-      }
-    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,

@@ -41,6 +41,20 @@ This project is open-source and licensed under the [MIT License](LICENSE).
 This is a quick prototype designed for experimentation.
 Uses [TexturePacker](https://www.codeandweb.com/texturepacker/documentation/user-interface-overview) to pack the prompt sprites.
 
+## Third Party Assets
+
+This project uses three excellent, paid third party dependencies.
+
+- DOTween Pro
+- Odin Serializer
+- Odin Validator
+
+You will need to download these manually from the asset store as they are not included by default.
+
+If you don't want to pay and/or want to be fully OSS-based, you can replace : 
+DOTween Pro with a Tweening Library of your choice.
+Odin with Naughty Attributes.
+
 
 # This project requires DOTween Pro, which is not included because it's paid third-party software.  
 You can easily do without it or replace it with another tweening library. I used it because it's the simplest solution I know, but it's entirely optional.  
