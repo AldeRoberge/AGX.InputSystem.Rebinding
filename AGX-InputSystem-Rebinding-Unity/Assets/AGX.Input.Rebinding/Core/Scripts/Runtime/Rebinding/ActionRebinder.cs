@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace AGX.Input.Rebinding.Scripts.Runtime.Rebinding
+namespace AGX.Input.Rebinding.Core.Scripts.Runtime.Rebinding
 {
     /// <summary>
     /// Allows rebinding an action to a new input.
@@ -102,8 +102,8 @@ namespace AGX.Input.Rebinding.Scripts.Runtime.Rebinding
                 GetBindingInfo();
             }
 
-            var action = InputManager.GetAction(_actionName);
-            var bindings = InputManager.GetBindings(_actionName);
+            var action = InputManager.Instance.GetAction(_actionName);
+            var bindings = InputManager.Instance.GetBindings(_actionName);
 
             var endIndex = startIndex;
 
@@ -201,18 +201,18 @@ namespace AGX.Input.Rebinding.Scripts.Runtime.Rebinding
 
             _textRebind.text = val;
 
-            _isDirty = InputManager.IsBindingOverriden(_actionName, _selectedBindingStartIndex);
+            _isDirty = InputManager.Instance.IsBindingOverriden(_actionName, _selectedBindingStartIndex);
             _buttonReset.gameObject.SetActive(_isDirty);
         }
 
         private void DoRebind()
         {
-            InputManager.StartRebind(_actionName, _selectedBindingStartIndex, _actionRebinders.RebindingOverlay, _mouseIncluded);
+            InputManager.Instance.StartRebind(_actionName, _selectedBindingStartIndex, _actionRebinders.RebindingOverlay, _mouseIncluded);
         }
 
         private void ResetBinding()
         {
-            InputManager.ResetBinding(this);
+            InputManager.Instance.ResetBinding(this);
             UpdateUI();
         }
     }

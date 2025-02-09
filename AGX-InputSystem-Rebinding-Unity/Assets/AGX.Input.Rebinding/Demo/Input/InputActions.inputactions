@@ -1413,10 +1413,10 @@
                 {
                     "name": "",
                     "id": "5f4c4531-978c-49ec-9f03-91ed6a8232e2",
-                    "path": "<Gamepad>/rightStickPress",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad",
+                    "groups": ";Keyboard",
                     "action": "Ping",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -1427,7 +1427,7 @@
                     "path": "<Gamepad>/dpad/up",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard",
+                    "groups": ";Gamepad",
                     "action": "Ping",
                     "isComposite": false,
                     "isPartOfComposite": false

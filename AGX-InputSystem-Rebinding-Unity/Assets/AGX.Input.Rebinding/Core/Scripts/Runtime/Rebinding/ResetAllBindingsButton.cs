@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace AGX.Input.Rebinding.Scripts.Runtime.Rebinding
+namespace AGX.Input.Rebinding.Core.Scripts.Runtime.Rebinding
 {
     public class ResetAllBindingsButton : MonoBehaviour
     {
@@ -19,14 +19,14 @@ namespace AGX.Input.Rebinding.Scripts.Runtime.Rebinding
         public void Awake()
         {
             InputManager.RebindCountChanged += RebindCountChanged;
-            _buttonReset.onClick.AddListener(InputManager.ResetAllBindings);
-            RebindCountChanged(InputManager.GetTotalBindingOverwriteCount());
+            _buttonReset.onClick.AddListener(InputManager.Instance.ResetAllBindings);
+            RebindCountChanged(InputManager.Instance.GetTotalBindingOverwriteCount());
         }
 
         public void OnDestroy()
         {
             InputManager.RebindCountChanged -= RebindCountChanged;
-            _buttonReset.onClick.RemoveListener(InputManager.ResetAllBindings);
+            _buttonReset.onClick.RemoveListener(InputManager.Instance.ResetAllBindings);
         }
 
         private void RebindCountChanged(int count)

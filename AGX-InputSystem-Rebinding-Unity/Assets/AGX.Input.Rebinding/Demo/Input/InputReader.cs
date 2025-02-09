@@ -1,6 +1,7 @@
-﻿using AGX.Input.Rebinding.Scripts.Runtime.Rebinding;
+﻿using AGX.Input.Rebinding.Core.Scripts.Runtime.Rebinding;
 using AGX.Runtime;
 using FredericRP.GenericSingleton;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -10,6 +11,7 @@ namespace AGX.Scripts.Runtime.Input
     [DefaultExecutionOrder(-99999)]
     public class InputReader : Singleton<InputReader>, InputActions.IGameplayActions, InputActions.IMenuActions, InputActions.ICheatsActions
     {
+        [BoxGroup("References"), SerializeField, Required]
         private InputActions? _inputActions;
 
         public event UnityAction OnStartEvent = delegate { };
@@ -25,11 +27,13 @@ namespace AGX.Scripts.Runtime.Input
 
             if (_inputActions == null)
             {
-                _inputActions = InputManager.InputActions;
-                _inputActions.Gameplay.SetCallbacks(this);
-                _inputActions.Menu.SetCallbacks(this);
-                _inputActions.Cheats.SetCallbacks(this);
+                Debug.LogError("[Input] InputActions not set.");
+                return;
             }
+
+            _inputActions.Gameplay.SetCallbacks(this);
+            _inputActions.Menu.SetCallbacks(this);
+            _inputActions.Cheats.SetCallbacks(this);
 
 #if UNITY_EDITOR
             _inputActions.Cheats.Enable();
@@ -40,12 +44,11 @@ namespace AGX.Scripts.Runtime.Input
 
             RegisterLogging();
 
-            InputManager.LoadBindingOverrides();
-            InputManager.RefreshInputDevicePrompt();
+            InputManager.Instance.LoadBindingOverrides();
+            InputManager.Instance.RefreshInputDevicePrompt();
         }
 
-
-        public void RegisterLogging()
+        private void RegisterLogging()
         {
             OnJumpEvent += () => Debug.Log("[Input] <b>Jump</b> event invoked.");
             OnMoveEvent += (m) => Debug.Log($"[Input] <b>Move</b> event invoked (value: {m}).");
@@ -60,41 +63,6 @@ namespace AGX.Scripts.Runtime.Input
             _inputActions?.Gameplay.Disable();
             _inputActions?.Menu.Disable();
             _inputActions?.Cheats.Disable();
-        }
-
-        public void OnStart(InputAction.CallbackContext context)
-        {
-            if (context.phase == InputActionPhase.Performed)
-                OnStartEvent.Invoke();
-        }
-
-        public void OnMove(InputAction.CallbackContext context)
-        {
-            if (context.phase is InputActionPhase.Performed or InputActionPhase.Canceled)
-                OnMoveEvent.Invoke(context.ReadValue<Vector2>());
-        }
-
-        public void OnJump(InputAction.CallbackContext context)
-        {
-            if (context.phase == InputActionPhase.Performed)
-                OnJumpEvent.Invoke();
-        }
-
-        public void OnSneak(InputAction.CallbackContext context)
-        {
-            if (context.phase == InputActionPhase.Performed)
-                OnSneakEvent.Invoke();
-        }
-
-        public void OnFire(InputAction.CallbackContext context)
-        {
-            if (context.phase == InputActionPhase.Performed)
-                OnFireEvent.Invoke();
-        }
-
-        public void OnNewaction(InputAction.CallbackContext context)
-        {
-            Debug.Log("New action (not implemented).");
         }
 
         public void OnGameplayMove(InputAction.CallbackContext context)
@@ -134,15 +102,12 @@ namespace AGX.Scripts.Runtime.Input
         }
 
 
-        
-
         public void OnDebugToggle(InputAction.CallbackContext context)
         {
         }
 
         public void OnMenuSettings(InputAction.CallbackContext context)
         {
-            
         }
 
         public void OnMenuProfile(InputAction.CallbackContext context)

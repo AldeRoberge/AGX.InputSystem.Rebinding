@@ -2,7 +2,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace AGX.Input.Rebinding.Scripts.Runtime.Rebinding
+namespace AGX.Input.Rebinding.Core.Scripts.Runtime.Rebinding
 {
     public class ActionRebindersCategory : MonoBehaviour
     {

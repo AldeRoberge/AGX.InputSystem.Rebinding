@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.InputSystem.UI;
 using UnityEngine.UI;
 
-namespace AGX.Input.Rebinding.Scripts.Runtime.Rebinding
+namespace AGX.Input.Rebinding.Core.Scripts.Runtime.Rebinding
 {
     public class RebindOverlay : MonoBehaviour
     {

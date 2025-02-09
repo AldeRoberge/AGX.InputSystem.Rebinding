@@ -8,7 +8,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace AGX.Input.Rebinding.Scripts.Runtime.Rebinding
+namespace AGX.Input.Rebinding.Core.Scripts.Runtime.Rebinding
 {
     public class ActionRebinders : MonoBehaviour, ISearchable
     {

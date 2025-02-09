@@ -1,15 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using AGX.Runtime;
+using FredericRP.GenericSingleton;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 using Object = UnityEngine.Object;
 
-namespace AGX.Input.Rebinding.Scripts.Runtime.Rebinding
+namespace AGX.Input.Rebinding.Core.Scripts.Runtime.Rebinding
 {
-    public static class InputManager
+    public class InputManager : Singleton<InputManager>
     {
         public const int TimeoutSeconds = 12;
 
@@ -18,9 +19,10 @@ namespace AGX.Input.Rebinding.Scripts.Runtime.Rebinding
         private const string GamepadLeftStick  = "<Gamepad>/leftstick";
         private const string GamepadRightStick = "<Gamepad>/rightstick";
 
-        private static InputActions? _inputActions;
+        [BoxGroup("References"), SerializeField, Required]
+        private InputActionAsset? _inputActions;
 
-        public static InputActions InputActions => _inputActions ??= new InputActions();
+        public InputActionAsset? InputActions => _inputActions;
 
         public static event Action RebindComplete = delegate { };
         public static event Action RebindCanceled = delegate { };
@@ -38,19 +40,18 @@ namespace AGX.Input.Rebinding.Scripts.Runtime.Rebinding
             RebindComplete = delegate { };
             RebindCanceled = delegate { };
             RebindStarted = delegate { };
-            _inputActions = new InputActions();
             _actionRebinders = new List<ActionRebinder>();
             RebindCountChanged = delegate { };
         }
 
-        public static void RefreshInputDevicePrompt()
+        public void RefreshInputDevicePrompt()
         {
             RebindCountChanged?.Invoke(GetTotalBindingOverwriteCount());
         }
 
-        public static void StartRebind(string actionName, int bindingIndex, RebindOverlay rebindOverlay, bool includeMouse)
+        public void StartRebind(string actionName, int bindingIndex, RebindOverlay rebindOverlay, bool includeMouse)
         {
-            var action = InputActions.asset.FindAction(actionName);
+            var action = InputActions.FindAction(actionName);
 
             if (action == null || action.bindings.Count <= bindingIndex)
             {
@@ -70,7 +71,7 @@ namespace AGX.Input.Rebinding.Scripts.Runtime.Rebinding
             }
         }
 
-        private static void DoRebind(InputAction actionToRebind, int bindingIndex, RebindOverlay rebindOverlay, bool includeMouse, bool allCompositeParts)
+        private void DoRebind(InputAction actionToRebind, int bindingIndex, RebindOverlay rebindOverlay, bool includeMouse, bool allCompositeParts)
         {
             if (actionToRebind == null || bindingIndex < 0)
                 return;
@@ -166,7 +167,7 @@ namespace AGX.Input.Rebinding.Scripts.Runtime.Rebinding
             rebind.Start(); //actually starts the rebinding
         }
 
-        class DuplicateBinding
+        private class DuplicateBinding
         {
             public bool   WasFound;
             public string Action;
@@ -175,7 +176,7 @@ namespace AGX.Input.Rebinding.Scripts.Runtime.Rebinding
             public static DuplicateBinding None => new() { WasFound = false };
         }
 
-        private static DuplicateBinding GetDuplicateBinding(InputAction actionToRebind, int bindingIndex, bool allCompositeParts = false)
+        private DuplicateBinding GetDuplicateBinding(InputAction actionToRebind, int bindingIndex, bool allCompositeParts = false)
         {
             var newBinding = actionToRebind.bindings[bindingIndex];
 
@@ -225,12 +226,11 @@ namespace AGX.Input.Rebinding.Scripts.Runtime.Rebinding
             return DuplicateBinding.None;
         }
 
-
         /// <summary>
         /// TODO we should export this to JSON so that it's easy to save to a single PlayerPrefs slot
         /// </summary>
         /// <param name="action"></param>
-        private static void SaveBindingOverride(InputAction action)
+        private void SaveBindingOverride(InputAction action)
         {
             for (var i = 0; i < action.bindings.Count; i++)
             {
@@ -241,10 +241,10 @@ namespace AGX.Input.Rebinding.Scripts.Runtime.Rebinding
             }
         }
 
-        public static void LoadBindingOverrides()
+        public void LoadBindingOverrides()
         {
             // Iterate over all action maps in the InputActions asset
-            foreach (var actionMap in InputActions.asset.actionMaps)
+            foreach (var actionMap in InputActions.actionMaps)
             {
                 foreach (var action in actionMap.actions)
                 {
@@ -264,13 +264,13 @@ namespace AGX.Input.Rebinding.Scripts.Runtime.Rebinding
             }
         }
 
-        private static string GetPlayerPrefKey(InputAction action, int bindingIndex)
+        private string GetPlayerPrefKey(InputAction action, int bindingIndex)
         {
             var key = $"Input-Binding-{action.actionMap.name}-{action.name}-{bindingIndex}";
             return key;
         }
 
-        public static void ResetAllBindings()
+        public void ResetAllBindings()
         {
             // Find all rebind controls in the scene
             var rebindControls = Object.FindObjectsOfType<ActionRebinder>();
@@ -281,12 +281,12 @@ namespace AGX.Input.Rebinding.Scripts.Runtime.Rebinding
                 ResetBinding(rebindControl);
         }
 
-        public static void ResetBinding(ActionRebinder actionRebinder)
+        public void ResetBinding(ActionRebinder actionRebinder)
         {
             var actionName = actionRebinder.ActionName;
             var bindingIndex = actionRebinder.BindingStartIndexIndex;
 
-            var action = InputActions.asset.FindAction(actionName);
+            var action = InputActions.FindAction(actionName);
 
             if (action == null || action.bindings.Count <= bindingIndex)
             {
@@ -310,10 +310,9 @@ namespace AGX.Input.Rebinding.Scripts.Runtime.Rebinding
             actionRebinder.UpdateUI();
         }
 
-        public static bool IsBindingOverriden(string actionName, int bindingIndex)
+        public bool IsBindingOverriden(string actionName, int bindingIndex)
         {
-            var action = InputActions.asset.FindAction(actionName);
-
+            var action = InputActions.FindAction(actionName);
 
             if (action == null)
             {
@@ -383,7 +382,7 @@ namespace AGX.Input.Rebinding.Scripts.Runtime.Rebinding
             _actionRebinders.Add(actionRebinder);
         }
 
-        internal static int GetTotalBindingOverwriteCount()
+        internal int GetTotalBindingOverwriteCount()
         {
             var count = 0;
 
@@ -398,22 +397,22 @@ namespace AGX.Input.Rebinding.Scripts.Runtime.Rebinding
             return count;
         }
 
-        public static ReadOnlyArray<InputBinding> GetBindings(string actionName)
+        public ReadOnlyArray<InputBinding> GetBindings(string actionName)
         {
-            var action = InputActions.asset.FindAction(actionName);
+            var action = InputActions.FindAction(actionName);
 
             if (action == null)
             {
-                Debug.LogError($"Could not find action with name '{actionName}' in action map {InputActions.asset.name}...");
+                Debug.LogError($"Could not find action with name '{actionName}' in action map {InputActions.name}...");
                 return new ReadOnlyArray<InputBinding>();
             }
 
             return action.bindings;
         }
 
-        public static InputAction GetAction(string actionName)
+        public InputAction GetAction(string actionName)
         {
-            return InputActions.asset.FindAction(actionName);
+            return InputActions.FindAction(actionName);
         }
     }
 }
