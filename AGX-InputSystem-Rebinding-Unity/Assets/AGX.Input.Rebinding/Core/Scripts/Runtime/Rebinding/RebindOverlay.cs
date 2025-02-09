@@ -75,7 +75,16 @@ namespace AGX.Input.Rebinding.Core.Scripts.Runtime.Rebinding
 
         private void SetActive(bool isActive)
         {
-            _inputSystemUiInputModule.enabled = true;
+            if (!Application.isPlaying)
+                return;
+
+            if (_inputSystemUiInputModule == null)
+            {
+                Debug.LogError("InputSystemUIInputModule is null.");
+                return;
+            }
+
+            _inputSystemUiInputModule.enabled = !isActive;
 
             if (isActive)
                 gameObject.SetActive(true);

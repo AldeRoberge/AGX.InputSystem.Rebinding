@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Text;
 using AGX.Input.Rebinding.Core.Scripts.Runtime.Input;
 using AGX.Scripts.Runtime.Icons;
 using Sirenix.OdinInspector;
@@ -13,6 +11,9 @@ namespace AGX.Input.Rebinding.Core.Scripts.Runtime.Prompts
     [ExecuteAlways]
     public class TMPInputActionHint : MonoBehaviour
     {
+        private const string Gamepad  = "Gamepad";
+        private const string Keyboard = "Keyboard";
+
         [BoxGroup("References"), SerializeField, Required]
         private TextMeshProUGUI? _text;
 
@@ -20,30 +21,30 @@ namespace AGX.Input.Rebinding.Core.Scripts.Runtime.Prompts
         private InputActionAsset? _inputAction;
 
         [BoxGroup("Data"), SerializeField, Required, OnValueChanged(nameof(UpdateText))]
-        private InputActionReference? _action;
+        private string _textTemplate = "Press {0} to do action.";
 
         [BoxGroup("Data"), SerializeField, Required, OnValueChanged(nameof(UpdateText))]
-        private string _hintTextTemplate = "Press {0} to do action.";
+        private InputActionReference? _action;
 
         [BoxGroup("Data"), SerializeField, Required, OnValueChanged(nameof(UpdateText))]
         private bool _showActionSprite;
 
+        [BoxGroup("Data/Advanced"), SerializeField, Required]
+        private bool _overwriteActionName;
+
+        [BoxGroup("Data/Advanced"), SerializeField, Required, ShowIf("_overwriteActionName")]
+        private string _customActionName;
+
         [BoxGroup("Debug"), ShowInInspector, ReadOnly]
-        private string _currentControlScheme = "Keyboard";
+        private string _currentControlScheme = Keyboard;
 
         [BoxGroup("Debug"), ShowInInspector, ReadOnly]
         private string ActionName => _action?.action?.name;
 
-
-        [BoxGroup("Advanced"), SerializeField, Required]
-        private bool _overwriteActionName;
-
-        [BoxGroup("Advanced"), SerializeField, Required, ShowIf("_overwriteActionName")]
-        private string _customActionName;
-
         private void Reset()
         {
-            if (_text == null) _text = GetComponent<TextMeshProUGUI>();
+            if (_text == null)
+                _text = GetComponent<TextMeshProUGUI>();
         }
 
         private void OnEnable()
@@ -54,10 +55,12 @@ namespace AGX.Input.Rebinding.Core.Scripts.Runtime.Prompts
             InputDeviceManager.OnDeviceUsed += OnDeviceUsed;
 
             // Initialize current control scheme
-            if (InputDeviceManager.CurrentDevice is Gamepad)
+            _currentControlScheme = InputDeviceManager.CurrentDevice switch
             {
-                _currentControlScheme = "Gamepad";
-            }
+                UnityEngine.InputSystem.Gamepad => Gamepad,
+                UnityEngine.InputSystem.Keyboard or Mouse => Keyboard,
+                _ => _currentControlScheme
+            };
         }
 
         private void OnDisable()
@@ -78,7 +81,7 @@ namespace AGX.Input.Rebinding.Core.Scripts.Runtime.Prompts
             // If the disconnected device was the current one, fall back to keyboard
             if (IsCurrentDevice(device))
             {
-                _currentControlScheme = "Keyboard";
+                _currentControlScheme = Keyboard;
             }
 
             UpdateText();
@@ -96,13 +99,13 @@ namespace AGX.Input.Rebinding.Core.Scripts.Runtime.Prompts
 
             switch (device)
             {
-                case Gamepad:
+                case UnityEngine.InputSystem.Gamepad:
                     Debug.Log("Gamepad connected");
-                    _currentControlScheme = "Gamepad";
+                    _currentControlScheme = Gamepad;
                     break;
-                case Keyboard or Mouse:
+                case UnityEngine.InputSystem.Keyboard or Mouse:
                     Debug.Log("Keyboard connected");
-                    _currentControlScheme = "Keyboard";
+                    _currentControlScheme = Keyboard;
                     break;
                 default:
                     Debug.LogWarning($"Unknown device type: {device}");
@@ -112,8 +115,8 @@ namespace AGX.Input.Rebinding.Core.Scripts.Runtime.Prompts
 
         private bool IsCurrentDevice(InputDevice device)
         {
-            return (device is Gamepad && _currentControlScheme == "Gamepad") ||
-                   (device is Keyboard && _currentControlScheme == "Keyboard");
+            return (device is Gamepad && _currentControlScheme == Gamepad) ||
+                   (device is Keyboard && _currentControlScheme == Keyboard);
         }
 
         private void UpdateText()
@@ -125,12 +128,12 @@ namespace AGX.Input.Rebinding.Core.Scripts.Runtime.Prompts
             if (_action == null)
             {
                 Debug.LogWarning("No action reference set.");
-                _text.text = string.Format(_hintTextTemplate, "???");
+                _text.text = string.Format(_textTemplate, "???");
                 return;
             }
 
             // Get the binding display string for the current control scheme
-            List<string> bindingDisplay = InputDeviceManager.GetBindingDisplayStrings(_currentControlScheme, _action);
+            var bindingDisplay = BindingDisplayStringUtils.GetBindingDisplayStrings(_currentControlScheme, _action);
 
 
             // Remove any "Chat/" prefix from the action name.
@@ -139,55 +142,41 @@ namespace AGX.Input.Rebinding.Core.Scripts.Runtime.Prompts
                 _customActionName :
                 ActionName;
 
-            string actionSprite = SpriteMapReference.GetSprite(cleanedActionName);
+            var actionSprite = SpriteMapReference.GetSprite(cleanedActionName);
 
 
-            StringBuilder allSprites = new StringBuilder();
+            var allSprites = new StringBuilder();
 
-            foreach (string binding in bindingDisplay)
+            foreach (var binding in bindingDisplay)
             {
                 // Format the binding display based on the control scheme
-                string formattedBinding = FormatBindingForDisplay(binding);
+                var formattedBinding = FormatBindingForDisplay(binding);
 
-                string bindingSprite = SpriteMapReference.GetSprite(formattedBinding);
+                var bindingSprite = SpriteMapReference.GetSprite(formattedBinding);
 
-                if (string.IsNullOrEmpty(bindingSprite))
-                {
-                    allSprites.Append(formattedBinding);
-                }
-                else
-                {
-                    allSprites.Append(bindingSprite);
-                }
+                allSprites.Append(string.IsNullOrEmpty(bindingSprite) ?
+                    formattedBinding :
+                    bindingSprite);
             }
 
-/*
-            // Build the hint text based on whether to show the action sprite.
-            string hintText = _showActionSprite ?
-                string.Format(_hintTextTemplate, bindingSprite, $"{actionSprite} {cleanedActionName}") :
-                string.Format(_hintTextTemplate, bindingSprite, $"{cleanedActionName}");*/
-
-
-            // Build the hint text based on whether to show the action sprite.
-            string hintText = _showActionSprite ?
-                string.Format(_hintTextTemplate, allSprites, $"{actionSprite} {cleanedActionName}") :
-                string.Format(_hintTextTemplate, allSprites, $"{cleanedActionName}");
+            var hintText = _showActionSprite ?
+                string.Format(_textTemplate, allSprites, $"{actionSprite} {cleanedActionName}") :
+                string.Format(_textTemplate, allSprites, $"{cleanedActionName}");
 
             _text.text = hintText;
         }
 
-        private string FormatBindingForDisplay(string bindingDisplay)
+        private static string FormatBindingForDisplay(string bindingDisplay)
         {
             if (string.IsNullOrEmpty(bindingDisplay))
                 return "";
 
             // Remove '<' and '>' characters
-            string cleanBinding = bindingDisplay.Replace("<", "").Replace(">", "");
+            var cleanBinding = bindingDisplay.Replace("<", "").Replace(">", "");
 
-            // Add a '/' prefix if it doesn't already exist
+            // Add a '/' prefix if not present
             if (!cleanBinding.StartsWith("/"))
                 cleanBinding = "/" + cleanBinding;
-
 
             return cleanBinding;
         }

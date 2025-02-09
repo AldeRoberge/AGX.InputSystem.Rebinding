@@ -22,7 +22,18 @@ namespace AGX.Input.Rebinding.Core.Scripts.Runtime.Rebinding
         [BoxGroup("References"), SerializeField, Required]
         private InputActionAsset? _inputActions;
 
-        public InputActionAsset? InputActions => _inputActions;
+        public InputActionAsset? InputActions
+        {
+            get
+            {
+                if (_inputActions == null)
+                    Debug.LogError("InputActions asset is not set in the InputManager singleton. \n" +
+                                   "1. Create an InputActions game object in the scene. \n" +
+                                   "2. Assign the InputActionAsset to the InputManager singleton.");
+
+                return _inputActions;
+            }
+        }
 
         public static event Action RebindComplete = delegate { };
         public static event Action RebindCanceled = delegate { };

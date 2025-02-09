@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using FredericRP.GenericSingleton;
 using UnityEngine;
@@ -15,9 +14,9 @@ namespace AGX.Input.Rebinding.Core.Scripts.Runtime.Input
         public static event Action<InputDevice> OnDeviceDisconnected = delegate { };
         public static event Action<InputDevice> OnDeviceUsed = delegate { };
 
-        private InputDevice _currentDevice;
+        private InputDevice? _currentDevice;
 
-        public static InputDevice CurrentDevice => Instance._currentDevice;
+        public static InputDevice? CurrentDevice => Instance?._currentDevice;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void Initialize()
@@ -96,26 +95,21 @@ namespace AGX.Input.Rebinding.Core.Scripts.Runtime.Input
                 return true;
 
             // Check for significant mouse movement
-            Vector2 delta = mouse.delta.ReadValue();
-            if (delta.magnitude > 0.5f) // Adjust threshold as needed
+            var delta = mouse.delta.ReadValue();
+            if (delta.magnitude > 0.5f)
                 return true;
 
             // Check for scroll
-            Vector2 scroll = mouse.scroll.ReadValue();
-            if (scroll.magnitude > 0)
-                return true;
-
-            return false;
+            var scroll = mouse.scroll.ReadValue();
+            return scroll.magnitude > 0;
         }
 
         private void UpdateCurrentDevice(InputDevice device)
         {
-            if (_currentDevice != device)
-            {
-                _currentDevice = device;
-                OnDeviceUsed?.Invoke(device);
-                Debug.Log($"Input device switched to: {device.name}");
-            }
+            if (_currentDevice == device) return;
+            _currentDevice = device;
+            OnDeviceUsed?.Invoke(device);
+            Debug.Log($"Input device switched to: {device.name}");
         }
 
         private void HandleDeviceChange(InputDevice device, InputDeviceChange change)
@@ -155,22 +149,6 @@ namespace AGX.Input.Rebinding.Core.Scripts.Runtime.Input
             }
         }
 
-
-        private void DetectDeviceUsage()
-        {
-            foreach (var device in InputSystem.devices)
-            {
-                if (device is Keyboard or Gamepad or Pointer)
-                {
-                    if (device.wasUpdatedThisFrame && device != _currentDevice)
-                    {
-                        _currentDevice = device;
-                        OnDeviceUsed?.Invoke(device);
-                    }
-                }
-            }
-        }
-
         private InputDevice GetFallbackDevice()
         {
             // Try to find a keyboard first
@@ -179,79 +157,16 @@ namespace AGX.Input.Rebinding.Core.Scripts.Runtime.Input
 
             // Then try gamepad
             var gamepad = InputSystem.GetDevice<Gamepad>();
-            if (gamepad != null) return gamepad;
+            if (gamepad != null)
+                return gamepad;
 
-            // Otherwise, return null
+            // Then try mouse
+            var mouse = InputSystem.GetDevice<Mouse>();
+            if (mouse != null)
+                return mouse;
+
+            Debug.LogWarning("No fallback device found");
             return null;
-        }
-
-
-        public static List<string> GetBindingDisplayStrings(string controlScheme, InputAction action)
-        {
-            var bindingDisplayList = new List<string>();
-            // Create a binding mask for the control scheme.
-            var bindingMask = InputBinding.MaskByGroup(controlScheme);
-            int bindingCount = action.bindings.Count;
-
-            for (int i = 0; i < bindingCount; i++)
-            {
-                var binding = action.bindings[i];
-
-                // Skip bindings that don't match the control scheme.
-                if (!bindingMask.Matches(binding))
-                {
-                    continue;
-                }
-
-
-                // For a simple binding (not composite and not part of one), convert its effective path.
-                if (binding.isComposite == false && binding.isPartOfComposite == false)
-                {
-                    Debug.Log($"Simple Binding: {binding.effectivePath}");
-                    bindingDisplayList.Add(binding.effectivePath);
-                }
-                // For composite bindings, process the composite parent and its children.
-                else if (binding.isComposite || binding.isPartOfComposite)
-                {
-                    Debug.Log($"Composite Binding: {binding.effectivePath}");
-
-                    int j = i;
-
-                    if (binding.isComposite)
-                        j += 1;
-
-                    // Process children (bindings marked as part of composite).
-                    while (j < bindingCount && action.bindings[j].isPartOfComposite)
-                    {
-                        var child = action.bindings[j];
-                        if (bindingMask.Matches(child))
-                        {
-                            Debug.Log($"Composite Child: {child.effectivePath}");
-                            bindingDisplayList.Add(child.effectivePath);
-                        }
-
-                        j++;
-                    }
-
-
-                    // Skip the composite children we already processed.
-                    i = j - 1;
-
-                    break;
-                }
-                // Bindings that are part of a composite will be handled as children.
-            }
-
-            // If nothing was added, return a fallback string.
-            if (bindingDisplayList.Count == 0)
-            {
-                bindingDisplayList.Add("???");
-            }
-
-            // (Optional) Log the final list.
-            Debug.Log($"Binding Display List: {string.Join(", ", bindingDisplayList)}");
-
-            return bindingDisplayList;
         }
 
 

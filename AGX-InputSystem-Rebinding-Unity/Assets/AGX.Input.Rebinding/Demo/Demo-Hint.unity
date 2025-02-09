@@ -175,9 +175,9 @@ MonoBehaviour:
   _text: {fileID: 165419634}
   _inputAction: {fileID: -944628639613478452, guid: bf1efc4e6801b6b40a5a572caa5feaa4,
     type: 3}
+  _textTemplate: '{0} {1}'
   _action: {fileID: -3353223420113642315, guid: bf1efc4e6801b6b40a5a572caa5feaa4,
     type: 3}
-  _hintTextTemplate: <size=20>{0}</size> {1}
   _showActionSprite: 0
   _overwriteActionName: 1
   _customActionName: Interact
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <size=20>/Keyboard/e</size> Interact
+  m_text: /Keyboard/e Interact
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5f2376ac0631f5841b65bc1821bf792b, type: 2}
   m_sharedMaterial: {fileID: -2888141525992646026, guid: 5f2376ac0631f5841b65bc1821bf792b,
@@ -578,7 +578,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <size=20>/Mouse/middleButton</size> Ping
+  m_text: /Mouse/middleButton Ping
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5f2376ac0631f5841b65bc1821bf792b, type: 2}
   m_sharedMaterial: {fileID: -2888141525992646026, guid: 5f2376ac0631f5841b65bc1821bf792b,
@@ -671,9 +671,9 @@ MonoBehaviour:
   _text: {fileID: 1406404435}
   _inputAction: {fileID: -944628639613478452, guid: bf1efc4e6801b6b40a5a572caa5feaa4,
     type: 3}
+  _textTemplate: '{0} {1}'
   _action: {fileID: -1405119237880657138, guid: bf1efc4e6801b6b40a5a572caa5feaa4,
     type: 3}
-  _hintTextTemplate: <size=20>{0}</size> {1}
   _showActionSprite: 0
   _overwriteActionName: 1
   _customActionName: Ping
@@ -1082,8 +1082,8 @@ MonoBehaviour:
   _text: {fileID: 1940985853}
   _inputAction: {fileID: -944628639613478452, guid: bf1efc4e6801b6b40a5a572caa5feaa4,
     type: 3}
+  _textTemplate: '{0} {1}'
   _action: {fileID: 5239092889159039155, guid: bf1efc4e6801b6b40a5a572caa5feaa4, type: 3}
-  _hintTextTemplate: <size=20>{0}</size> {1}
   _showActionSprite: 0
   _overwriteActionName: 1
   _customActionName: Move
@@ -1107,7 +1107,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <size=20>/Keyboard/w/Keyboard/s/Keyboard/a/Keyboard/d</size> Move
+  m_text: /Keyboard/w/Keyboard/s/Keyboard/a/Keyboard/d Move
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5f2376ac0631f5841b65bc1821bf792b, type: 2}
   m_sharedMaterial: {fileID: -2888141525992646026, guid: 5f2376ac0631f5841b65bc1821bf792b,
