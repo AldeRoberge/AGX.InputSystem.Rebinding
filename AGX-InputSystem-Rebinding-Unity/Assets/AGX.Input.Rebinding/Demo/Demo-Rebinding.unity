@@ -772,8 +772,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_spriteAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 5700ff02e2b803b4a9f44570d850e385,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 8430003413874098648, guid: a05379416e5949b4b9bc5e3e0464d1b8,
         type: 3}
       propertyPath: m_fontColor32.rgba
@@ -1144,7 +1143,27 @@ PrefabInstance:
     - target: {fileID: 2157012504285500225, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_fontSize
-      value: 12
+      value: 15.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2157012504285500225, guid: a0f60e4b636033a40a0979db346d8dd8,
+        type: 3}
+      propertyPath: m_margin.w
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2157012504285500225, guid: a0f60e4b636033a40a0979db346d8dd8,
+        type: 3}
+      propertyPath: m_margin.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2157012504285500225, guid: a0f60e4b636033a40a0979db346d8dd8,
+        type: 3}
+      propertyPath: m_margin.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2157012504285500225, guid: a0f60e4b636033a40a0979db346d8dd8,
+        type: 3}
+      propertyPath: m_margin.z
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2157012504285500225, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
@@ -1174,7 +1193,7 @@ PrefabInstance:
     - target: {fileID: 3469075076581291797, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
       propertyPath: m_fontSize
-      value: 31.7
+      value: 41.7
       objectReference: {fileID: 0}
     - target: {fileID: 3670376998193188173, guid: a0f60e4b636033a40a0979db346d8dd8,
         type: 3}
@@ -6363,11 +6382,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 177638, guid: 0abab5bb77339e4428787a870eb31bd3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11496292, guid: 0abab5bb77339e4428787a870eb31bd3, type: 3}
       propertyPath: m_audioModuleState
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11496292, guid: 0abab5bb77339e4428787a870eb31bd3, type: 3}
+      propertyPath: m_backgroundColor.a
+      value: 0.9098039
       objectReference: {fileID: 0}
     - target: {fileID: 22451668, guid: 0abab5bb77339e4428787a870eb31bd3, type: 3}
       propertyPath: m_Pivot.x
@@ -6588,7 +6611,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 11400000, guid: bb4d5a0ba0e2e1d45913c41596c095fe, type: 2}
+  m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -7584,7 +7607,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 11400000, guid: bb4d5a0ba0e2e1d45913c41596c095fe, type: 2}
+  m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -7731,7 +7754,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 11400000, guid: 5700ff02e2b803b4a9f44570d850e385, type: 2}
+  m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -8143,8 +8166,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_spriteAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 5700ff02e2b803b4a9f44570d850e385,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 8430003413874098648, guid: a05379416e5949b4b9bc5e3e0464d1b8,
         type: 3}
       propertyPath: m_fontColor32.rgba
@@ -14719,8 +14741,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_spriteAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 5700ff02e2b803b4a9f44570d850e385,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 8430003413874098648, guid: a05379416e5949b4b9bc5e3e0464d1b8,
         type: 3}
       propertyPath: m_fontColor32.rgba
@@ -16784,8 +16805,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_spriteAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 5700ff02e2b803b4a9f44570d850e385,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 8430003413874098648, guid: a05379416e5949b4b9bc5e3e0464d1b8,
         type: 3}
       propertyPath: m_fontColor32.rgba
@@ -17033,8 +17053,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_spriteAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 5700ff02e2b803b4a9f44570d850e385,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 8430003413874098648, guid: a05379416e5949b4b9bc5e3e0464d1b8,
         type: 3}
       propertyPath: m_fontColor32.rgba
@@ -22084,7 +22103,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 362498011}
   m_Direction: 2
   m_Value: 0.4999999
-  m_Size: 0.2687891
+  m_Size: 0.19384159
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
