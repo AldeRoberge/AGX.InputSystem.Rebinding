@@ -34,6 +34,13 @@ namespace AGX.Input.Rebinding.Core.Scripts.Runtime.Prompts
         [BoxGroup("Debug"), ShowInInspector, ReadOnly]
         private string ActionName => _action?.action?.name;
 
+
+        [BoxGroup("Advanced"), SerializeField, Required]
+        private bool _overwriteActionName;
+
+        [BoxGroup("Advanced"), SerializeField, Required, ShowIf("_overwriteActionName")]
+        private string _customActionName;
+
         private void Reset()
         {
             if (_text == null) _text = GetComponent<TextMeshProUGUI>();
@@ -127,7 +134,11 @@ namespace AGX.Input.Rebinding.Core.Scripts.Runtime.Prompts
 
 
             // Remove any "Chat/" prefix from the action name.
-            string cleanedActionName = ActionName.Replace("Chat/", "");
+
+            var cleanedActionName = _overwriteActionName ?
+                _customActionName :
+                ActionName;
+
             string actionSprite = SpriteMapReference.GetSprite(cleanedActionName);
 
 
@@ -167,6 +178,9 @@ namespace AGX.Input.Rebinding.Core.Scripts.Runtime.Prompts
 
         private string FormatBindingForDisplay(string bindingDisplay)
         {
+            if (string.IsNullOrEmpty(bindingDisplay))
+                return "";
+
             // Remove '<' and '>' characters
             string cleanBinding = bindingDisplay.Replace("<", "").Replace(">", "");
 
