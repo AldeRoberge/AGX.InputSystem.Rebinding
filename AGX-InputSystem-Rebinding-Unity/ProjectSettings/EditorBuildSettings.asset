@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/AGX.Input.Rebinding/Demo/Demo-Rebinding.unity
+    guid: 2a40c5a9f9c2cac4e9f63d7692e14b8c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: bf1efc4e6801b6b40a5a572caa5feaa4,
       type: 3}
