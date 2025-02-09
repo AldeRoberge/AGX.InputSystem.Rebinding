@@ -1,18 +1,18 @@
 version: 2
 tpsheetFileNames:
-- Assets/AGX/Resources/Sprite Assets/Actions/Actions.tpsheet
-- Assets/AGX/Resources/Sprite Assets/Categories/Categories.tpsheet
-- Assets/AGX/Resources/Sprite Assets/Devices/Keyboard/Keyboard.tpsheet
-- Assets/AGX/Resources/Sprite Assets/Devices/Mouse/Mouse.tpsheet
-- Assets/AGX/Resources/Sprite Assets/Devices/XboxSeries/XboxSeries.tpsheet
-- Assets/AGX/Resources/Sprite Assets/General/General.tpsheet
+- Assets/AGX.Input.Rebinding/Core/Resources/Sprite Assets/Categories/Categories.tpsheet
+- Assets/AGX.Input.Rebinding/Core/Resources/Sprite Assets/Devices/Keyboard/Keyboard.tpsheet
+- Assets/AGX.Input.Rebinding/Core/Resources/Sprite Assets/Devices/Mouse/Mouse.tpsheet
+- Assets/AGX.Input.Rebinding/Core/Resources/Sprite Assets/Devices/XboxSeries/XboxSeries.tpsheet
+- Assets/AGX.Input.Rebinding/Core/Resources/Sprite Assets/General/General.tpsheet
+- Assets/AGX.Input.Rebinding/Demo/Resources/Sprite Assets/Actions/Actions.tpsheet
 textureFileNames:
-- Assets/AGX/Resources/Sprite Assets/Actions/Actions.png
-- Assets/AGX/Resources/Sprite Assets/Categories/Categories.png
-- Assets/AGX/Resources/Sprite Assets/Devices/Keyboard/Keyboard.png
-- Assets/AGX/Resources/Sprite Assets/Devices/Mouse/Mouse.png
-- Assets/AGX/Resources/Sprite Assets/Devices/XboxSeries/XboxSeries.png
-- Assets/AGX/Resources/Sprite Assets/General/General.png
+- Assets/AGX.Input.Rebinding/Core/Resources/Sprite Assets/Categories/Categories.png
+- Assets/AGX.Input.Rebinding/Core/Resources/Sprite Assets/Devices/Keyboard/Keyboard.png
+- Assets/AGX.Input.Rebinding/Core/Resources/Sprite Assets/Devices/Mouse/Mouse.png
+- Assets/AGX.Input.Rebinding/Core/Resources/Sprite Assets/Devices/XboxSeries/XboxSeries.png
+- Assets/AGX.Input.Rebinding/Core/Resources/Sprite Assets/General/General.png
+- Assets/AGX.Input.Rebinding/Demo/Resources/Sprite Assets/Actions/Actions.png
 normalmapFileNames:
 - 
 - 
