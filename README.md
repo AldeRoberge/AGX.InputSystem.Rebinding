@@ -1,64 +1,64 @@
+<!-- lang -->**Français** | [English](README.en.md)
+
 # AGX.InputSystem.Rebinding
 
-## Overview
+## Aperçu
 
-AGX.InputSystem.Rebinding is an easy-to-use solution for dynamic rebinding of controls to input actions in Unity using the new Input System. Seamlessly works with C#-generated code. Supports Xbox gamepads, keyboard, mouse out of the box.
+AGX.InputSystem.Rebinding est une solution facile à utiliser pour le remappage dynamique des contrôles aux actions d'entrée dans Unity avec le nouveau Input System. Fonctionne de façon transparente avec le code généré en C#. Prend en charge d'emblée les manettes Xbox, le clavier et la souris.
 
 ![AGX Input System Rebinding](https://github.com/user-attachments/assets/580645fe-42a9-4ac5-a3d6-07dfc19806f4)
 
-## Features
+## Fonctionnalités
 
-- **Custom Input Bindings**: Easily rebind input actions, even with C#-generated code.
-- **Device Support**: Out-of-the-box support for Xbox Gamepad, Keyboard, and Mouse. It's easy to extend to additional devices.
-- **Compound Bindings**: Supports composite bindings like WASD or custom groupings.
-- **Persistent Settings**: Automatically saves and loads user-defined input mappings, ensuring consistency across sessions.
-- **Responsive UI**: The interface adapts to different screen sizes and resolutions, making it perfect for both desktop and mobile platforms.
-- **Search Functionality**: Quickly find actions or bindings with the built-in search feature.
+- **Associations d'entrées personnalisées** : Remappez facilement les actions d'entrée, même avec du code généré en C#.
+- **Prise en charge des périphériques** : Prise en charge d'emblée de la manette Xbox, du clavier et de la souris. Il est facile d'ajouter d'autres périphériques.
+- **Associations composites** : Prend en charge les associations composites comme WASD ou des regroupements personnalisés.
+- **Paramètres persistants** : Enregistre et charge automatiquement les mappages d'entrée définis par l'utilisateur, ce qui assure la cohérence d'une session à l'autre.
+- **Interface adaptative** : L'interface s'adapte à différentes tailles d'écran et résolutions, ce qui la rend parfaite tant pour les plateformes de bureau que mobiles.
+- **Fonction de recherche** : Trouvez rapidement des actions ou des associations grâce à la fonction de recherche intégrée.
 
 https://github.com/user-attachments/assets/5eb7741f-b9a8-49d5-810d-d8158b092efc
 
-## Credits
+## Crédits
 
-- **One Wheel Studio**: Based on the work by [One Wheel Studio](https://www.youtube.com/watch?v=TD0R5x0yL0Y).
-- **ChrisKirby14**: Thanks to [@ChrisKirby14](https://github.com/ChrisKirby14/InputSystemRebinding)
-- **simonoliver**: Inspired by [InputSystemActionPrompts](https://github.com/simonoliver/InputSystemActionPrompts).
-- **Kenney**: Input prompts created by [Kenney](https://kenney.nl/assets/input-prompts).
+- **One Wheel Studio** : Basé sur le travail de [One Wheel Studio](https://www.youtube.com/watch?v=TD0R5x0yL0Y).
+- **ChrisKirby14** : Merci à [@ChrisKirby14](https://github.com/ChrisKirby14/InputSystemRebinding)
+- **simonoliver** : Inspiré de [InputSystemActionPrompts](https://github.com/simonoliver/InputSystemActionPrompts).
+- **Kenney** : Invites d'entrée créées par [Kenney](https://kenney.nl/assets/input-prompts).
 
-## Roadmap (TODO)
+## Feuille de route (À FAIRE)
 
-- **Duplicate Key Prevention**: Add functionality to prevent duplicate key bindings, including warning or confirmation prompts.
-- **Prevent Specific Keys**: Option to block certain keys from being rebound.
-- **Modifier Keys Support**: Allow modifiers like SHIFT, CTRL, etc., to be used in rebinding.
-- **Dynamic UI Generation**: Automatically scan input actions and build the UI, reducing manual work in placing prefabs.
-- **Enhanced Search**: Improve the search feature to allow users to find actions by listening for key presses (e.g., press "E" to highlight the action associated with "E").
+- **Prévention des touches en double** : Ajouter une fonctionnalité pour empêcher les associations de touches en double, y compris des avertissements ou des demandes de confirmation.
+- **Blocage de touches spécifiques** : Option pour empêcher le remappage de certaines touches.
+- **Prise en charge des touches de modification** : Permettre d'utiliser des modificateurs comme SHIFT, CTRL, etc., lors du remappage.
+- **Génération dynamique de l'interface** : Analyser automatiquement les actions d'entrée et construire l'interface, afin de réduire le travail manuel de placement des prefabs.
+- **Recherche améliorée** : Améliorer la fonction de recherche pour permettre aux utilisateurs de trouver des actions en détectant les touches pressées (p. ex. : appuyez sur « E » pour mettre en évidence l'action associée à « E »).
 
-## License
+## Licence
 
-This project is open-source and licensed under the [MIT License](LICENSE).
+Ce projet est libre (open source) et distribué sous la [licence MIT](LICENSE).
 
-## Disclaimer
+## Avis de non-responsabilité
 
-This is a quick prototype designed for experimentation.
-Uses [TexturePacker](https://www.codeandweb.com/texturepacker/documentation/user-interface-overview) to pack the prompt sprites.
+Ceci est un prototype rapide conçu à des fins d'expérimentation.
+Utilise [TexturePacker](https://www.codeandweb.com/texturepacker/documentation/user-interface-overview) pour assembler les sprites des invites.
 
-## Third Party Assets
+## Ressources tierces
 
-This project uses three excellent, paid third party dependencies.
+Ce projet utilise trois excellentes dépendances tierces payantes.
 
 - DOTween Pro
 - Odin Serializer
 - Odin Validator
 
-You will need to download these manually from the asset store as they are not included by default.
+Vous devrez les télécharger manuellement depuis l'Asset Store, car elles ne sont pas incluses par défaut.
 
-If you don't want to pay and/or want to be fully OSS-based, you can replace : 
-DOTween Pro with a Tweening Library of your choice.
-Odin with Naughty Attributes.
+Si vous ne souhaitez pas payer ou si vous voulez un projet entièrement libre (OSS), vous pouvez remplacer :
+DOTween Pro par une bibliothèque d'animation (tweening) de votre choix.
+Odin par Naughty Attributes.
 
 
-# This project requires DOTween Pro, which is not included because it's paid third-party software.  
-You can easily do without it or replace it with another tweening library. I used it because it's the simplest solution I know, but it's entirely optional.  
+# Ce projet nécessite DOTween Pro, qui n'est pas inclus parce qu'il s'agit d'un logiciel tiers payant.  
+Vous pouvez facilement vous en passer ou le remplacer par une autre bibliothèque d'animation. Je l'ai utilisé parce que c'est la solution la plus simple que je connaisse, mais il est tout à fait facultatif.  
 
 ![image](https://github.com/user-attachments/assets/5a8f95e5-37d0-4251-8eb0-3ca79284ea7f)
-
-
